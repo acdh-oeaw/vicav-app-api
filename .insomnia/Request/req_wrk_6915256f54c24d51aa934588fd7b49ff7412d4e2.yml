@@ -1,0 +1,27 @@
+_id: req_wrk_6915256f54c24d51aa934588fd7b49ff7412d4e2
+type: Request
+parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
+modified: 1675275249090
+created: 1675275249090
+url: "{{ base_url }}/text"
+name: gets a specific html transformed via a specified xslt
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: id
+    disabled: false
+    value: string
+  - name: xslt
+    disabled: false
+    value: string
+headers: []
+authentication: {}
+metaSortKey: -1675275249090
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

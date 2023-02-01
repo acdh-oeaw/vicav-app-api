@@ -1,0 +1,14 @@
+_id: env_env_9a21f4d181d64765d33c7bbe158a0e24fc2976d0_sub__ada3a2ab
+type: Environment
+parentId: env_9a21f4d181d64765d33c7bbe158a0e24fc2976d0
+modified: 1675275249127
+created: 1675275249127
+name: OpenAPI env vicav.acdh.oeaw.ac.at
+data:
+  scheme: https
+  base_path: ""
+  host: vicav.acdh.oeaw.ac.at
+dataPropertyOrder: null
+color: null
+isPrivate: false
+metaSortKey: 1675275249127

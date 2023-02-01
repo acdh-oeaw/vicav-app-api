@@ -1,0 +1,14 @@
+_id: env_env_9a21f4d181d64765d33c7bbe158a0e24fc2976d0_sub__a66c403b
+type: Environment
+parentId: env_9a21f4d181d64765d33c7bbe158a0e24fc2976d0
+modified: 1675275249116
+created: 1675275249116
+name: OpenAPI env localhost:8984
+data:
+  scheme: http
+  base_path: /vicav
+  host: localhost:8984
+dataPropertyOrder: null
+color: null
+isPrivate: false
+metaSortKey: 1675275249116

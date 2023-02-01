@@ -1,0 +1,8 @@
+_id: wrk_6915256f54c24d51aa934588fd7b49ff
+type: Workspace
+parentId: null
+modified: 1675182326018
+created: 1675182326018
+name: Current Vicav API 1.0.0
+description: This is the currently implemented vicav API
+scope: design

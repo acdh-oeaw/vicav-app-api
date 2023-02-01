@@ -1,0 +1,25 @@
+_id: req_wrk_6915256f54c24d51aa934588fd7b49ff9f0d4511
+type: Request
+parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
+modified: 1675275494502
+created: 1675275249095
+url: "{{ base_url }}/project"
+name: gets basic project configuration
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - id: pair_9d4ea1b2db394fe0adc1c2c34e694ede
+    name: Accept
+    value: application/json
+    description: ""
+authentication: {}
+metaSortKey: -1675275249095
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
