@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1675275472661
+modified: 1675688065325
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -10,6 +10,8 @@ contents: >-
   servers:
     - url: https://vicav.acdh.oeaw.ac.at
       description: "current ACDH-CH prod server"
+    - url: https://vicav.acdh-ch-dev.oeaw.ac.at/vicav
+      description: "current ACDH-CH dev server"
     # Added by API Auto Mocking Plugin
     - description: SwaggerHub API Auto Mocking
       url: https://virtserver.swaggerhub.com/ctot-nondef/Vicav/1.0.0
