@@ -1,20 +1,22 @@
 _id: req_wrk_6915256f54c24d51aa934588fd7b49ff7412d4e2
 type: Request
 parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
-modified: 1675795390496
+modified: 1675797289185
 created: 1675795390496
 url: "{{ base_url }}/text"
-name: gets a sample text identtified by its tei:div@xml:id
+name: gets a description text identtified by its tei:div@xml:id
 description: ""
 method: GET
 body: {}
 parameters:
   - name: id
     disabled: false
-    value: string
+    value: vicavExplanationBibliography
+    id: pair_4b79022a426140a084d418a769cb53ec
   - name: xslt
     disabled: true
     value: string
+    id: pair_5b3952ef597243adbbffe7a930b19a98
 headers: []
 authentication: {}
 metaSortKey: -1675795390496

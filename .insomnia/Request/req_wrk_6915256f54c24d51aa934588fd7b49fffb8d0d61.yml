@@ -1,7 +1,7 @@
 _id: req_wrk_6915256f54c24d51aa934588fd7b49fffb8d0d61
 type: Request
 parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
-modified: 1675795155941
+modified: 1675797222591
 created: 1675795155941
 url: "{{ base_url }}/profile"
 name: gets a langauge profile identified by its TEI@xml:id
@@ -11,13 +11,16 @@ body: {}
 parameters:
   - name: id
     disabled: false
-    value: string
+    value: profile_abu_dhabi_01
+    id: pair_2aa377b4e1624827863735623dd4dc66
   - name: coll
     disabled: true
     value: string
+    id: pair_81d0a054f1664e5ab061168689d8df3d
   - name: xslt
     disabled: true
     value: string
+    id: pair_89c3420702d946e08d6d5dcf342e89c5
 headers: []
 authentication: {}
 metaSortKey: -1675795155941
