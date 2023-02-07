@@ -523,7 +523,7 @@ paths:
     get:
       tags:
         - noauth
-      summary: gets a sample text identtified by its tei:div@xml:id
+      summary: gets a description text identtified by its tei:div@xml:id
       operationId: getText
       description: |
         By passing the appropriate xml-ID and xslt you can retrieve ready to display html
