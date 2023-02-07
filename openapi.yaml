@@ -345,37 +345,37 @@ paths:
                               },
                               {
                                 "id": "li_vicavOverview_corpora_spoken",
-                                "title": "┬á┬á┬á┬á┬á┬áCorpora (Spoken Varieties)",
+                                "title": "      Corpora (Spoken Varieties)",
                                 "type": "item"
                               },
                               {
                                 "id": "li_vicavOverview_corpora_msa",
-                                "title": "┬á┬á┬á┬á┬á┬áCorpora (MSA)",
+                                "title": "      Corpora (MSA)",
                                 "type": "item"
                               },
                               {
                                 "id": "li_vicavOverview_special_corpora",
-                                "title": "┬á┬á┬á┬á┬á┬áSpecial Corpora",
+                                "title": "      Special Corpora",
                                 "type": "item"
                               },
                               {
                                 "id": "li_vicavOverview_corpora_historical_varieties",
-                                "title": "┬á┬á┬á┬á┬á┬áCorpora (Historical Varieties)",
+                                "title": "      Corpora (Historical Varieties)",
                                 "type": "item"
                               },
                               {
                                 "id": "li_vicavOverview_dictionaries",
-                                "title": "┬á┬á┬á┬á┬á┬áDictionaries",
+                                "title": "      Dictionaries",
                                 "type": "item"
                               },
                               {
                                 "id": "li_vicavOverview_nlp",
-                                "title": "┬á┬á┬á┬á┬á┬áLanguage Processing Tools",
+                                "title": "      Language Processing Tools",
                                 "type": "item"
                               },
                               {
                                 "id": "li_vicavOverview_otherStuff",
-                                "title": "┬á┬á┬á┬á┬á┬áOther Websites & Projects",
+                                "title": "      Other Websites & Projects",
                                 "type": "item"
                               },
                               {
@@ -385,22 +385,22 @@ paths:
                               },
                               {
                                 "id": "li_vicavLearning_tb_damascus",
-                                "title": "┬á┬á┬á┬á┬á┬áTextbook Syrian Arabic (Sound files)",
+                                "title": "      Textbook Syrian Arabic (Sound files)",
                                 "type": "item"
                               },
                               {
                                 "id": "li_vicavLearningSmartphone",
-                                "title": "┬á┬á┬á┬á┬á┬áVocabularies on Smartphones",
+                                "title": "      Vocabularies on Smartphones",
                                 "type": "item"
                               },
                               {
                                 "id": "li_vicavLearningPrograms",
-                                "title": "┬á┬á┬á┬á┬á┬áAvailable Programs",
+                                "title": "      Available Programs",
                                 "type": "item"
                               },
                               {
                                 "id": "li_vicavLearningData",
-                                "title": "┬á┬á┬á┬á┬á┬áAvailable Data",
+                                "title": "      Available Data",
                                 "type": "item"
                               },
                               {
@@ -592,7 +592,7 @@ paths:
                     </li>
 
                     <li>
-                    <a class="aVicText" href="javascript:getDBSnippet(&#34;sample:urfa_sample_01/%C5%9Eanl%C4%B1urfa&#34;, this)">┼×anl─▒urfa</a>
+                    <a class="aVicText" href="javascript:getDBSnippet(&#34;sample:urfa_sample_01/%C5%9Eanl%C4%B1urfa&#34;, this)">Şanlıurfa</a>
                     </li>
 
                     <li>
@@ -659,34 +659,34 @@ paths:
                     </tr>
                     </table>
                     <div class="profileHeader">
-                    <div class="dvImgProfile"><img src="images/skoura_sp_2012.jpg"><div class="imgCaption">Courtesy of Stephan Proch├ízka, 2012</div>
+                    <div class="dvImgProfile"><img src="images/skoura_sp_2012.jpg"><div class="imgCaption">Courtesy of Stephan Procházka, 2012</div>
                     </div>
                     <table class="tbProfile">
                     <tr>
                     <td class="tdHead">MSA Name</td>
-                    <td class="tdProfileTableRight">Ï│┘â┘êÏ▒Ï®</td>
+                    <td class="tdProfileTableRight">سكورة</td>
                     </tr>
                     <tr>
                     <td class="tdHead">MSA Name (trans.)</td>
-                    <td class="tdProfileTableRight">Sak┼½ra Sk┼½ra</td>
+                    <td class="tdProfileTableRight">Sakūra Skūra</td>
                     </tr>
                     <tr>
                     <td class="tdHead">Geo location</td>
                     <td class="tdProfileTableRight"><i>
-                    31┬░03'N 06┬░33'W
+                    31°03'N 06°33'W
                     Morocco
                     </i></td>
                     </tr>
                     <tr>
                     <td class="tdHead">Contributed by</td>
-                    <td class="tdProfileTableRight"><i>Aleksandra Ercegov─ìevi─ç</i></td>
+                    <td class="tdProfileTableRight"><i>Aleksandra Ercegovčević</i></td>
                     </tr>
                     </table>
                     </div>
                     <div class="h3ProfileTypology">Typology</div>
                     <table class="tbProfile">
                     <tr>
-                    <td colspan="2" class="tdProfileTableRight">West (Maghreb) ÔÇ║ Morocco ÔÇ║ Central type</td>
+                    <td colspan="2" class="tdProfileTableRight">West (Maghreb) › Morocco › Central type</td>
                     </tr>
                     <tr>
                     <td colspan="2" class="tdProfileTableRight">Hilalian-type sedentary rural dialect with strong influence of Berber</td>
@@ -694,22 +694,22 @@ paths:
                     </table>
                     <div class="h3Profile">General</div>
 
-                    <div class="pNorm">Sk┼½ra is an Arabic enclave in the Berber-speaking area south of the High Atlas. Many
+                    <div class="pNorm">Skūra is an Arabic enclave in the Berber-speaking area south of the High Atlas. Many
                     of the 15,000 inhabitants are bilingual. They live mainly on agriculture and stock
                     breeding.</div>
 
                     <div class="h3Profile">Research History</div>
 
-                    <div class="pNorm">All available data on the dialect of Sk┼½ra is from the work of Jorge Aguad├® and Mohammad
-                    Elya├ócoubi. <a class="aVicText" href="javascript:getDBSnippet(&#34;zotid:8SISG2GK&#34;)">Aguad├® 1994</a> is a brief study on the formation of the reflexive-passive forms of the verb. <a class="aVicText" href="javascript:getDBSnippet(&#34;zotid:E3T3HBCD&#34;)">Aguad├® and Elyaacoubi 1995</a> is a monograph on the dialect with chapters on phonology, nominal and verbal morphology,
-                    and verb paradigms. <a class="aVicText" href="javascript:getDBSnippet(&#34;zotid:I3FIKENT&#34;)">Aguad├® et al. 1996</a> deals with the irrigation system in the oasis of Sk┼½ra, and the technical terminology
-                    concerning irrigation in the dialect of Sk┼½ra. Elya├ócoubi 1998 treats the topic of
-                    the classification of south Moroccan Arabic dialects on the example of Sk┼½ra, where
+                    <div class="pNorm">All available data on the dialect of Skūra is from the work of Jorge Aguadé and Mohammad
+                    Elyaâcoubi. <a class="aVicText" href="javascript:getDBSnippet(&#34;zotid:8SISG2GK&#34;)">Aguadé 1994</a> is a brief study on the formation of the reflexive-passive forms of the verb. <a class="aVicText" href="javascript:getDBSnippet(&#34;zotid:E3T3HBCD&#34;)">Aguadé and Elyaacoubi 1995</a> is a monograph on the dialect with chapters on phonology, nominal and verbal morphology,
+                    and verb paradigms. <a class="aVicText" href="javascript:getDBSnippet(&#34;zotid:I3FIKENT&#34;)">Aguadé et al. 1996</a> deals with the irrigation system in the oasis of Skūra, and the technical terminology
+                    concerning irrigation in the dialect of Skūra. Elyaâcoubi 1998 treats the topic of
+                    the classification of south Moroccan Arabic dialects on the example of Skūra, where
                     a three page-grammatical sketch of the dialect is also provided.</div>
 
                     <div class="h3Profile">Dictionaries</div>
 
-                    <div class="pNorm"><a class="aVicText" href="javascript:getDBSnippet(&#34;zotid:I3FIKENT&#34;)">Aguad├® et al. 1996</a> includes a 2-page glossary of terminology related to the irrigation system (<i>xiß╣¡ß╣¡─üra</i>).</div>
+                    <div class="pNorm"><a class="aVicText" href="javascript:getDBSnippet(&#34;zotid:I3FIKENT&#34;)">Aguadé et al. 1996</a> includes a 2-page glossary of terminology related to the irrigation system (<i>xiṭṭāra</i>).</div>
 
                     <div class="h3Profile">Bibliography</div>
 
@@ -765,7 +765,7 @@ paths:
               examples:
                 html:
                   summary: A sample HTML response
-                  value: '<div xmlns="http://www.w3.org/1999/xhtml" xmlns:tei="http://www.tei-c.org/ns/1.0"><div class="explore-samples"><table class="tbHeader"><tr><td><h2 xml:space="preserve">Compare samples</h2></td><td class="tdPrintLink"><a href="#" data-print="true" class="aTEIButton">Print</a></td></tr></table><div class="explore-samples-summary"><h4>Summary</h4><table><tr><th>unknown</th><td>1</td></tr></table></div><h3>3</h3><h4>unknown</h4><p xml:space="preserve">1 sentences found.</p><table class="tbFeatures"><tr><td class="tdFeaturesHeadRight"><small xml:space="preserve">%as</small></td><td class="tdFeaturesRightTarget"><a class="show-sentence" title="Show full sample text" href="#" data-sampletext="douz_sample_01"><i class="fa fa-eye" aria-hidden="true"><span/></i></a><span xmlns:acdh="http://acdh.oeaw.ac.at" class="spSentence" xml:space="preserve"><span class="sample-text-tooltip" data-html="true" data-toggle="tooltip" data-placement="top" title="Tomaten nahm ich keine, weil sie sehr teuer&#xA;                     waren."><i class="fa fa-commenting-o" aria-hidden="true"><span/></i></span> <a class="word-search" href="#" data-wordform="m─ü" data-type="sample"><span data-html="true" data-placement="top" class="w">m─ü</span></a><a class="word-search" href="#" data-wordform="-" data-type="sample"><span data-html="true" data-placement="top" class="w">-</span></a><a class="word-search" href="#" data-wordform="┼ír─½t" data-type="sample"><span data-html="true" data-placement="top" class="w highlight">┼ír─½t</span></a><a class="word-search" href="#" data-wordform="-" data-type="sample"><span data-html="true" data-placement="top" class="w">-</span></a><a class="word-search" href="#" data-wordform="ÃØ┼í" data-type="sample"><span data-html="true" data-placement="top" class="w">ÃØ┼í</span></a> <a class="word-search" href="#" data-wordform="iß╣¡" data-type="sample"><span data-html="true" data-placement="top" class="w">iß╣¡</span></a><a class="word-search" href="#" data-wordform="-" data-type="sample"><span data-html="true" data-placement="top" class="w">-</span></a><a class="word-search" href="#" data-wordform="ß╣¡am─üß╣¡im" data-type="sample"><span data-html="true" data-placement="top" class="w">ß╣¡am─üß╣¡im</span></a> <a class="word-search" href="#" data-wordform="╩┐al" data-type="sample"><span data-html="true" data-placement="top" class="w">╩┐al</span></a><a class="word-search" href="#" data-wordform="-" data-type="sample"><span data-html="true" data-placement="top" class="w">-</span></a><a class="word-search" href="#" data-wordform="x─üß╣¡ir" data-type="sample"><span data-html="true" data-placement="top" class="w">x─üß╣¡ir</span></a> <a class="word-search" href="#" data-wordform="k─ünat" data-type="sample"><span data-html="true" data-placement="top" class="w">k─ünat</span></a> <a class="word-search" href="#" data-wordform="─í─ülya" data-type="sample"><span data-html="true" data-placement="top" class="w">─í─ülya</span></a><a class="word-search" href="#" data-wordform="." data-type="sample"><span data-html="true" data-placement="top" class="w">.</span></a> </span></td></tr></table></div></div>'
+                  value: '<div xmlns="http://www.w3.org/1999/xhtml" xmlns:tei="http://www.tei-c.org/ns/1.0"><div class="explore-samples"><table class="tbHeader"><tr><td><h2 xml:space="preserve">Compare samples</h2></td><td class="tdPrintLink"><a href="#" data-print="true" class="aTEIButton">Print</a></td></tr></table><div class="explore-samples-summary"><h4>Summary</h4><table><tr><th>unknown</th><td>1</td></tr></table></div><h3>3</h3><h4>unknown</h4><p xml:space="preserve">1 sentences found.</p><table class="tbFeatures"><tr><td class="tdFeaturesHeadRight"><small xml:space="preserve">%as</small></td><td class="tdFeaturesRightTarget"><a class="show-sentence" title="Show full sample text" href="#" data-sampletext="douz_sample_01"><i class="fa fa-eye" aria-hidden="true"><span/></i></a><span xmlns:acdh="http://acdh.oeaw.ac.at" class="spSentence" xml:space="preserve"><span class="sample-text-tooltip" data-html="true" data-toggle="tooltip" data-placement="top" title="Tomaten nahm ich keine, weil sie sehr teuer&#xA;                     waren."><i class="fa fa-commenting-o" aria-hidden="true"><span/></i></span> <a class="word-search" href="#" data-wordform="mā" data-type="sample"><span data-html="true" data-placement="top" class="w">mā</span></a><a class="word-search" href="#" data-wordform="-" data-type="sample"><span data-html="true" data-placement="top" class="w">-</span></a><a class="word-search" href="#" data-wordform="šrīt" data-type="sample"><span data-html="true" data-placement="top" class="w highlight">šrīt</span></a><a class="word-search" href="#" data-wordform="-" data-type="sample"><span data-html="true" data-placement="top" class="w">-</span></a><a class="word-search" href="#" data-wordform="ǝš" data-type="sample"><span data-html="true" data-placement="top" class="w">ǝš</span></a> <a class="word-search" href="#" data-wordform="iṭ" data-type="sample"><span data-html="true" data-placement="top" class="w">iṭ</span></a><a class="word-search" href="#" data-wordform="-" data-type="sample"><span data-html="true" data-placement="top" class="w">-</span></a><a class="word-search" href="#" data-wordform="ṭamāṭim" data-type="sample"><span data-html="true" data-placement="top" class="w">ṭamāṭim</span></a> <a class="word-search" href="#" data-wordform="ʿal" data-type="sample"><span data-html="true" data-placement="top" class="w">ʿal</span></a><a class="word-search" href="#" data-wordform="-" data-type="sample"><span data-html="true" data-placement="top" class="w">-</span></a><a class="word-search" href="#" data-wordform="xāṭir" data-type="sample"><span data-html="true" data-placement="top" class="w">xāṭir</span></a> <a class="word-search" href="#" data-wordform="kānat" data-type="sample"><span data-html="true" data-placement="top" class="w">kānat</span></a> <a class="word-search" href="#" data-wordform="ġālya" data-type="sample"><span data-html="true" data-placement="top" class="w">ġālya</span></a><a class="word-search" href="#" data-wordform="." data-type="sample"><span data-html="true" data-placement="top" class="w">.</span></a> </span></td></tr></table></div></div>'
         '500':
           description: bad input parameter
           content:
@@ -810,7 +810,7 @@ paths:
               examples:
                 html:
                   summary: A sample HTML response
-                  value: '<div xmlns:tei="http://www.tei-c.org/ns/1.0"><div class="dvStats">Query:┬á┬á<span class="spQueryText">{query}</span></div><div class="dvStats">1 record┬á</div><div class="dvBibBook"><div class="dvAuthor"><b>Hagenbucher,<span xml:space="preserve"> </span>F.</b></div><div class="dvBiblBlock"><img class="imgBiblItem" src="images/book_001.jpg"/>Les arabes dits ÔÇ£suwaÔÇØ du Nord-Cameroun.<span xml:space="preserve"> </span>Yaounde.<span xml:space="preserve"> </span>ORSTOM.<span xml:space="preserve"> </span>1973.</div></div></div>'
+                  value: '<div xmlns:tei="http://www.tei-c.org/ns/1.0"><div class="dvStats">Query:  <span class="spQueryText">{query}</span></div><div class="dvStats">1 record </div><div class="dvBibBook"><div class="dvAuthor"><b>Hagenbucher,<span xml:space="preserve"> </span>F.</b></div><div class="dvBiblBlock"><img class="imgBiblItem" src="images/book_001.jpg"/>Les arabes dits “suwa” du Nord-Cameroun.<span xml:space="preserve"> </span>Yaounde.<span xml:space="preserve"> </span>ORSTOM.<span xml:space="preserve"> </span>1973.</div></div></div>'
         '500':
           description: bad input parameter
           content:
@@ -861,7 +861,7 @@ paths:
                     <rs type="60">
                       <r type="geo">
                         <geo>35.578333 -5.368056</geo>
-                        <alt>T├®touan</alt>
+                        <alt>Tétouan</alt>
                         <freq>1</freq>
                       </r>
                       <r type="reg">
@@ -918,7 +918,7 @@ paths:
                   value: >
                     <rs>
                       <r type="geo" xml:id="baghdad_sample_01">
-                        <loc>33┬░20'N 44┬░24'E</loc>
+                        <loc>33°20'N 44°24'E</loc>
                         <locName>
                           <name xmlns="http://www.tei-c.org/ns/1.0" xml:lang="eng">Baghdad</name>
                         </locName>
@@ -928,7 +928,7 @@ paths:
                         <freq>1</freq>
                       </r>
                       <r type="geo" xml:id="cairo_sample_01">
-                        <loc>30┬░03'N 31┬░14'E</loc>
+                        <loc>30°03'N 31°14'E</loc>
                         <locName>
                           <name xmlns="http://www.tei-c.org/ns/1.0" xml:lang="eng">Cairo</name>
                         </locName>
@@ -1069,23 +1069,23 @@ paths:
                     <option class="opWordList_de">[Abflussloch]</option>
                     <option class="opWordList_de">[Abflussrinne]</option>
                     <option class="opWordList_de">[Abflussrohr]</option>
-                    <option class="opWordList_de">[Abflu├ƒkanal]</option>
+                    <option class="opWordList_de">[Abflußkanal]</option>
                     <option class="opWordList_de">[Abgeordnetenhaus]</option>
                     <option class="opWordList_de">[Abgeordnetenkammer]</option>
                     <option class="opWordList_de">[Abgeordneter]</option>
                     <option class="opWordList_de">[Abgeschiedenheit]</option>
                     <option class="opWordList_de">[Abitur]</option>
-                    <option class="opWordList_de">[Abk├╝rzung]</option>
+                    <option class="opWordList_de">[Abkürzung]</option>
                     <option class="opWordList_de">[Ablenkung]</option>
                     <option class="opWordList_de">[Ablflussrinne]</option>
-                    <option class="opWordList_de">[Ablutionsk├ñnnchen]</option>
+                    <option class="opWordList_de">[Ablutionskännchen]</option>
                     <option class="opWordList_de">[Abmachung]</option>
                     <option class="opWordList_de">[Abort]</option>
                     <option class="opWordList_de">[Abortgrube]</option>
                     <option class="opWordList_de">[Absatz]</option>
                     <option class="opWordList_de">[Abscheu]</option>
                     <option class="opWordList_de">[Abscheulichkeit]</option>
-                    <option class="opWordList_de">[Abschiedsgru├ƒ]</option>
+                    <option class="opWordList_de">[Abschiedsgruß]</option>
                     <option class="opWordList_de">[Abschneiden]</option>
                     <option class="opWordList_de">[Abschnitt]</option>
                     <option class="opWordList_de">[Absender]</option>
@@ -1104,7 +1104,7 @@ paths:
                     <option class="opWordList_de">[abbrechen]</option>
                     <option class="opWordList_de">[abdecken]</option>
                     <option class="opWordList_de">[abendlich]</option>
-                    <option class="opWordList_de">[abendl├ñndisch]</option>
+                    <option class="opWordList_de">[abendländisch]</option>
                     <option class="opWordList_de">[aber]</option>
                     <option class="opWordList_de">[abfahren]</option>
                     <option class="opWordList_de">[abfangen]</option>
@@ -1112,19 +1112,19 @@ paths:
                     <option class="opWordList_de">[abgebildet]</option>
                     <option class="opWordList_de">[abgenutzt]</option>
                     <option class="opWordList_de">[abgeschrieben]</option>
-                    <option class="opWordList_de">[abgesch├ñlt]</option>
+                    <option class="opWordList_de">[abgeschält]</option>
                     <option class="opWordList_de">[abgestempelt]</option>
                     <option class="opWordList_de">[abgewirtschaftet]</option>
                     <option class="opWordList_de">[abhauen]</option>
                     <option class="opWordList_de">[abheben]</option>
-                    <option class="opWordList_de">[abh├ñuten]</option>
+                    <option class="opWordList_de">[abhäuten]</option>
                     <option class="opWordList_de">[ablehnen]</option>
                     <option class="opWordList_de">[abliefern]</option>
                     <option class="opWordList_de">[abmagern]</option>
                     <option class="opWordList_de">[abnehmen]</option>
                     <option class="opWordList_de">[abnormal]</option>
                     <option class="opWordList_de">[abreisen]</option>
-                    <option class="opWordList_de">[abrei├ƒen]</option>
+                    <option class="opWordList_de">[abreißen]</option>
                     <option class="opWordList_de">[abschaben]</option>
                     <option class="opWordList_de">[abscheulich]</option>
                     <option class="opWordList_de">[abschlachten]</option>
@@ -1134,7 +1134,7 @@ paths:
                     <option class="opWordList_de">[absengen]</option>
                     <option class="opWordList_de">[absichtlich]</option>
                     <option class="opWordList_de">[absteigen]</option>
-                    <option class="opWordList_de">[absto├ƒen]</option>
+                    <option class="opWordList_de">[abstoßen]</option>
                     <option class="opWordList_de">[abstreiten]</option>
                     <option class="opWordList_de">[abwaschen]</option>
                     <option class="opWordList_de">[abwesend]</option>
@@ -1171,18 +1171,18 @@ paths:
                     <option class="opWordList_fr">[absolument]</option>
                     <option class="opWordList_fr">[absolutment]</option>
                     <option class="opWordList_fr">[abuser]</option>
-                    <option class="opWordList_fr">[ab├«m├®]</option>
+                    <option class="opWordList_fr">[abîmé]</option>
                     <option class="opWordList_de">([Ab])hang</option>
                     <option class="opWordList_de">([Ab])wiegen</option>
                     <option class="opWordList_de">(Geld) [abheben]</option>
                     <option class="opWordList_de">(Staub) [abklopfen]</option>
                     <option class="opWordList_de">(Unter-)[Abteilung]</option>
                     <option class="opWordList_de">(Zigarette) [abaschen]</option>
-                    <option class="opWordList_de">([ab])st├╝tzen</option>
-                    <option class="opWordList_de">([ab])w├ñgen</option>
+                    <option class="opWordList_de">([ab])stützen</option>
+                    <option class="opWordList_de">([ab])wägen</option>
                     <option class="opWordList_de">([ab]-)lecken</option>
                     <option class="opWordList_de">(edle) [Abstammung]</option>
-                    <option class="opWordList_de">(fr├╝her) [Abend]</option>
+                    <option class="opWordList_de">(früher) [Abend]</option>
                     <option class="opWordList_de">(gute) [Absicht]</option>
                     <option class="opWordList_de">(stark) [abnehmen]</option>
                     <option class="opWordList_de">[Abscheu] erregen</option>
@@ -1194,20 +1194,20 @@ paths:
                     <option class="opWordList_de">[abendliche] Feier</option>
                     <option class="opWordList_de">[aber]...nicht</option>
                     <option class="opWordList_de">[abgehen] (Zug)</option>
-                    <option class="opWordList_de">[abgen├╝tzt] werden</option>
-                    <option class="opWordList_de">[abgerissenes] Kleidungsst├╝ck</option>
+                    <option class="opWordList_de">[abgenützt] werden</option>
+                    <option class="opWordList_de">[abgerissenes] Kleidungsstück</option>
                     <option class="opWordList_de">[abgeschnittene] Locke</option>
                     <option class="opWordList_de">[abgesehen] davon</option>
                     <option class="opWordList_de">[abgesehen] von</option>
                     <option class="opWordList_de">[abheben] (Geld)</option>
-                    <option class="opWordList_de">[abh├ñngen] von</option>
-                    <option class="opWordList_de">[abh├ñngig] von</option>
-                    <option class="opWordList_de">[abh├Âren] (Patient)</option>
+                    <option class="opWordList_de">[abhängen] von</option>
+                    <option class="opWordList_de">[abhängig] von</option>
+                    <option class="opWordList_de">[abhören] (Patient)</option>
                     <option class="opWordList_de">[ablassen] von</option>
                     <option class="opWordList_de">[abschleppen] (Auto)</option>
-                    <option class="opWordList_de">[absp├╝len] (Geschirr)</option>
-                    <option class="opWordList_de">[abst├╝rzen] (Computer</option>
-                    <option class="opWordList_de">[abtr├╝nniger] Muslim</option>
+                    <option class="opWordList_de">[abspülen] (Geschirr)</option>
+                    <option class="opWordList_de">[abstürzen] (Computer</option>
+                    <option class="opWordList_de">[abtrünniger] Muslim</option>
                     <option class="opWordList_de">[abwesend] sein</option>
                     <option class="opWordList_de">[abzielen] auf</option>
                     <option class="opWordList_de">en [abondance]</option>
@@ -1215,10 +1215,10 @@ paths:
                     <option class="opWordList_de">etw. [abkratzen]</option>
                     <option class="opWordList_de">gegen [Abend]</option>
                     <option class="opWordList_de">heute [Abend]</option>
-                    <option class="opWordList_de">langsam [abflie├ƒen]</option>
+                    <option class="opWordList_de">langsam [abfließen]</option>
                     <option class="opWordList_de">mit [Absicht]</option>
                     <option class="opWordList_de">nun [aber]</option>
-                    <option class="opWordList_de">sich [abm├╝hen]</option>
+                    <option class="opWordList_de">sich [abmühen]</option>
                     <option class="opWordList_de">vorgestern [Abend]</option>
                     <option class="opWordList_en">[about] what</option>
                     <option class="opWordList_en">[absolutely] nothing</option>
@@ -1229,30 +1229,30 @@ paths:
                     <option class="opWordList_en">to [abound]</option>
                     <option class="opWordList_en">to [abuse]</option>
                     <option class="opWordList_fr">[aborder] qc.</option>
-                    <option class="opWordList_fr">[ab├«mer] qc.</option>
+                    <option class="opWordList_fr">[abîmer] qc.</option>
                     <option class="opWordList_fr">d'[abord]</option>
                     <option class="opWordList_fr">devenir [abondant]</option>
-                    <option class="opWordList_fr">dÔÇÖ[abord]</option>
-                    <option class="opWordList_fr">r├¿gle [absolue]</option>
-                    <option class="opWordList_fr">sÔÇÖ[ab├«mer]</option>
-                    <option class="opWordList_fr">├¬tre [abandonn├®]</option>
-                    <option class="opWordList_fr">├¬tre [absent]</option>
+                    <option class="opWordList_fr">d’[abord]</option>
+                    <option class="opWordList_fr">règle [absolue]</option>
+                    <option class="opWordList_fr">s’[abîmer]</option>
+                    <option class="opWordList_fr">être [abandonné]</option>
+                    <option class="opWordList_fr">être [absent]</option>
                     <option class="opWordList_de">([ab])wiegen (Gewicht)</option>
-                    <option class="opWordList_de">(die Schule/ das Studium) [abschlie├ƒen]/[absolvieren]</option>
-                    <option class="opWordList_de">[Ablegen] von Gegenst├ñnden</option>
+                    <option class="opWordList_de">(die Schule/ das Studium) [abschließen]/[absolvieren]</option>
+                    <option class="opWordList_de">[Ablegen] von Gegenständen</option>
                     <option class="opWordList_de">[Abreibung] (mit Seife)</option>
                     <option class="opWordList_de">[Abweichung] (vom Rechten)</option>
-                    <option class="opWordList_de">[abgerissenes] zerlumptes Kleidungsst├╝ck</option>
-                    <option class="opWordList_de">[abgewickelt] werden (Gesch├ñft)</option>
-                    <option class="opWordList_de">[abh├ñngig] sein von</option>
-                    <option class="opWordList_de">[abnehmen] (den Telefonh├Ârer)</option>
+                    <option class="opWordList_de">[abgerissenes] zerlumptes Kleidungsstück</option>
+                    <option class="opWordList_de">[abgewickelt] werden (Geschäft)</option>
+                    <option class="opWordList_de">[abhängig] sein von</option>
+                    <option class="opWordList_de">[abnehmen] (den Telefonhörer)</option>
                     <option class="opWordList_de">an jenem [Abend]</option>
                     <option class="opWordList_de">austreten (auf [Abort])</option>
                     <option class="opWordList_de">das Fell [abziehen]</option>
                     <option class="opWordList_de">die [Absicht] habend...</option>
                     <option class="opWordList_de">eine [Abteilung] Soldaten</option>
                     <option class="opWordList_de">mit der [Absicht]</option>
-                    <option class="opWordList_de">sich (gegenseitig) [abk├╝ssen]</option>
+                    <option class="opWordList_de">sich (gegenseitig) [abküssen]</option>
                     <option class="opWordList_de">sich [abwenden] von</option>
                     <option class="opWordList_de">sich [abzeichnend] (Konturen)</option>
                     <option class="opWordList_de">von ihm [abfallen]</option>
@@ -1275,19 +1275,19 @@ paths:
                     <option class="opWordList_fr">[abri] de fortune</option>
                     <option class="opWordList_fr">ne... [absolument] personne</option>
                     <option class="opWordList_fr">s'[abattre] sur</option>
-                    <option class="opWordList_fr">sÔÇÖ[absenter] (de)</option>
+                    <option class="opWordList_fr">s’[absenter] (de)</option>
                     <option class="opWordList_fr">tout d'[abord]</option>
-                    <option class="opWordList_de">[Absatz]/St├Âckel der Schuhe</option>
+                    <option class="opWordList_de">[Absatz]/Stöckel der Schuhe</option>
                     <option class="opWordList_de">[Abzug] (e-r Feuerwaffe)</option>
                     <option class="opWordList_de">[Abzugsloch] unter der Feuerstelle</option>
                     <option class="opWordList_de">[abgeschnittene] Locke der Braut</option>
-                    <option class="opWordList_de">[abgewinkelter] Eingangsbereich tunesischer H├ñuser</option>
-                    <option class="opWordList_de">[absch├ñtziger] und ver├ñchtlicher Mann</option>
-                    <option class="opWordList_de">[absch├╝ssige](r) Stra├ƒe/ Weg</option>
+                    <option class="opWordList_de">[abgewinkelter] Eingangsbereich tunesischer Häuser</option>
+                    <option class="opWordList_de">[abschätziger] und verächtlicher Mann</option>
+                    <option class="opWordList_de">[abschüssige](r) Straße/ Weg</option>
                     <option class="opWordList_de">des [Ablegens] von Kleidung</option>
-                    <option class="opWordList_de">die den Kachelfries [abschlie├ƒt]</option>
-                    <option class="opWordList_de">eine gro├ƒe Schau [abziehen]</option>
-                    <option class="opWordList_de">j-m etw. [abkn├Âpfen]</option>
+                    <option class="opWordList_de">die den Kachelfries [abschließt]</option>
+                    <option class="opWordList_de">eine große Schau [abziehen]</option>
+                    <option class="opWordList_de">j-m etw. [abknöpfen]</option>
                     <option class="opWordList_de">j-m etw. [abluchsen]</option>
                     <option class="opWordList_de">mit j-m [abrechnen]</option>
                     <option class="opWordList_en">it is [absolutely] necessary</option>
@@ -1297,39 +1297,39 @@ paths:
                     <option class="opWordList_en">to philosophize [about] sth.</option>
                     <option class="opWordList_en">to wander [about]/around</option>
                     <option class="opWordList_fr">avoir l'esprit [absent]</option>
-                    <option class="opWordList_fr">chevelure [abondante] et indisciplin├®e</option>
+                    <option class="opWordList_fr">chevelure [abondante] et indisciplinée</option>
                     <option class="opWordList_fr">il est [absolument] necessaire</option>
-                    <option class="opWordList_de">Schuheisen (f├╝r Spitze und [Absatz])</option>
+                    <option class="opWordList_de">Schuheisen (für Spitze und [Absatz])</option>
                     <option class="opWordList_de">Unterleder von Sohle und [Absatz]</option>
                     <option class="opWordList_de">Wasch- und Wasserstelle sowie [Abort]</option>
                     <option class="opWordList_de">[aber] geduldete) Zuschauerin (bei Familienfeiern)</option>
-                    <option class="opWordList_de">[abmessen] (mit e-m Hohlma├ƒ</option>
+                    <option class="opWordList_de">[abmessen] (mit e-m Hohlmaß</option>
                     <option class="opWordList_de">an den Festtagen Verwandtschaftsbesuche [absolviert])</option>
                     <option class="opWordList_de">befreien (verstopften Gang/Kanal/[Abfluss]</option>
-                    <option class="opWordList_de">der die einheimischen M├ñrkte [abmacht]</option>
-                    <option class="opWordList_de">die das Trauerjahr [abschlie├ƒende] Zeremonie</option>
+                    <option class="opWordList_de">der die einheimischen Märkte [abmacht]</option>
+                    <option class="opWordList_de">die das Trauerjahr [abschließende] Zeremonie</option>
                     <option class="opWordList_de">mittels e-s Schlosses [ab]-</option>
                     <option class="opWordList_en">to acquire knowledge [about] sth.</option>
                     <option class="opWordList_en">to gossip [about] sb./sth.</option>
                     <option class="opWordList_en">to perform the ritual [ablution]</option>
                     <option class="opWordList_en">to talk [about] sth./sb.</option>
-                    <option class="opWordList_de">Feier zur schriftlichen [Abfassung] eines Heirats├╝bereinkommens</option>
+                    <option class="opWordList_de">Feier zur schriftlichen [Abfassung] eines Heiratsübereinkommens</option>
                     <option class="opWordList_de">Student bzw. [Absolvent] der Zitouna-Hochschule</option>
-                    <option class="opWordList_de">bei einer Pr├╝fung schummeln oder [abschreiben]</option>
-                    <option class="opWordList_de">den Kuskusd├ñmpfer mittels der qf─½la [abdichten]</option>
-                    <option class="opWordList_de">sich [absichern] (durch R├╝cklagen o. ├ñ.)</option>
+                    <option class="opWordList_de">bei einer Prüfung schummeln oder [abschreiben]</option>
+                    <option class="opWordList_de">den Kuskusdämpfer mittels der qfīla [abdichten]</option>
+                    <option class="opWordList_de">sich [absichern] (durch Rücklagen o. ä.)</option>
                     <option class="opWordList_en">to doubt of/[about] sth./sb.</option>
-                    <option class="opWordList_fr">employer [abondamment] le mot p├®nis (zibb)</option>
-                    <option class="opWordList_de">die als [Abgrenzung] einer landwirtschaftlichen Fl├ñche dienen</option>
+                    <option class="opWordList_fr">employer [abondamment] le mot pénis (zibb)</option>
+                    <option class="opWordList_de">die als [Abgrenzung] einer landwirtschaftlichen Fläche dienen</option>
                     <option class="opWordList_de">die gerne [abends] ausgeht und gerne feiert</option>
-                    <option class="opWordList_de">eifers├╝chtig auf die [Abgeschlossenheit] seiner Frau Bedachter</option>
+                    <option class="opWordList_de">eifersüchtig auf die [Abgeschlossenheit] seiner Frau Bedachter</option>
                     <option class="opWordList_en">a unit of mass ([about] 5 g)</option>
                     <option class="opWordList_en">to [abundantly] use the word penis (zibb)</option>
                     <option class="opWordList_en">to say bad things [about] sb./sth.</option>
-                    <option class="opWordList_de">[aber] von M├ñnnern wie Frauen unter sich gebraucht)</option>
+                    <option class="opWordList_de">[aber] von Männern wie Frauen unter sich gebraucht)</option>
                     <option class="opWordList_de">die Verbindung/den Kontakt zu j-m [abbrechen]</option>
-                    <option class="opWordList_de">bez├╝glich auf einen Studenten bzw. [Absolventen] der Zitouna-Hochschule</option>
-                    <option class="opWordList_de">das Fell von Schlachttieren (an Sch├ñdel und L├ñufen) [absengen]</option>
+                    <option class="opWordList_de">bezüglich auf einen Studenten bzw. [Absolventen] der Zitouna-Hochschule</option>
+                    <option class="opWordList_de">das Fell von Schlachttieren (an Schädel und Läufen) [absengen]</option>
                     <option class="opWordList_en">What do I/do you/does he etc. think ([about]...)?</option>
                     <option class="opWordList_de">sehr feine und geschmeidige Pantoffel mit [abgerundeter] Spitze und aus Kamelleder</option>
                     <option class="opWordList_de">und 9. Tag nach einem Todesfall der leidtragenden Familie [abstattete] (obsoleter Brauch)</option>
