@@ -523,21 +523,21 @@ paths:
     get:
       tags:
         - noauth
-      summary: gets a specific html transformed via a specified xslt
+      summary: gets a sample text identtified by its tei:div@xml:id
       operationId: getText
       description: |
         By passing the appropriate xml-ID and xslt you can retrieve ready to display html
       parameters:
         - in: query
           name: id
-          description: the id of the xml
+          description: the @xml:id of the tei:div xml element
           required: true
           schema:
             type: string
         - in: query
           name: xslt
-          required: true
-          description: the filename of the xslt transformation
+          required: false
+          description: the filename of the xslt transformation (for development purposes only)
           schema:
             type: string
       responses:
@@ -615,27 +615,27 @@ paths:
     get:
       tags:
         - noauth
-      summary: gets a specific html transformed via a specified xslt
+      summary: gets a langauge profile identified by its TEI@xml:id
       operationId: getProfile
       description: |
         By passing the appropriate xml-ID and xslt you can retrieve ready to display html
       parameters:
         - in: query
           name: id
-          description: the id of the xml
+          description: the @xml:id of the TEI xml element
           required: true
           schema:
             type: string
         - in: query
           name: coll
-          description: the id of the collection?
-          required: true
+          description: the id of the collection/database to use (for development purposes only)
+          required: false
           schema:
             type: string
         - in: query
           name: xslt
-          required: true
-          description: the filename of the xslt transformation
+          required: false
+          description: the filename of the xslt transformation (for development purposes only)
           schema:
             type: string
       responses:
@@ -748,8 +748,8 @@ paths:
             type: string
         - in: query
           name: xslt
-          required: true
-          description: the filename of the xslt transformation
+          required: false
+          description: the filename of the xslt transformation (for development purposes only)
           schema:
             type: string
       responses:
@@ -793,8 +793,8 @@ paths:
             type: string
         - in: query
           name: xslt
-          required: true
-          description: the filename of the xslt transformation
+          required: false
+          description: the filename of the xslt transformation (for development purposes only)
           schema:
             type: string
       responses:
@@ -971,8 +971,8 @@ paths:
             type: string
         - in: query
           name: xslt
-          required: true
-          description: the filename of the xslt transformation
+          required: false
+          description: the filename of the xslt transformation (for development purposes only)
           schema:
             type: string
       responses:
