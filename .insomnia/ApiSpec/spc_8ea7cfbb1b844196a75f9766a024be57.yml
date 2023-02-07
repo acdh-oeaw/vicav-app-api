@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1675691901394
+modified: 1675795390538
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -531,21 +531,21 @@ contents: >-
       get:
         tags:
           - noauth
-        summary: gets a specific html transformed via a specified xslt
+        summary: gets a sample text identtified by its tei:div@xml:id
         operationId: getText
         description: |
           By passing the appropriate xml-ID and xslt you can retrieve ready to display html
         parameters:
           - in: query
             name: id
-            description: the id of the xml
+            description: the @xml:id of the tei:div xml element
             required: true
             schema:
               type: string
           - in: query
             name: xslt
-            required: true
-            description: the filename of the xslt transformation
+            required: false
+            description: the filename of the xslt transformation (for development purposes only)
             schema:
               type: string
         responses:
@@ -623,27 +623,27 @@ contents: >-
       get:
         tags:
           - noauth
-        summary: gets a specific html transformed via a specified xslt
+        summary: gets a langauge profile identified by its TEI@xml:id
         operationId: getProfile
         description: |
           By passing the appropriate xml-ID and xslt you can retrieve ready to display html
         parameters:
           - in: query
             name: id
-            description: the id of the xml
+            description: the @xml:id of the TEI xml element
             required: true
             schema:
               type: string
           - in: query
             name: coll
-            description: the id of the collection?
-            required: true
+            description: the id of the collection/database to use (for development purposes only)
+            required: false
             schema:
               type: string
           - in: query
             name: xslt
-            required: true
-            description: the filename of the xslt transformation
+            required: false
+            description: the filename of the xslt transformation (for development purposes only)
             schema:
               type: string
         responses:
@@ -756,8 +756,8 @@ contents: >-
               type: string
           - in: query
             name: xslt
-            required: true
-            description: the filename of the xslt transformation
+            required: false
+            description: the filename of the xslt transformation (for development purposes only)
             schema:
               type: string
         responses:
@@ -801,8 +801,8 @@ contents: >-
               type: string
           - in: query
             name: xslt
-            required: true
-            description: the filename of the xslt transformation
+            required: false
+            description: the filename of the xslt transformation (for development purposes only)
             schema:
               type: string
         responses:
@@ -979,8 +979,8 @@ contents: >-
               type: string
           - in: query
             name: xslt
-            required: true
-            description: the filename of the xslt transformation
+            required: false
+            description: the filename of the xslt transformation (for development purposes only)
             schema:
               type: string
         responses:
