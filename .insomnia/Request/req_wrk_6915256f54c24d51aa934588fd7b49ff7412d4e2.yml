@@ -1,7 +1,7 @@
 _id: req_wrk_6915256f54c24d51aa934588fd7b49ff7412d4e2
 type: Request
 parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
-modified: 1675797289185
+modified: 1675966212614
 created: 1675795390496
 url: "{{ base_url }}/text"
 name: gets a description text identtified by its tei:div@xml:id
@@ -17,7 +17,11 @@ parameters:
     disabled: true
     value: string
     id: pair_5b3952ef597243adbbffe7a930b19a98
-headers: []
+headers:
+  - id: pair_97b3153d3afe4e3bb24e1fb5285a721d
+    name: Origin
+    value: http://localhost:8984
+    description: ""
 authentication: {}
 metaSortKey: -1675795390496
 isPrivate: false
