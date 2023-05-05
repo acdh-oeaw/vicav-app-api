@@ -831,7 +831,7 @@ paths:
       summary: gets a geo marker information 
       operationId: getMarkers
       description: |
-        By passing the appropriate xml-ID and xslt you can retrieve ready to display html
+        Retrieve geo data information from the bibliography for displaying coordinates on a map.
       parameters:
         - in: query
           name: query
@@ -871,7 +871,7 @@ paths:
             - diaGroup
       responses:
         '200':
-          description: an xml result list to the query
+          description: a list of geo markers
           content:
             application/xml:
               schema:
@@ -883,7 +883,7 @@ paths:
                   type: object
               examples:
                 xml:
-                  summary: A list of geo markers
+                  summary: a list of geo markers
                   value: >
                     <rs type="60">
                       <r type="geo">
