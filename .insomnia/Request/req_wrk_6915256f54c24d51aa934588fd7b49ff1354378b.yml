@@ -1,7 +1,7 @@
 _id: req_wrk_6915256f54c24d51aa934588fd7b49ff1354378b
 type: Request
 parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
-modified: 1675795155932
+modified: 1683292547257
 created: 1675795155932
 url: "{{ base_url }}/bibl_markers_tei"
 name: gets a geo marker information
@@ -11,13 +11,18 @@ body: {}
 parameters:
   - name: query
     disabled: false
-    value: Mörth
+    value: Ma.*
     id: pair_906fe1fd4259438dadc03af7d15e7276
   - name: scope
     disabled: false
     value: geo_reg
     id: pair_b5d1b93f15604eaf978bb4fd3f3e7000
-headers: []
+headers:
+  - id: pair_4e3ff315aaf84ed99e822fd82a8b6053
+    name: Accept
+    value: application/json
+    description: ""
+    disabled: false
 authentication: {}
 metaSortKey: -1675795155932
 isPrivate: false
