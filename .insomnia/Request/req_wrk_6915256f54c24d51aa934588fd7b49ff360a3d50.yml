@@ -1,8 +1,8 @@
 _id: req_wrk_6915256f54c24d51aa934588fd7b49ff360a3d50
 type: Request
 parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
-modified: 1683279471166
-created: 1683279471166
+modified: 1675795155923
+created: 1675795155923
 url: "{{ base_url }}/dict_api"
 name: gets a specific html transformed via a specified xslt
 description: ""
@@ -20,7 +20,7 @@ parameters:
     value: string
 headers: []
 authentication: {}
-metaSortKey: -1683279471166
+metaSortKey: -1675795155923
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

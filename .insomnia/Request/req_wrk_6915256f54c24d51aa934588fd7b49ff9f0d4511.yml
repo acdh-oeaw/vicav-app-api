@@ -1,17 +1,26 @@
 _id: req_wrk_6915256f54c24d51aa934588fd7b49ff9f0d4511
 type: Request
 parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
-modified: 1683279471172
-created: 1683279471172
+modified: 1681817067197
+created: 1675795155949
 url: "{{ base_url }}/project"
 name: gets basic project configuration
 description: ""
 method: GET
 body: {}
 parameters: []
-headers: []
+headers:
+  - id: pair_841a2c7f19ee42b2812889e400464d95
+    name: Accept
+    value: application/json
+    description: ""
+    disabled: false
+  - id: pair_472e0ddad5bd4c0fb517a5b7f7bc8bfd
+    name: Origin
+    value: https://localhost:8984
+    description: ""
 authentication: {}
-metaSortKey: -1683279471172
+metaSortKey: -1675795155949
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

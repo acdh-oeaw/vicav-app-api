@@ -14,6 +14,8 @@ contents: >-
       description: "current ACDH-CH prod server"
     - url: https://vicav.acdh-ch-dev.oeaw.ac.at/vicav
       description: "current ACDH-CH dev server"
+    - url: https://vicav.acdh-ch-dev.oeaw.ac.at/vicav
+      description: "current ACDH-CH dev server"
     # Added by API Auto Mocking Plugin
     - description: SwaggerHub API Auto Mocking
       url: https://virtserver.swaggerhub.com/ctot-nondef/Vicav/1.0.0

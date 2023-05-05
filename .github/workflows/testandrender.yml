@@ -1,0 +1,31 @@
+name: RenderApi
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch: ~
+
+
+jobs:
+  Linux:
+    name: Test and Render API docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v1
+      - uses: kong/setup-inso@v1
+        with:
+          inso-version: 3.5.0
+      - name: Run test suites
+        run: inso run test spc_8ea7cf -e env_env_9a21f4d181d64765d33c7bbe158a0e24fc2976d0 --verbose
+      - name: Generate yaml
+        run: inso export spec spc_8ea7cf > openapi.yaml
+      - uses: EndBug/add-and-commit@v7
+        with:
+          message: 'rerender openapi.yaml'
+          add: '*.yaml'
+          push: false
+      - uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
