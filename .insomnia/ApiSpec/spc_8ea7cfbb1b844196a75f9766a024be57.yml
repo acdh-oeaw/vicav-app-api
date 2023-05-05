@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1683279471180
+modified: 1683286425412
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -840,7 +840,7 @@ contents: >-
         summary: gets a geo marker information 
         operationId: getMarkers
         description: |
-          By passing the appropriate xml-ID and xslt you can retrieve ready to display html
+          Retrieve geo data information from the bibliography for displaying coordinates on a map.
         parameters:
           - in: query
             name: query
@@ -880,7 +880,7 @@ contents: >-
               - diaGroup
         responses:
           '200':
-            description: an xml result list to the query
+            description: a list of geo markers
             content:
               application/xml:
                 schema:
@@ -892,7 +892,7 @@ contents: >-
                     type: object
                 examples:
                   xml:
-                    summary: A list of geo markers
+                    summary: a list of geo markers
                     value: >
                       <rs type="60">
                         <r type="geo">
