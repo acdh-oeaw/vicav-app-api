@@ -1,15 +1,19 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1675275472661
+modified: 1683279471180
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
-  openapi: 3.0.0
+  openapi: 3.1.0
+
+  jsonSchemaDialect: 'https://spec.openapis.org/oas/3.1/dialect/base'
 
   servers:
     - url: https://vicav.acdh.oeaw.ac.at
       description: "current ACDH-CH prod server"
+    - url: https://vicav.acdh-ch-dev.oeaw.ac.at/vicav
+      description: "current ACDH-CH dev server"
     # Added by API Auto Mocking Plugin
     - description: SwaggerHub API Auto Mocking
       url: https://virtserver.swaggerhub.com/ctot-nondef/Vicav/1.0.0
@@ -41,7 +45,7 @@ contents: >-
             content:
               application/json:
                 schema:
-                  type: object
+                  $ref: '#/components/schemas/ProjectConfig'
                 examples:
                   project_config_JSON:
                     summary: the project configuration
@@ -529,21 +533,21 @@ contents: >-
       get:
         tags:
           - noauth
-        summary: gets a specific html transformed via a specified xslt
+        summary: gets a description text identtified by its tei:div@xml:id
         operationId: getText
         description: |
           By passing the appropriate xml-ID and xslt you can retrieve ready to display html
         parameters:
           - in: query
             name: id
-            description: the id of the xml
+            description: the @xml:id of the tei:div xml element
             required: true
             schema:
               type: string
           - in: query
             name: xslt
-            required: true
-            description: the filename of the xslt transformation
+            required: false
+            description: the filename of the xslt transformation (for development purposes only)
             schema:
               type: string
         responses:
@@ -621,27 +625,27 @@ contents: >-
       get:
         tags:
           - noauth
-        summary: gets a specific html transformed via a specified xslt
+        summary: gets a langauge profile identified by its TEI@xml:id
         operationId: getProfile
         description: |
           By passing the appropriate xml-ID and xslt you can retrieve ready to display html
         parameters:
           - in: query
             name: id
-            description: the id of the xml
+            description: the @xml:id of the TEI xml element
             required: true
             schema:
               type: string
           - in: query
             name: coll
-            description: the id of the collection?
-            required: true
+            description: the id of the collection/database to use (for development purposes only)
+            required: false
             schema:
               type: string
           - in: query
             name: xslt
-            required: true
-            description: the filename of the xslt transformation
+            required: false
+            description: the filename of the xslt transformation (for development purposes only)
             schema:
               type: string
         responses:
@@ -754,8 +758,8 @@ contents: >-
               type: string
           - in: query
             name: xslt
-            required: true
-            description: the filename of the xslt transformation
+            required: false
+            description: the filename of the xslt transformation (for development purposes only)
             schema:
               type: string
         responses:
@@ -799,8 +803,8 @@ contents: >-
               type: string
           - in: query
             name: xslt
-            required: true
-            description: the filename of the xslt transformation
+            required: false
+            description: the filename of the xslt transformation (for development purposes only)
             schema:
               type: string
         responses:
@@ -831,23 +835,47 @@ contents: >-
       get:
         tags:
           - noauth
-        summary: gets a specific xml transformed via a specified xslt
+        summary: gets a geo marker information 
         operationId: getMarkers
         description: |
           By passing the appropriate xml-ID and xslt you can retrieve ready to display html
         parameters:
           - in: query
             name: query
-            description: an xml query?
+            description: |
+              A BaseX Full-Text search query in in vicav-biblio tei:biblstruct with wildcards enabled.
+              See: https://docs.basex.org/wiki/Full-Text#Match_Options
+              using wildcards using diacritics sensitive
+              Uses prefixes to limit the full text search to certein elements.
+              * date: -> tei:date
+              * title: -> tei:title
+              * pubPlace: -> tei:pubPlace
+              * author: -> tei:author/tei:surname
+              * geo:, geo_reg:, reg:, diaGroup: -> tei:note[@type="tag"]/tei:name
+              * vt:, prj: -> tei:note[@type="tag"]
+              
+              Without a prefix any text in vicav-biblio tei:biblstruct is searched.
+              
+              More than one query is possible by separating with ' '/+.
             required: true
             schema:
               type: string
           - in: query
             name: scope
             required: true
-            description: I have no idea!
+            description: |
+              Filters based on a set of tei:name/@types being present in a tei:note[tei:geo]           
+              * geo
+              * diaGroup
+              * reg
+              * geo_reg: any of the above
             schema:
-              type: string
+              type: string            
+              enum:
+              - geo_reg
+              - geo
+              - reg
+              - diaGroup
         responses:
           '200':
             description: an xml result list to the query
@@ -977,8 +1005,8 @@ contents: >-
               type: string
           - in: query
             name: xslt
-            required: true
-            description: the filename of the xslt transformation
+            required: false
+            description: the filename of the xslt transformation (for development purposes only)
             schema:
               type: string
         responses:
@@ -1350,4 +1378,124 @@ contents: >-
                   html:
                     summary: A sample HTML response
                     value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
+
+  components:
+    schemas:
+      ProjectConfig:
+        type: object
+        properties:
+          projectConfig:
+            $ref: '#/components/schemas/projectConfig_type'
+      projectConfig_type:
+        type: object
+        properties:
+          title:
+            type: string
+          logo:
+            $ref: '#/components/schemas/logo_type'
+          param:
+            $ref: '#/components/schemas/param_type'
+          panel:
+            $ref: '#/components/schemas/panel_type'
+          menu:
+            $ref: '#/components/schemas/menu_type'          
+      logo_type:
+        type: object
+        properties:
+          img:
+            type: string
+      param_type:
+        type: array
+        minItems: 0
+        items:
+          type: string
+      panel_type:
+        type: array
+        minItems: 0
+        items:
+          type: object
+          properties:
+            type:
+              type: string
+            target:
+              type: string
+            title:
+              type: string
+          required:
+          - type
+          - title
+          - target
+      item_type:
+        type: array
+        minItems: 0
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            title:
+              type: string
+            type:
+              type: string
+              enum:
+              - item
+              - separator
+            componentName:
+              type: string
+              enum:
+              - WMap
+              - DictQuery
+              - CrossDictQuery
+              - BiblioQuery
+              - Text
+              - SampleText
+              - DataList
+          required:
+          - type
+      main_type:
+        type: array
+        minItems: 0
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            title:
+              type: string
+            item:
+              $ref: '#/components/schemas/item_type'
+            type:
+              type: string
+              enum:
+              - dropdown
+          required:
+          - item
+          - id
+          - title
+          - type
+      subnav_type:
+        type: array
+        minItems: 0
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            class:
+              type: string
+            title:
+              type: string
+            type:
+              type: string
+          required:
+          - id
+          - title
+          - type
+      menu_type:
+        type: object
+        properties:
+          main:
+            $ref: '#/components/schemas/main_type'
+          subnav:
+            $ref: '#/components/schemas/subnav_type'
 contentType: yaml
