@@ -1,8 +1,10 @@
 openapi: 3.1.0
-jsonSchemaDialect: 'https://json-schema.org/draft-04/schema#'
+jsonSchemaDialect: 'https://spec.openapis.org/oas/3.1/dialect/base'
 servers:
   - url: https://vicav.acdh.oeaw.ac.at
     description: "current ACDH-CH prod server"
+  - url: https://vicav.acdh-ch-dev.oeaw.ac.at/vicav
+    description: "current ACDH-CH dev server"
   - url: https://vicav.acdh-ch-dev.oeaw.ac.at/vicav
     description: "current ACDH-CH dev server"
   # Added by API Auto Mocking Plugin
@@ -826,23 +828,47 @@ paths:
     get:
       tags:
         - noauth
-      summary: gets a specific xml transformed via a specified xslt
+      summary: gets a geo marker information 
       operationId: getMarkers
       description: |
         By passing the appropriate xml-ID and xslt you can retrieve ready to display html
       parameters:
         - in: query
           name: query
-          description: an xml query?
+          description: |
+            A BaseX Full-Text search query in in vicav-biblio tei:biblstruct with wildcards enabled.
+            See: https://docs.basex.org/wiki/Full-Text#Match_Options
+            using wildcards using diacritics sensitive
+            Uses prefixes to limit the full text search to certein elements.
+            * date: -> tei:date
+            * title: -> tei:title
+            * pubPlace: -> tei:pubPlace
+            * author: -> tei:author/tei:surname
+            * geo:, geo_reg:, reg:, diaGroup: -> tei:note[@type="tag"]/tei:name
+            * vt:, prj: -> tei:note[@type="tag"]
+            
+            Without a prefix any text in vicav-biblio tei:biblstruct is searched.
+            
+            More than one query is possible by separating with ' '/+.
           required: true
           schema:
             type: string
         - in: query
           name: scope
           required: true
-          description: I have no idea!
+          description: |
+            Filters based on a set of tei:name/@types being present in a tei:note[tei:geo]           
+            * geo
+            * diaGroup
+            * reg
+            * geo_reg: any of the above
           schema:
-            type: string
+            type: string            
+            enum:
+            - geo_reg
+            - geo
+            - reg
+            - diaGroup
       responses:
         '200':
           description: an xml result list to the query
