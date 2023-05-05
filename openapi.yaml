@@ -873,6 +873,48 @@ paths:
         '200':
           description: a list of geo markers
           content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  schema:
+                    $ref: '#/components/schemas/Feature'
+              examples:
+                geoJSON_features_Ma_geo_reg:
+                  summary: 'query: Ma.*. scope: geo_reg, shorted'
+                  value: [
+                          {
+                            "type": "Feature",
+                            "geometry": {
+                              "type": "Point",
+                              "coordinates": [
+                                "35.578333",
+                                "-5.368056"
+                              ]
+                            },
+                            "properties": {
+                              "type": "geo",
+                              "name": "Tétouan",
+                              "hitCount": "16"
+                            }
+                          },
+                          {
+                            "type": "Feature",
+                            "geometry": {
+                              "type": "Point",
+                              "coordinates": [
+                                "32.000000",
+                                "-6.000000"
+                              ]
+                            },
+                            "properties": {
+                              "type": "reg",
+                              "name": "Morocco",
+                              "hitCount": "1157"
+                            }
+                          }
+                        ]
             application/xml:
               schema:
                 type: string
@@ -1491,3 +1533,48 @@ components:
           $ref: '#/components/schemas/main_type'
         subnav:
           $ref: '#/components/schemas/subnav_type'
+    Feature:
+      title: GeoJSON Feature
+      type: object
+      required:
+      - type
+      - properties
+      - geometry
+      properties:
+        type:
+          type: string
+          enum:
+          - Feature
+        id:
+          oneOf:
+          - type: number
+          - type: string
+        properties:
+          oneOf:
+          - type: 'null'
+          - type: object
+        geometry:
+          oneOf:
+          - type: 'null'
+          - $ref: '#/components/schemas/Point'    
+    Point:
+      title: GeoJSON Point
+      type: object
+      required:
+      - type
+      - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+          - Point
+        coordinates:
+          type: array
+          minItems: 2
+          items:
+            type: number
+        bbox:
+          type: array
+          minItems: 4
+          items:
+            type: number
