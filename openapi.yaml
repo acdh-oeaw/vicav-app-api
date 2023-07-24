@@ -12,6 +12,8 @@ servers:
     url: https://virtserver.swaggerhub.com/ctot-nondef/Vicav/1.0.0
   - url: http://localhost:8984/vicav
     description: "local development"
+  - url: http://shawi-local.acdh.oeaw.ac.at:8984/vicav
+    description: "local development"
 info:
   description: This is the currently implemented vicav API
   version: "1.0.0"
@@ -1413,9 +1415,429 @@ paths:
                 html:
                   summary: A sample HTML response
                   value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
-
+  /corpus: 
+    get:
+      tags:
+        - noauth
+      summary: Search corpus
+      operationId: searchCorpus
+      description: |
+        By passing a well formed noSKE query as 'query' parameter, you can retrieve serach results
+      parameters:
+        - in: query
+          name: query
+          description: query to perform against NoSKE
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: print
+          required: false
+          description: 'Whether to retrieve a full HTML file with printer-friendly formatting.'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: the transformed html
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CorpusSearch'
+              examples: 
+                corpus_search_json:
+                  summary: 'Corpus serach results'
+                  value: 
+                    {
+                      "query":"dār",
+                      "hits":[
+                        {
+                          "u":"URFA-077_a72",
+                          "doc":"URFA-077",
+                          "content":"<div class=\"corpus-search-result\" id=\"corpus-w-URFA-077_xTok_001078\"><div class=\"left\"><span class=\"w\" id=\"URFA-077_xTok_001071\">āni<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-077_xTok_001072\">nāyim<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-077_xTok_001073\">hēne<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-077_xTok_001074\">b<\/span><span class=\"w\" id=\"URFA-077_xTok_001076\">ad<\/span><\/div><div class=\"keyword\"><span class=\"w\">dār<\/span><span xml:space=\"preserve\"> <\/span><\/div><div class=\"right\"><span class=\"w\">haḏiyye<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">nāyim<\/span><span xml:space=\"preserve\"> <\/span><\/div><\/div>"
+                        },
+                        {
+                          "u":"URFA-115_a4",
+                          "doc":"URFA-115",
+                          "content":"<div class=\"corpus-search-result\" id=\"corpus-w-URFA-115_xTok_000096\"><div class=\"left\"><span class=\"w\" id=\"URFA-115_xTok_000087\">rəḥalaw<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-115_xTok_000089\">xall<\/span><span class=\"w\" id=\"URFA-115_xTok_000091\">ō<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-115_xTok_000092\">b<\/span><span class=\"w\" id=\"URFA-115_xTok_000094\">ad<\/span><\/div><div class=\"keyword\"><span class=\"w\">dār<\/span><span xml:space=\"preserve\"> <\/span><\/div><div class=\"right\"><span class=\"w\">w<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">šālaw<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">eger<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">miṯil<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">al<\/span><\/div><\/div>"
+                        },
+                        {
+                          "u":"URFA-122_a13",
+                          "doc":"URFA-122",
+                          "content":"<div class=\"corpus-search-result\" id=\"corpus-w-URFA-122_xTok_000738\"><div class=\"left\"><span class=\"w\" id=\"URFA-122_xTok_000730\">u<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-122_xTok_000731\">ˀal<\/span><span class=\"w\" id=\"URFA-122_xTok_000733\">bāb<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-122_xTok_000734\">b<\/span><span class=\"w\" id=\"URFA-122_xTok_000736\">ad<\/span><\/div><div class=\"keyword\"><span class=\"w\">dār<\/span><span xml:space=\"preserve\"> <\/span><\/div><div class=\"right\"><span class=\"w\">imčallṭīn<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">al<\/span><span class=\"w\">qīrān<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">aṭ<\/span><span class=\"w\">ṭūg<\/span><span xml:space=\"preserve\"> <\/span><\/div><\/div>"
+                        },
+                        {
+                          "u":"URFA-125_a9",
+                          "doc":"URFA-125",
+                          "content":"<div class=\"corpus-search-result\" id=\"corpus-w-URFA-125_xTok_000258\"><div class=\"left\"><span class=\"w\" id=\"URFA-125_xTok_000253\">hēn<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-125_xTok_000254\">ṛāyiḥ<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-125_xTok_000255\">āni<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-125_xTok_000256\">ˀarīd<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-125_xTok_000257\">agḏ̣ub<\/span><span xml:space=\"preserve\"> <\/span><\/div><div class=\"keyword\"><span class=\"w\">dār<\/span><span xml:space=\"preserve\"> <\/span><\/div><div class=\"right\"><span class=\"w\">aš<\/span><span class=\"w\">šēx<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">w<\/span><span class=\"w\">arīd<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">āni<\/span><span xml:space=\"preserve\"> <\/span><\/div><\/div>"
+                        }
+                      ]
+                    }
+          
+            application/xml:
+              schema:
+                type: string
+                xml:
+                  name: div
+                  wrapped: false
+              examples:
+                html:
+                  summary: A sample HTML response
+                  value: > 
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <div xmlns="http://www.w3.org/1999/xhtml" xmlns:acdh="http://acdh.oeaw.ac.at" xmlns:tei="http://www.tei-c.org/ns/1.0" class="corpus-search-results">
+                        <h2 xml:space="preserve">Search results for dār</h2>
+                        <div class="corpus-search-result" id="corpus-w-URFA-077_xTok_001078">
+                            <div class="left">
+                                <span class="w" id="URFA-077_xTok_001071">āni</span>
+                                <span xml:space="preserve"></span>
+                                <span class="w" id="URFA-077_xTok_001072">nāyim</span>
+                                <span xml:space="preserve"></span>
+                                <span class="w" id="URFA-077_xTok_001073">hēne</span>
+                                <span xml:space="preserve"></span>
+                                <span class="w" id="URFA-077_xTok_001074">b</span>
+                                <span class="w" id="URFA-077_xTok_001076">ad</span>
+                            </div>
+                            <div class="keyword">
+                                <span class="w">dār</span>
+                                <span xml:space="preserve"></span>
+                            </div>
+                            <div class="right">
+                                <span class="w">haḏiyye</span>
+                                <span xml:space="preserve"></span>
+                                <span class="w">nāyim</span>
+                                <span xml:space="preserve"></span>
+                            </div>
+                        </div>
+                        <div class="corpus-search-result" id="corpus-w-URFA-115_xTok_000096">
+                            <div class="left">
+                                <span class="w" id="URFA-115_xTok_000087">rəḥalaw</span>
+                                <span xml:space="preserve"></span>
+                                <span class="w" id="URFA-115_xTok_000089">xall</span>
+                                <span class="w" id="URFA-115_xTok_000091">ō</span>
+                                <span xml:space="preserve"></span>
+                                <span class="w" id="URFA-115_xTok_000092">b</span>
+                                <span class="w" id="URFA-115_xTok_000094">ad</span>
+                            </div>
+                            <div class="keyword">
+                                <span class="w">dār</span>
+                                <span xml:space="preserve"></span>
+                            </div>
+                            <div class="right">
+                                <span class="w">w</span>
+                                <span xml:space="preserve"></span>
+                                <span class="w">šālaw</span>
+                                <span xml:space="preserve"></span>
+                                <span class="w">eger</span>
+                                <span xml:space="preserve"></span>
+                                <span class="w">miṯil</span>
+                                <span xml:space="preserve"></span>
+                                <span class="w">al</span>
+                            </div>
+                        </div>
+                        <div class="corpus-search-result" id="corpus-w-URFA-122_xTok_000738">
+                            <div class="left">
+                                <span class="w" id="URFA-122_xTok_000730">u</span>
+                                <span xml:space="preserve"></span>
+                                <span class="w" id="URFA-122_xTok_000731">ˀal</span>
+                                <span class="w" id="URFA-122_xTok_000733">bāb</span>
+                                <span xml:space="preserve"></span>
+                                <span class="w" id="URFA-122_xTok_000734">b</span>
+                                <span class="w" id="URFA-122_xTok_000736">ad</span>
+                            </div>
+                            <div class="keyword">
+                                <span class="w">dār</span>
+                                <span xml:space="preserve"></span>
+                            </div>
+                            <div class="right">
+                                <span class="w">imčallṭīn</span>
+                                <span xml:space="preserve"></span>
+                                <span class="w">al</span>
+                                <span class="w">qīrān</span>
+                                <span xml:space="preserve"></span>
+                                <span class="w">aṭ</span>
+                                <span class="w">ṭūg</span>
+                                <span xml:space="preserve"></span>
+                            </div>
+                        </div>
+                        <div class="corpus-search-result" id="corpus-w-URFA-125_xTok_000258">
+                            <div class="left">
+                                <span class="w" id="URFA-125_xTok_000253">hēn</span>
+                                <span xml:space="preserve"></span>
+                                <span class="w" id="URFA-125_xTok_000254">ṛāyiḥ</span>
+                                <span xml:space="preserve"></span>
+                                <span class="w" id="URFA-125_xTok_000255">āni</span>
+                                <span xml:space="preserve"></span>
+                                <span class="w" id="URFA-125_xTok_000256">ˀarīd</span>
+                                <span xml:space="preserve"></span>
+                                <span class="w" id="URFA-125_xTok_000257">agḏ̣ub</span>
+                                <span xml:space="preserve"></span>
+                            </div>
+                            <div class="keyword">
+                                <span class="w">dār</span>
+                                <span xml:space="preserve"></span>
+                            </div>
+                            <div class="right">
+                                <span class="w">aš</span>
+                                <span class="w">šēx</span>
+                                <span xml:space="preserve"></span>
+                                <span class="w">w</span>
+                                <span class="w">arīd</span>
+                                <span xml:space="preserve"></span>
+                                <span class="w">āni</span>
+                                <span xml:space="preserve"></span>
+                            </div>
+                        </div>
+                    </div>
+        '500':
+          description: bad input parameter
+          content:
+            application/xml:
+              schema:
+                type: string
+              examples:
+                html:
+                  summary: A sample HTML response
+                  value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
+  /corpus_text: 
+    get:
+      tags:
+        - noauth
+      summary: Get rendered corpus text
+      operationId: getCorpusText
+      description: |
+        A pageable set of corpus utterances from the given text.
+      parameters:
+        - in: query
+          name: id
+          description: Corpus text ID
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: size
+          required: false
+          description: 'How many results to retrieve in one query. Defaults to 10.'
+          schema:
+            type: number
+            default: 10
+        - in: query
+          name: page
+          required: false
+          description: 'Page number to retrieve. Defaults to 1.'
+          schema:
+            type: number
+            default: 1
+        - in: query
+          name: print
+          required: false
+          description: 'Whether to retrieve a full HTML file with printer-friendly formatting.'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: the transformed html
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/CorpusText'
+              examples: 
+                corpustext_json:
+                  summary: sample json response
+                  value:
+                    {
+                      "id": "$URFA-011",
+                      "utterances": [
+                        {
+                          "id": "URFA-011_a1",
+                          "content": "<div class=\"u\" id=\"URFA-011_a1\" />"
+                        },
+                        {
+                          "id": "URFA-011_a2",
+                          "content": "<div class=\"u\" id=\"URFA-011_a2\"><span class=\"w\" id=\"URFA-011_xTok_000001\">hāḏa</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000002\">l</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000004\">ᵊgbūr</span><span class=\"pc\" id=\"xTok_000005\">,</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000006\">al</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000008\">miǧanne</span><span class=\"pc\" id=\"xTok_000009\">,</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000010\">al</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000012\">gabǝr</span><span class=\"pc\" id=\"xTok_000013\">,</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000014\">wāḥad</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000015\">ymūt</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000016\">yidfunūn</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000018\">u</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000019\">hēne</span><span class=\"pc\" id=\"xTok_000020\">,</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000021\">yidfunūn</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000023\">u</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000024\">yqasslūn</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000026\">u</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000027\">ʕala</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000028\">ʕurf</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000029\">islām</span><span class=\"pc\" id=\"xTok_000030\">,</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000031\">ʕala</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000032\">ʕādāt</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000033\">uṣūl</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000034\">Islām</span><span class=\"pc\" id=\"xTok_000035\">,</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000036\">yqassl</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000038\">u</span><span class=\"pc\" id=\"xTok_000039\">,</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000040\">al</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000042\">xōǧe</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000043\">yqassl</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000045\">u</span><span class=\"pc\" id=\"xTok_000046\">,</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000047\">w</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000049\">yǧībūn</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000051\">u</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000052\">hēne</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000053\">yčaffnūn</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000055\">u</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000056\">yḥuṭṭūn</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000058\">u</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000059\">b</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000061\">al</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000063\">kefen</span><span class=\"pc\" id=\"xTok_000064\">,</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000065\">čafan</span><span class=\"pc\" id=\"xTok_000066\">–</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000067\">kefen</span><span class=\"pc\" id=\"xTok_000068\">–</span><span class=\"w\" id=\"URFA-011_xTok_000069\">čafan</span><span class=\"pc\" id=\"xTok_000070\">,</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000071\">ydummūn</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000073\">u</span><span class=\"pc\" id=\"xTok_000074\">.</span><span xml:space=\"preserve\"> </span></div>"
+                        },
+                        {
+                          "id": "URFA-011_a3",
+                          "content": "<div class=\"u\" id=\"URFA-011_a3\"><span class=\"w\" id=\"URFA-011_xTok_000075\">al</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000077\">gabǝr</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000078\">baʕdēn</span><span class=\"pc\" id=\"xTok_000079\">,</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000080\">ʕugub</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000081\">sabʕ</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000082\">ᵊsnīn</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000083\">yigdarūn</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000084\">yḥuṭṭūn</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000085\">qēr</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000086\">wāḥad</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000087\">bī</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000089\">´</span><span class=\"pc\" id=\"xTok_000090\">.</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000091\">in</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000092\">mā</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000093\">ṣār</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000094\">sabʕ</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000095\">ᵊsnīn</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000096\">qēr</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000097\">wāḥad</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000098\">mā</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000099\">yḥuṭṭūn</span><span class=\"pc\" id=\"xTok_000100\">.</span><span xml:space=\"preserve\"> </span></div>"
+                        }
+                      ]
+                    }
+            application/xml:
+              schema:
+                type: string
+                xml:
+                  name: div
+                  wrapped: false
+              examples:
+                html:
+                  summary: A sample HTML response
+                  value: > 
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <div xmlns="http://www.w3.org/1999/xhtml" xmlns:acdh="http://acdh.oeaw.ac.at" xmlns:tei="http://www.tei-c.org/ns/1.0" class="corpus-utterances">
+                        <div class="u" id="URFA-011_a3">
+                            <span class="w" id="URFA-011_xTok_000075">al</span>
+                            <span class="w" id="URFA-011_xTok_000077">gabǝr</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000078">baʕdēn</span>
+                            <span class="pc" id="xTok_000079">,</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000080">ʕugub</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000081">sabʕ</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000082">ᵊsnīn</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000083">yigdarūn</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000084">yḥuṭṭūn</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000085">qēr</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000086">wāḥad</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000087">bī</span>
+                            <span class="w" id="URFA-011_xTok_000089">´</span>
+                            <span class="pc" id="xTok_000090">.</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000091">in</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000092">mā</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000093">ṣār</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000094">sabʕ</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000095">ᵊsnīn</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000096">qēr</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000097">wāḥad</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000098">mā</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000099">yḥuṭṭūn</span>
+                            <span class="pc" id="xTok_000100">.</span>
+                            <span xml:space="preserve"></span>
+                        </div>
+                        <div class="u" id="URFA-011_a4">
+                            <span class="w" id="URFA-011_xTok_000101">ta</span>
+                            <span class="w" id="URFA-011_xTok_000103">ngūl</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000104">hāḏa</span>
+                            <span class="pc" id="xTok_000105">,</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000106">mayyit</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000107">luwwa</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000108">sine</span>
+                            <span class="pc" id="xTok_000109">,</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000110">al</span>
+                            <span class="w" id="URFA-011_xTok_000112">gabǝr</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000113">hāḏa</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000114">mā</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000115">yiftaḥūn</span>
+                            <span class="w" id="URFA-011_xTok_000117">u</span>
+                            <span class="pc" id="xTok_000118">–</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000119">mā</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000120">yiftaḥūn</span>
+                            <span class="w" id="URFA-011_xTok_000122">u</span>
+                            <span class="pc" id="xTok_000123">–</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000124">baˁad</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000125">sabˁ</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000126">ᵊsnīn</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000127">yiftaḥūn</span>
+                            <span class="w" id="URFA-011_xTok_000129">u</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000130">yigdarūn</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000131">in</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000132">māt</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000133">ḥade</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000134">in</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000135">ṣār</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000136">mayyit</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000137">uxṛa</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000138">l</span>
+                            <span class="w" id="URFA-011_xTok_000140">al</span>
+                            <span class="w" id="URFA-011_xTok_000142">ˁēle</span>
+                            <span class="pc" id="xTok_000143">,</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000144">kull</span>
+                            <span class="w" id="URFA-011_xTok_000146">min</span>
+                            <span class="pc" id="xTok_000147">…</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000148">ta</span>
+                            <span class="w" id="URFA-011_xTok_000150">ngūl</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000151">alḥaz</span>
+                            <span xml:space="preserve"></span>
+                            <span class="w" id="URFA-011_xTok_000152">iḥna</span>
+                            <span xml:space="preserve"></span>
+                        </div>
+                    </div>
+        '500':
+          description: bad input parameter
+          content:
+            application/xml:
+              schema:
+                type: string
+              examples:
+                html:
+                  summary: A sample HTML response
+                  value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
 components:
   schemas:
+    CorpusText: 
+      type: object
+      properties: 
+        id: 
+          type: string
+        utterances:
+          type: array
+          items: 
+            $ref: '#/components/schemas/corpusText_utterances'
+    corpusText_utterances:
+      type: object
+      properties: 
+        id: 
+          type: string
+        content: 
+          type: string
+    CorpusSearch:
+      type: object
+      properties: 
+        query: 
+          type: string
+        hits: 
+          type: array
+          items:          
+            $ref: '#/components/schemas/corpusSearch_hits'
+    corpusSearch_hits: 
+      type: object
+      properties:
+        u: 
+          type: string
+        doc:
+          type: string
+        content: 
+          type: string
     ProjectConfig:
       type: object
       properties:
@@ -1485,6 +1907,7 @@ components:
             - Text
             - SampleText
             - DataList
+            - CorpusQuery
         required:
         - type
     main_type:
@@ -1578,3 +2001,5 @@ components:
           minItems: 4
           items:
             type: number
+            
+           

@@ -1,9 +1,14 @@
 {
-  "openapi": "3.0.0",
+  "openapi": "3.1.0",
+  "jsonSchemaDialect": "https://spec.openapis.org/oas/3.1/dialect/base",
   "servers": [
     {
       "url": "https://vicav.acdh.oeaw.ac.at",
       "description": "current ACDH-CH prod server"
+    },
+    {
+      "url": "https://vicav.acdh-ch-dev.oeaw.ac.at/vicav",
+      "description": "current ACDH-CH dev server"
     },
     {
       "url": "https://vicav.acdh-ch-dev.oeaw.ac.at/vicav",
@@ -15,6 +20,10 @@
     },
     {
       "url": "http://localhost:8984/vicav",
+      "description": "local development"
+    },
+    {
+      "url": "http://shawi-local.acdh.oeaw.ac.at:8984/vicav",
       "description": "local development"
     }
   ],
@@ -51,7 +60,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "$ref": "#/components/schemas/ProjectConfig"
                 },
                 "examples": {
                   "project_config_JSON": {
@@ -362,37 +371,37 @@
                                 },
                                 {
                                   "id": "li_vicavOverview_corpora_spoken",
-                                  "title": "Ôö¼├íÔö¼├íÔö¼├íÔö¼├íÔö¼├íÔö¼├íCorpora (Spoken Varieties)",
+                                  "title": "      Corpora (Spoken Varieties)",
                                   "type": "item"
                                 },
                                 {
                                   "id": "li_vicavOverview_corpora_msa",
-                                  "title": "Ôö¼├íÔö¼├íÔö¼├íÔö¼├íÔö¼├íÔö¼├íCorpora (MSA)",
+                                  "title": "      Corpora (MSA)",
                                   "type": "item"
                                 },
                                 {
                                   "id": "li_vicavOverview_special_corpora",
-                                  "title": "Ôö¼├íÔö¼├íÔö¼├íÔö¼├íÔö¼├íÔö¼├íSpecial Corpora",
+                                  "title": "      Special Corpora",
                                   "type": "item"
                                 },
                                 {
                                   "id": "li_vicavOverview_corpora_historical_varieties",
-                                  "title": "Ôö¼├íÔö¼├íÔö¼├íÔö¼├íÔö¼├íÔö¼├íCorpora (Historical Varieties)",
+                                  "title": "      Corpora (Historical Varieties)",
                                   "type": "item"
                                 },
                                 {
                                   "id": "li_vicavOverview_dictionaries",
-                                  "title": "Ôö¼├íÔö¼├íÔö¼├íÔö¼├íÔö¼├íÔö¼├íDictionaries",
+                                  "title": "      Dictionaries",
                                   "type": "item"
                                 },
                                 {
                                   "id": "li_vicavOverview_nlp",
-                                  "title": "Ôö¼├íÔö¼├íÔö¼├íÔö¼├íÔö¼├íÔö¼├íLanguage Processing Tools",
+                                  "title": "      Language Processing Tools",
                                   "type": "item"
                                 },
                                 {
                                   "id": "li_vicavOverview_otherStuff",
-                                  "title": "Ôö¼├íÔö¼├íÔö¼├íÔö¼├íÔö¼├íÔö¼├íOther Websites & Projects",
+                                  "title": "      Other Websites & Projects",
                                   "type": "item"
                                 },
                                 {
@@ -402,22 +411,22 @@
                                 },
                                 {
                                   "id": "li_vicavLearning_tb_damascus",
-                                  "title": "Ôö¼├íÔö¼├íÔö¼├íÔö¼├íÔö¼├íÔö¼├íTextbook Syrian Arabic (Sound files)",
+                                  "title": "      Textbook Syrian Arabic (Sound files)",
                                   "type": "item"
                                 },
                                 {
                                   "id": "li_vicavLearningSmartphone",
-                                  "title": "Ôö¼├íÔö¼├íÔö¼├íÔö¼├íÔö¼├íÔö¼├íVocabularies on Smartphones",
+                                  "title": "      Vocabularies on Smartphones",
                                   "type": "item"
                                 },
                                 {
                                   "id": "li_vicavLearningPrograms",
-                                  "title": "Ôö¼├íÔö¼├íÔö¼├íÔö¼├íÔö¼├íÔö¼├íAvailable Programs",
+                                  "title": "      Available Programs",
                                   "type": "item"
                                 },
                                 {
                                   "id": "li_vicavLearningData",
-                                  "title": "Ôö¼├íÔö¼├íÔö¼├íÔö¼├íÔö¼├íÔö¼├íAvailable Data",
+                                  "title": "      Available Data",
                                   "type": "item"
                                 },
                                 {
@@ -503,14 +512,14 @@
         "tags": [
           "noauth"
         ],
-        "summary": "gets a specific html transformed via a specified xslt",
+        "summary": "gets a description text identtified by its tei:div@xml:id",
         "operationId": "getText",
         "description": "By passing the appropriate xml-ID and xslt you can retrieve ready to display html\n",
         "parameters": [
           {
             "in": "query",
             "name": "id",
-            "description": "the id of the xml",
+            "description": "the @xml:id of the tei:div xml element",
             "required": true,
             "schema": {
               "type": "string"
@@ -519,8 +528,8 @@
           {
             "in": "query",
             "name": "xslt",
-            "required": true,
-            "description": "the filename of the xslt transformation",
+            "required": false,
+            "description": "the filename of the xslt transformation (for development purposes only)",
             "schema": {
               "type": "string"
             }
@@ -541,7 +550,7 @@
                 "examples": {
                   "html": {
                     "summary": "A sample HTML response",
-                    "value": "<div xmlns:tei=\"http://www.tei-c.org/ns/1.0\">\n<table class=\"tbHeader\"> <tr> <td> <h2>Sample Texts (Explanation)</h2> </td> <td>{teiLink}</td> </tr> </table>\n\n<p>The sample texts are translations of the same <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;sample:msa_sample_01/Modern Standard Arabic&#34;, this)\">source text</a>. They vary slightly with respect to regional differences. However, they are homogeneous enough to allow students to compare the numerous linguistic phenomena displayed in the texts.</p>\n\n<p>Sofar we provide sample texts for six locations: <ul>\n<li> <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;sample:baghdad_sample_01/Baghdad&#34;, this)\">Baghdad</a> </li>\n<li> <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;sample:cairo_sample_01/Cairo&#34;, this)\">Cairo</a> </li>\n<li> <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;sample:damascus_sample_01/Damascus&#34;, this)\">Damascus</a> </li>\n<li> <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;sample:douz_sample_01/Douz&#34;, this)\">Douz</a> </li>\n<li> <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;sample:urfa_sample_01/%C5%9Eanl%C4%B1urfa&#34;, this)\">Ôö╝├ùanlÔöÇÔûÆurfa</a> </li>\n<li> <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;sample:tunis_sample_01/Tunis&#34;, this)\">Tunis</a> </li> </ul> </p> </div>\n"
+                    "value": "<div xmlns:tei=\"http://www.tei-c.org/ns/1.0\">\n<table class=\"tbHeader\"> <tr> <td> <h2>Sample Texts (Explanation)</h2> </td> <td>{teiLink}</td> </tr> </table>\n\n<p>The sample texts are translations of the same <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;sample:msa_sample_01/Modern Standard Arabic&#34;, this)\">source text</a>. They vary slightly with respect to regional differences. However, they are homogeneous enough to allow students to compare the numerous linguistic phenomena displayed in the texts.</p>\n\n<p>Sofar we provide sample texts for six locations: <ul>\n<li> <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;sample:baghdad_sample_01/Baghdad&#34;, this)\">Baghdad</a> </li>\n<li> <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;sample:cairo_sample_01/Cairo&#34;, this)\">Cairo</a> </li>\n<li> <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;sample:damascus_sample_01/Damascus&#34;, this)\">Damascus</a> </li>\n<li> <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;sample:douz_sample_01/Douz&#34;, this)\">Douz</a> </li>\n<li> <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;sample:urfa_sample_01/%C5%9Eanl%C4%B1urfa&#34;, this)\">Şanlıurfa</a> </li>\n<li> <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;sample:tunis_sample_01/Tunis&#34;, this)\">Tunis</a> </li> </ul> </p> </div>\n"
                   }
                 }
               }
@@ -571,14 +580,14 @@
         "tags": [
           "noauth"
         ],
-        "summary": "gets a specific html transformed via a specified xslt",
+        "summary": "gets a langauge profile identified by its TEI@xml:id",
         "operationId": "getProfile",
         "description": "By passing the appropriate xml-ID and xslt you can retrieve ready to display html\n",
         "parameters": [
           {
             "in": "query",
             "name": "id",
-            "description": "the id of the xml",
+            "description": "the @xml:id of the TEI xml element",
             "required": true,
             "schema": {
               "type": "string"
@@ -587,8 +596,8 @@
           {
             "in": "query",
             "name": "coll",
-            "description": "the id of the collection?",
-            "required": true,
+            "description": "the id of the collection/database to use (for development purposes only)",
+            "required": false,
             "schema": {
               "type": "string"
             }
@@ -596,8 +605,8 @@
           {
             "in": "query",
             "name": "xslt",
-            "required": true,
-            "description": "the filename of the xslt transformation",
+            "required": false,
+            "description": "the filename of the xslt transformation (for development purposes only)",
             "schema": {
               "type": "string"
             }
@@ -614,7 +623,7 @@
                 "examples": {
                   "html": {
                     "summary": "A sample HTML response",
-                    "value": "<div xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:tei=\"http://www.tei-c.org/ns/1.0\"> <table class=\"tbHeader\"> <tr> <td> <h2>Skoura</h2> </td> <td class=\"tdTeiLink\">{teiLink}</td> </tr> </table> <div class=\"profileHeader\"> <div class=\"dvImgProfile\"><img src=\"images/skoura_sp_2012.jpg\"><div class=\"imgCaption\">Courtesy of Stephan ProchÔö£├¡zka, 2012</div> </div> <table class=\"tbProfile\"> <tr> <td class=\"tdHead\">MSA Name</td> <td class=\"tdProfileTableRight\">├ÅÔöéÔöÿ├óÔöÿ├¬├ÅÔûÆ├Å┬«</td> </tr> <tr> <td class=\"tdHead\">MSA Name (trans.)</td> <td class=\"tdProfileTableRight\">SakÔö╝┬¢ra SkÔö╝┬¢ra</td> </tr> <tr> <td class=\"tdHead\">Geo location</td> <td class=\"tdProfileTableRight\"><i> 31Ôö¼Ôûæ03'N 06Ôö¼Ôûæ33'W Morocco </i></td> </tr> <tr> <td class=\"tdHead\">Contributed by</td> <td class=\"tdProfileTableRight\"><i>Aleksandra ErcegovÔöÇ├¼eviÔöÇ├º</i></td> </tr> </table> </div> <div class=\"h3ProfileTypology\">Typology</div> <table class=\"tbProfile\"> <tr> <td colspan=\"2\" class=\"tdProfileTableRight\">West (Maghreb) ├ö├çÔòæ Morocco ├ö├çÔòæ Central type</td> </tr> <tr> <td colspan=\"2\" class=\"tdProfileTableRight\">Hilalian-type sedentary rural dialect with strong influence of Berber</td> </tr> </table> <div class=\"h3Profile\">General</div>\n<div class=\"pNorm\">SkÔö╝┬¢ra is an Arabic enclave in the Berber-speaking area south of the High Atlas. Many of the 15,000 inhabitants are bilingual. They live mainly on agriculture and stock breeding.</div>\n<div class=\"h3Profile\">Research History</div>\n<div class=\"pNorm\">All available data on the dialect of SkÔö╝┬¢ra is from the work of Jorge AguadÔö£┬« and Mohammad ElyaÔö£├│coubi. <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;zotid:8SISG2GK&#34;)\">AguadÔö£┬« 1994</a> is a brief study on the formation of the reflexive-passive forms of the verb. <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;zotid:E3T3HBCD&#34;)\">AguadÔö£┬« and Elyaacoubi 1995</a> is a monograph on the dialect with chapters on phonology, nominal and verbal morphology, and verb paradigms. <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;zotid:I3FIKENT&#34;)\">AguadÔö£┬« et al. 1996</a> deals with the irrigation system in the oasis of SkÔö╝┬¢ra, and the technical terminology concerning irrigation in the dialect of SkÔö╝┬¢ra. ElyaÔö£├│coubi 1998 treats the topic of the classification of south Moroccan Arabic dialects on the example of SkÔö╝┬¢ra, where a three page-grammatical sketch of the dialect is also provided.</div>\n<div class=\"h3Profile\">Dictionaries</div>\n<div class=\"pNorm\"><a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;zotid:I3FIKENT&#34;)\">AguadÔö£┬« et al. 1996</a> includes a 2-page glossary of terminology related to the irrigation system (<i>xi├ƒÔòú┬í├ƒÔòú┬íÔöÇ├╝ra</i>).</div>\n<div class=\"h3Profile\">Bibliography</div>\n<div class=\"pNorm\">To view publications on this variety click <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;bibl:geo:Skoura&#34;)\">here</a>.</div> <br><br><br></div>\n"
+                    "value": "<div xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:tei=\"http://www.tei-c.org/ns/1.0\"> <table class=\"tbHeader\"> <tr> <td> <h2>Skoura</h2> </td> <td class=\"tdTeiLink\">{teiLink}</td> </tr> </table> <div class=\"profileHeader\"> <div class=\"dvImgProfile\"><img src=\"images/skoura_sp_2012.jpg\"><div class=\"imgCaption\">Courtesy of Stephan Procházka, 2012</div> </div> <table class=\"tbProfile\"> <tr> <td class=\"tdHead\">MSA Name</td> <td class=\"tdProfileTableRight\">سكورة</td> </tr> <tr> <td class=\"tdHead\">MSA Name (trans.)</td> <td class=\"tdProfileTableRight\">Sakūra Skūra</td> </tr> <tr> <td class=\"tdHead\">Geo location</td> <td class=\"tdProfileTableRight\"><i> 31°03'N 06°33'W Morocco </i></td> </tr> <tr> <td class=\"tdHead\">Contributed by</td> <td class=\"tdProfileTableRight\"><i>Aleksandra Ercegovčević</i></td> </tr> </table> </div> <div class=\"h3ProfileTypology\">Typology</div> <table class=\"tbProfile\"> <tr> <td colspan=\"2\" class=\"tdProfileTableRight\">West (Maghreb) › Morocco › Central type</td> </tr> <tr> <td colspan=\"2\" class=\"tdProfileTableRight\">Hilalian-type sedentary rural dialect with strong influence of Berber</td> </tr> </table> <div class=\"h3Profile\">General</div>\n<div class=\"pNorm\">Skūra is an Arabic enclave in the Berber-speaking area south of the High Atlas. Many of the 15,000 inhabitants are bilingual. They live mainly on agriculture and stock breeding.</div>\n<div class=\"h3Profile\">Research History</div>\n<div class=\"pNorm\">All available data on the dialect of Skūra is from the work of Jorge Aguadé and Mohammad Elyaâcoubi. <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;zotid:8SISG2GK&#34;)\">Aguadé 1994</a> is a brief study on the formation of the reflexive-passive forms of the verb. <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;zotid:E3T3HBCD&#34;)\">Aguadé and Elyaacoubi 1995</a> is a monograph on the dialect with chapters on phonology, nominal and verbal morphology, and verb paradigms. <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;zotid:I3FIKENT&#34;)\">Aguadé et al. 1996</a> deals with the irrigation system in the oasis of Skūra, and the technical terminology concerning irrigation in the dialect of Skūra. Elyaâcoubi 1998 treats the topic of the classification of south Moroccan Arabic dialects on the example of Skūra, where a three page-grammatical sketch of the dialect is also provided.</div>\n<div class=\"h3Profile\">Dictionaries</div>\n<div class=\"pNorm\"><a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;zotid:I3FIKENT&#34;)\">Aguadé et al. 1996</a> includes a 2-page glossary of terminology related to the irrigation system (<i>xiṭṭāra</i>).</div>\n<div class=\"h3Profile\">Bibliography</div>\n<div class=\"pNorm\">To view publications on this variety click <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;bibl:geo:Skoura&#34;)\">here</a>.</div> <br><br><br></div>\n"
                   }
                 }
               }
@@ -669,8 +678,8 @@
           {
             "in": "query",
             "name": "xslt",
-            "required": true,
-            "description": "the filename of the xslt transformation",
+            "required": false,
+            "description": "the filename of the xslt transformation (for development purposes only)",
             "schema": {
               "type": "string"
             }
@@ -691,7 +700,7 @@
                 "examples": {
                   "html": {
                     "summary": "A sample HTML response",
-                    "value": "<div xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:tei=\"http://www.tei-c.org/ns/1.0\"><div class=\"explore-samples\"><table class=\"tbHeader\"><tr><td><h2 xml:space=\"preserve\">Compare samples</h2></td><td class=\"tdPrintLink\"><a href=\"#\" data-print=\"true\" class=\"aTEIButton\">Print</a></td></tr></table><div class=\"explore-samples-summary\"><h4>Summary</h4><table><tr><th>unknown</th><td>1</td></tr></table></div><h3>3</h3><h4>unknown</h4><p xml:space=\"preserve\">1 sentences found.</p><table class=\"tbFeatures\"><tr><td class=\"tdFeaturesHeadRight\"><small xml:space=\"preserve\">%as</small></td><td class=\"tdFeaturesRightTarget\"><a class=\"show-sentence\" title=\"Show full sample text\" href=\"#\" data-sampletext=\"douz_sample_01\"><i class=\"fa fa-eye\" aria-hidden=\"true\"><span/></i></a><span xmlns:acdh=\"http://acdh.oeaw.ac.at\" class=\"spSentence\" xml:space=\"preserve\"><span class=\"sample-text-tooltip\" data-html=\"true\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Tomaten nahm ich keine, weil sie sehr teuer&#xA;                     waren.\"><i class=\"fa fa-commenting-o\" aria-hidden=\"true\"><span/></i></span> <a class=\"word-search\" href=\"#\" data-wordform=\"mÔöÇ├╝\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">mÔöÇ├╝</span></a><a class=\"word-search\" href=\"#\" data-wordform=\"-\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">-</span></a><a class=\"word-search\" href=\"#\" data-wordform=\"Ôö╝├¡rÔöÇ┬¢t\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w highlight\">Ôö╝├¡rÔöÇ┬¢t</span></a><a class=\"word-search\" href=\"#\" data-wordform=\"-\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">-</span></a><a class=\"word-search\" href=\"#\" data-wordform=\"├â├ÿÔö╝├¡\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">├â├ÿÔö╝├¡</span></a> <a class=\"word-search\" href=\"#\" data-wordform=\"i├ƒÔòú┬í\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">i├ƒÔòú┬í</span></a><a class=\"word-search\" href=\"#\" data-wordform=\"-\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">-</span></a><a class=\"word-search\" href=\"#\" data-wordform=\"├ƒÔòú┬íamÔöÇ├╝├ƒÔòú┬íim\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">├ƒÔòú┬íamÔöÇ├╝├ƒÔòú┬íim</span></a> <a class=\"word-search\" href=\"#\" data-wordform=\"Ôò®ÔöÉal\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">Ôò®ÔöÉal</span></a><a class=\"word-search\" href=\"#\" data-wordform=\"-\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">-</span></a><a class=\"word-search\" href=\"#\" data-wordform=\"xÔöÇ├╝├ƒÔòú┬íir\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">xÔöÇ├╝├ƒÔòú┬íir</span></a> <a class=\"word-search\" href=\"#\" data-wordform=\"kÔöÇ├╝nat\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">kÔöÇ├╝nat</span></a> <a class=\"word-search\" href=\"#\" data-wordform=\"ÔöÇ├¡ÔöÇ├╝lya\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">ÔöÇ├¡ÔöÇ├╝lya</span></a><a class=\"word-search\" href=\"#\" data-wordform=\".\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">.</span></a> </span></td></tr></table></div></div>"
+                    "value": "<div xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:tei=\"http://www.tei-c.org/ns/1.0\"><div class=\"explore-samples\"><table class=\"tbHeader\"><tr><td><h2 xml:space=\"preserve\">Compare samples</h2></td><td class=\"tdPrintLink\"><a href=\"#\" data-print=\"true\" class=\"aTEIButton\">Print</a></td></tr></table><div class=\"explore-samples-summary\"><h4>Summary</h4><table><tr><th>unknown</th><td>1</td></tr></table></div><h3>3</h3><h4>unknown</h4><p xml:space=\"preserve\">1 sentences found.</p><table class=\"tbFeatures\"><tr><td class=\"tdFeaturesHeadRight\"><small xml:space=\"preserve\">%as</small></td><td class=\"tdFeaturesRightTarget\"><a class=\"show-sentence\" title=\"Show full sample text\" href=\"#\" data-sampletext=\"douz_sample_01\"><i class=\"fa fa-eye\" aria-hidden=\"true\"><span/></i></a><span xmlns:acdh=\"http://acdh.oeaw.ac.at\" class=\"spSentence\" xml:space=\"preserve\"><span class=\"sample-text-tooltip\" data-html=\"true\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Tomaten nahm ich keine, weil sie sehr teuer&#xA;                     waren.\"><i class=\"fa fa-commenting-o\" aria-hidden=\"true\"><span/></i></span> <a class=\"word-search\" href=\"#\" data-wordform=\"mā\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">mā</span></a><a class=\"word-search\" href=\"#\" data-wordform=\"-\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">-</span></a><a class=\"word-search\" href=\"#\" data-wordform=\"šrīt\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w highlight\">šrīt</span></a><a class=\"word-search\" href=\"#\" data-wordform=\"-\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">-</span></a><a class=\"word-search\" href=\"#\" data-wordform=\"ǝš\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">ǝš</span></a> <a class=\"word-search\" href=\"#\" data-wordform=\"iṭ\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">iṭ</span></a><a class=\"word-search\" href=\"#\" data-wordform=\"-\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">-</span></a><a class=\"word-search\" href=\"#\" data-wordform=\"ṭamāṭim\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">ṭamāṭim</span></a> <a class=\"word-search\" href=\"#\" data-wordform=\"ʿal\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">ʿal</span></a><a class=\"word-search\" href=\"#\" data-wordform=\"-\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">-</span></a><a class=\"word-search\" href=\"#\" data-wordform=\"xāṭir\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">xāṭir</span></a> <a class=\"word-search\" href=\"#\" data-wordform=\"kānat\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">kānat</span></a> <a class=\"word-search\" href=\"#\" data-wordform=\"ġālya\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">ġālya</span></a><a class=\"word-search\" href=\"#\" data-wordform=\".\" data-type=\"sample\"><span data-html=\"true\" data-placement=\"top\" class=\"w\">.</span></a> </span></td></tr></table></div></div>"
                   }
                 }
               }
@@ -737,8 +746,8 @@
           {
             "in": "query",
             "name": "xslt",
-            "required": true,
-            "description": "the filename of the xslt transformation",
+            "required": false,
+            "description": "the filename of the xslt transformation (for development purposes only)",
             "schema": {
               "type": "string"
             }
@@ -759,7 +768,7 @@
                 "examples": {
                   "html": {
                     "summary": "A sample HTML response",
-                    "value": "<div xmlns:tei=\"http://www.tei-c.org/ns/1.0\"><div class=\"dvStats\">Query:Ôö¼├íÔö¼├í<span class=\"spQueryText\">{query}</span></div><div class=\"dvStats\">1 recordÔö¼├í</div><div class=\"dvBibBook\"><div class=\"dvAuthor\"><b>Hagenbucher,<span xml:space=\"preserve\"> </span>F.</b></div><div class=\"dvBiblBlock\"><img class=\"imgBiblItem\" src=\"images/book_001.jpg\"/>Les arabes dits ├ö├ç┬úsuwa├ö├ç├ÿ du Nord-Cameroun.<span xml:space=\"preserve\"> </span>Yaounde.<span xml:space=\"preserve\"> </span>ORSTOM.<span xml:space=\"preserve\"> </span>1973.</div></div></div>"
+                    "value": "<div xmlns:tei=\"http://www.tei-c.org/ns/1.0\"><div class=\"dvStats\">Query:  <span class=\"spQueryText\">{query}</span></div><div class=\"dvStats\">1 record </div><div class=\"dvBibBook\"><div class=\"dvAuthor\"><b>Hagenbucher,<span xml:space=\"preserve\"> </span>F.</b></div><div class=\"dvBiblBlock\"><img class=\"imgBiblItem\" src=\"images/book_001.jpg\"/>Les arabes dits “suwa” du Nord-Cameroun.<span xml:space=\"preserve\"> </span>Yaounde.<span xml:space=\"preserve\"> </span>ORSTOM.<span xml:space=\"preserve\"> </span>1973.</div></div></div>"
                   }
                 }
               }
@@ -789,14 +798,14 @@
         "tags": [
           "noauth"
         ],
-        "summary": "gets a specific xml transformed via a specified xslt",
+        "summary": "gets a geo marker information",
         "operationId": "getMarkers",
-        "description": "By passing the appropriate xml-ID and xslt you can retrieve ready to display html\n",
+        "description": "Retrieve geo data information from the bibliography for displaying coordinates on a map.\n",
         "parameters": [
           {
             "in": "query",
             "name": "query",
-            "description": "an xml query?",
+            "description": "A BaseX Full-Text search query in in vicav-biblio tei:biblstruct with wildcards enabled.\nSee: https://docs.basex.org/wiki/Full-Text#Match_Options\nusing wildcards using diacritics sensitive\nUses prefixes to limit the full text search to certein elements.\n* date: -> tei:date\n* title: -> tei:title\n* pubPlace: -> tei:pubPlace\n* author: -> tei:author/tei:surname\n* geo:, geo_reg:, reg:, diaGroup: -> tei:note[@type=\"tag\"]/tei:name\n* vt:, prj: -> tei:note[@type=\"tag\"]\n\nWithout a prefix any text in vicav-biblio tei:biblstruct is searched.\n\nMore than one query is possible by separating with ' '/+.\n",
             "required": true,
             "schema": {
               "type": "string"
@@ -806,16 +815,70 @@
             "in": "query",
             "name": "scope",
             "required": true,
-            "description": "I have no idea!",
+            "description": "Filters based on a set of tei:name/@types being present in a tei:note[tei:geo]           \n* geo\n* diaGroup\n* reg\n* geo_reg: any of the above\n",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "geo_reg",
+                "geo",
+                "reg",
+                "diaGroup"
+              ]
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "an xml result list to the query",
+            "description": "a list of geo markers",
             "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "schema": {
+                      "$ref": "#/components/schemas/Feature"
+                    }
+                  }
+                },
+                "examples": {
+                  "geoJSON_features_Ma_geo_reg": {
+                    "summary": "query: Ma.*. scope: geo_reg, shorted",
+                    "value": [
+                      {
+                        "type": "Feature",
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            "35.578333",
+                            "-5.368056"
+                          ]
+                        },
+                        "properties": {
+                          "type": "geo",
+                          "name": "Tétouan",
+                          "hitCount": "16"
+                        }
+                      },
+                      {
+                        "type": "Feature",
+                        "geometry": {
+                          "type": "Point",
+                          "coordinates": [
+                            "32.000000",
+                            "-6.000000"
+                          ]
+                        },
+                        "properties": {
+                          "type": "reg",
+                          "name": "Morocco",
+                          "hitCount": "1157"
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
               "application/xml": {
                 "schema": {
                   "type": "string",
@@ -829,8 +892,8 @@
                 },
                 "examples": {
                   "xml": {
-                    "summary": "A list of geo markers",
-                    "value": "<rs type=\"60\">\n  <r type=\"geo\">\n    <geo>35.578333 -5.368056</geo>\n    <alt>TÔö£┬«touan</alt>\n    <freq>1</freq>\n  </r>\n  <r type=\"reg\">\n    <geo>32.000000 -6.000000</geo>\n    <alt>Morocco</alt>\n    <freq>44</freq>\n  </r>\n  <r type=\"reg\">\n    <geo>34.000000 9.000000</geo>\n    <alt>Tunisia</alt>\n    <freq>4</freq>\n  </r>\n</rs>\n"
+                    "summary": "a list of geo markers",
+                    "value": "<rs type=\"60\">\n  <r type=\"geo\">\n    <geo>35.578333 -5.368056</geo>\n    <alt>Tétouan</alt>\n    <freq>1</freq>\n  </r>\n  <r type=\"reg\">\n    <geo>32.000000 -6.000000</geo>\n    <alt>Morocco</alt>\n    <freq>44</freq>\n  </r>\n  <r type=\"reg\">\n    <geo>34.000000 9.000000</geo>\n    <alt>Tunisia</alt>\n    <freq>4</freq>\n  </r>\n</rs>\n"
                   }
                 }
               }
@@ -892,7 +955,7 @@
                 "examples": {
                   "xml": {
                     "summary": "A list of geo markers",
-                    "value": "<rs>\n  <r type=\"geo\" xml:id=\"baghdad_sample_01\">\n    <loc>33Ôö¼Ôûæ20'N 44Ôö¼Ôûæ24'E</loc>\n    <locName>\n      <name xmlns=\"http://www.tei-c.org/ns/1.0\" xml:lang=\"eng\">Baghdad</name>\n    </locName>\n    <alt>\n      <name xmlns=\"http://www.tei-c.org/ns/1.0\" xml:lang=\"eng\">Baghdad</name>\n    </alt>\n    <freq>1</freq>\n  </r>\n  <r type=\"geo\" xml:id=\"cairo_sample_01\">\n    <loc>30Ôö¼Ôûæ03'N 31Ôö¼Ôûæ14'E</loc>\n    <locName>\n      <name xmlns=\"http://www.tei-c.org/ns/1.0\" xml:lang=\"eng\">Cairo</name>\n    </locName>\n    <alt>\n      <name xmlns=\"http://www.tei-c.org/ns/1.0\" xml:lang=\"eng\">Cairo</name>\n    </alt>\n    <freq>1</freq>\n  </r>\n</rs>\n"
+                    "value": "<rs>\n  <r type=\"geo\" xml:id=\"baghdad_sample_01\">\n    <loc>33°20'N 44°24'E</loc>\n    <locName>\n      <name xmlns=\"http://www.tei-c.org/ns/1.0\" xml:lang=\"eng\">Baghdad</name>\n    </locName>\n    <alt>\n      <name xmlns=\"http://www.tei-c.org/ns/1.0\" xml:lang=\"eng\">Baghdad</name>\n    </alt>\n    <freq>1</freq>\n  </r>\n  <r type=\"geo\" xml:id=\"cairo_sample_01\">\n    <loc>30°03'N 31°14'E</loc>\n    <locName>\n      <name xmlns=\"http://www.tei-c.org/ns/1.0\" xml:lang=\"eng\">Cairo</name>\n    </locName>\n    <alt>\n      <name xmlns=\"http://www.tei-c.org/ns/1.0\" xml:lang=\"eng\">Cairo</name>\n    </alt>\n    <freq>1</freq>\n  </r>\n</rs>\n"
                   }
                 }
               }
@@ -947,8 +1010,8 @@
           {
             "in": "query",
             "name": "xslt",
-            "required": true,
-            "description": "the filename of the xslt transformation",
+            "required": false,
+            "description": "the filename of the xslt transformation (for development purposes only)",
             "schema": {
               "type": "string"
             }
@@ -1059,7 +1122,7 @@
                 "examples": {
                   "html": {
                     "summary": "A sample HTML response",
-                    "value": "<div xmlns=\"http://www.w3.org/1999/xhtml\"> <option class=\"opWordList_de\">'[abstauben]</option> <option class=\"opWordList_de\">[Abbilden]</option> <option class=\"opWordList_de\">[Abdruck]</option> <option class=\"opWordList_de\">[Abend]</option> <option class=\"opWordList_de\">[Abend]-</option> <option class=\"opWordList_de\">[Abendessen]</option> <option class=\"opWordList_de\">[Abendgebet]</option> <option class=\"opWordList_de\">[Abenteuer]</option> <option class=\"opWordList_de\">[Abfall]</option> <option class=\"opWordList_de\">[Abfallhaufen]</option> <option class=\"opWordList_de\">[Abflussloch]</option> <option class=\"opWordList_de\">[Abflussrinne]</option> <option class=\"opWordList_de\">[Abflussrohr]</option> <option class=\"opWordList_de\">[AbfluÔö£ãÆkanal]</option> <option class=\"opWordList_de\">[Abgeordnetenhaus]</option> <option class=\"opWordList_de\">[Abgeordnetenkammer]</option> <option class=\"opWordList_de\">[Abgeordneter]</option> <option class=\"opWordList_de\">[Abgeschiedenheit]</option> <option class=\"opWordList_de\">[Abitur]</option> <option class=\"opWordList_de\">[AbkÔö£ÔòØrzung]</option> <option class=\"opWordList_de\">[Ablenkung]</option> <option class=\"opWordList_de\">[Ablflussrinne]</option> <option class=\"opWordList_de\">[AblutionskÔö£├▒nnchen]</option> <option class=\"opWordList_de\">[Abmachung]</option> <option class=\"opWordList_de\">[Abort]</option> <option class=\"opWordList_de\">[Abortgrube]</option> <option class=\"opWordList_de\">[Absatz]</option> <option class=\"opWordList_de\">[Abscheu]</option> <option class=\"opWordList_de\">[Abscheulichkeit]</option> <option class=\"opWordList_de\">[AbschiedsgruÔö£ãÆ]</option> <option class=\"opWordList_de\">[Abschneiden]</option> <option class=\"opWordList_de\">[Abschnitt]</option> <option class=\"opWordList_de\">[Absender]</option> <option class=\"opWordList_de\">[Absicht]</option> <option class=\"opWordList_de\">[Abstand]</option> <option class=\"opWordList_de\">[Abstellbrett]</option> <option class=\"opWordList_de\">[Abstellraum]</option> <option class=\"opWordList_de\">[Abstieg]</option> <option class=\"opWordList_de\">[Abszess]</option> <option class=\"opWordList_de\">[Abteilungsleiter]</option> <option class=\"opWordList_de\">[Abtritt]</option> <option class=\"opWordList_de\">[Abwesenheit]</option> <option class=\"opWordList_de\">[Abwickeln]</option> <option class=\"opWordList_de\">[Abzweigung]</option> <option class=\"opWordList_de\">[abbiegen]</option> <option class=\"opWordList_de\">[abbrechen]</option> <option class=\"opWordList_de\">[abdecken]</option> <option class=\"opWordList_de\">[abendlich]</option> <option class=\"opWordList_de\">[abendlÔö£├▒ndisch]</option> <option class=\"opWordList_de\">[aber]</option> <option class=\"opWordList_de\">[abfahren]</option> <option class=\"opWordList_de\">[abfangen]</option> <option class=\"opWordList_de\">[abgeben]</option> <option class=\"opWordList_de\">[abgebildet]</option> <option class=\"opWordList_de\">[abgenutzt]</option> <option class=\"opWordList_de\">[abgeschrieben]</option> <option class=\"opWordList_de\">[abgeschÔö£├▒lt]</option> <option class=\"opWordList_de\">[abgestempelt]</option> <option class=\"opWordList_de\">[abgewirtschaftet]</option> <option class=\"opWordList_de\">[abhauen]</option> <option class=\"opWordList_de\">[abheben]</option> <option class=\"opWordList_de\">[abhÔö£├▒uten]</option> <option class=\"opWordList_de\">[ablehnen]</option> <option class=\"opWordList_de\">[abliefern]</option> <option class=\"opWordList_de\">[abmagern]</option> <option class=\"opWordList_de\">[abnehmen]</option> <option class=\"opWordList_de\">[abnormal]</option> <option class=\"opWordList_de\">[abreisen]</option> <option class=\"opWordList_de\">[abreiÔö£ãÆen]</option> <option class=\"opWordList_de\">[abschaben]</option> <option class=\"opWordList_de\">[abscheulich]</option> <option class=\"opWordList_de\">[abschlachten]</option> <option class=\"opWordList_de\">[abschneiden]</option> <option class=\"opWordList_de\">[abschreiben]</option> <option class=\"opWordList_de\">[abseihen]</option> <option class=\"opWordList_de\">[absengen]</option> <option class=\"opWordList_de\">[absichtlich]</option> <option class=\"opWordList_de\">[absteigen]</option> <option class=\"opWordList_de\">[abstoÔö£ãÆen]</option> <option class=\"opWordList_de\">[abstreiten]</option> <option class=\"opWordList_de\">[abwaschen]</option> <option class=\"opWordList_de\">[abwesend]</option> <option class=\"opWordList_de\">[abwischen]</option> <option class=\"opWordList_de\">[abziehen]</option> <option class=\"opWordList_en\">[abdomen]</option> <option class=\"opWordList_en\">[abhorrence]</option> <option class=\"opWordList_en\">[ability]</option> <option class=\"opWordList_en\">[ablution]</option> <option class=\"opWordList_en\">[about]</option> <option class=\"opWordList_en\">[above]</option> <option class=\"opWordList_en\">[abroad]</option> <option class=\"opWordList_en\">[abscess]</option> <option class=\"opWordList_en\">[absence]</option> <option class=\"opWordList_en\">[absent]</option> <option class=\"opWordList_en\">[absolutely]</option> <option class=\"opWordList_en\">[abundantly]</option> <option class=\"opWordList_fr\">[abaissement]</option> <option class=\"opWordList_fr\">[abaisser]</option> <option class=\"opWordList_fr\">[abattage]</option> <option class=\"opWordList_fr\">[abattement]</option> <option class=\"opWordList_fr\">[abattre]</option> <option class=\"opWordList_fr\">[abattu]</option> <option class=\"opWordList_fr\">[abdomen]</option> <option class=\"opWordList_fr\">[abeilles]</option> <option class=\"opWordList_fr\">[ablution]</option> <option class=\"opWordList_fr\">[aboiement]</option> <option class=\"opWordList_fr\">[abonder]</option> <option class=\"opWordList_fr\">[aboyer]</option> <option class=\"opWordList_fr\">[abreuver]</option> <option class=\"opWordList_fr\">[abricots]</option> <option class=\"opWordList_fr\">[absence]</option> <option class=\"opWordList_fr\">[absent]</option> <option class=\"opWordList_fr\">[absolument]</option> <option class=\"opWordList_fr\">[absolutment]</option> <option class=\"opWordList_fr\">[abuser]</option> <option class=\"opWordList_fr\">[abÔö£┬½mÔö£┬«]</option> <option class=\"opWordList_de\">([Ab])hang</option> <option class=\"opWordList_de\">([Ab])wiegen</option> <option class=\"opWordList_de\">(Geld) [abheben]</option> <option class=\"opWordList_de\">(Staub) [abklopfen]</option> <option class=\"opWordList_de\">(Unter-)[Abteilung]</option> <option class=\"opWordList_de\">(Zigarette) [abaschen]</option> <option class=\"opWordList_de\">([ab])stÔö£ÔòØtzen</option> <option class=\"opWordList_de\">([ab])wÔö£├▒gen</option> <option class=\"opWordList_de\">([ab]-)lecken</option> <option class=\"opWordList_de\">(edle) [Abstammung]</option> <option class=\"opWordList_de\">(frÔö£ÔòØher) [Abend]</option> <option class=\"opWordList_de\">(gute) [Absicht]</option> <option class=\"opWordList_de\">(stark) [abnehmen]</option> <option class=\"opWordList_de\">[Abscheu] erregen</option> <option class=\"opWordList_de\">[Abschied] nehmen</option> <option class=\"opWordList_de\">Guten [Abend]!</option> <option class=\"opWordList_de\">Hau [ab]!</option> <option class=\"opWordList_de\">Luft [ablassen]</option> <option class=\"opWordList_de\">Stimme [abgeben]</option> <option class=\"opWordList_de\">[abendliche] Feier</option> <option class=\"opWordList_de\">[aber]...nicht</option> <option class=\"opWordList_de\">[abgehen] (Zug)</option> <option class=\"opWordList_de\">[abgenÔö£ÔòØtzt] werden</option> <option class=\"opWordList_de\">[abgerissenes] KleidungsstÔö£ÔòØck</option> <option class=\"opWordList_de\">[abgeschnittene] Locke</option> <option class=\"opWordList_de\">[abgesehen] davon</option> <option class=\"opWordList_de\">[abgesehen] von</option> <option class=\"opWordList_de\">[abheben] (Geld)</option> <option class=\"opWordList_de\">[abhÔö£├▒ngen] von</option> <option class=\"opWordList_de\">[abhÔö£├▒ngig] von</option> <option class=\"opWordList_de\">[abhÔö£├éren] (Patient)</option> <option class=\"opWordList_de\">[ablassen] von</option> <option class=\"opWordList_de\">[abschleppen] (Auto)</option> <option class=\"opWordList_de\">[abspÔö£ÔòØlen] (Geschirr)</option> <option class=\"opWordList_de\">[abstÔö£ÔòØrzen] (Computer</option> <option class=\"opWordList_de\">[abtrÔö£ÔòØnniger] Muslim</option> <option class=\"opWordList_de\">[abwesend] sein</option> <option class=\"opWordList_de\">[abzielen] auf</option> <option class=\"opWordList_de\">en [abondance]</option> <option class=\"opWordList_de\">etw. [abbrechen]</option> <option class=\"opWordList_de\">etw. [abkratzen]</option> <option class=\"opWordList_de\">gegen [Abend]</option> <option class=\"opWordList_de\">heute [Abend]</option> <option class=\"opWordList_de\">langsam [abflieÔö£ãÆen]</option> <option class=\"opWordList_de\">mit [Absicht]</option> <option class=\"opWordList_de\">nun [aber]</option> <option class=\"opWordList_de\">sich [abmÔö£ÔòØhen]</option> <option class=\"opWordList_de\">vorgestern [Abend]</option> <option class=\"opWordList_en\">[about] what</option> <option class=\"opWordList_en\">[absolutely] nothing</option> <option class=\"opWordList_en\">caring [about]</option> <option class=\"opWordList_en\">from [above]</option> <option class=\"opWordList_en\">from [abroad]</option> <option class=\"opWordList_en\">to [abandon]</option> <option class=\"opWordList_en\">to [abound]</option> <option class=\"opWordList_en\">to [abuse]</option> <option class=\"opWordList_fr\">[aborder] qc.</option> <option class=\"opWordList_fr\">[abÔö£┬½mer] qc.</option> <option class=\"opWordList_fr\">d'[abord]</option> <option class=\"opWordList_fr\">devenir [abondant]</option> <option class=\"opWordList_fr\">d├ö├ç├û[abord]</option> <option class=\"opWordList_fr\">rÔö£┬┐gle [absolue]</option> <option class=\"opWordList_fr\">s├ö├ç├û[abÔö£┬½mer]</option> <option class=\"opWordList_fr\">Ôö£┬¼tre [abandonnÔö£┬«]</option> <option class=\"opWordList_fr\">Ôö£┬¼tre [absent]</option> <option class=\"opWordList_de\">([ab])wiegen (Gewicht)</option> <option class=\"opWordList_de\">(die Schule/ das Studium) [abschlieÔö£ãÆen]/[absolvieren]</option> <option class=\"opWordList_de\">[Ablegen] von GegenstÔö£├▒nden</option> <option class=\"opWordList_de\">[Abreibung] (mit Seife)</option> <option class=\"opWordList_de\">[Abweichung] (vom Rechten)</option> <option class=\"opWordList_de\">[abgerissenes] zerlumptes KleidungsstÔö£ÔòØck</option> <option class=\"opWordList_de\">[abgewickelt] werden (GeschÔö£├▒ft)</option> <option class=\"opWordList_de\">[abhÔö£├▒ngig] sein von</option> <option class=\"opWordList_de\">[abnehmen] (den TelefonhÔö£├érer)</option> <option class=\"opWordList_de\">an jenem [Abend]</option> <option class=\"opWordList_de\">austreten (auf [Abort])</option> <option class=\"opWordList_de\">das Fell [abziehen]</option> <option class=\"opWordList_de\">die [Absicht] habend...</option> <option class=\"opWordList_de\">eine [Abteilung] Soldaten</option> <option class=\"opWordList_de\">mit der [Absicht]</option> <option class=\"opWordList_de\">sich (gegenseitig) [abkÔö£ÔòØssen]</option> <option class=\"opWordList_de\">sich [abwenden] von</option> <option class=\"opWordList_de\">sich [abzeichnend] (Konturen)</option> <option class=\"opWordList_de\">von ihm [abfallen]</option> <option class=\"opWordList_de\">zu [Abend] essen</option> <option class=\"opWordList_de\">zu [Abend] speisen</option> <option class=\"opWordList_en\">hanging [about]/around</option> <option class=\"opWordList_en\">to [abandon] sth.</option> <option class=\"opWordList_en\">to [abate] (price)</option> <option class=\"opWordList_en\">to be [abandoned]</option> <option class=\"opWordList_en\">to be [able]</option> <option class=\"opWordList_en\">to be [absent]</option> <option class=\"opWordList_en\">to complain [about]</option> <option class=\"opWordList_en\">to laze ([about])</option> <option class=\"opWordList_en\">to reflect ([about])</option> <option class=\"opWordList_en\">to strut [about]</option> <option class=\"opWordList_en\">to think ([about])</option> <option class=\"opWordList_en\">to worry [about]</option> <option class=\"opWordList_en\">wandering [about]/around</option> <option class=\"opWordList_fr\">[abandonner] qn./qc.</option> <option class=\"opWordList_fr\">[abri] de fortune</option> <option class=\"opWordList_fr\">ne... [absolument] personne</option> <option class=\"opWordList_fr\">s'[abattre] sur</option> <option class=\"opWordList_fr\">s├ö├ç├û[absenter] (de)</option> <option class=\"opWordList_fr\">tout d'[abord]</option> <option class=\"opWordList_de\">[Absatz]/StÔö£├éckel der Schuhe</option> <option class=\"opWordList_de\">[Abzug] (e-r Feuerwaffe)</option> <option class=\"opWordList_de\">[Abzugsloch] unter der Feuerstelle</option> <option class=\"opWordList_de\">[abgeschnittene] Locke der Braut</option> <option class=\"opWordList_de\">[abgewinkelter] Eingangsbereich tunesischer HÔö£├▒user</option> <option class=\"opWordList_de\">[abschÔö£├▒tziger] und verÔö£├▒chtlicher Mann</option> <option class=\"opWordList_de\">[abschÔö£ÔòØssige](r) StraÔö£ãÆe/ Weg</option> <option class=\"opWordList_de\">des [Ablegens] von Kleidung</option> <option class=\"opWordList_de\">die den Kachelfries [abschlieÔö£ãÆt]</option> <option class=\"opWordList_de\">eine groÔö£ãÆe Schau [abziehen]</option> <option class=\"opWordList_de\">j-m etw. [abknÔö£├épfen]</option> <option class=\"opWordList_de\">j-m etw. [abluchsen]</option> <option class=\"opWordList_de\">mit j-m [abrechnen]</option> <option class=\"opWordList_en\">it is [absolutely] necessary</option> <option class=\"opWordList_en\">to be passionate [about]</option> <option class=\"opWordList_en\">to become [abundant]/plentiful</option> <option class=\"opWordList_en\">to hang [about]/around</option> <option class=\"opWordList_en\">to philosophize [about] sth.</option> <option class=\"opWordList_en\">to wander [about]/around</option> <option class=\"opWordList_fr\">avoir l'esprit [absent]</option> <option class=\"opWordList_fr\">chevelure [abondante] et indisciplinÔö£┬«e</option> <option class=\"opWordList_fr\">il est [absolument] necessaire</option> <option class=\"opWordList_de\">Schuheisen (fÔö£ÔòØr Spitze und [Absatz])</option> <option class=\"opWordList_de\">Unterleder von Sohle und [Absatz]</option> <option class=\"opWordList_de\">Wasch- und Wasserstelle sowie [Abort]</option> <option class=\"opWordList_de\">[aber] geduldete) Zuschauerin (bei Familienfeiern)</option> <option class=\"opWordList_de\">[abmessen] (mit e-m HohlmaÔö£ãÆ</option> <option class=\"opWordList_de\">an den Festtagen Verwandtschaftsbesuche [absolviert])</option> <option class=\"opWordList_de\">befreien (verstopften Gang/Kanal/[Abfluss]</option> <option class=\"opWordList_de\">der die einheimischen MÔö£├▒rkte [abmacht]</option> <option class=\"opWordList_de\">die das Trauerjahr [abschlieÔö£ãÆende] Zeremonie</option> <option class=\"opWordList_de\">mittels e-s Schlosses [ab]-</option> <option class=\"opWordList_en\">to acquire knowledge [about] sth.</option> <option class=\"opWordList_en\">to gossip [about] sb./sth.</option> <option class=\"opWordList_en\">to perform the ritual [ablution]</option> <option class=\"opWordList_en\">to talk [about] sth./sb.</option> <option class=\"opWordList_de\">Feier zur schriftlichen [Abfassung] eines HeiratsÔö£ÔòØbereinkommens</option> <option class=\"opWordList_de\">Student bzw. [Absolvent] der Zitouna-Hochschule</option> <option class=\"opWordList_de\">bei einer PrÔö£ÔòØfung schummeln oder [abschreiben]</option> <option class=\"opWordList_de\">den KuskusdÔö£├▒mpfer mittels der qfÔöÇ┬¢la [abdichten]</option> <option class=\"opWordList_de\">sich [absichern] (durch RÔö£ÔòØcklagen o. Ôö£├▒.)</option> <option class=\"opWordList_en\">to doubt of/[about] sth./sb.</option> <option class=\"opWordList_fr\">employer [abondamment] le mot pÔö£┬«nis (zibb)</option> <option class=\"opWordList_de\">die als [Abgrenzung] einer landwirtschaftlichen FlÔö£├▒che dienen</option> <option class=\"opWordList_de\">die gerne [abends] ausgeht und gerne feiert</option> <option class=\"opWordList_de\">eifersÔö£ÔòØchtig auf die [Abgeschlossenheit] seiner Frau Bedachter</option> <option class=\"opWordList_en\">a unit of mass ([about] 5 g)</option> <option class=\"opWordList_en\">to [abundantly] use the word penis (zibb)</option> <option class=\"opWordList_en\">to say bad things [about] sb./sth.</option> <option class=\"opWordList_de\">[aber] von MÔö£├▒nnern wie Frauen unter sich gebraucht)</option> <option class=\"opWordList_de\">die Verbindung/den Kontakt zu j-m [abbrechen]</option> <option class=\"opWordList_de\">bezÔö£ÔòØglich auf einen Studenten bzw. [Absolventen] der Zitouna-Hochschule</option> <option class=\"opWordList_de\">das Fell von Schlachttieren (an SchÔö£├▒del und LÔö£├▒ufen) [absengen]</option> <option class=\"opWordList_en\">What do I/do you/does he etc. think ([about]...)?</option> <option class=\"opWordList_de\">sehr feine und geschmeidige Pantoffel mit [abgerundeter] Spitze und aus Kamelleder</option> <option class=\"opWordList_de\">und 9. Tag nach einem Todesfall der leidtragenden Familie [abstattete] (obsoleter Brauch)</option> </div>\n"
+                    "value": "<div xmlns=\"http://www.w3.org/1999/xhtml\"> <option class=\"opWordList_de\">'[abstauben]</option> <option class=\"opWordList_de\">[Abbilden]</option> <option class=\"opWordList_de\">[Abdruck]</option> <option class=\"opWordList_de\">[Abend]</option> <option class=\"opWordList_de\">[Abend]-</option> <option class=\"opWordList_de\">[Abendessen]</option> <option class=\"opWordList_de\">[Abendgebet]</option> <option class=\"opWordList_de\">[Abenteuer]</option> <option class=\"opWordList_de\">[Abfall]</option> <option class=\"opWordList_de\">[Abfallhaufen]</option> <option class=\"opWordList_de\">[Abflussloch]</option> <option class=\"opWordList_de\">[Abflussrinne]</option> <option class=\"opWordList_de\">[Abflussrohr]</option> <option class=\"opWordList_de\">[Abflußkanal]</option> <option class=\"opWordList_de\">[Abgeordnetenhaus]</option> <option class=\"opWordList_de\">[Abgeordnetenkammer]</option> <option class=\"opWordList_de\">[Abgeordneter]</option> <option class=\"opWordList_de\">[Abgeschiedenheit]</option> <option class=\"opWordList_de\">[Abitur]</option> <option class=\"opWordList_de\">[Abkürzung]</option> <option class=\"opWordList_de\">[Ablenkung]</option> <option class=\"opWordList_de\">[Ablflussrinne]</option> <option class=\"opWordList_de\">[Ablutionskännchen]</option> <option class=\"opWordList_de\">[Abmachung]</option> <option class=\"opWordList_de\">[Abort]</option> <option class=\"opWordList_de\">[Abortgrube]</option> <option class=\"opWordList_de\">[Absatz]</option> <option class=\"opWordList_de\">[Abscheu]</option> <option class=\"opWordList_de\">[Abscheulichkeit]</option> <option class=\"opWordList_de\">[Abschiedsgruß]</option> <option class=\"opWordList_de\">[Abschneiden]</option> <option class=\"opWordList_de\">[Abschnitt]</option> <option class=\"opWordList_de\">[Absender]</option> <option class=\"opWordList_de\">[Absicht]</option> <option class=\"opWordList_de\">[Abstand]</option> <option class=\"opWordList_de\">[Abstellbrett]</option> <option class=\"opWordList_de\">[Abstellraum]</option> <option class=\"opWordList_de\">[Abstieg]</option> <option class=\"opWordList_de\">[Abszess]</option> <option class=\"opWordList_de\">[Abteilungsleiter]</option> <option class=\"opWordList_de\">[Abtritt]</option> <option class=\"opWordList_de\">[Abwesenheit]</option> <option class=\"opWordList_de\">[Abwickeln]</option> <option class=\"opWordList_de\">[Abzweigung]</option> <option class=\"opWordList_de\">[abbiegen]</option> <option class=\"opWordList_de\">[abbrechen]</option> <option class=\"opWordList_de\">[abdecken]</option> <option class=\"opWordList_de\">[abendlich]</option> <option class=\"opWordList_de\">[abendländisch]</option> <option class=\"opWordList_de\">[aber]</option> <option class=\"opWordList_de\">[abfahren]</option> <option class=\"opWordList_de\">[abfangen]</option> <option class=\"opWordList_de\">[abgeben]</option> <option class=\"opWordList_de\">[abgebildet]</option> <option class=\"opWordList_de\">[abgenutzt]</option> <option class=\"opWordList_de\">[abgeschrieben]</option> <option class=\"opWordList_de\">[abgeschält]</option> <option class=\"opWordList_de\">[abgestempelt]</option> <option class=\"opWordList_de\">[abgewirtschaftet]</option> <option class=\"opWordList_de\">[abhauen]</option> <option class=\"opWordList_de\">[abheben]</option> <option class=\"opWordList_de\">[abhäuten]</option> <option class=\"opWordList_de\">[ablehnen]</option> <option class=\"opWordList_de\">[abliefern]</option> <option class=\"opWordList_de\">[abmagern]</option> <option class=\"opWordList_de\">[abnehmen]</option> <option class=\"opWordList_de\">[abnormal]</option> <option class=\"opWordList_de\">[abreisen]</option> <option class=\"opWordList_de\">[abreißen]</option> <option class=\"opWordList_de\">[abschaben]</option> <option class=\"opWordList_de\">[abscheulich]</option> <option class=\"opWordList_de\">[abschlachten]</option> <option class=\"opWordList_de\">[abschneiden]</option> <option class=\"opWordList_de\">[abschreiben]</option> <option class=\"opWordList_de\">[abseihen]</option> <option class=\"opWordList_de\">[absengen]</option> <option class=\"opWordList_de\">[absichtlich]</option> <option class=\"opWordList_de\">[absteigen]</option> <option class=\"opWordList_de\">[abstoßen]</option> <option class=\"opWordList_de\">[abstreiten]</option> <option class=\"opWordList_de\">[abwaschen]</option> <option class=\"opWordList_de\">[abwesend]</option> <option class=\"opWordList_de\">[abwischen]</option> <option class=\"opWordList_de\">[abziehen]</option> <option class=\"opWordList_en\">[abdomen]</option> <option class=\"opWordList_en\">[abhorrence]</option> <option class=\"opWordList_en\">[ability]</option> <option class=\"opWordList_en\">[ablution]</option> <option class=\"opWordList_en\">[about]</option> <option class=\"opWordList_en\">[above]</option> <option class=\"opWordList_en\">[abroad]</option> <option class=\"opWordList_en\">[abscess]</option> <option class=\"opWordList_en\">[absence]</option> <option class=\"opWordList_en\">[absent]</option> <option class=\"opWordList_en\">[absolutely]</option> <option class=\"opWordList_en\">[abundantly]</option> <option class=\"opWordList_fr\">[abaissement]</option> <option class=\"opWordList_fr\">[abaisser]</option> <option class=\"opWordList_fr\">[abattage]</option> <option class=\"opWordList_fr\">[abattement]</option> <option class=\"opWordList_fr\">[abattre]</option> <option class=\"opWordList_fr\">[abattu]</option> <option class=\"opWordList_fr\">[abdomen]</option> <option class=\"opWordList_fr\">[abeilles]</option> <option class=\"opWordList_fr\">[ablution]</option> <option class=\"opWordList_fr\">[aboiement]</option> <option class=\"opWordList_fr\">[abonder]</option> <option class=\"opWordList_fr\">[aboyer]</option> <option class=\"opWordList_fr\">[abreuver]</option> <option class=\"opWordList_fr\">[abricots]</option> <option class=\"opWordList_fr\">[absence]</option> <option class=\"opWordList_fr\">[absent]</option> <option class=\"opWordList_fr\">[absolument]</option> <option class=\"opWordList_fr\">[absolutment]</option> <option class=\"opWordList_fr\">[abuser]</option> <option class=\"opWordList_fr\">[abîmé]</option> <option class=\"opWordList_de\">([Ab])hang</option> <option class=\"opWordList_de\">([Ab])wiegen</option> <option class=\"opWordList_de\">(Geld) [abheben]</option> <option class=\"opWordList_de\">(Staub) [abklopfen]</option> <option class=\"opWordList_de\">(Unter-)[Abteilung]</option> <option class=\"opWordList_de\">(Zigarette) [abaschen]</option> <option class=\"opWordList_de\">([ab])stützen</option> <option class=\"opWordList_de\">([ab])wägen</option> <option class=\"opWordList_de\">([ab]-)lecken</option> <option class=\"opWordList_de\">(edle) [Abstammung]</option> <option class=\"opWordList_de\">(früher) [Abend]</option> <option class=\"opWordList_de\">(gute) [Absicht]</option> <option class=\"opWordList_de\">(stark) [abnehmen]</option> <option class=\"opWordList_de\">[Abscheu] erregen</option> <option class=\"opWordList_de\">[Abschied] nehmen</option> <option class=\"opWordList_de\">Guten [Abend]!</option> <option class=\"opWordList_de\">Hau [ab]!</option> <option class=\"opWordList_de\">Luft [ablassen]</option> <option class=\"opWordList_de\">Stimme [abgeben]</option> <option class=\"opWordList_de\">[abendliche] Feier</option> <option class=\"opWordList_de\">[aber]...nicht</option> <option class=\"opWordList_de\">[abgehen] (Zug)</option> <option class=\"opWordList_de\">[abgenützt] werden</option> <option class=\"opWordList_de\">[abgerissenes] Kleidungsstück</option> <option class=\"opWordList_de\">[abgeschnittene] Locke</option> <option class=\"opWordList_de\">[abgesehen] davon</option> <option class=\"opWordList_de\">[abgesehen] von</option> <option class=\"opWordList_de\">[abheben] (Geld)</option> <option class=\"opWordList_de\">[abhängen] von</option> <option class=\"opWordList_de\">[abhängig] von</option> <option class=\"opWordList_de\">[abhören] (Patient)</option> <option class=\"opWordList_de\">[ablassen] von</option> <option class=\"opWordList_de\">[abschleppen] (Auto)</option> <option class=\"opWordList_de\">[abspülen] (Geschirr)</option> <option class=\"opWordList_de\">[abstürzen] (Computer</option> <option class=\"opWordList_de\">[abtrünniger] Muslim</option> <option class=\"opWordList_de\">[abwesend] sein</option> <option class=\"opWordList_de\">[abzielen] auf</option> <option class=\"opWordList_de\">en [abondance]</option> <option class=\"opWordList_de\">etw. [abbrechen]</option> <option class=\"opWordList_de\">etw. [abkratzen]</option> <option class=\"opWordList_de\">gegen [Abend]</option> <option class=\"opWordList_de\">heute [Abend]</option> <option class=\"opWordList_de\">langsam [abfließen]</option> <option class=\"opWordList_de\">mit [Absicht]</option> <option class=\"opWordList_de\">nun [aber]</option> <option class=\"opWordList_de\">sich [abmühen]</option> <option class=\"opWordList_de\">vorgestern [Abend]</option> <option class=\"opWordList_en\">[about] what</option> <option class=\"opWordList_en\">[absolutely] nothing</option> <option class=\"opWordList_en\">caring [about]</option> <option class=\"opWordList_en\">from [above]</option> <option class=\"opWordList_en\">from [abroad]</option> <option class=\"opWordList_en\">to [abandon]</option> <option class=\"opWordList_en\">to [abound]</option> <option class=\"opWordList_en\">to [abuse]</option> <option class=\"opWordList_fr\">[aborder] qc.</option> <option class=\"opWordList_fr\">[abîmer] qc.</option> <option class=\"opWordList_fr\">d'[abord]</option> <option class=\"opWordList_fr\">devenir [abondant]</option> <option class=\"opWordList_fr\">d’[abord]</option> <option class=\"opWordList_fr\">règle [absolue]</option> <option class=\"opWordList_fr\">s’[abîmer]</option> <option class=\"opWordList_fr\">être [abandonné]</option> <option class=\"opWordList_fr\">être [absent]</option> <option class=\"opWordList_de\">([ab])wiegen (Gewicht)</option> <option class=\"opWordList_de\">(die Schule/ das Studium) [abschließen]/[absolvieren]</option> <option class=\"opWordList_de\">[Ablegen] von Gegenständen</option> <option class=\"opWordList_de\">[Abreibung] (mit Seife)</option> <option class=\"opWordList_de\">[Abweichung] (vom Rechten)</option> <option class=\"opWordList_de\">[abgerissenes] zerlumptes Kleidungsstück</option> <option class=\"opWordList_de\">[abgewickelt] werden (Geschäft)</option> <option class=\"opWordList_de\">[abhängig] sein von</option> <option class=\"opWordList_de\">[abnehmen] (den Telefonhörer)</option> <option class=\"opWordList_de\">an jenem [Abend]</option> <option class=\"opWordList_de\">austreten (auf [Abort])</option> <option class=\"opWordList_de\">das Fell [abziehen]</option> <option class=\"opWordList_de\">die [Absicht] habend...</option> <option class=\"opWordList_de\">eine [Abteilung] Soldaten</option> <option class=\"opWordList_de\">mit der [Absicht]</option> <option class=\"opWordList_de\">sich (gegenseitig) [abküssen]</option> <option class=\"opWordList_de\">sich [abwenden] von</option> <option class=\"opWordList_de\">sich [abzeichnend] (Konturen)</option> <option class=\"opWordList_de\">von ihm [abfallen]</option> <option class=\"opWordList_de\">zu [Abend] essen</option> <option class=\"opWordList_de\">zu [Abend] speisen</option> <option class=\"opWordList_en\">hanging [about]/around</option> <option class=\"opWordList_en\">to [abandon] sth.</option> <option class=\"opWordList_en\">to [abate] (price)</option> <option class=\"opWordList_en\">to be [abandoned]</option> <option class=\"opWordList_en\">to be [able]</option> <option class=\"opWordList_en\">to be [absent]</option> <option class=\"opWordList_en\">to complain [about]</option> <option class=\"opWordList_en\">to laze ([about])</option> <option class=\"opWordList_en\">to reflect ([about])</option> <option class=\"opWordList_en\">to strut [about]</option> <option class=\"opWordList_en\">to think ([about])</option> <option class=\"opWordList_en\">to worry [about]</option> <option class=\"opWordList_en\">wandering [about]/around</option> <option class=\"opWordList_fr\">[abandonner] qn./qc.</option> <option class=\"opWordList_fr\">[abri] de fortune</option> <option class=\"opWordList_fr\">ne... [absolument] personne</option> <option class=\"opWordList_fr\">s'[abattre] sur</option> <option class=\"opWordList_fr\">s’[absenter] (de)</option> <option class=\"opWordList_fr\">tout d'[abord]</option> <option class=\"opWordList_de\">[Absatz]/Stöckel der Schuhe</option> <option class=\"opWordList_de\">[Abzug] (e-r Feuerwaffe)</option> <option class=\"opWordList_de\">[Abzugsloch] unter der Feuerstelle</option> <option class=\"opWordList_de\">[abgeschnittene] Locke der Braut</option> <option class=\"opWordList_de\">[abgewinkelter] Eingangsbereich tunesischer Häuser</option> <option class=\"opWordList_de\">[abschätziger] und verächtlicher Mann</option> <option class=\"opWordList_de\">[abschüssige](r) Straße/ Weg</option> <option class=\"opWordList_de\">des [Ablegens] von Kleidung</option> <option class=\"opWordList_de\">die den Kachelfries [abschließt]</option> <option class=\"opWordList_de\">eine große Schau [abziehen]</option> <option class=\"opWordList_de\">j-m etw. [abknöpfen]</option> <option class=\"opWordList_de\">j-m etw. [abluchsen]</option> <option class=\"opWordList_de\">mit j-m [abrechnen]</option> <option class=\"opWordList_en\">it is [absolutely] necessary</option> <option class=\"opWordList_en\">to be passionate [about]</option> <option class=\"opWordList_en\">to become [abundant]/plentiful</option> <option class=\"opWordList_en\">to hang [about]/around</option> <option class=\"opWordList_en\">to philosophize [about] sth.</option> <option class=\"opWordList_en\">to wander [about]/around</option> <option class=\"opWordList_fr\">avoir l'esprit [absent]</option> <option class=\"opWordList_fr\">chevelure [abondante] et indisciplinée</option> <option class=\"opWordList_fr\">il est [absolument] necessaire</option> <option class=\"opWordList_de\">Schuheisen (für Spitze und [Absatz])</option> <option class=\"opWordList_de\">Unterleder von Sohle und [Absatz]</option> <option class=\"opWordList_de\">Wasch- und Wasserstelle sowie [Abort]</option> <option class=\"opWordList_de\">[aber] geduldete) Zuschauerin (bei Familienfeiern)</option> <option class=\"opWordList_de\">[abmessen] (mit e-m Hohlmaß</option> <option class=\"opWordList_de\">an den Festtagen Verwandtschaftsbesuche [absolviert])</option> <option class=\"opWordList_de\">befreien (verstopften Gang/Kanal/[Abfluss]</option> <option class=\"opWordList_de\">der die einheimischen Märkte [abmacht]</option> <option class=\"opWordList_de\">die das Trauerjahr [abschließende] Zeremonie</option> <option class=\"opWordList_de\">mittels e-s Schlosses [ab]-</option> <option class=\"opWordList_en\">to acquire knowledge [about] sth.</option> <option class=\"opWordList_en\">to gossip [about] sb./sth.</option> <option class=\"opWordList_en\">to perform the ritual [ablution]</option> <option class=\"opWordList_en\">to talk [about] sth./sb.</option> <option class=\"opWordList_de\">Feier zur schriftlichen [Abfassung] eines Heiratsübereinkommens</option> <option class=\"opWordList_de\">Student bzw. [Absolvent] der Zitouna-Hochschule</option> <option class=\"opWordList_de\">bei einer Prüfung schummeln oder [abschreiben]</option> <option class=\"opWordList_de\">den Kuskusdämpfer mittels der qfīla [abdichten]</option> <option class=\"opWordList_de\">sich [absichern] (durch Rücklagen o. ä.)</option> <option class=\"opWordList_en\">to doubt of/[about] sth./sb.</option> <option class=\"opWordList_fr\">employer [abondamment] le mot pénis (zibb)</option> <option class=\"opWordList_de\">die als [Abgrenzung] einer landwirtschaftlichen Fläche dienen</option> <option class=\"opWordList_de\">die gerne [abends] ausgeht und gerne feiert</option> <option class=\"opWordList_de\">eifersüchtig auf die [Abgeschlossenheit] seiner Frau Bedachter</option> <option class=\"opWordList_en\">a unit of mass ([about] 5 g)</option> <option class=\"opWordList_en\">to [abundantly] use the word penis (zibb)</option> <option class=\"opWordList_en\">to say bad things [about] sb./sth.</option> <option class=\"opWordList_de\">[aber] von Männern wie Frauen unter sich gebraucht)</option> <option class=\"opWordList_de\">die Verbindung/den Kontakt zu j-m [abbrechen]</option> <option class=\"opWordList_de\">bezüglich auf einen Studenten bzw. [Absolventen] der Zitouna-Hochschule</option> <option class=\"opWordList_de\">das Fell von Schlachttieren (an Schädel und Läufen) [absengen]</option> <option class=\"opWordList_en\">What do I/do you/does he etc. think ([about]...)?</option> <option class=\"opWordList_de\">sehr feine und geschmeidige Pantoffel mit [abgerundeter] Spitze und aus Kamelleder</option> <option class=\"opWordList_de\">und 9. Tag nach einem Todesfall der leidtragenden Familie [abstattete] (obsoleter Brauch)</option> </div>\n"
                   }
                 }
               }
@@ -1079,6 +1142,529 @@
                   }
                 }
               }
+            }
+          }
+        }
+      }
+    },
+    "/corpus": {
+      "get": {
+        "tags": [
+          "noauth"
+        ],
+        "summary": "Search corpus",
+        "operationId": "searchCorpus",
+        "description": "By passing a well formed noSKE query as 'query' parameter, you can retrieve serach results\n",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "query",
+            "description": "query to perform against NoSKE",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "print",
+            "required": false,
+            "description": "Whether to retrieve a full HTML file with printer-friendly formatting.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "the transformed html",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CorpusSearch"
+                },
+                "examples": {
+                  "corpus_search_json": {
+                    "summary": "Corpus serach results",
+                    "value": {
+                      "query": "dār",
+                      "hits": [
+                        {
+                          "u": "URFA-077_a72",
+                          "doc": "URFA-077",
+                          "content": "<div class=\"corpus-search-result\" id=\"corpus-w-URFA-077_xTok_001078\"><div class=\"left\"><span class=\"w\" id=\"URFA-077_xTok_001071\">āni</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-077_xTok_001072\">nāyim</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-077_xTok_001073\">hēne</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-077_xTok_001074\">b</span><span class=\"w\" id=\"URFA-077_xTok_001076\">ad</span></div><div class=\"keyword\"><span class=\"w\">dār</span><span xml:space=\"preserve\"> </span></div><div class=\"right\"><span class=\"w\">haḏiyye</span><span xml:space=\"preserve\"> </span><span class=\"w\">nāyim</span><span xml:space=\"preserve\"> </span></div></div>"
+                        },
+                        {
+                          "u": "URFA-115_a4",
+                          "doc": "URFA-115",
+                          "content": "<div class=\"corpus-search-result\" id=\"corpus-w-URFA-115_xTok_000096\"><div class=\"left\"><span class=\"w\" id=\"URFA-115_xTok_000087\">rəḥalaw</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-115_xTok_000089\">xall</span><span class=\"w\" id=\"URFA-115_xTok_000091\">ō</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-115_xTok_000092\">b</span><span class=\"w\" id=\"URFA-115_xTok_000094\">ad</span></div><div class=\"keyword\"><span class=\"w\">dār</span><span xml:space=\"preserve\"> </span></div><div class=\"right\"><span class=\"w\">w</span><span xml:space=\"preserve\"> </span><span class=\"w\">šālaw</span><span xml:space=\"preserve\"> </span><span class=\"w\">eger</span><span xml:space=\"preserve\"> </span><span class=\"w\">miṯil</span><span xml:space=\"preserve\"> </span><span class=\"w\">al</span></div></div>"
+                        },
+                        {
+                          "u": "URFA-122_a13",
+                          "doc": "URFA-122",
+                          "content": "<div class=\"corpus-search-result\" id=\"corpus-w-URFA-122_xTok_000738\"><div class=\"left\"><span class=\"w\" id=\"URFA-122_xTok_000730\">u</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-122_xTok_000731\">ˀal</span><span class=\"w\" id=\"URFA-122_xTok_000733\">bāb</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-122_xTok_000734\">b</span><span class=\"w\" id=\"URFA-122_xTok_000736\">ad</span></div><div class=\"keyword\"><span class=\"w\">dār</span><span xml:space=\"preserve\"> </span></div><div class=\"right\"><span class=\"w\">imčallṭīn</span><span xml:space=\"preserve\"> </span><span class=\"w\">al</span><span class=\"w\">qīrān</span><span xml:space=\"preserve\"> </span><span class=\"w\">aṭ</span><span class=\"w\">ṭūg</span><span xml:space=\"preserve\"> </span></div></div>"
+                        },
+                        {
+                          "u": "URFA-125_a9",
+                          "doc": "URFA-125",
+                          "content": "<div class=\"corpus-search-result\" id=\"corpus-w-URFA-125_xTok_000258\"><div class=\"left\"><span class=\"w\" id=\"URFA-125_xTok_000253\">hēn</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-125_xTok_000254\">ṛāyiḥ</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-125_xTok_000255\">āni</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-125_xTok_000256\">ˀarīd</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-125_xTok_000257\">agḏ̣ub</span><span xml:space=\"preserve\"> </span></div><div class=\"keyword\"><span class=\"w\">dār</span><span xml:space=\"preserve\"> </span></div><div class=\"right\"><span class=\"w\">aš</span><span class=\"w\">šēx</span><span xml:space=\"preserve\"> </span><span class=\"w\">w</span><span class=\"w\">arīd</span><span xml:space=\"preserve\"> </span><span class=\"w\">āni</span><span xml:space=\"preserve\"> </span></div></div>"
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "string",
+                  "xml": {
+                    "name": "div",
+                    "wrapped": false
+                  }
+                },
+                "examples": {
+                  "html": {
+                    "summary": "A sample HTML response",
+                    "value": "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <div xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:acdh=\"http://acdh.oeaw.ac.at\" xmlns:tei=\"http://www.tei-c.org/ns/1.0\" class=\"corpus-search-results\">\n    <h2 xml:space=\"preserve\">Search results for dār</h2>\n    <div class=\"corpus-search-result\" id=\"corpus-w-URFA-077_xTok_001078\">\n        <div class=\"left\">\n            <span class=\"w\" id=\"URFA-077_xTok_001071\">āni</span>\n            <span xml:space=\"preserve\"></span>\n            <span class=\"w\" id=\"URFA-077_xTok_001072\">nāyim</span>\n            <span xml:space=\"preserve\"></span>\n            <span class=\"w\" id=\"URFA-077_xTok_001073\">hēne</span>\n            <span xml:space=\"preserve\"></span>\n            <span class=\"w\" id=\"URFA-077_xTok_001074\">b</span>\n            <span class=\"w\" id=\"URFA-077_xTok_001076\">ad</span>\n        </div>\n        <div class=\"keyword\">\n            <span class=\"w\">dār</span>\n            <span xml:space=\"preserve\"></span>\n        </div>\n        <div class=\"right\">\n            <span class=\"w\">haḏiyye</span>\n            <span xml:space=\"preserve\"></span>\n            <span class=\"w\">nāyim</span>\n            <span xml:space=\"preserve\"></span>\n        </div>\n    </div>\n    <div class=\"corpus-search-result\" id=\"corpus-w-URFA-115_xTok_000096\">\n        <div class=\"left\">\n            <span class=\"w\" id=\"URFA-115_xTok_000087\">rəḥalaw</span>\n            <span xml:space=\"preserve\"></span>\n            <span class=\"w\" id=\"URFA-115_xTok_000089\">xall</span>\n            <span class=\"w\" id=\"URFA-115_xTok_000091\">ō</span>\n            <span xml:space=\"preserve\"></span>\n            <span class=\"w\" id=\"URFA-115_xTok_000092\">b</span>\n            <span class=\"w\" id=\"URFA-115_xTok_000094\">ad</span>\n        </div>\n        <div class=\"keyword\">\n            <span class=\"w\">dār</span>\n            <span xml:space=\"preserve\"></span>\n        </div>\n        <div class=\"right\">\n            <span class=\"w\">w</span>\n            <span xml:space=\"preserve\"></span>\n            <span class=\"w\">šālaw</span>\n            <span xml:space=\"preserve\"></span>\n            <span class=\"w\">eger</span>\n            <span xml:space=\"preserve\"></span>\n            <span class=\"w\">miṯil</span>\n            <span xml:space=\"preserve\"></span>\n            <span class=\"w\">al</span>\n        </div>\n    </div>\n    <div class=\"corpus-search-result\" id=\"corpus-w-URFA-122_xTok_000738\">\n        <div class=\"left\">\n            <span class=\"w\" id=\"URFA-122_xTok_000730\">u</span>\n            <span xml:space=\"preserve\"></span>\n            <span class=\"w\" id=\"URFA-122_xTok_000731\">ˀal</span>\n            <span class=\"w\" id=\"URFA-122_xTok_000733\">bāb</span>\n            <span xml:space=\"preserve\"></span>\n            <span class=\"w\" id=\"URFA-122_xTok_000734\">b</span>\n            <span class=\"w\" id=\"URFA-122_xTok_000736\">ad</span>\n        </div>\n        <div class=\"keyword\">\n            <span class=\"w\">dār</span>\n            <span xml:space=\"preserve\"></span>\n        </div>\n        <div class=\"right\">\n            <span class=\"w\">imčallṭīn</span>\n            <span xml:space=\"preserve\"></span>\n            <span class=\"w\">al</span>\n            <span class=\"w\">qīrān</span>\n            <span xml:space=\"preserve\"></span>\n            <span class=\"w\">aṭ</span>\n            <span class=\"w\">ṭūg</span>\n            <span xml:space=\"preserve\"></span>\n        </div>\n    </div>\n    <div class=\"corpus-search-result\" id=\"corpus-w-URFA-125_xTok_000258\">\n        <div class=\"left\">\n            <span class=\"w\" id=\"URFA-125_xTok_000253\">hēn</span>\n            <span xml:space=\"preserve\"></span>\n            <span class=\"w\" id=\"URFA-125_xTok_000254\">ṛāyiḥ</span>\n            <span xml:space=\"preserve\"></span>\n            <span class=\"w\" id=\"URFA-125_xTok_000255\">āni</span>\n            <span xml:space=\"preserve\"></span>\n            <span class=\"w\" id=\"URFA-125_xTok_000256\">ˀarīd</span>\n            <span xml:space=\"preserve\"></span>\n            <span class=\"w\" id=\"URFA-125_xTok_000257\">agḏ̣ub</span>\n            <span xml:space=\"preserve\"></span>\n        </div>\n        <div class=\"keyword\">\n            <span class=\"w\">dār</span>\n            <span xml:space=\"preserve\"></span>\n        </div>\n        <div class=\"right\">\n            <span class=\"w\">aš</span>\n            <span class=\"w\">šēx</span>\n            <span xml:space=\"preserve\"></span>\n            <span class=\"w\">w</span>\n            <span class=\"w\">arīd</span>\n            <span xml:space=\"preserve\"></span>\n            <span class=\"w\">āni</span>\n            <span xml:space=\"preserve\"></span>\n        </div>\n    </div>\n</div>\n"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "bad input parameter",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "html": {
+                    "summary": "A sample HTML response",
+                    "value": "<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/corpus_text": {
+      "get": {
+        "tags": [
+          "noauth"
+        ],
+        "summary": "Get rendered corpus text",
+        "operationId": "getCorpusText",
+        "description": "A pageable set of corpus utterances from the given text.\n",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "Corpus text ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "size",
+            "required": false,
+            "description": "How many results to retrieve in one query. Defaults to 10.",
+            "schema": {
+              "type": "number",
+              "default": 10
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "description": "Page number to retrieve. Defaults to 1.",
+            "schema": {
+              "type": "number",
+              "default": 1
+            }
+          },
+          {
+            "in": "query",
+            "name": "print",
+            "required": false,
+            "description": "Whether to retrieve a full HTML file with printer-friendly formatting.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "the transformed html",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CorpusText"
+                },
+                "examples": {
+                  "corpustext_json": {
+                    "summary": "sample json response",
+                    "value": {
+                      "id": "$URFA-011",
+                      "utterances": [
+                        {
+                          "id": "URFA-011_a1",
+                          "content": "<div class=\"u\" id=\"URFA-011_a1\" />"
+                        },
+                        {
+                          "id": "URFA-011_a2",
+                          "content": "<div class=\"u\" id=\"URFA-011_a2\"><span class=\"w\" id=\"URFA-011_xTok_000001\">hāḏa</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000002\">l</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000004\">ᵊgbūr</span><span class=\"pc\" id=\"xTok_000005\">,</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000006\">al</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000008\">miǧanne</span><span class=\"pc\" id=\"xTok_000009\">,</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000010\">al</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000012\">gabǝr</span><span class=\"pc\" id=\"xTok_000013\">,</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000014\">wāḥad</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000015\">ymūt</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000016\">yidfunūn</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000018\">u</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000019\">hēne</span><span class=\"pc\" id=\"xTok_000020\">,</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000021\">yidfunūn</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000023\">u</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000024\">yqasslūn</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000026\">u</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000027\">ʕala</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000028\">ʕurf</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000029\">islām</span><span class=\"pc\" id=\"xTok_000030\">,</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000031\">ʕala</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000032\">ʕādāt</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000033\">uṣūl</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000034\">Islām</span><span class=\"pc\" id=\"xTok_000035\">,</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000036\">yqassl</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000038\">u</span><span class=\"pc\" id=\"xTok_000039\">,</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000040\">al</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000042\">xōǧe</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000043\">yqassl</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000045\">u</span><span class=\"pc\" id=\"xTok_000046\">,</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000047\">w</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000049\">yǧībūn</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000051\">u</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000052\">hēne</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000053\">yčaffnūn</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000055\">u</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000056\">yḥuṭṭūn</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000058\">u</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000059\">b</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000061\">al</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000063\">kefen</span><span class=\"pc\" id=\"xTok_000064\">,</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000065\">čafan</span><span class=\"pc\" id=\"xTok_000066\">–</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000067\">kefen</span><span class=\"pc\" id=\"xTok_000068\">–</span><span class=\"w\" id=\"URFA-011_xTok_000069\">čafan</span><span class=\"pc\" id=\"xTok_000070\">,</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000071\">ydummūn</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000073\">u</span><span class=\"pc\" id=\"xTok_000074\">.</span><span xml:space=\"preserve\"> </span></div>"
+                        },
+                        {
+                          "id": "URFA-011_a3",
+                          "content": "<div class=\"u\" id=\"URFA-011_a3\"><span class=\"w\" id=\"URFA-011_xTok_000075\">al</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000077\">gabǝr</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000078\">baʕdēn</span><span class=\"pc\" id=\"xTok_000079\">,</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000080\">ʕugub</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000081\">sabʕ</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000082\">ᵊsnīn</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000083\">yigdarūn</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000084\">yḥuṭṭūn</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000085\">qēr</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000086\">wāḥad</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000087\">bī</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000089\">´</span><span class=\"pc\" id=\"xTok_000090\">.</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000091\">in</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000092\">mā</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000093\">ṣār</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000094\">sabʕ</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000095\">ᵊsnīn</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000096\">qēr</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000097\">wāḥad</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000098\">mā</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000099\">yḥuṭṭūn</span><span class=\"pc\" id=\"xTok_000100\">.</span><span xml:space=\"preserve\"> </span></div>"
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "string",
+                  "xml": {
+                    "name": "div",
+                    "wrapped": false
+                  }
+                },
+                "examples": {
+                  "html": {
+                    "summary": "A sample HTML response",
+                    "value": "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <div xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:acdh=\"http://acdh.oeaw.ac.at\" xmlns:tei=\"http://www.tei-c.org/ns/1.0\" class=\"corpus-utterances\">\n    <div class=\"u\" id=\"URFA-011_a3\">\n        <span class=\"w\" id=\"URFA-011_xTok_000075\">al</span>\n        <span class=\"w\" id=\"URFA-011_xTok_000077\">gabǝr</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000078\">baʕdēn</span>\n        <span class=\"pc\" id=\"xTok_000079\">,</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000080\">ʕugub</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000081\">sabʕ</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000082\">ᵊsnīn</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000083\">yigdarūn</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000084\">yḥuṭṭūn</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000085\">qēr</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000086\">wāḥad</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000087\">bī</span>\n        <span class=\"w\" id=\"URFA-011_xTok_000089\">´</span>\n        <span class=\"pc\" id=\"xTok_000090\">.</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000091\">in</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000092\">mā</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000093\">ṣār</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000094\">sabʕ</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000095\">ᵊsnīn</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000096\">qēr</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000097\">wāḥad</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000098\">mā</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000099\">yḥuṭṭūn</span>\n        <span class=\"pc\" id=\"xTok_000100\">.</span>\n        <span xml:space=\"preserve\"></span>\n    </div>\n    <div class=\"u\" id=\"URFA-011_a4\">\n        <span class=\"w\" id=\"URFA-011_xTok_000101\">ta</span>\n        <span class=\"w\" id=\"URFA-011_xTok_000103\">ngūl</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000104\">hāḏa</span>\n        <span class=\"pc\" id=\"xTok_000105\">,</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000106\">mayyit</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000107\">luwwa</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000108\">sine</span>\n        <span class=\"pc\" id=\"xTok_000109\">,</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000110\">al</span>\n        <span class=\"w\" id=\"URFA-011_xTok_000112\">gabǝr</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000113\">hāḏa</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000114\">mā</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000115\">yiftaḥūn</span>\n        <span class=\"w\" id=\"URFA-011_xTok_000117\">u</span>\n        <span class=\"pc\" id=\"xTok_000118\">–</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000119\">mā</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000120\">yiftaḥūn</span>\n        <span class=\"w\" id=\"URFA-011_xTok_000122\">u</span>\n        <span class=\"pc\" id=\"xTok_000123\">–</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000124\">baˁad</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000125\">sabˁ</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000126\">ᵊsnīn</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000127\">yiftaḥūn</span>\n        <span class=\"w\" id=\"URFA-011_xTok_000129\">u</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000130\">yigdarūn</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000131\">in</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000132\">māt</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000133\">ḥade</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000134\">in</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000135\">ṣār</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000136\">mayyit</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000137\">uxṛa</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000138\">l</span>\n        <span class=\"w\" id=\"URFA-011_xTok_000140\">al</span>\n        <span class=\"w\" id=\"URFA-011_xTok_000142\">ˁēle</span>\n        <span class=\"pc\" id=\"xTok_000143\">,</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000144\">kull</span>\n        <span class=\"w\" id=\"URFA-011_xTok_000146\">min</span>\n        <span class=\"pc\" id=\"xTok_000147\">…</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000148\">ta</span>\n        <span class=\"w\" id=\"URFA-011_xTok_000150\">ngūl</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000151\">alḥaz</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000152\">iḥna</span>\n        <span xml:space=\"preserve\"></span>\n    </div>\n</div>\n"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "bad input parameter",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "html": {
+                    "summary": "A sample HTML response",
+                    "value": "<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CorpusText": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "utterances": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/corpusText_utterances"
+            }
+          }
+        }
+      },
+      "corpusText_utterances": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          }
+        }
+      },
+      "CorpusSearch": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "hits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/corpusSearch_hits"
+            }
+          }
+        }
+      },
+      "corpusSearch_hits": {
+        "type": "object",
+        "properties": {
+          "u": {
+            "type": "string"
+          },
+          "doc": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          }
+        }
+      },
+      "ProjectConfig": {
+        "type": "object",
+        "properties": {
+          "projectConfig": {
+            "$ref": "#/components/schemas/projectConfig_type"
+          }
+        }
+      },
+      "projectConfig_type": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "logo": {
+            "$ref": "#/components/schemas/logo_type"
+          },
+          "param": {
+            "$ref": "#/components/schemas/param_type"
+          },
+          "panel": {
+            "$ref": "#/components/schemas/panel_type"
+          },
+          "menu": {
+            "$ref": "#/components/schemas/menu_type"
+          }
+        }
+      },
+      "logo_type": {
+        "type": "object",
+        "properties": {
+          "img": {
+            "type": "string"
+          }
+        }
+      },
+      "param_type": {
+        "type": "array",
+        "minItems": 0,
+        "items": {
+          "type": "string"
+        }
+      },
+      "panel_type": {
+        "type": "array",
+        "minItems": 0,
+        "items": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "target": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "title",
+            "target"
+          ]
+        }
+      },
+      "item_type": {
+        "type": "array",
+        "minItems": 0,
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "item",
+                "separator"
+              ]
+            },
+            "componentName": {
+              "type": "string",
+              "enum": [
+                "WMap",
+                "DictQuery",
+                "CrossDictQuery",
+                "BiblioQuery",
+                "Text",
+                "SampleText",
+                "DataList",
+                "CorpusQuery"
+              ]
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      },
+      "main_type": {
+        "type": "array",
+        "minItems": 0,
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "item": {
+              "$ref": "#/components/schemas/item_type"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "dropdown"
+              ]
+            }
+          },
+          "required": [
+            "item",
+            "id",
+            "title",
+            "type"
+          ]
+        }
+      },
+      "subnav_type": {
+        "type": "array",
+        "minItems": 0,
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "class": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "title",
+            "type"
+          ]
+        }
+      },
+      "menu_type": {
+        "type": "object",
+        "properties": {
+          "main": {
+            "$ref": "#/components/schemas/main_type"
+          },
+          "subnav": {
+            "$ref": "#/components/schemas/subnav_type"
+          }
+        }
+      },
+      "Feature": {
+        "title": "GeoJSON Feature",
+        "type": "object",
+        "required": [
+          "type",
+          "properties",
+          "geometry"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "Feature"
+            ]
+          },
+          "id": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "properties": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          },
+          "geometry": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/Point"
+              }
+            ]
+          }
+        }
+      },
+      "Point": {
+        "title": "GeoJSON Point",
+        "type": "object",
+        "required": [
+          "type",
+          "coordinates"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "Point"
+            ]
+          },
+          "coordinates": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "type": "number"
+            }
+          },
+          "bbox": {
+            "type": "array",
+            "minItems": 4,
+            "items": {
+              "type": "number"
             }
           }
         }
