@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1690027761242
+modified: 1692615750781
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: "openapi: 3.1.0
@@ -3195,7 +3195,7 @@ contents: "openapi: 3.1.0
 
   \                corpus_search_json:
 
-  \                  summary: 'Corpus serach results'
+  \                  summary: 'Corpus search results'
 
   \                  value:\ 
 
@@ -3210,6 +3210,12 @@ contents: "openapi: 3.1.0
   \                          \"u\":\"URFA-077_a72\",
 
   \                          \"doc\":\"URFA-077\",
+
+  \                          \"docHits\": [
+
+  \                            \"URFA-077_a72\"
+
+  \                          ],
 
   \                          \"content\":\"<div
   class=\\\"corpus-search-result\\\"
@@ -3235,6 +3241,8 @@ contents: "openapi: 3.1.0
 
   \                          \"doc\":\"URFA-115\",
 
+  \                          \"docHits\": [\"URFA-115_a4\"],
+
   \                          \"content\":\"<div
   class=\\\"corpus-search-result\\\"
   id=\\\"corpus-w-URFA-115_xTok_000096\\\"><div class=\\\"left\\\"><span
@@ -3257,6 +3265,8 @@ contents: "openapi: 3.1.0
   \                        {
 
   \                          \"u\":\"URFA-122_a13\",
+
+  \                          \"docHits\": [\"URFA-122_a13\"],
 
   \                          \"doc\":\"URFA-122\",
 
@@ -3284,6 +3294,8 @@ contents: "openapi: 3.1.0
   \                          \"u\":\"URFA-125_a9\",
 
   \                          \"doc\":\"URFA-125\",
+
+  \                          \"docHits\": [\"URFA-125_a9\"],
 
   \                          \"content\":\"<div
   class=\\\"corpus-search-result\\\"
@@ -3650,6 +3662,18 @@ contents: "openapi: 3.1.0
   \            type: number
 
   \            default: 1
+
+  \        - in: query
+
+  \          name: hits
+
+  \          description: Comma-separated token IDs to highlight
+
+  \          required: false
+
+  \          schema:
+
+  \            type: string
 
   \        - in: query
 
@@ -4244,6 +4268,14 @@ contents: "openapi: 3.1.0
   \        u:\ 
 
   \          type: string
+
+  \        docHits:\ 
+
+  \          type: array
+
+  \          items:\ 
+
+  \            type: string
 
   \        doc:
 
