@@ -1,15 +1,20 @@
 _id: req_wrk_6915256f54c24d51aa934588fd7b49ff550a9719
 type: Request
 parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
-modified: 1675795155927
+modified: 1695051866107
 created: 1675795155927
-url: "{{ base_url }}/{{ name }}_markers"
+url: "{{ base_url }}/vicav/{{ name }}_markers"
 name: gets a specific xml
 description: ""
 method: GET
 body: {}
 parameters: []
-headers: []
+headers:
+  - id: pair_7895a5ad731340a490c527b63145d7b0
+    name: Accept
+    value: application/json
+    description: ""
+    disabled: true
 authentication: {}
 metaSortKey: -1675795155927
 isPrivate: false

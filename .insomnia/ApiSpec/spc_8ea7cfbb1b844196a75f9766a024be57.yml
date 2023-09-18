@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1695049560269
+modified: 1695050988911
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -978,10 +978,10 @@ contents: >-
         parameters:
           - in: path
             name: name
-            description: a reference to a predefined query?
+            description: a reference to a predefined query for markers on a map
             required: true
             schema:
-              type: string
+              $ref: '#/components/schemas/markers_type'
         responses:
           '200':
             description: an xml result list
@@ -1893,6 +1893,15 @@ contents: >-
           - type
           - title
           - target
+      markers_type:
+        type: string
+        enum:
+          - data
+          - sample
+          - bibl
+          - profile
+          - dict
+          - feature
       item_type:
         type: array
         minItems: 0
