@@ -18,6 +18,7 @@ jobs:
       - uses: kong/setup-inso@v1
         with:
           inso-version: 2023.5.8
+          compression: bzip # no, it is actually xz but tar will figure that out hopefully...
       - name: Run test suites
         run: inso run test spc_8ea7cf -e env_env_9a21f4d181d64765d33c7bbe158a0e24fc2976d0 --verbose
       - name: Generate yaml
