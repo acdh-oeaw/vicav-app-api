@@ -3,16 +3,18 @@ jsonSchemaDialect: 'https://spec.openapis.org/oas/3.1/dialect/base'
 servers:
   - url: https://vicav.acdh.oeaw.ac.at
     description: "current ACDH-CH prod server"
-  - url: https://vicav.acdh-ch-dev.oeaw.ac.at/vicav
+  - url: https://vicav.acdh-ch-dev.oeaw.ac.at
     description: "current ACDH-CH dev server"
-  - url: https://vicav.acdh-ch-dev.oeaw.ac.at/vicav
-    description: "current ACDH-CH dev server"
+  - url: https://tunocent.acdh-cluster-2.arz.oeaw.ac.at/vicav
+    description: "current tunocent dev server"
+  - url: https://shawi.acdh-ch-dev.oeaw.ac.at
+    description: "current shawi dev server"
   # Added by API Auto Mocking Plugin
   - description: SwaggerHub API Auto Mocking
     url: https://virtserver.swaggerhub.com/ctot-nondef/Vicav/1.0.0
   - url: http://localhost:8984/vicav
     description: "local development"
-  - url: http://shawi-local.acdh.oeaw.ac.at:8984/vicav
+  - url: http://shawi-local.acdh.oeaw.ac.at:8984
     description: "local development"
 info:
   description: This is the currently implemented vicav API
@@ -27,7 +29,7 @@ tags:
   - name: noauth
     description: Operations available without authentication
 paths:
-  /project:
+  /vicav/project:
     get:
       description: Get info about the project, menus and open panels/windows
       tags:
@@ -524,7 +526,7 @@ paths:
                         </menu>
                       </renderedMenu>
                     </project>
-  /text:
+  /vicav/text:
     get:
       tags:
         - noauth
@@ -616,7 +618,7 @@ paths:
                 html:
                   summary: A sample HTML response
                   value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
-  /profile:
+  /vicav/profile:
     get:
       tags:
         - noauth
@@ -730,7 +732,7 @@ paths:
                 html:
                   summary: A sample HTML response
                   value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
-  /explore_samples:
+  /vicav/explore_samples:
     get:
       tags:
         - noauth
@@ -781,7 +783,7 @@ paths:
                 html:
                   summary: A sample HTML response
                   value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
-  /biblio_tei:
+  /vicav/biblio_tei:
     get:
       tags:
         - noauth
@@ -826,7 +828,7 @@ paths:
                 html:
                   summary: A sample HTML response
                   value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
-  /bibl_markers_tei:
+  /vicav/bibl_markers_tei:
     get:
       tags:
         - noauth
@@ -956,7 +958,7 @@ paths:
                 html:
                   summary: A sample HTML response
                   value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
-  /{name}_markers:
+  /vicav/{name}_markers:
     get:
       tags:
         - noauth
@@ -967,10 +969,10 @@ paths:
       parameters:
         - in: path
           name: name
-          description: a reference to a predefined query?
+          description: a reference to a predefined query for markers on a map
           required: true
           schema:
-            type: string
+            $ref: '#/components/schemas/markers_type'
       responses:
         '200':
           description: an xml result list
@@ -1019,7 +1021,7 @@ paths:
                 html:
                   summary: A sample HTML response
                   value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
-  /dict_api:
+  /vicav/dict_api:
     get:
       tags:
         - noauth
@@ -1073,7 +1075,7 @@ paths:
                 html:
                   summary: A sample HTML response
                   value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
-  /dict_index:
+  /vicav/dict_index:
     get:
       tags:
         - noauth
@@ -1415,7 +1417,7 @@ paths:
                 html:
                   summary: A sample HTML response
                   value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
-  /corpus: 
+  /vicav/corpus: 
     get:
       tags:
         - noauth
@@ -1598,7 +1600,7 @@ paths:
                 html:
                   summary: A sample HTML response
                   value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
-  /corpus_text: 
+  /vicav/corpus_text: 
     get:
       tags:
         - noauth
@@ -1882,6 +1884,15 @@ components:
         - type
         - title
         - target
+    markers_type:
+      type: string
+      enum:
+        - data
+        - sample
+        - bibl
+        - profile
+        - dict
+        - feature
     item_type:
       type: array
       minItems: 0
@@ -2001,5 +2012,3 @@ components:
           minItems: 4
           items:
             type: number
-            
-           
