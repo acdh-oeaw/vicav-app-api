@@ -7,12 +7,16 @@
       "description": "current ACDH-CH prod server"
     },
     {
-      "url": "https://vicav.acdh-ch-dev.oeaw.ac.at/vicav",
+      "url": "https://vicav.acdh-ch-dev.oeaw.ac.at",
       "description": "current ACDH-CH dev server"
     },
     {
-      "url": "https://vicav.acdh-ch-dev.oeaw.ac.at/vicav",
-      "description": "current ACDH-CH dev server"
+      "url": "https://tunocent.acdh-cluster-2.arz.oeaw.ac.at/vicav",
+      "description": "current tunocent dev server"
+    },
+    {
+      "url": "https://shawi.acdh-ch-dev.oeaw.ac.at",
+      "description": "current shawi dev server"
     },
     {
       "description": "SwaggerHub API Auto Mocking",
@@ -23,7 +27,7 @@
       "description": "local development"
     },
     {
-      "url": "http://shawi-local.acdh.oeaw.ac.at:8984/vicav",
+      "url": "http://shawi-local.acdh.oeaw.ac.at:8984",
       "description": "local development"
     }
   ],
@@ -46,7 +50,7 @@
     }
   ],
   "paths": {
-    "/project": {
+    "/vicav/project": {
       "get": {
         "description": "Get info about the project, menus and open panels/windows",
         "tags": [
@@ -507,7 +511,7 @@
         }
       }
     },
-    "/text": {
+    "/vicav/text": {
       "get": {
         "tags": [
           "noauth"
@@ -575,7 +579,7 @@
         }
       }
     },
-    "/profile": {
+    "/vicav/profile": {
       "get": {
         "tags": [
           "noauth"
@@ -648,7 +652,7 @@
         }
       }
     },
-    "/explore_samples": {
+    "/vicav/explore_samples": {
       "get": {
         "tags": [
           "noauth"
@@ -725,7 +729,7 @@
         }
       }
     },
-    "/biblio_tei": {
+    "/vicav/biblio_tei": {
       "get": {
         "tags": [
           "noauth"
@@ -793,7 +797,7 @@
         }
       }
     },
-    "/bibl_markers_tei": {
+    "/vicav/bibl_markers_tei": {
       "get": {
         "tags": [
           "noauth"
@@ -918,7 +922,7 @@
         }
       }
     },
-    "/{name}_markers": {
+    "/vicav/{name}_markers": {
       "get": {
         "tags": [
           "noauth"
@@ -930,10 +934,10 @@
           {
             "in": "path",
             "name": "name",
-            "description": "a reference to a predefined query?",
+            "description": "a reference to a predefined query for markers on a map",
             "required": true,
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/markers_type"
             }
           }
         ],
@@ -980,7 +984,7 @@
         }
       }
     },
-    "/dict_api": {
+    "/vicav/dict_api": {
       "get": {
         "tags": [
           "noauth"
@@ -1057,7 +1061,7 @@
         }
       }
     },
-    "/dict_index": {
+    "/vicav/dict_index": {
       "get": {
         "tags": [
           "noauth"
@@ -1147,7 +1151,7 @@
         }
       }
     },
-    "/corpus": {
+    "/vicav/corpus": {
       "get": {
         "tags": [
           "noauth"
@@ -1262,7 +1266,7 @@
         }
       }
     },
-    "/corpus_text": {
+    "/vicav/corpus_text": {
       "get": {
         "tags": [
           "noauth"
@@ -1513,6 +1517,17 @@
             "target"
           ]
         }
+      },
+      "markers_type": {
+        "type": "string",
+        "enum": [
+          "data",
+          "sample",
+          "bibl",
+          "profile",
+          "dict",
+          "feature"
+        ]
       },
       "item_type": {
         "type": "array",

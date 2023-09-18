@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1695056474462
+modified: 1695050988911
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -14,12 +14,14 @@ contents: >-
       description: "current ACDH-CH prod server"
     - url: https://vicav.acdh-ch-dev.oeaw.ac.at
       description: "current ACDH-CH dev server"
-    - url: https://vicav.acdh-ch-dev.oeaw.ac.at
-      description: "current ACDH-CH dev server"
+    - url: https://tunocent.acdh-cluster-2.arz.oeaw.ac.at/vicav
+      description: "current tunocent dev server"
+    - url: https://shawi.acdh-ch-dev.oeaw.ac.at
+      description: "current shawi dev server"
     # Added by API Auto Mocking Plugin
     - description: SwaggerHub API Auto Mocking
       url: https://virtserver.swaggerhub.com/ctot-nondef/Vicav/1.0.0
-    - url: http://localhost:8984
+    - url: http://localhost:8984/vicav
       description: "local development"
     - url: http://shawi-local.acdh.oeaw.ac.at:8984
       description: "local development"
@@ -976,10 +978,10 @@ contents: >-
         parameters:
           - in: path
             name: name
-            description: a reference to a predefined query?
+            description: a reference to a predefined query for markers on a map
             required: true
             schema:
-              type: string
+              $ref: '#/components/schemas/markers_type'
         responses:
           '200':
             description: an xml result list
@@ -1474,7 +1476,6 @@ contents: >-
                             "content":"<div class=\"corpus-search-result\" id=\"corpus-w-URFA-115_xTok_000096\"><div class=\"left\"><span class=\"w\" id=\"URFA-115_xTok_000087\">rəḥalaw<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-115_xTok_000089\">xall<\/span><span class=\"w\" id=\"URFA-115_xTok_000091\">ō<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-115_xTok_000092\">b<\/span><span class=\"w\" id=\"URFA-115_xTok_000094\">ad<\/span><\/div><div class=\"keyword\"><span class=\"w\">dār<\/span><span xml:space=\"preserve\"> <\/span><\/div><div class=\"right\"><span class=\"w\">w<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">šālaw<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">eger<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">miṯil<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">al<\/span><\/div><\/div>"
                           },
                           {
-                            "u":"URFA-122_a13",
                             "docHits": ["URFA-122_a13"],
                             "doc":"URFA-122",
                             "content":"<div class=\"corpus-search-result\" id=\"corpus-w-URFA-122_xTok_000738\"><div class=\"left\"><span class=\"w\" id=\"URFA-122_xTok_000730\">u<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-122_xTok_000731\">ˀal<\/span><span class=\"w\" id=\"URFA-122_xTok_000733\">bāb<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-122_xTok_000734\">b<\/span><span class=\"w\" id=\"URFA-122_xTok_000736\">ad<\/span><\/div><div class=\"keyword\"><span class=\"w\">dār<\/span><span xml:space=\"preserve\"> <\/span><\/div><div class=\"right\"><span class=\"w\">imčallṭīn<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">al<\/span><span class=\"w\">qīrān<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">aṭ<\/span><span class=\"w\">ṭūg<\/span><span xml:space=\"preserve\"> <\/span><\/div><\/div>"
@@ -1907,6 +1908,15 @@ contents: >-
           - type
           - title
           - target
+      markers_type:
+        type: string
+        enum:
+          - data
+          - sample
+          - bibl
+          - profile
+          - dict
+          - feature
       item_type:
         type: array
         minItems: 0
