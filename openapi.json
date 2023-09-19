@@ -1537,6 +1537,9 @@
             "id": {
               "type": "string"
             },
+            "target": {
+              "type": "string"
+            },
             "title": {
               "type": "string"
             },
@@ -1559,6 +1562,9 @@
                 "DataList",
                 "CorpusQuery"
               ]
+            },
+            "label": {
+              "type": "string"
             }
           },
           "required": [

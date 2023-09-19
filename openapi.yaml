@@ -1916,6 +1916,8 @@ components:
         properties:
           id:
             type: string
+          target:
+            type: string
           title:
             type: string
           type:
@@ -1934,6 +1936,8 @@ components:
             - SampleText
             - DataList
             - CorpusQuery
+          label:
+            type: string
         required:
         - type
     main_type:
