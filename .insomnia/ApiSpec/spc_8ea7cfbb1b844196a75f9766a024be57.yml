@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1695050988911
+modified: 1695131626099
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -1925,6 +1925,8 @@ contents: >-
           properties:
             id:
               type: string
+            target:
+              type: string
             title:
               type: string
             type:
@@ -1943,6 +1945,8 @@ contents: >-
               - SampleText
               - DataList
               - CorpusQuery
+            label:
+              type: string
           required:
           - type
       main_type:
