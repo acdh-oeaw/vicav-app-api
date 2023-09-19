@@ -1929,6 +1929,7 @@ components:
           enum:
           - item
           - separator
+          - dropdown
         componentName:
           type: string
           enum:

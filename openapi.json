@@ -1554,7 +1554,8 @@
             "type": "string",
             "enum": [
               "item",
-              "separator"
+              "separator",
+              "dropdown"
             ]
           },
           "componentName": {
