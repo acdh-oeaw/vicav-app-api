@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1695131626099
+modified: 1695133160559
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -1879,7 +1879,7 @@ contents: >-
           param:
             $ref: '#/components/schemas/param_type'
           panel:
-            $ref: '#/components/schemas/panel_type'
+            $ref: '#/components/schemas/panels_type'
           menu:
             $ref: '#/components/schemas/menu_type'          
       logo_type:
@@ -1892,22 +1892,24 @@ contents: >-
         minItems: 0
         items:
           type: string
-      panel_type:
+      panels_type:
         type: array
         minItems: 0
         items:
-          type: object
-          properties:
-            type:
-              type: string
-            target:
-              type: string
-            title:
-              type: string
-          required:
-          - type
-          - title
-          - target
+          $ref: '#/components/schemas/panel_type'
+      panel_type:    
+        type: object
+        properties:
+          type:
+            type: string
+          target:
+            type: string
+          title:
+            type: string
+        required:
+        - type
+        - title
+        - target
       markers_type:
         type: string
         enum:
@@ -1917,84 +1919,90 @@ contents: >-
           - profile
           - dict
           - feature
-      item_type:
+      items_type:
         type: array
         minItems: 0
         items:
-          type: object
-          properties:
-            id:
-              type: string
-            target:
-              type: string
-            title:
-              type: string
-            type:
-              type: string
-              enum:
-              - item
-              - separator
-            componentName:
-              type: string
-              enum:
-              - WMap
-              - DictQuery
-              - CrossDictQuery
-              - BiblioQuery
-              - Text
-              - SampleText
-              - DataList
-              - CorpusQuery
-            label:
-              type: string
-          required:
-          - type
-      main_type:
+          $ref: '#/components/schemas/item_type'
+      item_type:   
+        type: object
+        properties:
+          id:
+            type: string
+          target:
+            type: string
+          title:
+            type: string
+          type:
+            type: string
+            enum:
+            - item
+            - separator
+          componentName:
+            type: string
+            enum:
+            - WMap
+            - DictQuery
+            - CrossDictQuery
+            - BiblioQuery
+            - Text
+            - SampleText
+            - DataList
+            - CorpusQuery
+          label:
+            type: string
+        required:
+        - type
+      main_items_type:
         type: array
         minItems: 0
         items:
-          type: object
-          properties:
-            id:
-              type: string
-            title:
-              type: string
-            item:
-              $ref: '#/components/schemas/item_type'
-            type:
-              type: string
-              enum:
-              - dropdown
-          required:
-          - item
-          - id
-          - title
-          - type
+          $ref: '#/components/schemas/main_item_type'
+      main_item_type:
+        type: object
+        properties:
+          id:
+            type: string
+          title:
+            type: string
+          item:
+            $ref: '#/components/schemas/items_type'
+          type:
+            type: string
+            enum:
+            - dropdown
+        required:
+        - item
+        - id
+        - title
+        - type
+      subnavs_type:
+        type: array
+        minItems: 0
+        items:
+          $ref: '#/components/schemas/subnav_type'
       subnav_type:
-        type: array
-        minItems: 0
-        items:
-          type: object
-          properties:
-            id:
-              type: string
-            class:
-              type: string
-            title:
-              type: string
-            type:
-              type: string
-          required:
-          - id
-          - title
-          - type
+        type: object
+        properties:
+          id:
+            type: string
+          class:
+            type: string
+          title:
+            type: string
+          type:
+            type: string
+        required:
+        - id
+        - title
+        - type
       menu_type:
         type: object
         properties:
           main:
-            $ref: '#/components/schemas/main_type'
+            $ref: '#/components/schemas/main_items_type'
           subnav:
-            $ref: '#/components/schemas/subnav_type'
+            $ref: '#/components/schemas/subnavs_type'
       Feature:
         title: GeoJSON Feature
         type: object
