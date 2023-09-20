@@ -28,6 +28,14 @@ info:
 tags:
   - name: noauth
     description: Operations available without authentication
+  - name: vicav
+    description: >-
+      VICAV API An API for retrieving the various VICAV TEI documents rendered
+      either as XHTML snippets or JSON
+  - name: vleserver-api
+    description: >-
+      API Problem and JSON HAL based API for querying dictionary like XML
+      datasets.
 paths:
   /vicav/project:
     get:
@@ -120,12 +128,44 @@ paths:
                               {
                                 "id": "navBiblGeoMarkers",
                                 "title": "All Bibl. Locations on Map",
-                                "type": "item"
+                                "type": "item",
+                                "componentName": "WMap",
+                                "label": "",
+                                "query": {
+                                  "endpoint": "bibl_markers_tei",
+                                  "query": ".*",
+                                  "scope": [
+                                    "geo"
+                                  ]
+                                }
                               },
                               {
                                 "id": "navBiblRegMarkers",
                                 "title": "All Bibl. Regions on Map",
-                                "type": "item"
+                                "type": "item",
+                                "componentName": "WMap",
+                                "label": "",
+                                "query": {
+                                  "endpoint": "bibl_markers_tei",
+                                  "query": ".*",
+                                  "scope": [
+                                    "reg"
+                                  ]
+                                }
+                              },
+                              {
+                                "id": "navBiblDiaGroupMarkers",
+                                "title": "All Bibl. Dialect Regions on Map",
+                                "type": "item",
+                                "componentName": "WMap",
+                                "label": "",
+                                "query": {
+                                  "endpoint": "bibl_markers_tei",
+                                  "query": "This feature is unused at the moment",
+                                  "scope": [
+                                    "diaGroup"
+                                  ]
+                                }
                               },
                               {
                                 "type": "separator"
@@ -133,12 +173,32 @@ paths:
                               {
                                 "id": "navDictGeoRegMarkers",
                                 "title": "All Dictionaries in Bibl. on Map",
-                                "type": "item"
+                                "type": "item",
+                                "componentName": "WMap",
+                                "label": "",
+                                "query": {
+                                  "endpoint": "bibl_markers_tei",
+                                  "query": "vt:dictionary",
+                                  "scope": [
+                                    "geo",
+                                    "reg"
+                                  ]
+                                }
                               },
                               {
                                 "id": "navTextbookGeoRegMarkers",
                                 "title": "All Textbooks in Bibl. on Map",
-                                "type": "item"
+                                "type": "item",
+                                "componentName": "WMap",
+                                "label": "",
+                                "query": {
+                                  "endpoint": "bibl_markers_tei",
+                                  "query": "vt:textbook",
+                                  "scope": [
+                                    "geo",
+                                    "reg"
+                                  ]
+                                }
                               },
                               {
                                 "type": "separator"
@@ -1815,6 +1875,324 @@ paths:
                 html:
                   summary: A sample HTML response
                   value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
+  /restvle:
+    get:
+      operationId: getRestVLEURLS
+      summary: A static collection showing valid next URLs.
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestVLEURIs'
+          description: '-'
+        '406':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+            application/problem+xml:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+          description: Can not generate result according to Accept header.
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+            application/problem+xml:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+          description: Internal server error (please provice the trace!).
+      tags:
+        - vleserver-api
+      description: '-'
+  /restvle/dicts:
+    get:
+      operationId: getDicts
+      summary: A list of all dictionaries available on this server.
+      parameters:
+        - schema: {}
+          in: query
+          example: '1'
+          name: page
+          description: The page page to return based on the given pageSize
+          required: false
+        - schema: {}
+          in: query
+          example: '10'
+          name: pageSize
+          description: Number of entries to return per request
+          required: false
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestVLEDicts'
+          description: |-
+            A JSON HAL based list of dictionaries. Links to the individual dictionaires are included.
+        '406':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+            application/problem+xml:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+          description: Can not generate result according to Accept header.
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+            application/problem+xml:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+          description: Internal server error (please provice the trace!).
+      tags:
+        - vleserver-api
+      description: '-'
+  /restvle/dicts/{dict_name}:
+    get:
+      operationId: getDictDictName
+      summary: Info about the dictionary.
+      parameters:
+        - schema: {}
+          in: path
+          example: dc_arz_eng_publ
+          name: dict_name
+          description: Name of an existing dictionary
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestVLEDictInfo'
+            application/problem+xml: {}
+          description: Info about the requested dictionary.
+        '404':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+            application/problem+xml:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+          description: No dictionary with that name.
+        '406':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+            application/problem+xml:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+          description: Can not generate result according to Accept header.
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+            application/problem+xml:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+          description: Internal server error (please provice the trace!).
+      tags:
+        - vleserver-api
+      description: >-
+        Here you find pointers to the next endpoints you can use and also some information
+        about the queries you can use.
+  /restvle/dicts/{dict_name}/entries:
+    get:
+      operationId: _:getDictDictNameEntries
+      summary: 'A list of all entries for a particular dictionary. TODO: Limit by query.'
+      parameters:
+        - schema: {}
+          in: path
+          example: 'dc_arz_eng_publ'
+          name: dict_name
+          description: Name of an existing dictionary
+          required: true
+        - schema: {}
+          in: query
+          example: '1'
+          name: page
+          description: The page page to return based on the given pageSize
+          required: false
+        - schema: {}
+          in: query
+          example: '10'
+          name: pageSize
+          description: Number of entries to return per request
+          required: false
+        - schema:
+            type: string
+            nullable: true
+          in: query
+          example: 'il_'
+          name: id
+          description: Filter by ids starting with this string
+          required: false
+        - schema:
+            type: string
+            nullable: true
+          in: query
+          example: 'il_mafruud_001'
+          name: ids
+          description: >-
+            Return entries matching exactly the ids provided as a comma
+            separated list
+          required: false
+        - schema:
+            type: string
+            nullable: true
+          in: query
+          example: 'ft_all=mafru.*'
+          name: q
+          description: |-
+            A name of a query template stored in the profile.
+          required: false
+        - schema:
+            type: string
+            nullable: true
+            enum:
+              - asc
+              - desc
+              - none
+          in: query
+          example: 'asc'
+          name: sort
+          description: >-
+            One of "asc", "desc" or "none"
+          required: false
+        - schema:
+            type: string
+            nullable: true
+          in: query
+          example: ''
+          name: altLemma
+          description: >-
+            A name of an alternative lemma definition to use (specified in
+            profile)
+          required: false
+        - schema:
+            type: string
+            nullable: true
+          in: query
+          example: 'html'
+          name: format
+          description: |-
+            An XML format the TEI should be transformed to (e. g. html)
+            Only authenticated users.
+          required: false
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestVLEEntries'
+          description: A JSON HAL based list of entry URIs.
+        '404':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+            application/problem+xml:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+          description: No dictionary with that name.
+        '406':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+            application/problem+xml:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+          description: Can not generate result according to Accept header.
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+            application/problem+xml:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+          description: Internal server error (please provice the trace!).
+      tags:
+        - vleserver-api
+      description: >-
+        There seems to be a limit of about 80 ids that can be specified at any
+        one time. This will be the URI to search for a particular entry by
+        numerous filter an search options. Search option are defined as
+        queryTemplates in profiles. They can be used as name=value query
+        parameters.
+  /restvle/dicts/{dict_name}/entries/{id}:
+    get:
+      operationId: getDictDictNameEntry
+      summary: Get a particular entry from a dictionary.
+      parameters:
+        - schema: {}
+          in: path
+          example: 'dc_arz_eng_publ'
+          name: dict_name
+          description: Name of an existing dictionary.
+          required: true
+        - schema: {}
+          in: path
+          example: 'il_mafruud_001'
+          name: id
+          description: The @xml:id or @ID of the entry to be changed.
+          required: true
+        - schema:
+            type: string
+            nullable: true
+          in: query
+          example: ''
+          name: format
+          required: false
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestVLEEntry'
+          description: >-
+            A JSON HAL document containing the entry XML and further extracted
+            data.
+        '404':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+            application/problem+xml:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+          description: No dictionary with that name.
+        '406':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+            application/problem+xml:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+          description: Can not generate result according to Accept header.
+        '500':
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+            application/problem+xml:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
+          description: Internal server error (please provice the trace!).
+      tags:
+        - vleserver-api
+      description: '-'
 components:
   schemas:
     CorpusText: 
@@ -1941,10 +2319,33 @@ components:
           - SampleText
           - DataList
           - CorpusQuery
+          - CorpusText
         label:
           type: string
+        query:
+          $ref: '#/components/schemas/query_description'
       required:
       - type
+    query_description:
+      type: object
+      properties:
+        endpoint:
+          type: string
+          example: bibl_markers_tei
+        query:
+          type: string
+          example: ".*"
+        scope:
+          type: array
+          items:
+            type: string
+            enum:
+              - reg
+              - geo
+              - diaGroup
+          example:
+            - reg
+            - geo
     main_items_type:
       type: array
       minItems: 0
@@ -2040,3 +2441,368 @@ components:
           minItems: 4
           items:
             type: number
+    RFC7807Problem:
+      title: A RFC 7807 problem report
+      type: object
+      required:
+       - type
+       - title
+       - detail
+       - instance
+       - status
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        detail:
+          type: string
+        instance:
+          type: string
+        status:
+          type: string
+        trace:
+          type: string       
+        'xml:space':
+          type: string
+          xml:
+            attribute: true
+          enum:
+            - preserve
+            - default
+      xml:
+        name: 'problem'
+        namespace: 'urn:ietf:rfc:7807'      
+      example:
+        {
+          "type": "https://tools.ietf.org/html/rfc7231#section-6",
+          "title": "Not Found",
+          "detail": "",
+          "instance": "https://tools.ietf.org/html/rfc7231#section-6/_404",
+          "status": "404",
+          "trace": "/app/3rd-party/vleserver_basex/vleserver/dicts.xqm, 158/8"
+        }
+    HALhref:
+      title: A hyperlink reference
+      type: object
+      required:
+        - href
+      properties:
+        href:
+          type: string
+    HALLinks:
+      title: Hypermedia Application Language paging links
+      type: object
+      required:
+       - self
+      properties:
+        self:                
+          $ref: '#/components/schemas/HALhref'
+        first:                
+          $ref: '#/components/schemas/HALhref'
+        last:                
+          $ref: '#/components/schemas/HALhref'
+    RestVLEURIs:
+      title: Pointer to next useful URIs
+      type: object
+      required:
+        - _links
+        - _embedded
+        - page_count
+        - page_size
+        - total_items
+        - page
+        - took
+      properties:
+        _links:
+          $ref: '#/components/schemas/HALLinks'
+          example: {
+            "self": {
+              "href": "/restvle/?pageSize=1"
+            },
+            "first": {
+              "href": "/restvle/?page=1&pageSize=1"
+            },
+            "last": {
+              "href": "/restvle/?page=1&pageSize=1"
+            }
+          }
+        _embeded:
+          type: object
+          required:
+           - _
+          properties:
+           _:
+             type: array
+             items:
+               type: object
+               required:
+                 - note
+                 - _links
+               items:
+                 note:
+                   type: string
+                 _links:
+                   $ref: '#/components/schemas/HALLinks'
+             example: [
+                {
+                  "note": "all dictionaries",
+                  "_links": {
+                    "self": {
+                      "href": "/restvle/dicts"
+                    }
+                  }
+                }
+              ]
+        page_count:
+          type: string
+          example: "1"
+        page_size:
+          type: string
+          example:  "10"
+        total_items:
+          type: string
+          example:  "1"
+        page:
+          type: string
+          example:  "1"
+        took:
+          type: string
+          example: "0.46"
+    RestVLEDicts:
+      required:
+        - _links
+        - _embedded
+        - page_count
+        - page_size
+        - total_items
+        - page
+        - took
+      properties:
+        _links:
+          $ref: '#/components/schemas/HALLinks'
+          example: {
+            "self": {
+              "href": "/restvle/?pageSize=1"
+            },
+            "first": {
+              "href": "/restvle/?page=1&pageSize=1"
+            },
+            "last": {
+              "href": "/restvle/?page=1&pageSize=1"
+            }
+          }
+        _embeded:
+          type: object
+          required:
+           - dicts
+          properties:
+           dicts:
+             type: array
+             items:
+               type: object
+               required:
+                 - name
+                 - _links
+               items:
+                 name:
+                   type: string
+                 _links:
+                   $ref: '#/components/schemas/HALLinks'
+             example: [
+                {
+                  "name": "dc_apc_eng_publ",
+                  "_links": {
+                    "self": {
+                      "href": "/restvle/dicts/dc_apc_eng_publ"
+                    }
+                  }
+                }
+              ]
+        page_count:
+          type: string
+          example: "1"
+        page_size:
+          type: string
+          example:  "10"
+        total_items:
+          type: string
+          example:  "1"
+        page:
+          type: string
+          example:  "1"
+        took:
+          type: string
+          example: "0.46"
+    RestVLEDictInfo:
+      required:
+        - _links
+        - _embedded
+        - page_count
+        - page_size
+        - total_items
+        - page
+        - took
+      properties:
+        _links:
+          $ref: '#/components/schemas/HALLinks'
+          example: {
+            "self": {
+              "href": "/restvle/?pageSize=1"
+            },
+            "first": {
+              "href": "/restvle/?page=1&pageSize=1"
+            },
+            "last": {
+              "href": "/restvle/?page=1&pageSize=1"
+            }
+          }
+        _embeded:
+          type: object
+          required:
+           - _
+          properties:
+           _:
+             type: array
+             items:
+               type: object
+               required:
+                 - note
+                 - _links
+               items:
+                 note:
+                   type: string
+                 _links:
+                   $ref: '#/components/schemas/HALLinks'
+                 queryTemplates:
+                   description: All available stored queries
+                   type: array
+                   items:
+                     type: string
+                 dbNames:
+                   type: array
+                   items:
+                     type: string
+             example: [
+                {
+                  "note": "all entries",
+                  "queryTemplates": [
+                    "subc",
+                    "ft_lem",
+                    "pos_root",
+                    "sense",
+                    "ft_tr",
+                    "ft_all",
+                  ],
+                  "dbNames": [
+                    "dc_arz_eng_publ"
+                  ],
+                  "_links": {
+                    "self": {
+                      "href": "/restvle/dicts/dc_arz_eng_publ//entries"
+                    }
+                  }
+                },
+                {
+                  "note": "all users with access to this dictionary",
+                  "_links": {
+                    "self": {
+                      "href": "/restvle/dicts/dc_arz_eng_publ//users"
+                    }
+                  }
+                }
+              ]
+        page_count:
+          type: string
+          example: "1"
+        page_size:
+          type: string
+          example:  "10"
+        total_items:
+          type: string
+          example:  "1"
+        page:
+          type: string
+          example:  "1"
+        took:
+          type: string
+          example: "0.46"
+    RestVLEEntries:
+      required:
+        - _links
+        - _embedded
+        - page_count
+        - page_size
+        - total_items
+        - page
+        - took
+      properties:
+        _links:
+          $ref: '#/components/schemas/HALLinks'
+          example: {
+            "self": {
+              "href": "/restvle/?pageSize=1"
+            },
+            "first": {
+              "href": "/restvle/?page=1&pageSize=1"
+            },
+            "last": {
+              "href": "/restvle/?page=1&pageSize=1"
+            }
+          }
+        _embeded:
+          type: object
+          required:
+           - entries
+          properties:
+           entries:
+             type: array
+             items:
+               $ref: '#/components/schemas/RestVLEEntry'
+        page_count:
+          type: string
+          example: "1"
+        page_size:
+          type: string
+          example:  "10"
+        total_items:
+          type: string
+          example:  "1"
+        page:
+          type: string
+          example:  "1"
+        took:
+          type: string
+          example: "0.46"
+    RestVLEEntry:
+      type: object
+      properties:
+        id:
+          type: string
+          description: xml:id of the entry (equals sid for historcal reasons)
+        sid:
+          type: string
+          description: xml:id of the entry
+        lemma:
+          type: string
+          description: String representing the lemma, configurable
+        status:
+          type: string
+          description: Edition status of the entry. should be 'released' for published entries
+        type:
+          type: string
+          enum:
+            - entry
+            - cit
+          description: One of 'entry', 'cit', ...
+        entry:
+          type: string
+          description: Either the source XML of the entry or rendered as HTML on the server
+        storedEntryMd5:
+          type: string
+        _links:
+          $ref: '#/components/schemas/HALLinks'
+        took:
+          type: string
+          example: "23.83"
+
