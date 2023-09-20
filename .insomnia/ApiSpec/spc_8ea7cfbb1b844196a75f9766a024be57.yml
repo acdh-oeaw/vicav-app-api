@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1695217726902
+modified: 1695221781691
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >
@@ -61,8 +61,8 @@ contents: >
                 schema:
                   $ref: '#/components/schemas/ProjectConfig'
                 examples:
-                  project_config_JSON:
-                    summary: the project configuration
+                  project_config_VICAV:
+                    summary: the VICAV project configuration
                     value: {
                       "projectConfig": {
                         "title": "VICAV3.0 - Vienna Corpus of Arabic Varieties",
@@ -532,6 +532,182 @@ contents: >
                             }
                           ]
                         }
+                      }
+                    }
+                  project_config_SHAWI:
+                    summary: the SHAWI project configuration
+                    value: {
+                      "projectConfig": {
+                        "title": "SHAWI",
+                        "logo": {
+                          "string": "shawi"
+                        },
+                        "icon": "shawi/marker-icon.png",
+                        "map": {
+                          "zoom": 6,
+                          "center": {
+                            "lat": 36.25313319699069,
+                            "lng": 37.56820810215787
+                          }
+                        },
+                        "param": [],
+                        "panel": [],
+                        "menu": {
+                          "main": [
+                            {
+                              "id": "dropdown01",
+                              "title": "About",
+                              "item": [
+                                {
+                                  "id": "shawiAbout",
+                                  "target": "shawi_about",
+                                  "title": "About",
+                                  "type": "item",
+                                  "componentName": "Text",
+                                  "label": ""
+                                },
+                                {
+                                  "id": "shawiTeam",
+                                  "target": "shawi_team",
+                                  "title": "Team",
+                                  "type": "item",
+                                  "componentName": "Text",
+                                  "label": ""
+                                },
+                                {
+                                  "id": "shawiNews",
+                                  "target": "shawi_news",
+                                  "title": "News",
+                                  "type": "item",
+                                  "componentName": "Text",
+                                  "label": ""
+                                }
+                              ],
+                              "type": "dropdown"
+                            },
+                            {
+                              "id": "dropdown02",
+                              "title": "Profiles",
+                              "item": [
+                                {
+                                  "id": "liProfilesExplanation",
+                                  "target": "tunocentExplanationProfiles",
+                                  "title": "Explanation",
+                                  "type": "item",
+                                  "componentName": "Text",
+                                  "label": ""
+                                },
+                                {
+                                  "type": "separator"
+                                },
+                                {
+                                  "id": "navProfilesGeoRegMarkers",
+                                  "title": "Show All Locations",
+                                  "type": "item",
+                                  "componentName": "WMap",
+                                  "label": "",
+                                  "query": {
+                                    "endpoint": "profile_markers",
+                                    "query": "",
+                                    "scope": []
+                                  }
+                                },
+                                {
+                                  "id": "liProfilesList",
+                                  "title": "List all entries",
+                                  "type": "item",
+                                  "componentName": "DataList",
+                                  "label": ""
+                                },
+                                {
+                                  "type": "separator"
+                                },
+                                {
+                                  "id": "liVicavContributeProfile",
+                                  "title": "Contribute a Profile",
+                                  "type": "item",
+                                  "componentName": "UnknownTypeWarning",
+                                  "label": ""
+                                }
+                              ],
+                              "type": "dropdown"
+                            },
+                            {
+                              "id": "dropdown04",
+                              "title": "Corpus",
+                              "item": [
+                                {
+                                  "id": "liSamplesList",
+                                  "title": "List all entries",
+                                  "type": "item",
+                                  "componentName": "DataList",
+                                  "label": ""
+                                },
+                                {
+                                  "id": "corpusQuery",
+                                  "title": "Search the corpus",
+                                  "type": "item",
+                                  "componentName": "CorpusQuery",
+                                  "label": ""
+                                },
+                                {
+                                  "id": "corpusText",
+                                  "title": "Read corpus texts",
+                                  "type": "item",
+                                  "componentName": "CorpusText",
+                                  "label": ""
+                                }
+                              ],
+                              "type": "dropdown"
+                            }
+                          ],
+                          "subnav": [
+                            {
+                              "id": "subNavProfilesGeoRegMarkers",
+                              "title": "Profiles",
+                              "type": "item",
+                              "componentName": "WMap",
+                              "label": "",
+                              "query": {
+                                "endpoint": "profile_markers",
+                                "query": "",
+                                "scope": []
+                              }
+                            },
+                            {
+                              "id": "subNavFeaturesGeoRegMarkers",
+                              "title": "Features",
+                              "type": "item",
+                              "componentName": "WMap",
+                              "label": "",
+                              "query": {
+                                "endpoint": "feature_markers",
+                                "query": "",
+                                "scope": []
+                              }
+                            },
+                            {
+                              "id": "subNavSamplesGeoRegMarkers",
+                              "title": "Samples",
+                              "type": "item",
+                              "componentName": "WMap",
+                              "label": "",
+                              "query": {
+                                "endpoint": "sample_markers",
+                                "query": "",
+                                "scope": []
+                              }
+                            }
+                          ]
+                        },
+                        "styleSettings": {
+                          "colors": {
+                            "nav": "#7C633F",
+                            "subNav": "#FFA500"
+                          }
+                        },
+                        "noskeHost": "https://shawi-noske.acdh-dev.oeaw.ac.at",
+                        "style": "\n.navbar, .main-footer {\n\tbackground-color: #7C633F;\n}\n.sub-nav, .panel-chrome, .footer-imprint-bar {\n\tbackground-color: #FFA500;\n}\n\n.main-footer a {\n\tcolor: gold;\n}\n\na.navbar-brand {\n\tfont-size: 2.5em;\n\tfont-family: Times, serif;\n\tfont-style: italic;\n\tline-height: 1;\n\tmargin-top: -10px;\n}\n\nbody .navbar ul.navbar-nav {\n\tborder-left: none;\n}\n\n.h3Profile {\n\tborder-bottom: #7C633F;\n}\n\nh3::after, h4::after {\n\tborder-top: solid 4px #7C633F;\n}\n\n.tdFeaturesHead, .tdFeaturesHeadRight, .tdHead, .aVicText:hover, .aTEIButton:hover, .dropdown-item:active, .dvStats {\n\tbackground: #7C633F;\n}\n\n.dvAuthor {\n\tborder-top: 0.5px dotted #7C633F;\n}\n\n.tdFeaturesLeft, .tdProfileTableRight, .aVicText, .aTEIButton {\n\tcolor: #7C633F !important;\n}\n\n.tdFeaturesHead, .tdFeaturesHeadRight, .tdFeaturesRightSource, .tdFeaturesLeft, .tdFeaturesRightTarget, .dvStats {\n\tborder: solid 1px #7C633F;\n}\n\n.tdFeaturesRightTarget {\n\tfont-style: inherit;\n}\n\n.tdProfileTableRight {\n\tborder-bottom: solid 1px #7C633F;\n}\n\n.aTEIButton {\n\tborder: solid 1px #7C633F;\n}\n\na:hover { color: #7C633F }\n\n.word-search [data-toggle=\"tooltip\"] {\n    background-color: rgba(255,255,0,0.3);\t\n}\n\n[data-toggle = \"tooltip\"].sample-text-variant {\n    background-color: #FFA500;\n    color: white;\n    padding: 0 2px;\n}\n\n.aligncenter {\n\tmargin: 0 auto;\n\ttext-align: center;\n}\n.alignright {\n    float: right;\n}\n.alignleft {\n    float: left;\n}\n.has-background-dim {\n    background-color: #eee;\n    display: flex;\n}\nwp-block-image {\n    max-width: 100%;\n    margin-bottom: 1em;\n    margin-left: 0;\n    margin-right: 0;\n\n}\n.wp-block-cover {\n    position: relative;\n    min-height: 430px;\n    width: 100%;\n    margin: 0 0 1.5em;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    overflow: hidden;\n}\n.wp-block-cover.has-background-dim::before {\n    content: \"\";\n    position: absolute;\n    top: 0;\n    left: 0;\n    bottom: 0;\n    right: 0;\n    background-color: inherit;\n    opacity: .5;\n    z-index: 1;\n}\n\n.wp-block-cover .wp-block-cover__inner-container {\n    width: calc(100% - 70px);\n    z-index: 1;\n    color: #f8f9f9;\n}\n.wp-block-columns { display: flex; }\n\n.has-2-columns .wp-block-column { flex-basis: 50% }\n\nfigure, img {\n    height: auto;\n}\n\n\t"
                       }
                     }
               application/xml:
@@ -2072,7 +2248,6 @@ contents: >
                 - desc
                 - none
             in: query
-            example: 'asc'
             name: sort
             description: >-
               One of "asc", "desc" or "none"
@@ -2254,12 +2429,50 @@ contents: >
             type: string
           logo:
             $ref: '#/components/schemas/logo_type'
+          icon:
+            type: string
+            description: The URL/path of the 'needle' to be used on the maps
+          map:
+            type: object
+            properties:
+              zoom:
+                type: number
+              center:
+                type: object
+                properties:
+                  lat:
+                    type: number
+                  lng:
+                    type: number
+            description: Settings for the map displayed initially 
           param:
             $ref: '#/components/schemas/param_type'
           panel:
             $ref: '#/components/schemas/panels_type'
           menu:
-            $ref: '#/components/schemas/menu_type'          
+            $ref: '#/components/schemas/menu_type'
+          styleSettings:
+            type: object
+            nullable: true
+            properties:
+              colors:
+                type: object
+                properties:
+                  nav:
+                    type: string
+                    description: Background color for the menu
+                  subNav:
+                    type: string
+                    description: Background color for the (map controls) bar beneath the menu
+            description: Settings for the two main background colors in the main UI.
+          noskeHost:
+            type: string
+            nullable: true
+            description: The host the NoSkE engine for this instance of the interface runs on if any (Shawi interface)
+          style:
+            type: string
+            nullable: true
+            description: A CSS snippet that should be loaded to customize the colors for a particular instance (Shawi, tunocent)
       logo_type:
         type: object
         properties:
@@ -2329,6 +2542,7 @@ contents: >
             - DataList
             - CorpusQuery
             - CorpusText
+            - UnknownTypeWarning
           label:
             type: string
           query:
