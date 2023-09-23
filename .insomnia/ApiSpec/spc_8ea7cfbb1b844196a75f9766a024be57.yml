@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1695221781691
+modified: 1695506198306
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >
@@ -1126,9 +1126,7 @@ contents: >
                 schema:
                   type: array
                   items:
-                    type: object
-                    schema:
-                      $ref: '#/components/schemas/Feature'
+                    $ref: '#/components/schemas/Feature'
                 examples:
                   geoJSON_features_Ma_geo_reg:
                     summary: 'query: Ma.*. scope: geo_reg, shorted'
@@ -1138,8 +1136,8 @@ contents: >
                               "geometry": {
                                 "type": "Point",
                                 "coordinates": [
-                                  "35.578333",
-                                  "-5.368056"
+                                  -5.368056,
+                                  35.578333
                                 ]
                               },
                               "properties": {
