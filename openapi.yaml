@@ -1199,7 +1199,7 @@ paths:
       tags:
         - noauth
       summary: gets a specific xml
-      operationId: sampleMarkers
+      operationId: getGeoMarkers
       description: |
         I have no idea
       parameters:
