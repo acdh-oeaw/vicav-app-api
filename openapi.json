@@ -1076,10 +1076,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "schema": {
-                      "$ref": "#/components/schemas/Feature"
-                    }
+                    "$ref": "#/components/schemas/Feature"
                   }
                 },
                 "examples": {
@@ -1091,8 +1088,8 @@
                         "geometry": {
                           "type": "Point",
                           "coordinates": [
-                            "35.578333",
-                            "-5.368056"
+                            -5.368056,
+                            35.578333
                           ]
                         },
                         "properties": {

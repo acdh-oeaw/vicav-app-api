@@ -1117,9 +1117,7 @@ paths:
               schema:
                 type: array
                 items:
-                  type: object
-                  schema:
-                    $ref: '#/components/schemas/Feature'
+                  $ref: '#/components/schemas/Feature'
               examples:
                 geoJSON_features_Ma_geo_reg:
                   summary: 'query: Ma.*. scope: geo_reg, shorted'
@@ -1129,8 +1127,8 @@ paths:
                             "geometry": {
                               "type": "Point",
                               "coordinates": [
-                                "35.578333",
-                                "-5.368056"
+                                -5.368056,
+                                35.578333
                               ]
                             },
                             "properties": {
