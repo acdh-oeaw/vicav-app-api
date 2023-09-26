@@ -1081,7 +1081,7 @@
                 },
                 "examples": {
                   "geoJSON_features_Ma_geo_reg": {
-                    "summary": "query: Ma.*. scope: geo_reg, shorted",
+                    "summary": "query: Ma.*. scope: geo scope: reg, shorted",
                     "value": [
                       {
                         "type": "Feature",
@@ -1103,8 +1103,8 @@
                         "geometry": {
                           "type": "Point",
                           "coordinates": [
-                            "32.000000",
-                            "-6.000000"
+                            -6,
+                            32
                           ]
                         },
                         "properties": {
