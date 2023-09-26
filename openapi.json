@@ -1056,15 +1056,18 @@
             "in": "query",
             "name": "scope",
             "required": true,
-            "description": "Filters based on a set of tei:name/@types being present in a tei:note[tei:geo]           \n* geo\n* diaGroup\n* reg\n* geo_reg: any of the above\n",
+            "description": "Filters based on a set of tei:name/@types being present in a tei:note[tei:geo]           \n* geo\n* diaGroup\n* reg\n* geo_reg: any of the above (deprecated, use this as an array)\n",
             "schema": {
-              "type": "string",
-              "enum": [
-                "geo_reg",
-                "geo",
-                "reg",
-                "diaGroup"
-              ]
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "geo_reg",
+                  "geo",
+                  "reg",
+                  "diaGroup"
+                ]
+              }
             }
           }
         ],
