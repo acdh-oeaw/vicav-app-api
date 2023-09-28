@@ -1,0 +1,45 @@
+_id: req_1b1ce9f545864bda8dc6cca96eacf9f8
+type: Request
+parentId: fld_f573816b74b445979cba3bc7a3d3d2b4
+modified: 1695903433925
+created: 1695903433925
+url: "{{ _.base_url }}/restvle/dicts/{{ _.dict_name }}/entries"
+name: "A list of all entries for a particular dictionary. TODO: Limit by query."
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: page
+    disabled: true
+    value: "null"
+  - name: pageSize
+    disabled: true
+    value: "null"
+  - name: id
+    disabled: true
+    value: string
+  - name: ids
+    disabled: true
+    value: string
+  - name: q
+    disabled: true
+    value: string
+  - name: sort
+    disabled: true
+    value: string
+  - name: altLemma
+    disabled: true
+    value: string
+  - name: format
+    disabled: true
+    value: string
+headers: []
+authentication: {}
+metaSortKey: -1695903433925
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

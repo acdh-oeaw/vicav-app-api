@@ -1,0 +1,24 @@
+_id: req_d95d5e6a701d4e1e95737191dcd84cd6
+type: Request
+parentId: fld_f573816b74b445979cba3bc7a3d3d2b4
+modified: 1695903433930
+created: 1695903433930
+url: "{{ _.base_url }}/restvle/dicts/{{ _.dict_name }}/entries/{{ _.id }}"
+name: Get a particular entry from a dictionary.
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: format
+    disabled: true
+    value: string
+headers: []
+authentication: {}
+metaSortKey: -1695903433930
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

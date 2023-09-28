@@ -1,0 +1,21 @@
+_id: req_70bbe25358c64045872da0855cb77f82
+type: Request
+parentId: fld_f573816b74b445979cba3bc7a3d3d2b4
+modified: 1695903433910
+created: 1695903433910
+url: "{{ _.base_url }}/restvle"
+name: A static collection showing valid next URLs.
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1695903433910
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

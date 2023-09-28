@@ -1,0 +1,10 @@
+_id: fld_f573816b74b445979cba3bc7a3d3d2b4
+type: RequestGroup
+parentId: wrk_6915256f54c24d51aa934588fd7b49ff
+modified: 1695903433849
+created: 1695903433849
+name: vleserver-api
+description: API Problem and JSON HAL based API for querying dictionary like XML datasets.
+environment: {}
+environmentPropertyOrder: null
+metaSortKey: -1695903433849
