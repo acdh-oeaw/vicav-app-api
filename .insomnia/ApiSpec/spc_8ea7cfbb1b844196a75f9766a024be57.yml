@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1695730082226
+modified: 1695934043485
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >
@@ -1145,7 +1145,7 @@ contents: >
                               "properties": {
                                 "type": "geo",
                                 "name": "Tétouan",
-                                "hitCount": "16"
+                                "hitCount": 16
                               }
                             },
                             {
@@ -1160,7 +1160,7 @@ contents: >
                               "properties": {
                                 "type": "reg",
                                 "name": "Morocco",
-                                "hitCount": "1157"
+                                "hitCount": 1157
                               }
                             }
                           ]
@@ -1220,8 +1220,48 @@ contents: >
               $ref: '#/components/schemas/markers_type'
         responses:
           '200':
-            description: an xml result list
+            description: coordinates and names for displaying markers on a map
             content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Feature'
+                examples:
+                  geoJSON_features_Ma_geo_reg:
+                    summary: 'These endpoints always show respond with all the data'
+                    value: [
+                            {
+                              "type": "Feature",
+                              "geometry": {
+                                "type": "Point",
+                                "coordinates": [
+                                  -5.368056,
+                                  35.578333
+                                ]
+                              },
+                              "properties": {
+                                "type": "geo",
+                                "name": "Tétouan",
+                                "hitCount": 16
+                              }
+                            },
+                            {
+                              "type": "Feature",
+                              "geometry": {
+                                "type": "Point",
+                                "coordinates": [
+                                  -6,
+                                  32
+                                ]
+                              },
+                              "properties": {
+                                "type": "reg",
+                                "name": "Morocco",
+                                "hitCount": 1157
+                              }
+                            }
+                          ]
               application/xml:
                 schema:
                   type: string
@@ -2638,11 +2678,30 @@ contents: >
           properties:
             oneOf:
             - type: 'null'
-            - type: object
+            - $ref: '#/components/schemas/MarkerProperties'
           geometry:
             oneOf:
             - type: 'null'
-            - $ref: '#/components/schemas/Point'    
+            - $ref: '#/components/schemas/Point'
+      MarkerProperties:
+        title: Properties of a marker which should be displayed
+        type: object
+        required:
+          - type
+          - name
+          - hitCount
+        properties:
+          type:
+            type: string
+            enum:
+              - geo
+              - reg
+          name:
+            type: string
+          alt:
+            type: string
+          hitCount:
+            type: number          
       Point:
         title: GeoJSON Point
         type: object
