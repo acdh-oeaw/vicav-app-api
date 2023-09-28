@@ -1,10 +1,10 @@
-_id: req_b12de95ce1b74bcfbaa65ddbfb70000c
+_id: req_2f924d6419354c66968a736e62dd7856
 type: Request
 parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
-modified: 1695904794304
-created: 1695903809060
-url: "{{ _.base_url }}/vicav/{{ _.name }}_markers"
-name: gets map markers for a specific kind of resources
+modified: 1695904751596
+created: 1695904747381
+url: "{{ _.base_url }}/vicav/feature_markers"
+name: gets map markers for lists of features
 description: ""
 method: GET
 body: {}
@@ -15,7 +15,7 @@ headers:
     value: application/json
     description: ""
 authentication: {}
-metaSortKey: -1675562742862.75
+metaSortKey: -1675194755661.4375
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

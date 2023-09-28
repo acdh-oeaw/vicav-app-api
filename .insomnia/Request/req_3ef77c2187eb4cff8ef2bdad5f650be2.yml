@@ -1,7 +1,7 @@
 _id: req_3ef77c2187eb4cff8ef2bdad5f650be2
 type: Request
 parentId: fld_f573816b74b445979cba3bc7a3d3d2b4
-modified: 1695903433920
+modified: 1695904361053
 created: 1695903433920
 url: "{{ _.base_url }}/restvle/dicts/{{ _.dict_name }}"
 name: Info about the dictionary.
@@ -11,7 +11,7 @@ body: {}
 parameters: []
 headers: []
 authentication: {}
-metaSortKey: -1695903433920
+metaSortKey: -1695903433980
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

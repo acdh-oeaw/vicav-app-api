@@ -1,7 +1,7 @@
 _id: req_c7132dc626e74c1dbb0ab56a1b110e16
 type: Request
 parentId: fld_f573816b74b445979cba3bc7a3d3d2b4
-modified: 1695903433915
+modified: 1695904345967
 created: 1695903433915
 url: "{{ _.base_url }}/restvle/dicts"
 name: A list of all dictionaries available on this server.
@@ -17,7 +17,7 @@ parameters:
     value: "null"
 headers: []
 authentication: {}
-metaSortKey: -1695903433915
+metaSortKey: -1695903434030
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

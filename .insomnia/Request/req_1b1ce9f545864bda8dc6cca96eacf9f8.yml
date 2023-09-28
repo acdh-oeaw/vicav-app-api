@@ -1,7 +1,7 @@
 _id: req_1b1ce9f545864bda8dc6cca96eacf9f8
 type: Request
 parentId: fld_f573816b74b445979cba3bc7a3d3d2b4
-modified: 1695903433925
+modified: 1695904404593
 created: 1695903433925
 url: "{{ _.base_url }}/restvle/dicts/{{ _.dict_name }}/entries"
 name: "A list of all entries for a particular dictionary. TODO: Limit by query."
@@ -35,7 +35,7 @@ parameters:
     value: string
 headers: []
 authentication: {}
-metaSortKey: -1695903433925
+metaSortKey: -1695903433955
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

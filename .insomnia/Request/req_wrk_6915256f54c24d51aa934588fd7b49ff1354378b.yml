@@ -1,10 +1,10 @@
 _id: req_wrk_6915256f54c24d51aa934588fd7b49ff1354378b
 type: Request
 parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
-modified: 1695729569122
+modified: 1695904928165
 created: 1675795155932
 url: "{{ base_url }}/vicav/bibl_markers_tei"
-name: gets a geo marker information
+name: gets map markers for bibliographies
 description: ""
 method: GET
 body: {}
@@ -28,7 +28,7 @@ headers:
     description: ""
     disabled: false
 authentication: {}
-metaSortKey: -1675795155932
+metaSortKey: -1675640213852.5
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
