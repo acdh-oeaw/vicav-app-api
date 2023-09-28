@@ -1,0 +1,36 @@
+_id: req_7eb37e2d76ee4314992f7626c59ac21e
+type: Request
+parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
+modified: 1695903988037
+created: 1695903809080
+url: "{{ _.base_url }}/vicav/corpus_text"
+name: Get rendered corpus text
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: id
+    disabled: false
+    value: string
+  - name: size
+    disabled: true
+    value: "10"
+  - name: page
+    disabled: true
+    value: "1"
+  - name: hits
+    disabled: true
+    value: string
+  - name: print
+    disabled: true
+    value: string
+headers: []
+authentication: {}
+metaSortKey: -1675795390696
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
