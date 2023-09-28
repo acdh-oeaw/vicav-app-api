@@ -1,12 +1,12 @@
 _id: env_8cb920b3e78a4052b89b0b8b82220cf2
 type: Environment
 parentId: env_9a21f4d181d64765d33c7bbe158a0e24fc2976d0
-modified: 1695051533819
+modified: 1695897882214
 created: 1683641059923
 name: localhost 8984
 data:
   scheme: http
-  base_path: /
+  base_path: ""
   host: localhost:8984
   name: profile
 dataPropertyOrder:
