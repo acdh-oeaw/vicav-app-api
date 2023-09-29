@@ -2878,6 +2878,8 @@ components:
           example:
             - reg
             - geo
+      required:
+        - endpoint
     main_items_type:
       type: array
       minItems: 0

@@ -2671,7 +2671,10 @@
               "geo"
             ]
           }
-        }
+        },
+        "required": [
+          "endpoint"
+        ]
       },
       "main_items_type": {
         "type": "array",
