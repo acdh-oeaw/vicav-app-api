@@ -1,10 +1,10 @@
 _id: req_21ac225ea759434788cde6657c3d73ab
 type: Request
 parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
-modified: 1695904714958
+modified: 1695978014854
 created: 1695904638988
 url: "{{ _.base_url }}/vicav/data_markers"
-name: gets map markers for lists of linguistic features
+name: gets map markers for profiles, samples and linguistic features
 description: ""
 method: GET
 body: {}
@@ -14,6 +14,7 @@ headers:
     name: Accept
     value: application/json
     description: ""
+    disabled: false
 authentication: {}
 metaSortKey: -1675214123408.875
 isPrivate: false

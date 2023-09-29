@@ -1,7 +1,7 @@
 _id: req_b159bf3e9f224689ade3c43eacb97461
 type: Request
 parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
-modified: 1695904585661
+modified: 1695975741979
 created: 1695904579809
 url: "{{ _.base_url }}/vicav/sample_markers"
 name: gets map markers for sample texts
@@ -14,6 +14,7 @@ headers:
     name: Accept
     value: application/json
     description: ""
+    disabled: false
 authentication: {}
 metaSortKey: -1675252858903.75
 isPrivate: false
