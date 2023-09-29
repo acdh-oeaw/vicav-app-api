@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1695978428973
+modified: 1695985450668
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >
@@ -83,87 +83,98 @@ contents: >
                         ],
                         "panel": [
                           {
-                            "target": "li_vicavMission",
+                            "id": "li_vicavMission",
+                            "target": "vicavMission",
                             "title": "MISSION",
                             "type": "panel",
                             "componentName": "Text",
-                            "label": "MISSION"
+                            "label": "Mission"
                           },
                           {
-                            "target": "li_vicavNews",
+                            "id": "li_vicavNews",
+                            "target": "vicavNews",
                             "title": "NEWS",
                             "type": "panel",
                             "componentName": "Text",
-                            "label": "VICAV NEWS"
+                            "label": "VICAV News"
                           }
                         ],
                         "menu": {
                           "main": [
                             {
                               "id": "dropdown00",
+                              "target": "dropdown00",
                               "title": "Project",
                               "item": [
                                 {
                                   "id": "li_vicavMission",
+                                  "target": "vicavMission",
                                   "title": "Mission",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "MISSION"
+                                  "label": "Mission"
                                 },
                                 {
                                   "id": "li_vicavNews",
+                                  "target": "vicavNews",
                                   "title": "News",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "VICAV NEWS"
+                                  "label": "VICAV News"
                                 },
                                 {
                                   "type": "separator"
                                 },
                                 {
                                   "id": "li_vicavTypesOfText",
+                                  "target": "vicavTypesOfText",
                                   "title": "Types of Text\/Data",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "TYPES OF TEXT"
+                                  "label": "Types of Text"
                                 },
                                 {
                                   "id": "li_vicavContributors",
+                                  "target": "vicavContributors",
                                   "title": "Contributors",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "CONTRIBUTORS"
+                                  "label": "Contributors"
                                 },
                                 {
                                   "id": "li_vicavLinguistics",
+                                  "target": "vicavLinguistics",
                                   "title": "Linguistics",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "LINGUISTICS"
+                                  "label": "Linguistics"
                                 }
                               ],
                               "type": "dropdown"
                             },
                             {
                               "id": "dropdown01",
+                              "target": "dropdown01",
                               "title": "Bibliographies",
                               "item": [
                                 {
                                   "id": "li_vicavExplanationBibliography",
+                                  "target": "vicavExplanationBibography",
                                   "title": "Explanation",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "BIBLIOGRAPHY (DETAILS)"
+                                  "label": "Explanation"
                                 },
                                 {
                                   "type": "separator"
                                 },
                                 {
                                   "id": "navBiblGeoMarkers",
+                                  "target": "BiblGeoMarkers",
                                   "title": "All Bibl. Locations on Map",
                                   "type": "item",
                                   "componentName": "WMap",
-                                  "label": "",
+                                  "label": "All Bibl. Locations on Map",
                                   "query": {
                                     "endpoint": "bibl_markers_tei",
                                     "query": ".*",
@@ -174,10 +185,11 @@ contents: >
                                 },
                                 {
                                   "id": "navBiblRegMarkers",
+                                  "target": "BiblRegMarkers",
                                   "title": "All Bibl. Regions on Map",
                                   "type": "item",
                                   "componentName": "WMap",
-                                  "label": "",
+                                  "label": "All Bibl. Regions on Map",
                                   "query": {
                                     "endpoint": "bibl_markers_tei",
                                     "query": ".*",
@@ -188,10 +200,11 @@ contents: >
                                 },
                                 {
                                   "id": "navBiblDiaGroupMarkers",
+                                  "target": "BiblDiaGroupMarkers",
                                   "title": "All Bibl. Dialect Regions on Map",
                                   "type": "item",
                                   "componentName": "WMap",
-                                  "label": "",
+                                  "label": "All Bibl. Dialect Regions on Map",
                                   "query": {
                                     "endpoint": "bibl_markers_tei",
                                     "query": "This feature is unused at the moment",
@@ -205,10 +218,11 @@ contents: >
                                 },
                                 {
                                   "id": "navDictGeoRegMarkers",
+                                  "target": "DictGeoRegMarkers",
                                   "title": "All Dictionaries in Bibl. on Map",
                                   "type": "item",
                                   "componentName": "WMap",
-                                  "label": "",
+                                  "label": "All Dictionaries in Bibl. on Map",
                                   "query": {
                                     "endpoint": "bibl_markers_tei",
                                     "query": "vt:dictionary",
@@ -220,10 +234,11 @@ contents: >
                                 },
                                 {
                                   "id": "navTextbookGeoRegMarkers",
+                                  "target": "TextbookGeoRegMarkers",
                                   "title": "All Textbooks in Bibl. on Map",
                                   "type": "item",
                                   "componentName": "WMap",
-                                  "label": "",
+                                  "label": "All Textbooks in Bibl. on Map",
                                   "query": {
                                     "endpoint": "bibl_markers_tei",
                                     "query": "vt:textbook",
@@ -238,44 +253,49 @@ contents: >
                                 },
                                 {
                                   "id": "liBiblNewQuery",
+                                  "target": "BiblNewQuery",
                                   "title": "Query Bibliography",
                                   "type": "item",
                                   "componentName": "BiblioQuery",
-                                  "label": ""
+                                  "label": "Query Bibliography"
                                 },
                                 {
                                   "type": "separator"
                                 },
                                 {
                                   "id": "li_vicavContributeBibliography",
+                                  "target": "vicavContributeBibography",
                                   "title": "Contribute to the Bibliography",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "CONTRIBUTE TO BIBLIOGRAPHY"
+                                  "label": "Contribute to the Bibliography"
                                 }
                               ],
                               "type": "dropdown"
                             },
                             {
                               "id": "dropdown02",
+                              "target": "dropdown02",
                               "title": "Profiles",
                               "item": [
                                 {
                                   "id": "li_vicavExplanationProfiles1",
+                                  "target": "vicavExplanationProfiles1",
                                   "title": "Explanation + List",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": ""
+                                  "label": "Explanation + List"
                                 },
                                 {
                                   "type": "separator"
                                 },
                                 {
                                   "id": "navProfilesGeoRegMarkers",
+                                  "target": "ProfilesGeoRegMarkers",
                                   "title": "Show All Profiles on Map",
                                   "type": "item",
                                   "componentName": "WMap",
-                                  "label": "",
+                                  "label": "Show All Profiles on Map",
                                   "query": {
                                     "endpoint": "profile_markers",
                                     "query": "",
@@ -288,41 +308,46 @@ contents: >
                                 },
                                 {
                                   "id": "li_vicavContributeProfile",
+                                  "target": "vicavContributeProfile",
                                   "title": "Contribute a Profile",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "CONTRIBUTE A PROFILE"
+                                  "label": "Contribute a Profile"
                                 }
                               ],
                               "type": "dropdown"
                             },
                             {
                               "id": "dropdown03",
+                              "target": "dropdown03",
                               "title": "Feature Lists",
                               "item": [
                                 {
                                   "id": "li_vicavExplanationFeatures",
+                                  "target": "vicavExplanationFeatures",
                                   "title": "Explanation",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "FEATURES (DETAILS)"
+                                  "label": "Features (Details)"
                                 },
                                 {
                                   "id": "li_vicavExploreFeatures",
+                                  "target": "vicavExploreFeatures",
                                   "title": "Cross-examine the VICAV Feature Lists",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "EXPLORE FEATURES"
+                                  "label": "Explore Features"
                                 },
                                 {
                                   "type": "separator"
                                 },
                                 {
                                   "id": "navFeaturesGeoRegMarkers",
+                                  "target": "FeaturesGeoRegMarkers",
                                   "title": "Show All Feature Lists on Map",
                                   "type": "item",
                                   "componentName": "WMap",
-                                  "label": "",
+                                  "label": "Show All Feature Lists on Map",
                                   "query": {
                                     "endpoint": "feature_markers",
                                     "query": "",
@@ -335,34 +360,38 @@ contents: >
                                 },
                                 {
                                   "id": "li_vicavContributeFeature",
+                                  "target": "vicavContributeFeature",
                                   "title": "Contribute a Feature List",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "CONTRIBUTE A FEATURE LIST"
+                                  "label": "Contribute a Feature List"
                                 }
                               ],
                               "type": "dropdown"
                             },
                             {
                               "id": "dropdown04",
+                              "target": "dropdown04",
                               "title": "Samples",
                               "item": [
                                 {
                                   "id": "li_vicavExplanationSamples",
+                                  "target": "vicavExplanationSamples",
                                   "title": "Explanation",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "SAMPLES (DETAILS)"
+                                  "label": "Samples (Details)"
                                 },
                                 {
                                   "type": "separator"
                                 },
                                 {
                                   "id": "navSamplesGeoRegMarkers",
+                                  "target": "SamplesGeoRegMarkers",
                                   "title": "Show All Samples on Map",
                                   "type": "item",
                                   "componentName": "WMap",
-                                  "label": "",
+                                  "label": "Show All Samples on Map",
                                   "query": {
                                     "endpoint": "sample_markers",
                                     "query": "",
@@ -375,38 +404,43 @@ contents: >
                                 },
                                 {
                                   "id": "li_vicavContributeSampleText",
+                                  "target": "vicavContributeSampleText",
                                   "title": "Contribute a Sample Text",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": ""
+                                  "label": "Contribute a Sample Text"
                                 }
                               ],
                               "type": "dropdown"
                             },
                             {
                               "id": "dropdown05",
+                              "target": "dropdown05",
                               "title": "Texts",
                               "item": [
                                 {
                                   "id": "li_vicavExplanationCorpusTexts",
+                                  "target": "vicavExplanationCorpusTexts",
                                   "title": "Explanation and Overview",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "CORPUS TEXTS (DETAILS)"
+                                  "label": "Corpus Texts (Details)"
                                 }
                               ],
                               "type": "dropdown"
                             },
                             {
                               "id": "dropdown06",
+                              "target": "dropdown06",
                               "title": "Dictionaries",
                               "item": [
                                 {
                                   "id": "navDictGeoRegMarkers",
+                                  "target": "DictGeoRegMarkers",
                                   "title": "All Dictionaries in Bibl. on Map",
                                   "type": "item",
                                   "componentName": "WMap",
-                                  "label": "",
+                                  "label": "All Dictionaries in Bibl. on Map",
                                   "query": {
                                     "endpoint": "bibl_markers_tei",
                                     "query": "vt:dictionary",
@@ -418,10 +452,11 @@ contents: >
                                 },
                                 {
                                   "id": "navVicavDictMarkers",
+                                  "target": "VicavDictMarkers",
                                   "title": "All VICAV Dictionaries on Map",
                                   "type": "item",
                                   "componentName": "WMap",
-                                  "label": "",
+                                  "label": "All VICAV Dictionaries on Map",
                                   "query": {
                                     "endpoint": "dict_markers",
                                     "query": "",
@@ -434,191 +469,217 @@ contents: >
                                 },
                                 {
                                   "id": "liVicavCrossDictQuery",
+                                  "target": "VicavCrossDictQuery",
                                   "title": "Query the VICAV Dictionaries",
                                   "type": "item",
                                   "componentName": "CrossDictQuery",
-                                  "label": ""
+                                  "label": "Query the VICAV Dictionaries"
                                 },
                                 {
                                   "type": "separator"
                                 },
                                 {
                                   "id": "liVicavDict_Tunis",
+                                  "target": "VicavDict_Tunis",
                                   "title": "TUNICO Dictionary",
                                   "type": "item",
-                                  "componentName": "DictQuery",
-                                  "label": ""
+                                  "componentName": "Text",
+                                  "label": "TUNICO Dictionary"
                                 },
                                 {
                                   "id": "liVicavDict_Damascus",
+                                  "target": "VicavDict_Damascus",
                                   "title": "Damascus Dictionary",
                                   "type": "item",
-                                  "componentName": "DictQuery",
-                                  "label": ""
+                                  "componentName": "Text",
+                                  "label": "Damascus Dictionary"
                                 },
                                 {
                                   "id": "liVicavDict_Cairo",
+                                  "target": "VicavDict_Cairo",
                                   "title": "Cairo Dictionary",
                                   "type": "item",
-                                  "componentName": "DictQuery",
-                                  "label": ""
+                                  "componentName": "Text",
+                                  "label": "Cairo Dictionary"
                                 },
                                 {
                                   "id": "liVicavDict_Baghdad",
+                                  "target": "VicavDict_Baghdad",
                                   "title": "Baghdad Dictionary",
                                   "type": "item",
-                                  "componentName": "DictQuery",
-                                  "label": ""
+                                  "componentName": "Text",
+                                  "label": "Baghdad Dictionary"
                                 },
                                 {
                                   "id": "liVicavDict_MSA",
+                                  "target": "VicavDict_MSA",
                                   "title": "MSA Dictionary",
                                   "type": "item",
-                                  "componentName": "DictQuery",
-                                  "label": ""
+                                  "componentName": "Text",
+                                  "label": "MSA Dictionary"
                                 },
                                 {
                                   "type": "separator"
                                 },
                                 {
                                   "id": "li_vicavDictionariesTechnicalities",
+                                  "target": "vicavDictionariesTechnicaties",
                                   "title": "Technicalities",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "DICTIONARIES (TECHNICALITIES)"
+                                  "label": "Technicalities"
                                 },
                                 {
                                   "id": "li_vicavContributeDictionary",
+                                  "target": "vicavContributeDictionary",
                                   "title": "Contribute a Dictionary\/Glossary",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "CONTRIBUTE A DICTIONARY"
+                                  "label": "Contribute a Dictionary"
                                 }
                               ],
                               "type": "dropdown"
                             },
                             {
                               "id": "dropdown07",
+                              "target": "dropdown07",
                               "title": "Tools & Technology",
                               "item": [
                                 {
                                   "id": "li_vicavDictionaryEncoding",
+                                  "target": "vicavDictionaryEncoding",
                                   "title": "Dictionary Encoding",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "DICTIONARIES (ENCODING)"
+                                  "label": "Dictionaries (Encoding)"
                                 },
                                 {
                                   "id": "li_vicavVLE",
+                                  "target": "vicavVLE",
                                   "title": "Dictionary Editor (VLE)",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "DICTIONARY EDITOR (VLE)"
+                                  "label": "Dictionary Editor (VLE)"
                                 },
                                 {
                                   "id": "li_vicavArabicTools",
+                                  "target": "vicavArabicTools",
                                   "title": "Arabic Research Tools",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "ARABIC TOOLS"
+                                  "label": "Arabic Tools"
                                 },
                                 {
                                   "id": "li_vicavOverview_corpora_spoken",
+                                  "target": "vicavOverview_corpora_spoken",
                                   "title": "      Corpora (Spoken Varieties)",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "CORPORA OF SPOKEN ARABIC"
+                                  "label": "Corpora of Spoken Arabic"
                                 },
                                 {
                                   "id": "li_vicavOverview_corpora_msa",
+                                  "target": "vicavOverview_corpora_msa",
                                   "title": "      Corpora (MSA)",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "MSA CORPORA"
+                                  "label": "MSA Corpora"
                                 },
                                 {
                                   "id": "li_vicavOverview_special_corpora",
+                                  "target": "vicavOverview_special_corpora",
                                   "title": "      Special Corpora",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "SPECIAL CORPORA"
+                                  "label": "Special Corpora"
                                 },
                                 {
                                   "id": "li_vicavOverview_corpora_historical_varieties",
+                                  "target": "vicavOverview_corpora_historical_varieties",
                                   "title": "      Corpora (Historical Varieties)",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "CORPORA OF HISTORICAL LANGUAGE"
+                                  "label": "Corpora of Historical Language"
                                 },
                                 {
                                   "id": "li_vicavOverview_dictionaries",
+                                  "target": "vicavOverview_dictionaries",
                                   "title": "      Dictionaries",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "DICTIONARY PROJECTS"
+                                  "label": "Dictionary Projects"
                                 },
                                 {
                                   "id": "li_vicavOverview_nlp",
+                                  "target": "vicavOverview_nlp",
                                   "title": "      Language Processing Tools",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "ARABIC NLP"
+                                  "label": "Arabic NLP"
                                 },
                                 {
                                   "id": "li_vicavOverview_otherStuff",
+                                  "target": "vicavOverview_otherStuff",
                                   "title": "      Other Websites & Projects",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "OTHER STUFF"
+                                  "label": "Other Stuff"
                                 },
                                 {
                                   "id": "li_vicavLearning",
+                                  "target": "vicavLearning",
                                   "title": "Learning Materials",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "LEARNING"
+                                  "label": "Learning"
                                 },
                                 {
                                   "id": "li_vicavLearning_tb_damascus",
+                                  "target": "vicavLearning_tb_damascus",
                                   "title": "      Textbook Syrian Arabic (Sound files)",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": ""
+                                  "label": "      Textbook Syrian Arabic (Sound files)"
                                 },
                                 {
                                   "id": "li_vicavLearning_tb_baghdad",
+                                  "target": "vicavLearning_tb_baghdad",
                                   "title": "      Textbook Baghdad Arabic (Sound files)",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": ""
+                                  "label": "      Textbook Baghdad Arabic (Sound files)"
                                 },
                                 {
                                   "id": "li_vicavLearningSmartphone",
+                                  "target": "vicavLearningSmartphone",
                                   "title": "      Vocabularies on Smartphones",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "VOCABULARIES ON SMARTPHONES"
+                                  "label": "VOCABULARIES on Smartphones"
                                 },
                                 {
                                   "id": "li_vicavLearningPrograms",
+                                  "target": "vicavLearningPrograms",
                                   "title": "      Available Programs",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "LEARNING PROGRAMS"
+                                  "label": "Learning Programs"
                                 },
                                 {
                                   "id": "li_vicavLearningData",
+                                  "target": "vicavLearningData",
                                   "title": "      Available Data",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "LEARNING DATA"
+                                  "label": "Learning Data"
                                 },
                                 {
                                   "id": "li_vicavKeyboards",
+                                  "target": "vicavKeyboards",
                                   "title": "Keyboard Layouts",
                                   "type": "item",
                                   "componentName": "Text",
-                                  "label": "KEYBOARDS"
+                                  "label": "Keyboards"
                                 }
                               ],
                               "type": "dropdown"
@@ -627,11 +688,12 @@ contents: >
                           "subnav": [
                             {
                               "id": "subNavBiblGeoMarkers",
+                              "target": "BiblGeoMarkers",
                               "class": "active",
                               "title": "Bibl. Locations",
                               "type": "item",
                               "componentName": "WMap",
-                              "label": "",
+                              "label": "Bibl. Locations",
                               "query": {
                                 "endpoint": "bibl_markers_tei",
                                 "query": ".*",
@@ -642,10 +704,11 @@ contents: >
                             },
                             {
                               "id": "subNavBiblRegMarkers",
+                              "target": "BiblRegMarkers",
                               "title": "Bibl. Regions",
                               "type": "item",
                               "componentName": "WMap",
-                              "label": "",
+                              "label": "Bibl. Regions",
                               "query": {
                                 "endpoint": "bibl_markers_tei",
                                 "query": ".*",
@@ -656,10 +719,11 @@ contents: >
                             },
                             {
                               "id": "subNavDictGeoRegMarkers",
+                              "target": "DictGeoRegMarkers",
                               "title": "Bibl. (Dictionaries)",
                               "type": "item",
                               "componentName": "WMap",
-                              "label": "",
+                              "label": "Bibl. (Dictionaries)",
                               "query": {
                                 "endpoint": "bibl_markers_tei",
                                 "query": "vt:dictionary",
@@ -671,10 +735,11 @@ contents: >
                             },
                             {
                               "id": "subNavTextbookGeoRegMarkers",
+                              "target": "TextbookGeoRegMarkers",
                               "title": "Bibl. (Textbooks)",
                               "type": "item",
                               "componentName": "WMap",
-                              "label": "",
+                              "label": "Bibl. (Textbooks)",
                               "query": {
                                 "endpoint": "bibl_markers_tei",
                                 "query": "vt:textbook",
@@ -686,10 +751,11 @@ contents: >
                             },
                             {
                               "id": "subNavProfilesGeoRegMarkers",
+                              "target": "ProfilesGeoRegMarkers",
                               "title": "Profiles",
                               "type": "item",
                               "componentName": "WMap",
-                              "label": "",
+                              "label": "Profiles",
                               "query": {
                                 "endpoint": "profile_markers",
                                 "query": "",
@@ -699,10 +765,11 @@ contents: >
                             },
                             {
                               "id": "subNavFeaturesGeoRegMarkers",
+                              "target": "FeaturesGeoRegMarkers",
                               "title": "Features",
                               "type": "item",
                               "componentName": "WMap",
-                              "label": "",
+                              "label": "Features",
                               "query": {
                                 "endpoint": "feature_markers",
                                 "query": "",
@@ -712,10 +779,11 @@ contents: >
                             },
                             {
                               "id": "subNavSamplesGeoRegMarkers",
+                              "target": "SamplesGeoRegMarkers",
                               "title": "Samples",
                               "type": "item",
                               "componentName": "WMap",
-                              "label": "",
+                              "label": "Samples",
                               "query": {
                                 "endpoint": "sample_markers",
                                 "query": "",
@@ -725,10 +793,11 @@ contents: >
                             },
                             {
                               "id": "subNavVicavDictMarkers",
+                              "target": "VicavDictMarkers",
                               "title": "VICAV Dictionaries",
                               "type": "item",
                               "componentName": "WMap",
-                              "label": "",
+                              "label": "VICAV Dictionaries",
                               "query": {
                                 "endpoint": "dict_markers",
                                 "query": "",
@@ -2740,20 +2809,7 @@ contents: >
         type: array
         minItems: 0
         items:
-          $ref: '#/components/schemas/panel_type'
-      panel_type:    
-        type: object
-        properties:
-          type:
-            type: string
-          target:
-            type: string
-          title:
-            type: string
-        required:
-        - type
-        - title
-        - target
+          $ref: '#/components/schemas/item_type'
       markers_type:
         type: string
         enum:
@@ -2773,13 +2829,17 @@ contents: >
         properties:
           id:
             type: string
+            summary: A unique if for this UI element
           target:
             type: string
+            summary: An ID for the target panel/window that this UI item opens or brings to the front
           title:
             type: string
+            summary: The string to display for this UI element
           type:
             type: string
             enum:
+            - panel
             - item
             - separator
             - dropdown
@@ -2798,6 +2858,11 @@ contents: >
             - UnknownTypeWarning
           label:
             type: string
+            summary: The caption (or part of it) for the target panel/window that this UI item opens or brings to the front
+          class:
+            type: string
+            enum:
+              - active
           query:
             $ref: '#/components/schemas/query_description'
         required:
@@ -2849,25 +2914,7 @@ contents: >
         type: array
         minItems: 0
         items:
-          $ref: '#/components/schemas/subnav_type'
-      subnav_type:
-        type: object
-        properties:
-          id:
-            type: string
-          class:
-            type: string
-          title:
-            type: string
-          type:
-            type: string
-          query:
-            $ref: '#/components/schemas/query_description'
-        required:
-        - id
-        - title
-        - type
-        - query
+          $ref: '#/components/schemas/item_type'
       menu_type:
         type: object
         properties:
