@@ -1,7 +1,7 @@
 _id: req_8aeda7f4ae934d07b09ad5b5585bada8
 type: Request
 parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
-modified: 1695903983610
+modified: 1699539457832
 created: 1695903809075
 url: "{{ _.base_url }}/vicav/corpus"
 name: Search corpus
@@ -11,11 +11,17 @@ body: {}
 parameters:
   - name: query
     disabled: false
-    value: string
+    value: ma
+    id: pair_7e2a81c27b8d4ecc80f6767c0a394591
   - name: print
     disabled: true
     value: string
-headers: []
+    id: pair_1a79813862324954a86a33f2a30ee161
+headers:
+  - id: pair_2cbcaa977b2d4f72a4934f16953daf08
+    name: Accept
+    value: application/json
+    description: ""
 authentication: {}
 metaSortKey: -1675795390596
 isPrivate: false

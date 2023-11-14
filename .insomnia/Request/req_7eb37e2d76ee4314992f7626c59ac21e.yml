@@ -1,7 +1,7 @@
 _id: req_7eb37e2d76ee4314992f7626c59ac21e
 type: Request
 parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
-modified: 1695903988037
+modified: 1699544049666
 created: 1695903809080
 url: "{{ _.base_url }}/vicav/corpus_text"
 name: Get rendered corpus text
@@ -11,20 +11,29 @@ body: {}
 parameters:
   - name: id
     disabled: false
-    value: string
+    value: URFA-012
+    id: pair_b19b8eac2a5b4221950aef65156c725c
   - name: size
     disabled: true
     value: "10"
+    id: pair_af6fe538111e40ce899cd1c71d19ff62
   - name: page
     disabled: true
     value: "1"
+    id: pair_f9b7d132c5484c8480008591937b5967
   - name: hits
     disabled: true
     value: string
+    id: pair_688633f4e00e4b05b4f48849ef017906
   - name: print
     disabled: true
     value: string
-headers: []
+    id: pair_8d4b133c29b64cf89062eb3593fd7185
+headers:
+  - id: pair_8419a250d0e94f47b29e8d55800aea74
+    name: Accept
+    value: application/json
+    description: ""
 authentication: {}
 metaSortKey: -1675795390696
 isPrivate: false

@@ -1,0 +1,34 @@
+_id: req_3970ddf86e3942ffaef9522e3712dc95
+type: Request
+parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
+modified: 1699613136022
+created: 1699612984086
+url: "{{ base_url }}/vicav/data_list"
+name: gets data list
+description: ""
+method: GET
+body: {}
+parameters:
+  - id: pair_d88b1eac4f52475383664e3c46955c51
+    name: type
+    value: profiles
+    description: ""
+headers:
+  - id: pair_841a2c7f19ee42b2812889e400464d95
+    name: Accept
+    value: application/json
+    description: ""
+    disabled: false
+  - id: pair_472e0ddad5bd4c0fb517a5b7f7bc8bfd
+    name: Origin
+    value: https://localhost:8984
+    description: ""
+authentication: {}
+metaSortKey: -1675795155945
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
