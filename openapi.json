@@ -2551,6 +2551,9 @@
       "logo_type": {
         "type": "object",
         "properties": {
+          "string": {
+            "type": "string"
+          },
           "img": {
             "type": "string"
           }
