@@ -2848,6 +2848,8 @@ components:
           - DataList
           - CorpusQuery
           - CorpusText
+          - Profile
+          - Feature
           - UnknownTypeWarning
         label:
           type: string

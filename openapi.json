@@ -2627,6 +2627,8 @@
               "DataList",
               "CorpusQuery",
               "CorpusText",
+              "Profile",
+              "Feature",
               "UnknownTypeWarning"
             ]
           },
