@@ -1163,6 +1163,48 @@
         }
       }
     },
+    "/vicav/ling_feature": {
+      "get": {
+        "operationId": "getLingFeature",
+        "summary": "Get a standardized text showing lingusitic features of a variety",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "in": "query",
+            "example": "ling_features_baghdad",
+            "name": "id",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "nullable": true,
+                  "type": "string",
+                  "xml": "div"
+                },
+                "examples": {
+                  "html": {
+                    "summary": "A sample HTML response",
+                    "value": "<div\n  xmlns=\"http://www.w3.org/1999/xhtml\">\n  <div>\n    <h2>A List of Linguistic Features of Baghdad Arabic</h2>\n    <p xml:space=\"preserve\">By \n      <i>Stephan Procházka (revision: 2022-06-23)</i>\n    </p>\n    <ul id=\"informants\">\n      <li xml:space=\"preserve\">Informant ID: \n        <i>Baghdad1</i>, Sex: \n        <i/>, Age: \n        <i/>\n      </li>\n    </ul>\n    <table class=\"tbFeatures\">\n      <tr>\n        <td colspan=\"2\" class=\"tdFeaturesHead\">Interrogatives</td>\n      </tr>\n      <tr>\n        <td class=\"tdFeaturesLeft\" rowspan=\"3\">who?</td>\n        <td class=\"tdFeaturesCom\">Most commonly dialects show reflexes of CA \n          <i>man</i>.\n        </td>\n      </tr>\n      <tr>\n        <td class=\"tdFeaturesRightSource\">Who is this man? – He is my friend</td>\n      </tr>\n      <tr>\n        <td class=\"tdFeaturesRightTarget\">\n          <a class=\"word-search\" href=\"#\" data-wordform=\"mǝnu\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w highlight\">mǝnu</span>\n          </a>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"hāḏa\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">hāḏa</span>\n          </a>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"r\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">r</span>\n          </a>\n          <span class=\"pc\"> -</span>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"rǝǧǧāl\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">rǝǧǧāl</span>\n          </a>\n          <span class=\"pc\"> ?</span>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"–\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">–</span>\n          </a>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"huwwa\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">huwwa</span>\n          </a>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"ṣadīq\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">ṣadīq</span>\n          </a>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"i\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">i</span>\n          </a>\n          <span class=\"pc\">.</span>\n        </td>\n      </tr>\n      <tr>\n        <td class=\"tdFeaturesLeft\" rowspan=\"2\">whose?</td>\n        <td class=\"tdFeaturesRightSource\">Whose car is this? – This is our car. It’s small but it’s\n                     good.</td>\n      </tr>\n      <tr>\n        <td class=\"tdFeaturesRightTarget\">\n          <a class=\"word-search\" href=\"#\" data-wordform=\"hāḏi\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">hāḏi</span>\n          </a>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"siyyārat\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">siyyārat</span>\n          </a>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"mǝnu\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w highlight\">mǝnu</span>\n          </a>\n          <span class=\"pc\"> ?</span>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"–\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">–</span>\n          </a>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"hāḏi\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">hāḏi</span>\n          </a>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"siyyāratna\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">siyyāratna</span>\n          </a>\n          <span class=\"pc\"> ,</span>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"hiyya\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">hiyya</span>\n          </a>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"ṣġayyra\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">ṣġayyra</span>\n          </a>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"bass\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">bass</span>\n          </a>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"zēna\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">zēna</span>\n          </a>\n          <span class=\"pc\">.</span>\n        </td>\n      </tr>\n      <tr>\n        <td class=\"tdFeaturesLeft\" rowspan=\"2\">what?</td>\n        <td class=\"tdFeaturesRightSource\">Fatima, what are you doing now? – I’m watching TV.</td>\n      </tr>\n      <tr>\n        <td class=\"tdFeaturesRightTarget\">\n          <a class=\"word-search\" href=\"#\" data-wordform=\"Fāṭma\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">Fāṭma</span>\n          </a>\n          <span class=\"pc\"> ,</span>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"ǝš\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w highlight\">ǝš</span>\n          </a>\n          <span class=\"pc\"> -</span>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"da\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">da</span>\n          </a>\n          <span class=\"pc\"> -</span>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"ssawwīn\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">ssawwīn</span>\n          </a>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"hassa\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">hassa</span>\n          </a>\n          <span class=\"pc\"> ?</span>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"–\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">–</span>\n          </a>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"ʔašūf\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">ʔašūf</span>\n          </a>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"ǝt\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">ǝt</span>\n          </a>\n          <span class=\"pc\"> -</span>\n          <a class=\"word-search\" href=\"#\" data-wordform=\"talfizyōn\" data-type=\"feature\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">talfizyōn</span>\n          </a>\n          <span class=\"pc\">.</span>\n        </td>\n      </tr>\n    </table>\n  </div>\n</div>\n"
+                  }
+                }
+              }
+            },
+            "description": ""
+          }
+        },
+        "tags": [
+          "noauth"
+        ],
+        "description": "no further description"
+      }
+    },
     "/vicav/explore_samples": {
       "get": {
         "tags": [
