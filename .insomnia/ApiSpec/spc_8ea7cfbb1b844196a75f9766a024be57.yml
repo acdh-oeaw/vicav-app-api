@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1700841435323
+modified: 1700866097036
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >
@@ -985,7 +985,9 @@ contents: >
                         "styleSettings": {
                           "colors": {
                             "nav": "#7C633F",
-                            "subNav": "#FFA500"
+                            "subNav": "#FFA500",
+                            "primary": "hsla(35, 33%, 37%, 1)",
+                            "secondary": "hsla(39, 100%, 50%, 1)"
                           }
                         },
                         "noskeHost": "https://shawi-noske.acdh-dev.oeaw.ac.at",
@@ -2957,7 +2959,13 @@ contents: >
                     description: Background color for the menu
                   subNav:
                     type: string
-                    description: Background color for the (map controls) bar beneath the menu
+                    description: Background color for the (map) controls bar
+                  primary:
+                    type: string
+                    description: Background color for the menu and other primary elements as hsla expression
+                  secondary:
+                    type: string
+                    description: Background color for the (map) controls bar and other secondary elements as hsla expression
             description: Settings for the two main background colors in the main UI.
           noskeHost:
             type: string
