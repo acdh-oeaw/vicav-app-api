@@ -976,7 +976,9 @@ paths:
                       "styleSettings": {
                         "colors": {
                           "nav": "#7C633F",
-                          "subNav": "#FFA500"
+                          "subNav": "#FFA500",
+                          "primary": "hsla(35, 33%, 37%, 1)",
+                          "secondary": "hsla(39, 100%, 50%, 1)"
                         }
                       },
                       "noskeHost": "https://shawi-noske.acdh-dev.oeaw.ac.at",
@@ -2948,7 +2950,13 @@ components:
                   description: Background color for the menu
                 subNav:
                   type: string
-                  description: Background color for the (map controls) bar beneath the menu
+                  description: Background color for the (map) controls bar
+                primary:
+                  type: string
+                  description: Background color for the menu and other primary elements as hsla expression
+                secondary:
+                  type: string
+                  description: Background color for the (map) controls bar and other secondary elements as hsla expression
           description: Settings for the two main background colors in the main UI.
         noskeHost:
           type: string
