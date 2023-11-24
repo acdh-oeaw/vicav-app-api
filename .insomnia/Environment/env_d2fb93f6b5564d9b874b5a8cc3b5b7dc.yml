@@ -1,0 +1,14 @@
+_id: env_d2fb93f6b5564d9b874b5a8cc3b5b7dc
+type: Environment
+parentId: env_9a21f4d181d64765d33c7bbe158a0e24fc2976d0
+modified: 1700838872705
+created: 1700838872705
+name: OpenAPI env virtserver.swaggerhub.com
+data:
+  scheme: https
+  base_path: /ctot-nondef/Vicav/1.0.0
+  host: virtserver.swaggerhub.com
+dataPropertyOrder: null
+color: null
+isPrivate: false
+metaSortKey: 1700838872705

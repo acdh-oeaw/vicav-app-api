@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1700739256426
+modified: 1700841435323
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >
@@ -1259,6 +1259,178 @@ contents: >
                   html:
                     summary: A sample HTML response
                     value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
+    /vicav/ling_feature:
+      get:
+        operationId: getLingFeature
+        summary: Get a standardized text showing lingusitic features of a variety
+        parameters:
+          - schema:
+              type: string
+              nullable: true
+            in: query
+            example: ling_features_baghdad
+            name: id
+            required: false
+        responses:
+          '200':
+            content:
+              application/xml:
+                schema:
+                  nullable: true
+                  type: string
+                  xml: div
+                examples:
+                  html:
+                    summary: A sample HTML response
+                    value: >
+                      <div
+                        xmlns="http://www.w3.org/1999/xhtml">
+                        <div>
+                          <h2>A List of Linguistic Features of Baghdad Arabic</h2>
+                          <p xml:space="preserve">By 
+                            <i>Stephan Procházka (revision: 2022-06-23)</i>
+                          </p>
+                          <ul id="informants">
+                            <li xml:space="preserve">Informant ID: 
+                              <i>Baghdad1</i>, Sex: 
+                              <i/>, Age: 
+                              <i/>
+                            </li>
+                          </ul>
+                          <table class="tbFeatures">
+                            <tr>
+                              <td colspan="2" class="tdFeaturesHead">Interrogatives</td>
+                            </tr>
+                            <tr>
+                              <td class="tdFeaturesLeft" rowspan="3">who?</td>
+                              <td class="tdFeaturesCom">Most commonly dialects show reflexes of CA 
+                                <i>man</i>.
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="tdFeaturesRightSource">Who is this man? – He is my friend</td>
+                            </tr>
+                            <tr>
+                              <td class="tdFeaturesRightTarget">
+                                <a class="word-search" href="#" data-wordform="mǝnu" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w highlight">mǝnu</span>
+                                </a>
+                                <a class="word-search" href="#" data-wordform="hāḏa" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">hāḏa</span>
+                                </a>
+                                <a class="word-search" href="#" data-wordform="r" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">r</span>
+                                </a>
+                                <span class="pc"> -</span>
+                                <a class="word-search" href="#" data-wordform="rǝǧǧāl" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">rǝǧǧāl</span>
+                                </a>
+                                <span class="pc"> ?</span>
+                                <a class="word-search" href="#" data-wordform="–" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">–</span>
+                                </a>
+                                <a class="word-search" href="#" data-wordform="huwwa" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">huwwa</span>
+                                </a>
+                                <a class="word-search" href="#" data-wordform="ṣadīq" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">ṣadīq</span>
+                                </a>
+                                <a class="word-search" href="#" data-wordform="i" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">i</span>
+                                </a>
+                                <span class="pc">.</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="tdFeaturesLeft" rowspan="2">whose?</td>
+                              <td class="tdFeaturesRightSource">Whose car is this? – This is our car. It’s small but it’s
+                                           good.</td>
+                            </tr>
+                            <tr>
+                              <td class="tdFeaturesRightTarget">
+                                <a class="word-search" href="#" data-wordform="hāḏi" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">hāḏi</span>
+                                </a>
+                                <a class="word-search" href="#" data-wordform="siyyārat" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">siyyārat</span>
+                                </a>
+                                <a class="word-search" href="#" data-wordform="mǝnu" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w highlight">mǝnu</span>
+                                </a>
+                                <span class="pc"> ?</span>
+                                <a class="word-search" href="#" data-wordform="–" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">–</span>
+                                </a>
+                                <a class="word-search" href="#" data-wordform="hāḏi" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">hāḏi</span>
+                                </a>
+                                <a class="word-search" href="#" data-wordform="siyyāratna" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">siyyāratna</span>
+                                </a>
+                                <span class="pc"> ,</span>
+                                <a class="word-search" href="#" data-wordform="hiyya" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">hiyya</span>
+                                </a>
+                                <a class="word-search" href="#" data-wordform="ṣġayyra" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">ṣġayyra</span>
+                                </a>
+                                <a class="word-search" href="#" data-wordform="bass" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">bass</span>
+                                </a>
+                                <a class="word-search" href="#" data-wordform="zēna" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">zēna</span>
+                                </a>
+                                <span class="pc">.</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="tdFeaturesLeft" rowspan="2">what?</td>
+                              <td class="tdFeaturesRightSource">Fatima, what are you doing now? – I’m watching TV.</td>
+                            </tr>
+                            <tr>
+                              <td class="tdFeaturesRightTarget">
+                                <a class="word-search" href="#" data-wordform="Fāṭma" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">Fāṭma</span>
+                                </a>
+                                <span class="pc"> ,</span>
+                                <a class="word-search" href="#" data-wordform="ǝš" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w highlight">ǝš</span>
+                                </a>
+                                <span class="pc"> -</span>
+                                <a class="word-search" href="#" data-wordform="da" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">da</span>
+                                </a>
+                                <span class="pc"> -</span>
+                                <a class="word-search" href="#" data-wordform="ssawwīn" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">ssawwīn</span>
+                                </a>
+                                <a class="word-search" href="#" data-wordform="hassa" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">hassa</span>
+                                </a>
+                                <span class="pc"> ?</span>
+                                <a class="word-search" href="#" data-wordform="–" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">–</span>
+                                </a>
+                                <a class="word-search" href="#" data-wordform="ʔašūf" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">ʔašūf</span>
+                                </a>
+                                <a class="word-search" href="#" data-wordform="ǝt" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">ǝt</span>
+                                </a>
+                                <span class="pc"> -</span>
+                                <a class="word-search" href="#" data-wordform="talfizyōn" data-type="feature">
+                                  <span data-html="true" data-placement="top" class="w">talfizyōn</span>
+                                </a>
+                                <span class="pc">.</span>
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
+            description: ''
+        tags:
+          - noauth
+        description: no further description
     /vicav/explore_samples:
       get:
         tags:

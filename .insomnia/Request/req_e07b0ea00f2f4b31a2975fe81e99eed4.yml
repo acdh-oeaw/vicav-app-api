@@ -1,0 +1,29 @@
+_id: req_e07b0ea00f2f4b31a2975fe81e99eed4
+type: Request
+parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
+modified: 1700840348570
+created: 1700838872736
+url: "{{ _.base_url }}/vicav/ling_feature"
+name: Get a standardized text showing lingusitic features of a variety
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: id
+    disabled: false
+    value: ling_features_baghdad
+    id: pair_a9c7fa7ec1244beca7b33340ad6f6135
+headers:
+  - id: pair_7f4b8c6226e1461aacf84653e5113185
+    name: Accept
+    value: application/xml+xhtml
+    description: ""
+authentication: {}
+metaSortKey: -1675795390796
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

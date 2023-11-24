@@ -1,17 +1,17 @@
-_id: req_3ef77c2187eb4cff8ef2bdad5f650be2
+_id: req_fc153957434d4e328659564c312dff18
 type: Request
-parentId: fld_f573816b74b445979cba3bc7a3d3d2b4
-modified: 1695904361053
-created: 1695903433920
-url: "{{ _.base_url }}/restvle/dicts/{{ _.dict_name }}"
-name: Info about the dictionary.
+parentId: fld_a87b779f821d41ce8d5a0c88f716a646
+modified: 1700838872774
+created: 1700838872774
+url: "{{ _.base_url }}/restvle"
+name: A static collection showing valid next URLs.
 description: ""
 method: GET
 body: {}
 parameters: []
 headers: []
 authentication: {}
-metaSortKey: -1695903433980
+metaSortKey: -1700838872774
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

@@ -1,8 +1,8 @@
-_id: req_1b1ce9f545864bda8dc6cca96eacf9f8
+_id: req_034f62ba8dde4a2b9ec9880f533f1535
 type: Request
-parentId: fld_f573816b74b445979cba3bc7a3d3d2b4
-modified: 1695904404593
-created: 1695903433925
+parentId: fld_a87b779f821d41ce8d5a0c88f716a646
+modified: 1700838872789
+created: 1700838872789
 url: "{{ _.base_url }}/restvle/dicts/{{ _.dict_name }}/entries"
 name: "A list of all entries for a particular dictionary. TODO: Limit by query."
 description: ""
@@ -35,7 +35,7 @@ parameters:
     value: string
 headers: []
 authentication: {}
-metaSortKey: -1695903433955
+metaSortKey: -1700838872789
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
