@@ -1580,36 +1580,40 @@ paths:
                 geoJSON_features_Ma_geo_reg:
                   summary: 'query: Ma.*. scope: geo scope: reg, shorted'
                   value: [
-                          {
-                            "type": "Feature",
-                            "geometry": {
-                              "type": "Point",
-                              "coordinates": [
-                                -5.368056,
-                                35.578333
-                              ]
+                              {
+                              "type": "Feature",
+                              "geometry": {
+                                "type": "Point",
+                                "coordinates": [
+                                  -5.368056,
+                                  35.578333
+                                ]
+                              },
+                              "properties": {
+                                "type": "geo",
+                                "name": "Tétouan",
+                                "hitCount": 16,
+                                "target-type": "Bibl",
+                                "query": "Ma.*+Tétouan"
+                              }
                             },
-                            "properties": {
-                              "type": "geo",
-                              "name": "Tétouan",
-                              "hitCount": 16
+                            {
+                              "type": "Feature",
+                              "geometry": {
+                                "type": "Point",
+                                "coordinates": [
+                                  -6,
+                                  32
+                                ]
+                              },
+                              "properties": {
+                                "type": "reg",
+                                "name": "Morocco",
+                                "hitCount": 1157,
+                                "target-type": "Bibl",
+                                "query": "Ma.*+Morocco"
+                              }
                             }
-                          },
-                          {
-                            "type": "Feature",
-                            "geometry": {
-                              "type": "Point",
-                              "coordinates": [
-                                -6,
-                                32
-                              ]
-                            },
-                            "properties": {
-                              "type": "reg",
-                              "name": "Morocco",
-                              "hitCount": 1157
-                            }
-                          }
                         ]
             application/xml:
               schema:
@@ -1683,14 +1687,16 @@ paths:
                             "geometry": {
                               "type": "Point",
                               "coordinates": [
-                                -5.368056,
-                                35.578333
+                                40.13333333333333,
+                                35.333333333333336
                               ]
                             },
                             "properties": {
                               "type": "geo",
-                              "name": "Tétouan",
-                              "hitCount": 16
+                              "name": "Deir ez-Zor",
+                              "hitCount": 1,
+                              "text-id": "profile_derizzor_01",
+                              "target-type": "Profile"
                             }
                           },
                           {
@@ -1698,17 +1704,19 @@ paths:
                             "geometry": {
                               "type": "Point",
                               "coordinates": [
-                                -6,
-                                32
+                                13.933333333333334,
+                                37.61666666666667
                               ]
                             },
                             "properties": {
-                              "type": "reg",
-                              "name": "Morocco",
-                              "hitCount": 1157
+                              "type": "geo",
+                              "name": "Sicily",
+                              "hitCount": 1,
+                              "text-id": "profile_sicily_01",
+                              "target-type": "Profile"
                             }
                           }
-                        ]
+                         ]
             application/xml:
               schema:
                 type: string
@@ -3141,7 +3149,13 @@ components:
         alt:
           type: string
         hitCount:
-          type: number          
+          type: number
+        target-type:
+          type: string
+        text-id:
+          type: string
+        query:
+          type: string         
     Point:
       title: GeoJSON Point
       type: object

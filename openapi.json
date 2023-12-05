@@ -1416,7 +1416,9 @@
                         "properties": {
                           "type": "geo",
                           "name": "Tétouan",
-                          "hitCount": 16
+                          "hitCount": 16,
+                          "target-type": "Bibl",
+                          "query": "Ma.*+Tétouan"
                         }
                       },
                       {
@@ -1431,7 +1433,9 @@
                         "properties": {
                           "type": "reg",
                           "name": "Morocco",
-                          "hitCount": 1157
+                          "hitCount": 1157,
+                          "target-type": "Bibl",
+                          "query": "Ma.*+Morocco"
                         }
                       }
                     ]
@@ -1516,14 +1520,16 @@
                         "geometry": {
                           "type": "Point",
                           "coordinates": [
-                            -5.368056,
-                            35.578333
+                            40.13333333333333,
+                            35.333333333333336
                           ]
                         },
                         "properties": {
                           "type": "geo",
-                          "name": "Tétouan",
-                          "hitCount": 16
+                          "name": "Deir ez-Zor",
+                          "hitCount": 1,
+                          "text-id": "profile_derizzor_01",
+                          "target-type": "Profile"
                         }
                       },
                       {
@@ -1531,14 +1537,16 @@
                         "geometry": {
                           "type": "Point",
                           "coordinates": [
-                            -6,
-                            32
+                            13.933333333333334,
+                            37.61666666666667
                           ]
                         },
                         "properties": {
-                          "type": "reg",
-                          "name": "Morocco",
-                          "hitCount": 1157
+                          "type": "geo",
+                          "name": "Sicily",
+                          "hitCount": 1,
+                          "text-id": "profile_sicily_01",
+                          "target-type": "Profile"
                         }
                       }
                     ]
@@ -2855,6 +2863,15 @@
           },
           "hitCount": {
             "type": "number"
+          },
+          "target-type": {
+            "type": "string"
+          },
+          "text-id": {
+            "type": "string"
+          },
+          "query": {
+            "type": "string"
           }
         }
       },
