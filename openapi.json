@@ -2689,7 +2689,8 @@
               "CorpusText",
               "Profile",
               "Feature",
-              "UnknownTypeWarning"
+              "UnknownTypeWarning",
+              "BiblioEntries"
             ]
           },
           "label": {
