@@ -244,10 +244,10 @@ paths:
                               },
                               {
                                 "id": "liBiblNewQuery",
-                                "target": "BiblNewQuery",
+                                "target": "",
                                 "title": "Query Bibliography",
                                 "type": "item",
-                                "targetType": "BiblioQuery",
+                                "targetType": "BiblioEntries",
                                 "label": "Query Bibliography"
                               },
                               {
