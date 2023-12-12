@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1701953121157
+modified: 1702305807603
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >
@@ -253,10 +253,10 @@ contents: >
                                 },
                                 {
                                   "id": "liBiblNewQuery",
-                                  "target": "BiblNewQuery",
+                                  "target": "",
                                   "title": "Query Bibliography",
                                   "type": "item",
-                                  "targetType": "BiblioQuery",
+                                  "targetType": "BiblioEntries",
                                   "label": "Query Bibliography"
                                 },
                                 {
