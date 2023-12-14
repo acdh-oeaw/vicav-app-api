@@ -173,11 +173,11 @@
                               "item": [
                                 {
                                   "id": "li_vicavExplanationBibliography",
-                                  "target": "vicavExplanationBibography",
+                                  "target": "vicavExplanationBibliography",
                                   "title": "Explanation",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Explanation"
+                                  "label": "Bibliography (Details)"
                                 },
                                 {
                                   "type": "separator"
@@ -191,7 +191,7 @@
                                   "label": "All Bibl. Locations on Map",
                                   "query": {
                                     "endpoint": "bibl_markers_tei",
-                                    "query": ".*",
+                                    "queryString": ".*",
                                     "scope": [
                                       "geo"
                                     ]
@@ -206,7 +206,7 @@
                                   "label": "All Bibl. Regions on Map",
                                   "query": {
                                     "endpoint": "bibl_markers_tei",
-                                    "query": ".*",
+                                    "queryString": ".*",
                                     "scope": [
                                       "reg"
                                     ]
@@ -221,7 +221,7 @@
                                   "label": "All Bibl. Dialect Regions on Map",
                                   "query": {
                                     "endpoint": "bibl_markers_tei",
-                                    "query": "This feature is unused at the moment",
+                                    "queryString": "This feature is unused at the moment",
                                     "scope": [
                                       "diaGroup"
                                     ]
@@ -239,7 +239,7 @@
                                   "label": "All Dictionaries in Bibl. on Map",
                                   "query": {
                                     "endpoint": "bibl_markers_tei",
-                                    "query": "vt:dictionary",
+                                    "queryString": "vt:dictionary",
                                     "scope": [
                                       "geo",
                                       "reg"
@@ -255,7 +255,7 @@
                                   "label": "All Textbooks in Bibl. on Map",
                                   "query": {
                                     "endpoint": "bibl_markers_tei",
-                                    "query": "vt:textbook",
+                                    "queryString": "vt:textbook",
                                     "scope": [
                                       "geo",
                                       "reg"
@@ -267,7 +267,7 @@
                                 },
                                 {
                                   "id": "liBiblNewQuery",
-                                  "target": "",
+                                  "target": "BiblNewQuery",
                                   "title": "Query Bibliography",
                                   "type": "item",
                                   "targetType": "BiblioEntries",
@@ -278,11 +278,11 @@
                                 },
                                 {
                                   "id": "li_vicavContributeBibliography",
-                                  "target": "vicavContributeBibography",
+                                  "target": "vicavContributeBibliography",
                                   "title": "Contribute to the Bibliography",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Contribute to the Bibliography"
+                                  "label": "Contribute to Bibliography"
                                 }
                               ],
                               "type": "dropdown"
@@ -312,7 +312,7 @@
                                   "label": "Show All Profiles on Map",
                                   "query": {
                                     "endpoint": "profile_markers",
-                                    "query": "",
+                                    "queryString": "",
                                     "scope": []
                                   }
                                 },
@@ -363,7 +363,7 @@
                                   "label": "Show All Feature Lists on Map",
                                   "query": {
                                     "endpoint": "feature_markers",
-                                    "query": "",
+                                    "queryString": "",
                                     "scope": []
                                   }
                                 },
@@ -406,7 +406,7 @@
                                   "label": "Show All Samples on Map",
                                   "query": {
                                     "endpoint": "sample_markers",
-                                    "query": "",
+                                    "queryString": "",
                                     "scope": []
                                   }
                                 },
@@ -454,7 +454,7 @@
                                   "label": "All Dictionaries in Bibl. on Map",
                                   "query": {
                                     "endpoint": "bibl_markers_tei",
-                                    "query": "vt:dictionary",
+                                    "queryString": "vt:dictionary",
                                     "scope": [
                                       "geo",
                                       "reg"
@@ -463,14 +463,14 @@
                                 },
                                 {
                                   "id": "navVicavDictMarkers",
-                                  "target": "VicavDictMarkers",
+                                  "target": "dictFrontPageMarkers",
                                   "title": "All VICAV Dictionaries on Map",
                                   "type": "item",
                                   "targetType": "WMap",
                                   "label": "All VICAV Dictionaries on Map",
                                   "query": {
                                     "endpoint": "dict_markers",
-                                    "query": "",
+                                    "queryString": "",
                                     "scope": []
                                   }
                                 },
@@ -490,7 +490,7 @@
                                 },
                                 {
                                   "id": "liVicavDict_Tunis",
-                                  "target": "VicavDict_Tunis",
+                                  "target": "dictFrontPage_Tunis",
                                   "title": "TUNICO Dictionary",
                                   "type": "item",
                                   "targetType": "Text",
@@ -498,7 +498,7 @@
                                 },
                                 {
                                   "id": "liVicavDict_Damascus",
-                                  "target": "VicavDict_Damascus",
+                                  "target": "dictFrontPage_Damascus",
                                   "title": "Damascus Dictionary",
                                   "type": "item",
                                   "targetType": "Text",
@@ -506,7 +506,7 @@
                                 },
                                 {
                                   "id": "liVicavDict_Cairo",
-                                  "target": "VicavDict_Cairo",
+                                  "target": "dictFrontPage_Cairo",
                                   "title": "Cairo Dictionary",
                                   "type": "item",
                                   "targetType": "Text",
@@ -514,7 +514,7 @@
                                 },
                                 {
                                   "id": "liVicavDict_Baghdad",
-                                  "target": "VicavDict_Baghdad",
+                                  "target": "dictFrontPage_Baghdad",
                                   "title": "Baghdad Dictionary",
                                   "type": "item",
                                   "targetType": "Text",
@@ -522,7 +522,7 @@
                                 },
                                 {
                                   "id": "liVicavDict_MSA",
-                                  "target": "VicavDict_MSA",
+                                  "target": "dictFrontPage_MSA",
                                   "title": "MSA Dictionary",
                                   "type": "item",
                                   "targetType": "Text",
@@ -533,11 +533,11 @@
                                 },
                                 {
                                   "id": "li_vicavDictionariesTechnicalities",
-                                  "target": "vicavDictionariesTechnicaties",
+                                  "target": "vicavDictionariesTechnicalities",
                                   "title": "Technicalities",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Technicalities"
+                                  "label": "Dictionaries (Technicalities)"
                                 },
                                 {
                                   "id": "li_vicavContributeDictionary",
@@ -633,7 +633,7 @@
                                   "title": "      Other Websites & Projects",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Other Stuff"
+                                  "label": "Other Websites & Projects"
                                 },
                                 {
                                   "id": "li_vicavLearning",
@@ -706,7 +706,7 @@
                               "label": "Bibl. Locations",
                               "query": {
                                 "endpoint": "bibl_markers_tei",
-                                "query": ".*",
+                                "queryString": ".*",
                                 "scope": [
                                   "geo"
                                 ]
@@ -721,7 +721,7 @@
                               "label": "Bibl. Regions",
                               "query": {
                                 "endpoint": "bibl_markers_tei",
-                                "query": ".*",
+                                "queryString": ".*",
                                 "scope": [
                                   "reg"
                                 ]
@@ -736,7 +736,7 @@
                               "label": "Bibl. (Dictionaries)",
                               "query": {
                                 "endpoint": "bibl_markers_tei",
-                                "query": "vt:dictionary",
+                                "queryString": "vt:dictionary",
                                 "scope": [
                                   "geo",
                                   "reg"
@@ -752,7 +752,7 @@
                               "label": "Bibl. (Textbooks)",
                               "query": {
                                 "endpoint": "bibl_markers_tei",
-                                "query": "vt:textbook",
+                                "queryString": "vt:textbook",
                                 "scope": [
                                   "geo",
                                   "reg"
@@ -768,7 +768,7 @@
                               "label": "Profiles",
                               "query": {
                                 "endpoint": "profile_markers",
-                                "query": "",
+                                "queryString": "",
                                 "scope": []
                               }
                             },
@@ -781,7 +781,7 @@
                               "label": "Features",
                               "query": {
                                 "endpoint": "feature_markers",
-                                "query": "",
+                                "queryString": "",
                                 "scope": []
                               }
                             },
@@ -794,20 +794,20 @@
                               "label": "Samples",
                               "query": {
                                 "endpoint": "sample_markers",
-                                "query": "",
+                                "queryString": "",
                                 "scope": []
                               }
                             },
                             {
                               "id": "subNavVicavDictMarkers",
-                              "target": "VicavDictMarkers",
+                              "target": "dictFrontPageMarkers",
                               "title": "VICAV Dictionaries",
                               "type": "item",
                               "targetType": "WMap",
                               "label": "VICAV Dictionaries",
                               "query": {
                                 "endpoint": "dict_markers",
-                                "query": "",
+                                "queryString": "",
                                 "scope": []
                               }
                             }
@@ -2658,7 +2658,7 @@
             "type": "string",
             "summary": "A unique if for this UI element"
           },
-          "target": {
+          "targetT": {
             "type": "string",
             "summary": "An ID for the target panel/window that this UI item opens or brings to the front"
           },
@@ -2718,7 +2718,7 @@
             "type": "string",
             "example": "bibl_markers_tei"
           },
-          "query": {
+          "queryString": {
             "type": "string",
             "example": ".*"
           },
@@ -2737,10 +2737,7 @@
               "geo"
             ]
           }
-        },
-        "required": [
-          "endpoint"
-        ]
+        }
       },
       "main_items_type": {
         "type": "array",

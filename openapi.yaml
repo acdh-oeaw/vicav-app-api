@@ -55,758 +55,758 @@ paths:
                 project_config_VICAV:
                   summary: the VICAV project configuration
                   value: {
-                    "projectConfig": {
-                      "title": "VICAV3.0 - Vienna Corpus of Arabic Varieties",
-                      "logo": {
-                        "img": "http:\/\/localhost:8984\/vicav\/images\/vicav_logo.svg"
-                      },
-                      "icon": "http:\/\/localhost:8984\/vicav\/vendor\/images\/marker-icon.png",
-                      "map": {
-                        "zoom": 4,
-                        "center": {
-                          "lat": 19.064,
-                          "lng": 24.544
-                        }
-                      },
-                      "param": [
-                        ".*",
-                        "geo"
-                      ],
-                      "panel": [
-                        {
-                          "id": "li_vicavMission",
-                          "target": "vicavMission",
-                          "title": "MISSION",
-                          "type": "panel",
-                          "targetType": "Text",
-                          "label": "Mission"
-                        },
-                        {
-                          "id": "li_vicavNews",
-                          "target": "vicavNews",
-                          "title": "NEWS",
-                          "type": "panel",
-                          "targetType": "Text",
-                          "label": "VICAV News"
-                        }
-                      ],
-                      "menu": {
-                        "main": [
-                          {
-                            "id": "dropdown00",
-                            "target": "dropdown00",
-                            "title": "Project",
-                            "item": [
+                          "projectConfig": {
+                            "title": "VICAV3.0 - Vienna Corpus of Arabic Varieties",
+                            "logo": {
+                              "img": "http:\/\/localhost:8984\/vicav\/images\/vicav_logo.svg"
+                            },
+                            "icon": "http:\/\/localhost:8984\/vicav\/vendor\/images\/marker-icon.png",
+                            "map": {
+                              "zoom": 4,
+                              "center": {
+                                "lat": 19.064,
+                                "lng": 24.544
+                              }
+                            },
+                            "param": [
+                              ".*",
+                              "geo"
+                            ],
+                            "panel": [
                               {
                                 "id": "li_vicavMission",
                                 "target": "vicavMission",
-                                "title": "Mission",
-                                "type": "item",
+                                "title": "MISSION",
+                                "type": "panel",
                                 "targetType": "Text",
                                 "label": "Mission"
                               },
                               {
                                 "id": "li_vicavNews",
                                 "target": "vicavNews",
-                                "title": "News",
-                                "type": "item",
+                                "title": "NEWS",
+                                "type": "panel",
                                 "targetType": "Text",
                                 "label": "VICAV News"
-                              },
-                              {
-                                "type": "separator"
-                              },
-                              {
-                                "id": "li_vicavTypesOfText",
-                                "target": "vicavTypesOfText",
-                                "title": "Types of Text\/Data",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Types of Text"
-                              },
-                              {
-                                "id": "li_vicavContributors",
-                                "target": "vicavContributors",
-                                "title": "Contributors",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Contributors"
-                              },
-                              {
-                                "id": "li_vicavLinguistics",
-                                "target": "vicavLinguistics",
-                                "title": "Linguistics",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Linguistics"
                               }
                             ],
-                            "type": "dropdown"
-                          },
-                          {
-                            "id": "dropdown01",
-                            "target": "dropdown01",
-                            "title": "Bibliographies",
-                            "item": [
-                              {
-                                "id": "li_vicavExplanationBibliography",
-                                "target": "vicavExplanationBibography",
-                                "title": "Explanation",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Explanation"
-                              },
-                              {
-                                "type": "separator"
-                              },
-                              {
-                                "id": "navBiblGeoMarkers",
-                                "target": "BiblGeoMarkers",
-                                "title": "All Bibl. Locations on Map",
-                                "type": "item",
-                                "targetType": "WMap",
-                                "label": "All Bibl. Locations on Map",
-                                "query": {
-                                  "endpoint": "bibl_markers_tei",
-                                  "query": ".*",
-                                  "scope": [
-                                    "geo"
-                                  ]
+                            "menu": {
+                              "main": [
+                                {
+                                  "id": "dropdown00",
+                                  "target": "dropdown00",
+                                  "title": "Project",
+                                  "item": [
+                                    {
+                                      "id": "li_vicavMission",
+                                      "target": "vicavMission",
+                                      "title": "Mission",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Mission"
+                                    },
+                                    {
+                                      "id": "li_vicavNews",
+                                      "target": "vicavNews",
+                                      "title": "News",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "VICAV News"
+                                    },
+                                    {
+                                      "type": "separator"
+                                    },
+                                    {
+                                      "id": "li_vicavTypesOfText",
+                                      "target": "vicavTypesOfText",
+                                      "title": "Types of Text\/Data",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Types of Text"
+                                    },
+                                    {
+                                      "id": "li_vicavContributors",
+                                      "target": "vicavContributors",
+                                      "title": "Contributors",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Contributors"
+                                    },
+                                    {
+                                      "id": "li_vicavLinguistics",
+                                      "target": "vicavLinguistics",
+                                      "title": "Linguistics",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Linguistics"
+                                    }
+                                  ],
+                                  "type": "dropdown"
+                                },
+                                {
+                                  "id": "dropdown01",
+                                  "target": "dropdown01",
+                                  "title": "Bibliographies",
+                                  "item": [
+                                    {
+                                      "id": "li_vicavExplanationBibliography",
+                                      "target": "vicavExplanationBibliography",
+                                      "title": "Explanation",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Bibliography (Details)"
+                                    },
+                                    {
+                                      "type": "separator"
+                                    },
+                                    {
+                                      "id": "navBiblGeoMarkers",
+                                      "target": "BiblGeoMarkers",
+                                      "title": "All Bibl. Locations on Map",
+                                      "type": "item",
+                                      "targetType": "WMap",
+                                      "label": "All Bibl. Locations on Map",
+                                      "query": {
+                                        "endpoint": "bibl_markers_tei",
+                                        "queryString": ".*",
+                                        "scope": [
+                                          "geo"
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "id": "navBiblRegMarkers",
+                                      "target": "BiblRegMarkers",
+                                      "title": "All Bibl. Regions on Map",
+                                      "type": "item",
+                                      "targetType": "WMap",
+                                      "label": "All Bibl. Regions on Map",
+                                      "query": {
+                                        "endpoint": "bibl_markers_tei",
+                                        "queryString": ".*",
+                                        "scope": [
+                                          "reg"
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "id": "navBiblDiaGroupMarkers",
+                                      "target": "BiblDiaGroupMarkers",
+                                      "title": "All Bibl. Dialect Regions on Map",
+                                      "type": "item",
+                                      "targetType": "WMap",
+                                      "label": "All Bibl. Dialect Regions on Map",
+                                      "query": {
+                                        "endpoint": "bibl_markers_tei",
+                                        "queryString": "This feature is unused at the moment",
+                                        "scope": [
+                                          "diaGroup"
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "separator"
+                                    },
+                                    {
+                                      "id": "navDictGeoRegMarkers",
+                                      "target": "DictGeoRegMarkers",
+                                      "title": "All Dictionaries in Bibl. on Map",
+                                      "type": "item",
+                                      "targetType": "WMap",
+                                      "label": "All Dictionaries in Bibl. on Map",
+                                      "query": {
+                                        "endpoint": "bibl_markers_tei",
+                                        "queryString": "vt:dictionary",
+                                        "scope": [
+                                          "geo",
+                                          "reg"
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "id": "navTextbookGeoRegMarkers",
+                                      "target": "TextbookGeoRegMarkers",
+                                      "title": "All Textbooks in Bibl. on Map",
+                                      "type": "item",
+                                      "targetType": "WMap",
+                                      "label": "All Textbooks in Bibl. on Map",
+                                      "query": {
+                                        "endpoint": "bibl_markers_tei",
+                                        "queryString": "vt:textbook",
+                                        "scope": [
+                                          "geo",
+                                          "reg"
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "separator"
+                                    },
+                                    {
+                                      "id": "liBiblNewQuery",
+                                      "target": "BiblNewQuery",
+                                      "title": "Query Bibliography",
+                                      "type": "item",
+                                      "targetType": "BiblioEntries",
+                                      "label": "Query Bibliography"
+                                    },
+                                    {
+                                      "type": "separator"
+                                    },
+                                    {
+                                      "id": "li_vicavContributeBibliography",
+                                      "target": "vicavContributeBibliography",
+                                      "title": "Contribute to the Bibliography",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Contribute to Bibliography"
+                                    }
+                                  ],
+                                  "type": "dropdown"
+                                },
+                                {
+                                  "id": "dropdown02",
+                                  "target": "dropdown02",
+                                  "title": "Profiles",
+                                  "item": [
+                                    {
+                                      "id": "li_vicavExplanationProfiles1",
+                                      "target": "vicavExplanationProfiles1",
+                                      "title": "Explanation + List",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Explanation + List"
+                                    },
+                                    {
+                                      "type": "separator"
+                                    },
+                                    {
+                                      "id": "navProfilesGeoRegMarkers",
+                                      "target": "ProfilesGeoRegMarkers",
+                                      "title": "Show All Profiles on Map",
+                                      "type": "item",
+                                      "targetType": "WMap",
+                                      "label": "Show All Profiles on Map",
+                                      "query": {
+                                        "endpoint": "profile_markers",
+                                        "queryString": "",
+                                        "scope": [
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "separator"
+                                    },
+                                    {
+                                      "id": "li_vicavContributeProfile",
+                                      "target": "vicavContributeProfile",
+                                      "title": "Contribute a Profile",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Contribute a Profile"
+                                    }
+                                  ],
+                                  "type": "dropdown"
+                                },
+                                {
+                                  "id": "dropdown03",
+                                  "target": "dropdown03",
+                                  "title": "Feature Lists",
+                                  "item": [
+                                    {
+                                      "id": "li_vicavExplanationFeatures",
+                                      "target": "vicavExplanationFeatures",
+                                      "title": "Explanation",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Features (Details)"
+                                    },
+                                    {
+                                      "id": "li_vicavExploreFeatures",
+                                      "target": "vicavExploreFeatures",
+                                      "title": "Cross-examine the VICAV Feature Lists",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Explore Features"
+                                    },
+                                    {
+                                      "type": "separator"
+                                    },
+                                    {
+                                      "id": "navFeaturesGeoRegMarkers",
+                                      "target": "FeaturesGeoRegMarkers",
+                                      "title": "Show All Feature Lists on Map",
+                                      "type": "item",
+                                      "targetType": "WMap",
+                                      "label": "Show All Feature Lists on Map",
+                                      "query": {
+                                        "endpoint": "feature_markers",
+                                        "queryString": "",
+                                        "scope": [
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "separator"
+                                    },
+                                    {
+                                      "id": "li_vicavContributeFeature",
+                                      "target": "vicavContributeFeature",
+                                      "title": "Contribute a Feature List",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Contribute a Feature List"
+                                    }
+                                  ],
+                                  "type": "dropdown"
+                                },
+                                {
+                                  "id": "dropdown04",
+                                  "target": "dropdown04",
+                                  "title": "Samples",
+                                  "item": [
+                                    {
+                                      "id": "li_vicavExplanationSamples",
+                                      "target": "vicavExplanationSamples",
+                                      "title": "Explanation",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Samples (Details)"
+                                    },
+                                    {
+                                      "type": "separator"
+                                    },
+                                    {
+                                      "id": "navSamplesGeoRegMarkers",
+                                      "target": "SamplesGeoRegMarkers",
+                                      "title": "Show All Samples on Map",
+                                      "type": "item",
+                                      "targetType": "WMap",
+                                      "label": "Show All Samples on Map",
+                                      "query": {
+                                        "endpoint": "sample_markers",
+                                        "queryString": "",
+                                        "scope": [
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "separator"
+                                    },
+                                    {
+                                      "id": "li_vicavContributeSampleText",
+                                      "target": "vicavContributeSampleText",
+                                      "title": "Contribute a Sample Text",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Contribute a Sample Text"
+                                    }
+                                  ],
+                                  "type": "dropdown"
+                                },
+                                {
+                                  "id": "dropdown05",
+                                  "target": "dropdown05",
+                                  "title": "Texts",
+                                  "item": [
+                                    {
+                                      "id": "li_vicavExplanationCorpusTexts",
+                                      "target": "vicavExplanationCorpusTexts",
+                                      "title": "Explanation and Overview",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Corpus Texts (Details)"
+                                    }
+                                  ],
+                                  "type": "dropdown"
+                                },
+                                {
+                                  "id": "dropdown06",
+                                  "target": "dropdown06",
+                                  "title": "Dictionaries",
+                                  "item": [
+                                    {
+                                      "id": "navDictGeoRegMarkers",
+                                      "target": "DictGeoRegMarkers",
+                                      "title": "All Dictionaries in Bibl. on Map",
+                                      "type": "item",
+                                      "targetType": "WMap",
+                                      "label": "All Dictionaries in Bibl. on Map",
+                                      "query": {
+                                        "endpoint": "bibl_markers_tei",
+                                        "queryString": "vt:dictionary",
+                                        "scope": [
+                                          "geo",
+                                          "reg"
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "id": "navVicavDictMarkers",
+                                      "target": "dictFrontPageMarkers",
+                                      "title": "All VICAV Dictionaries on Map",
+                                      "type": "item",
+                                      "targetType": "WMap",
+                                      "label": "All VICAV Dictionaries on Map",
+                                      "query": {
+                                        "endpoint": "dict_markers",
+                                        "queryString": "",
+                                        "scope": [
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "type": "separator"
+                                    },
+                                    {
+                                      "id": "liVicavCrossDictQuery",
+                                      "target": "VicavCrossDictQuery",
+                                      "title": "Query the VICAV Dictionaries",
+                                      "type": "item",
+                                      "targetType": "CrossDictQuery",
+                                      "label": "Query the VICAV Dictionaries"
+                                    },
+                                    {
+                                      "type": "separator"
+                                    },
+                                    {
+                                      "id": "liVicavDict_Tunis",
+                                      "target": "dictFrontPage_Tunis",
+                                      "title": "TUNICO Dictionary",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "TUNICO Dictionary"
+                                    },
+                                    {
+                                      "id": "liVicavDict_Damascus",
+                                      "target": "dictFrontPage_Damascus",
+                                      "title": "Damascus Dictionary",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Damascus Dictionary"
+                                    },
+                                    {
+                                      "id": "liVicavDict_Cairo",
+                                      "target": "dictFrontPage_Cairo",
+                                      "title": "Cairo Dictionary",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Cairo Dictionary"
+                                    },
+                                    {
+                                      "id": "liVicavDict_Baghdad",
+                                      "target": "dictFrontPage_Baghdad",
+                                      "title": "Baghdad Dictionary",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Baghdad Dictionary"
+                                    },
+                                    {
+                                      "id": "liVicavDict_MSA",
+                                      "target": "dictFrontPage_MSA",
+                                      "title": "MSA Dictionary",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "MSA Dictionary"
+                                    },
+                                    {
+                                      "type": "separator"
+                                    },
+                                    {
+                                      "id": "li_vicavDictionariesTechnicalities",
+                                      "target": "vicavDictionariesTechnicalities",
+                                      "title": "Technicalities",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Dictionaries (Technicalities)"
+                                    },
+                                    {
+                                      "id": "li_vicavContributeDictionary",
+                                      "target": "vicavContributeDictionary",
+                                      "title": "Contribute a Dictionary\/Glossary",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Contribute a Dictionary"
+                                    }
+                                  ],
+                                  "type": "dropdown"
+                                },
+                                {
+                                  "id": "dropdown07",
+                                  "target": "dropdown07",
+                                  "title": "Tools & Technology",
+                                  "item": [
+                                    {
+                                      "id": "li_vicavDictionaryEncoding",
+                                      "target": "vicavDictionaryEncoding",
+                                      "title": "Dictionary Encoding",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Dictionaries (Encoding)"
+                                    },
+                                    {
+                                      "id": "li_vicavVLE",
+                                      "target": "vicavVLE",
+                                      "title": "Dictionary Editor (VLE)",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Dictionary Editor (VLE)"
+                                    },
+                                    {
+                                      "id": "li_vicavArabicTools",
+                                      "target": "vicavArabicTools",
+                                      "title": "Arabic Research Tools",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Arabic Tools"
+                                    },
+                                    {
+                                      "id": "li_vicavOverview_corpora_spoken",
+                                      "target": "vicavOverview_corpora_spoken",
+                                      "title": "      Corpora (Spoken Varieties)",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Corpora of Spoken Arabic"
+                                    },
+                                    {
+                                      "id": "li_vicavOverview_corpora_msa",
+                                      "target": "vicavOverview_corpora_msa",
+                                      "title": "      Corpora (MSA)",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "MSA Corpora"
+                                    },
+                                    {
+                                      "id": "li_vicavOverview_special_corpora",
+                                      "target": "vicavOverview_special_corpora",
+                                      "title": "      Special Corpora",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Special Corpora"
+                                    },
+                                    {
+                                      "id": "li_vicavOverview_corpora_historical_varieties",
+                                      "target": "vicavOverview_corpora_historical_varieties",
+                                      "title": "      Corpora (Historical Varieties)",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Corpora of Historical Language"
+                                    },
+                                    {
+                                      "id": "li_vicavOverview_dictionaries",
+                                      "target": "vicavOverview_dictionaries",
+                                      "title": "      Dictionaries",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Dictionary Projects"
+                                    },
+                                    {
+                                      "id": "li_vicavOverview_nlp",
+                                      "target": "vicavOverview_nlp",
+                                      "title": "      Language Processing Tools",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Arabic NLP"
+                                    },
+                                    {
+                                      "id": "li_vicavOverview_otherStuff",
+                                      "target": "vicavOverview_otherStuff",
+                                      "title": "      Other Websites & Projects",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Other Websites & Projects"
+                                    },
+                                    {
+                                      "id": "li_vicavLearning",
+                                      "target": "vicavLearning",
+                                      "title": "Learning Materials",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Learning"
+                                    },
+                                    {
+                                      "id": "li_vicavLearning_tb_damascus",
+                                      "target": "vicavLearning_tb_damascus",
+                                      "title": "      Textbook Syrian Arabic (Sound files)",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "      Textbook Syrian Arabic (Sound files)"
+                                    },
+                                    {
+                                      "id": "li_vicavLearning_tb_baghdad",
+                                      "target": "vicavLearning_tb_baghdad",
+                                      "title": "      Textbook Baghdad Arabic (Sound files)",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "      Textbook Baghdad Arabic (Sound files)"
+                                    },
+                                    {
+                                      "id": "li_vicavLearningSmartphone",
+                                      "target": "vicavLearningSmartphone",
+                                      "title": "      Vocabularies on Smartphones",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "VOCABULARIES on Smartphones"
+                                    },
+                                    {
+                                      "id": "li_vicavLearningPrograms",
+                                      "target": "vicavLearningPrograms",
+                                      "title": "      Available Programs",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Learning Programs"
+                                    },
+                                    {
+                                      "id": "li_vicavLearningData",
+                                      "target": "vicavLearningData",
+                                      "title": "      Available Data",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Learning Data"
+                                    },
+                                    {
+                                      "id": "li_vicavKeyboards",
+                                      "target": "vicavKeyboards",
+                                      "title": "Keyboard Layouts",
+                                      "type": "item",
+                                      "targetType": "Text",
+                                      "label": "Keyboards"
+                                    }
+                                  ],
+                                  "type": "dropdown"
                                 }
-                              },
-                              {
-                                "id": "navBiblRegMarkers",
-                                "target": "BiblRegMarkers",
-                                "title": "All Bibl. Regions on Map",
-                                "type": "item",
-                                "targetType": "WMap",
-                                "label": "All Bibl. Regions on Map",
-                                "query": {
-                                  "endpoint": "bibl_markers_tei",
-                                  "query": ".*",
-                                  "scope": [
-                                    "reg"
-                                  ]
+                              ],
+                              "subnav": [
+                                {
+                                  "id": "subNavBiblGeoMarkers",
+                                  "target": "BiblGeoMarkers",
+                                  "class": "active",
+                                  "title": "Bibl. Locations",
+                                  "type": "item",
+                                  "targetType": "WMap",
+                                  "label": "Bibl. Locations",
+                                  "query": {
+                                    "endpoint": "bibl_markers_tei",
+                                    "queryString": ".*",
+                                    "scope": [
+                                      "geo"
+                                    ]
+                                  }
+                                },
+                                {
+                                  "id": "subNavBiblRegMarkers",
+                                  "target": "BiblRegMarkers",
+                                  "title": "Bibl. Regions",
+                                  "type": "item",
+                                  "targetType": "WMap",
+                                  "label": "Bibl. Regions",
+                                  "query": {
+                                    "endpoint": "bibl_markers_tei",
+                                    "queryString": ".*",
+                                    "scope": [
+                                      "reg"
+                                    ]
+                                  }
+                                },
+                                {
+                                  "id": "subNavDictGeoRegMarkers",
+                                  "target": "DictGeoRegMarkers",
+                                  "title": "Bibl. (Dictionaries)",
+                                  "type": "item",
+                                  "targetType": "WMap",
+                                  "label": "Bibl. (Dictionaries)",
+                                  "query": {
+                                    "endpoint": "bibl_markers_tei",
+                                    "queryString": "vt:dictionary",
+                                    "scope": [
+                                      "geo",
+                                      "reg"
+                                    ]
+                                  }
+                                },
+                                {
+                                  "id": "subNavTextbookGeoRegMarkers",
+                                  "target": "TextbookGeoRegMarkers",
+                                  "title": "Bibl. (Textbooks)",
+                                  "type": "item",
+                                  "targetType": "WMap",
+                                  "label": "Bibl. (Textbooks)",
+                                  "query": {
+                                    "endpoint": "bibl_markers_tei",
+                                    "queryString": "vt:textbook",
+                                    "scope": [
+                                      "geo",
+                                      "reg"
+                                    ]
+                                  }
+                                },
+                                {
+                                  "id": "subNavProfilesGeoRegMarkers",
+                                  "target": "ProfilesGeoRegMarkers",
+                                  "title": "Profiles",
+                                  "type": "item",
+                                  "targetType": "WMap",
+                                  "label": "Profiles",
+                                  "query": {
+                                    "endpoint": "profile_markers",
+                                    "queryString": "",
+                                    "scope": [
+                                    ]
+                                  }
+                                },
+                                {
+                                  "id": "subNavFeaturesGeoRegMarkers",
+                                  "target": "FeaturesGeoRegMarkers",
+                                  "title": "Features",
+                                  "type": "item",
+                                  "targetType": "WMap",
+                                  "label": "Features",
+                                  "query": {
+                                    "endpoint": "feature_markers",
+                                    "queryString": "",
+                                    "scope": [
+                                    ]
+                                  }
+                                },
+                                {
+                                  "id": "subNavSamplesGeoRegMarkers",
+                                  "target": "SamplesGeoRegMarkers",
+                                  "title": "Samples",
+                                  "type": "item",
+                                  "targetType": "WMap",
+                                  "label": "Samples",
+                                  "query": {
+                                    "endpoint": "sample_markers",
+                                    "queryString": "",
+                                    "scope": [
+                                    ]
+                                  }
+                                },
+                                {
+                                  "id": "subNavVicavDictMarkers",
+                                  "target": "dictFrontPageMarkers",
+                                  "title": "VICAV Dictionaries",
+                                  "type": "item",
+                                  "targetType": "WMap",
+                                  "label": "VICAV Dictionaries",
+                                  "query": {
+                                    "endpoint": "dict_markers",
+                                    "queryString": "",
+                                    "scope": [
+                                    ]
+                                  }
                                 }
-                              },
-                              {
-                                "id": "navBiblDiaGroupMarkers",
-                                "target": "BiblDiaGroupMarkers",
-                                "title": "All Bibl. Dialect Regions on Map",
-                                "type": "item",
-                                "targetType": "WMap",
-                                "label": "All Bibl. Dialect Regions on Map",
-                                "query": {
-                                  "endpoint": "bibl_markers_tei",
-                                  "query": "This feature is unused at the moment",
-                                  "scope": [
-                                    "diaGroup"
-                                  ]
-                                }
-                              },
-                              {
-                                "type": "separator"
-                              },
-                              {
-                                "id": "navDictGeoRegMarkers",
-                                "target": "DictGeoRegMarkers",
-                                "title": "All Dictionaries in Bibl. on Map",
-                                "type": "item",
-                                "targetType": "WMap",
-                                "label": "All Dictionaries in Bibl. on Map",
-                                "query": {
-                                  "endpoint": "bibl_markers_tei",
-                                  "query": "vt:dictionary",
-                                  "scope": [
-                                    "geo",
-                                    "reg"
-                                  ]
-                                }
-                              },
-                              {
-                                "id": "navTextbookGeoRegMarkers",
-                                "target": "TextbookGeoRegMarkers",
-                                "title": "All Textbooks in Bibl. on Map",
-                                "type": "item",
-                                "targetType": "WMap",
-                                "label": "All Textbooks in Bibl. on Map",
-                                "query": {
-                                  "endpoint": "bibl_markers_tei",
-                                  "query": "vt:textbook",
-                                  "scope": [
-                                    "geo",
-                                    "reg"
-                                  ]
-                                }
-                              },
-                              {
-                                "type": "separator"
-                              },
-                              {
-                                "id": "liBiblNewQuery",
-                                "target": "",
-                                "title": "Query Bibliography",
-                                "type": "item",
-                                "targetType": "BiblioEntries",
-                                "label": "Query Bibliography"
-                              },
-                              {
-                                "type": "separator"
-                              },
-                              {
-                                "id": "li_vicavContributeBibliography",
-                                "target": "vicavContributeBibography",
-                                "title": "Contribute to the Bibliography",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Contribute to the Bibliography"
+                              ]
+                            },
+                            "styleSettings": {
+                              "colors": {
+                                "nav": "#252771",
+                                "subNav": "#a85d8f"
                               }
-                            ],
-                            "type": "dropdown"
-                          },
-                          {
-                            "id": "dropdown02",
-                            "target": "dropdown02",
-                            "title": "Profiles",
-                            "item": [
-                              {
-                                "id": "li_vicavExplanationProfiles1",
-                                "target": "vicavExplanationProfiles1",
-                                "title": "Explanation + List",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Explanation + List"
-                              },
-                              {
-                                "type": "separator"
-                              },
-                              {
-                                "id": "navProfilesGeoRegMarkers",
-                                "target": "ProfilesGeoRegMarkers",
-                                "title": "Show All Profiles on Map",
-                                "type": "item",
-                                "targetType": "WMap",
-                                "label": "Show All Profiles on Map",
-                                "query": {
-                                  "endpoint": "profile_markers",
-                                  "query": "",
-                                  "scope": [
-                                  ]
-                                }
-                              },
-                              {
-                                "type": "separator"
-                              },
-                              {
-                                "id": "li_vicavContributeProfile",
-                                "target": "vicavContributeProfile",
-                                "title": "Contribute a Profile",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Contribute a Profile"
-                              }
-                            ],
-                            "type": "dropdown"
-                          },
-                          {
-                            "id": "dropdown03",
-                            "target": "dropdown03",
-                            "title": "Feature Lists",
-                            "item": [
-                              {
-                                "id": "li_vicavExplanationFeatures",
-                                "target": "vicavExplanationFeatures",
-                                "title": "Explanation",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Features (Details)"
-                              },
-                              {
-                                "id": "li_vicavExploreFeatures",
-                                "target": "vicavExploreFeatures",
-                                "title": "Cross-examine the VICAV Feature Lists",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Explore Features"
-                              },
-                              {
-                                "type": "separator"
-                              },
-                              {
-                                "id": "navFeaturesGeoRegMarkers",
-                                "target": "FeaturesGeoRegMarkers",
-                                "title": "Show All Feature Lists on Map",
-                                "type": "item",
-                                "targetType": "WMap",
-                                "label": "Show All Feature Lists on Map",
-                                "query": {
-                                  "endpoint": "feature_markers",
-                                  "query": "",
-                                  "scope": [
-                                  ]
-                                }
-                              },
-                              {
-                                "type": "separator"
-                              },
-                              {
-                                "id": "li_vicavContributeFeature",
-                                "target": "vicavContributeFeature",
-                                "title": "Contribute a Feature List",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Contribute a Feature List"
-                              }
-                            ],
-                            "type": "dropdown"
-                          },
-                          {
-                            "id": "dropdown04",
-                            "target": "dropdown04",
-                            "title": "Samples",
-                            "item": [
-                              {
-                                "id": "li_vicavExplanationSamples",
-                                "target": "vicavExplanationSamples",
-                                "title": "Explanation",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Samples (Details)"
-                              },
-                              {
-                                "type": "separator"
-                              },
-                              {
-                                "id": "navSamplesGeoRegMarkers",
-                                "target": "SamplesGeoRegMarkers",
-                                "title": "Show All Samples on Map",
-                                "type": "item",
-                                "targetType": "WMap",
-                                "label": "Show All Samples on Map",
-                                "query": {
-                                  "endpoint": "sample_markers",
-                                  "query": "",
-                                  "scope": [
-                                  ]
-                                }
-                              },
-                              {
-                                "type": "separator"
-                              },
-                              {
-                                "id": "li_vicavContributeSampleText",
-                                "target": "vicavContributeSampleText",
-                                "title": "Contribute a Sample Text",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Contribute a Sample Text"
-                              }
-                            ],
-                            "type": "dropdown"
-                          },
-                          {
-                            "id": "dropdown05",
-                            "target": "dropdown05",
-                            "title": "Texts",
-                            "item": [
-                              {
-                                "id": "li_vicavExplanationCorpusTexts",
-                                "target": "vicavExplanationCorpusTexts",
-                                "title": "Explanation and Overview",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Corpus Texts (Details)"
-                              }
-                            ],
-                            "type": "dropdown"
-                          },
-                          {
-                            "id": "dropdown06",
-                            "target": "dropdown06",
-                            "title": "Dictionaries",
-                            "item": [
-                              {
-                                "id": "navDictGeoRegMarkers",
-                                "target": "DictGeoRegMarkers",
-                                "title": "All Dictionaries in Bibl. on Map",
-                                "type": "item",
-                                "targetType": "WMap",
-                                "label": "All Dictionaries in Bibl. on Map",
-                                "query": {
-                                  "endpoint": "bibl_markers_tei",
-                                  "query": "vt:dictionary",
-                                  "scope": [
-                                    "geo",
-                                    "reg"
-                                  ]
-                                }
-                              },
-                              {
-                                "id": "navVicavDictMarkers",
-                                "target": "VicavDictMarkers",
-                                "title": "All VICAV Dictionaries on Map",
-                                "type": "item",
-                                "targetType": "WMap",
-                                "label": "All VICAV Dictionaries on Map",
-                                "query": {
-                                  "endpoint": "dict_markers",
-                                  "query": "",
-                                  "scope": [
-                                  ]
-                                }
-                              },
-                              {
-                                "type": "separator"
-                              },
-                              {
-                                "id": "liVicavCrossDictQuery",
-                                "target": "VicavCrossDictQuery",
-                                "title": "Query the VICAV Dictionaries",
-                                "type": "item",
-                                "targetType": "CrossDictQuery",
-                                "label": "Query the VICAV Dictionaries"
-                              },
-                              {
-                                "type": "separator"
-                              },
-                              {
-                                "id": "liVicavDict_Tunis",
-                                "target": "VicavDict_Tunis",
-                                "title": "TUNICO Dictionary",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "TUNICO Dictionary"
-                              },
-                              {
-                                "id": "liVicavDict_Damascus",
-                                "target": "VicavDict_Damascus",
-                                "title": "Damascus Dictionary",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Damascus Dictionary"
-                              },
-                              {
-                                "id": "liVicavDict_Cairo",
-                                "target": "VicavDict_Cairo",
-                                "title": "Cairo Dictionary",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Cairo Dictionary"
-                              },
-                              {
-                                "id": "liVicavDict_Baghdad",
-                                "target": "VicavDict_Baghdad",
-                                "title": "Baghdad Dictionary",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Baghdad Dictionary"
-                              },
-                              {
-                                "id": "liVicavDict_MSA",
-                                "target": "VicavDict_MSA",
-                                "title": "MSA Dictionary",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "MSA Dictionary"
-                              },
-                              {
-                                "type": "separator"
-                              },
-                              {
-                                "id": "li_vicavDictionariesTechnicalities",
-                                "target": "vicavDictionariesTechnicaties",
-                                "title": "Technicalities",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Technicalities"
-                              },
-                              {
-                                "id": "li_vicavContributeDictionary",
-                                "target": "vicavContributeDictionary",
-                                "title": "Contribute a Dictionary\/Glossary",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Contribute a Dictionary"
-                              }
-                            ],
-                            "type": "dropdown"
-                          },
-                          {
-                            "id": "dropdown07",
-                            "target": "dropdown07",
-                            "title": "Tools & Technology",
-                            "item": [
-                              {
-                                "id": "li_vicavDictionaryEncoding",
-                                "target": "vicavDictionaryEncoding",
-                                "title": "Dictionary Encoding",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Dictionaries (Encoding)"
-                              },
-                              {
-                                "id": "li_vicavVLE",
-                                "target": "vicavVLE",
-                                "title": "Dictionary Editor (VLE)",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Dictionary Editor (VLE)"
-                              },
-                              {
-                                "id": "li_vicavArabicTools",
-                                "target": "vicavArabicTools",
-                                "title": "Arabic Research Tools",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Arabic Tools"
-                              },
-                              {
-                                "id": "li_vicavOverview_corpora_spoken",
-                                "target": "vicavOverview_corpora_spoken",
-                                "title": "      Corpora (Spoken Varieties)",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Corpora of Spoken Arabic"
-                              },
-                              {
-                                "id": "li_vicavOverview_corpora_msa",
-                                "target": "vicavOverview_corpora_msa",
-                                "title": "      Corpora (MSA)",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "MSA Corpora"
-                              },
-                              {
-                                "id": "li_vicavOverview_special_corpora",
-                                "target": "vicavOverview_special_corpora",
-                                "title": "      Special Corpora",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Special Corpora"
-                              },
-                              {
-                                "id": "li_vicavOverview_corpora_historical_varieties",
-                                "target": "vicavOverview_corpora_historical_varieties",
-                                "title": "      Corpora (Historical Varieties)",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Corpora of Historical Language"
-                              },
-                              {
-                                "id": "li_vicavOverview_dictionaries",
-                                "target": "vicavOverview_dictionaries",
-                                "title": "      Dictionaries",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Dictionary Projects"
-                              },
-                              {
-                                "id": "li_vicavOverview_nlp",
-                                "target": "vicavOverview_nlp",
-                                "title": "      Language Processing Tools",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Arabic NLP"
-                              },
-                              {
-                                "id": "li_vicavOverview_otherStuff",
-                                "target": "vicavOverview_otherStuff",
-                                "title": "      Other Websites & Projects",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Other Stuff"
-                              },
-                              {
-                                "id": "li_vicavLearning",
-                                "target": "vicavLearning",
-                                "title": "Learning Materials",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Learning"
-                              },
-                              {
-                                "id": "li_vicavLearning_tb_damascus",
-                                "target": "vicavLearning_tb_damascus",
-                                "title": "      Textbook Syrian Arabic (Sound files)",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "      Textbook Syrian Arabic (Sound files)"
-                              },
-                              {
-                                "id": "li_vicavLearning_tb_baghdad",
-                                "target": "vicavLearning_tb_baghdad",
-                                "title": "      Textbook Baghdad Arabic (Sound files)",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "      Textbook Baghdad Arabic (Sound files)"
-                              },
-                              {
-                                "id": "li_vicavLearningSmartphone",
-                                "target": "vicavLearningSmartphone",
-                                "title": "      Vocabularies on Smartphones",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "VOCABULARIES on Smartphones"
-                              },
-                              {
-                                "id": "li_vicavLearningPrograms",
-                                "target": "vicavLearningPrograms",
-                                "title": "      Available Programs",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Learning Programs"
-                              },
-                              {
-                                "id": "li_vicavLearningData",
-                                "target": "vicavLearningData",
-                                "title": "      Available Data",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Learning Data"
-                              },
-                              {
-                                "id": "li_vicavKeyboards",
-                                "target": "vicavKeyboards",
-                                "title": "Keyboard Layouts",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": "Keyboards"
-                              }
-                            ],
-                            "type": "dropdown"
+                            },
+                            "style": ""
                           }
-                        ],
-                        "subnav": [
-                          {
-                            "id": "subNavBiblGeoMarkers",
-                            "target": "BiblGeoMarkers",
-                            "class": "active",
-                            "title": "Bibl. Locations",
-                            "type": "item",
-                            "targetType": "WMap",
-                            "label": "Bibl. Locations",
-                            "query": {
-                              "endpoint": "bibl_markers_tei",
-                              "query": ".*",
-                              "scope": [
-                                "geo"
-                              ]
-                            }
-                          },
-                          {
-                            "id": "subNavBiblRegMarkers",
-                            "target": "BiblRegMarkers",
-                            "title": "Bibl. Regions",
-                            "type": "item",
-                            "targetType": "WMap",
-                            "label": "Bibl. Regions",
-                            "query": {
-                              "endpoint": "bibl_markers_tei",
-                              "query": ".*",
-                              "scope": [
-                                "reg"
-                              ]
-                            }
-                          },
-                          {
-                            "id": "subNavDictGeoRegMarkers",
-                            "target": "DictGeoRegMarkers",
-                            "title": "Bibl. (Dictionaries)",
-                            "type": "item",
-                            "targetType": "WMap",
-                            "label": "Bibl. (Dictionaries)",
-                            "query": {
-                              "endpoint": "bibl_markers_tei",
-                              "query": "vt:dictionary",
-                              "scope": [
-                                "geo",
-                                "reg"
-                              ]
-                            }
-                          },
-                          {
-                            "id": "subNavTextbookGeoRegMarkers",
-                            "target": "TextbookGeoRegMarkers",
-                            "title": "Bibl. (Textbooks)",
-                            "type": "item",
-                            "targetType": "WMap",
-                            "label": "Bibl. (Textbooks)",
-                            "query": {
-                              "endpoint": "bibl_markers_tei",
-                              "query": "vt:textbook",
-                              "scope": [
-                                "geo",
-                                "reg"
-                              ]
-                            }
-                          },
-                          {
-                            "id": "subNavProfilesGeoRegMarkers",
-                            "target": "ProfilesGeoRegMarkers",
-                            "title": "Profiles",
-                            "type": "item",
-                            "targetType": "WMap",
-                            "label": "Profiles",
-                            "query": {
-                              "endpoint": "profile_markers",
-                              "query": "",
-                              "scope": [
-                              ]
-                            }
-                          },
-                          {
-                            "id": "subNavFeaturesGeoRegMarkers",
-                            "target": "FeaturesGeoRegMarkers",
-                            "title": "Features",
-                            "type": "item",
-                            "targetType": "WMap",
-                            "label": "Features",
-                            "query": {
-                              "endpoint": "feature_markers",
-                              "query": "",
-                              "scope": [
-                              ]
-                            }
-                          },
-                          {
-                            "id": "subNavSamplesGeoRegMarkers",
-                            "target": "SamplesGeoRegMarkers",
-                            "title": "Samples",
-                            "type": "item",
-                            "targetType": "WMap",
-                            "label": "Samples",
-                            "query": {
-                              "endpoint": "sample_markers",
-                              "query": "",
-                              "scope": [
-                              ]
-                            }
-                          },
-                          {
-                            "id": "subNavVicavDictMarkers",
-                            "target": "VicavDictMarkers",
-                            "title": "VICAV Dictionaries",
-                            "type": "item",
-                            "targetType": "WMap",
-                            "label": "VICAV Dictionaries",
-                            "query": {
-                              "endpoint": "dict_markers",
-                              "query": "",
-                              "scope": [
-                              ]
-                            }
-                          }
-                        ]
-                      },
-                      "styleSettings": {
-                        "colors": {
-                          "nav": "#252771",
-                          "subNav": "#a85d8f"
                         }
-                      },
-                      "style": ""
-                    }
-                  }
                 project_config_SHAWI:
                   summary: the SHAWI project configuration
                   value: {
@@ -3011,7 +3011,7 @@ components:
         id:
           type: string
           summary: A unique if for this UI element
-        target:
+        targetT:
           type: string
           summary: An ID for the target panel/window that this UI item opens or brings to the front
         title:
@@ -3057,7 +3057,7 @@ components:
         endpoint:
           type: string
           example: bibl_markers_tei
-        query:
+        queryString:
           type: string
           example: ".*"
         scope:
@@ -3071,8 +3071,6 @@ components:
           example:
             - reg
             - geo
-      required:
-        - endpoint
     main_items_type:
       type: array
       minItems: 0
