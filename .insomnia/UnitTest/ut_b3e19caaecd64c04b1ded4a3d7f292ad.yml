@@ -1,0 +1,10 @@
+_id: ut_b3e19caaecd64c04b1ded4a3d7f292ad
+type: UnitTest
+parentId: uts_8419215937f34a5f8360bb4b4a44daba
+modified: 1702916261967
+created: 1702916183144
+requestId: req_wrk_6915256f54c24d51aa934588fd7b49ff1354378b
+name: bibl_markers_tei
+code: |-
+  const response1 = await insomnia.send();
+  expect(response1.status).to.equal(200);

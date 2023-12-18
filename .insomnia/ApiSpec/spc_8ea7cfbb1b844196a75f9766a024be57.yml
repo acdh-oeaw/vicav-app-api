@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1702574719680
+modified: 1702915187964
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >
@@ -1539,7 +1539,7 @@ contents: >
           Retrieve geo data information from the bibliography for displaying coordinates on a map.
         parameters:
           - in: query
-            name: query
+            name: queryString
             description: |
               A BaseX Full-Text search query in in vicav-biblio tei:biblstruct with wildcards enabled.
               See: https://docs.basex.org/wiki/Full-Text#Match_Options
