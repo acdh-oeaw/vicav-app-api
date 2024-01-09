@@ -897,7 +897,7 @@
                                   "label": "",
                                   "params": {
                                     "endpoint": "profile_markers",
-                                    "query": "",
+                                    "queryString": "",
                                     "scope": []
                                   }
                                 },
@@ -959,7 +959,7 @@
                               "label": "",
                               "params": {
                                 "endpoint": "profile_markers",
-                                "query": "",
+                                "queryString": "",
                                 "scope": []
                               }
                             },
@@ -971,7 +971,7 @@
                               "label": "",
                               "params": {
                                 "endpoint": "feature_markers",
-                                "query": "",
+                                "queryString": "",
                                 "scope": []
                               }
                             },
@@ -983,7 +983,7 @@
                               "label": "",
                               "params": {
                                 "endpoint": "sample_markers",
-                                "query": "",
+                                "queryString": "",
                                 "scope": []
                               }
                             }
@@ -2704,14 +2704,21 @@
             ]
           },
           "params": {
-            "$ref": "#/components/schemas/target_type_parameters"
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/geo_target_type_parameters"
+              },
+              {
+                "$ref": "#/components/schemas/text_target_type_parameters"
+              }
+            ]
           }
         },
         "required": [
           "type"
         ]
       },
-      "target_type_parameters": {
+      "geo_target_type_parameters": {
         "type": "object",
         "properties": {
           "endpoint": {
@@ -2737,7 +2744,27 @@
               "geo"
             ]
           }
-        }
+        },
+        "required": [
+          "endpoint",
+          "queryString"
+        ]
+      },
+      "text_target_type_parameters": {
+        "type": "object",
+        "properties": {
+          "textId": {
+            "type": "string",
+            "exmaple": "vicavMission"
+          },
+          "teiSource": {
+            "type": "string",
+            "example": "https://github.com"
+          }
+        },
+        "required": [
+          "textId"
+        ]
       },
       "main_items_type": {
         "type": "array",

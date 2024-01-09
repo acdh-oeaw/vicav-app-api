@@ -290,8 +290,7 @@ paths:
                                       "params": {
                                         "endpoint": "profile_markers",
                                         "queryString": "",
-                                        "scope": [
-                                        ]
+                                        "scope": []
                                       }
                                     },
                                     {
@@ -881,7 +880,7 @@ paths:
                                 "label": "",
                                 "params": {
                                   "endpoint": "profile_markers",
-                                  "query": "",
+                                  "queryString": "",
                                   "scope": []
                                 }
                               },
@@ -943,7 +942,7 @@ paths:
                             "label": "",
                             "params": {
                               "endpoint": "profile_markers",
-                              "query": "",
+                              "queryString": "",
                               "scope": []
                             }
                           },
@@ -955,7 +954,7 @@ paths:
                             "label": "",
                             "params": {
                               "endpoint": "feature_markers",
-                              "query": "",
+                              "queryString": "",
                               "scope": []
                             }
                           },
@@ -967,7 +966,7 @@ paths:
                             "label": "",
                             "params": {
                               "endpoint": "sample_markers",
-                              "query": "",
+                              "queryString": "",
                               "scope": []
                             }
                           }
@@ -3048,10 +3047,12 @@ components:
           enum:
             - active
         params:
-          $ref: '#/components/schemas/target_type_parameters'
+          oneOf:
+           - $ref: '#/components/schemas/geo_target_type_parameters'
+           - $ref: '#/components/schemas/text_target_type_parameters'
       required:
       - type
-    target_type_parameters:
+    geo_target_type_parameters:
       type: object
       properties:
         endpoint:
@@ -3071,6 +3072,20 @@ components:
           example:
             - reg
             - geo
+      required:
+        - endpoint
+        - queryString
+    text_target_type_parameters:
+      type: object
+      properties:
+        textId:
+          type: string
+          exmaple: "vicavMission"
+        teiSource:
+          type: string
+          example: "https://github.com"
+      required:
+       - textId
     main_items_type:
       type: array
       minItems: 0
