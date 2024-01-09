@@ -1,7 +1,7 @@
 _id: req_wrk_6915256f54c24d51aa934588fd7b49ff1354378b
 type: Request
 parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
-modified: 1702916090931
+modified: 1695976456219
 created: 1675795155932
 url: "{{ base_url }}/vicav/bibl_markers_tei"
 name: gets map markers for bibliographies
@@ -9,7 +9,7 @@ description: ""
 method: GET
 body: {}
 parameters:
-  - name: queryString
+  - name: query
     disabled: false
     value: Ma.*
     id: pair_906fe1fd4259438dadc03af7d15e7276
