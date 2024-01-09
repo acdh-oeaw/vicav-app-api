@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1704824866678
+modified: 1704825741610
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >
@@ -299,8 +299,7 @@ contents: >
                                         "params": {
                                           "endpoint": "profile_markers",
                                           "queryString": "",
-                                          "scope": [
-                                          ]
+                                          "scope": []
                                         }
                                       },
                                       {
@@ -890,7 +889,7 @@ contents: >
                                   "label": "",
                                   "params": {
                                     "endpoint": "profile_markers",
-                                    "query": "",
+                                    "queryString": "",
                                     "scope": []
                                   }
                                 },
@@ -952,7 +951,7 @@ contents: >
                               "label": "",
                               "params": {
                                 "endpoint": "profile_markers",
-                                "query": "",
+                                "queryString": "",
                                 "scope": []
                               }
                             },
@@ -964,7 +963,7 @@ contents: >
                               "label": "",
                               "params": {
                                 "endpoint": "feature_markers",
-                                "query": "",
+                                "queryString": "",
                                 "scope": []
                               }
                             },
@@ -976,7 +975,7 @@ contents: >
                               "label": "",
                               "params": {
                                 "endpoint": "sample_markers",
-                                "query": "",
+                                "queryString": "",
                                 "scope": []
                               }
                             }
@@ -3057,10 +3056,12 @@ contents: >
             enum:
               - active
           params:
-            $ref: '#/components/schemas/target_type_parameters'
+            oneOf:
+             - $ref: '#/components/schemas/geo_target_type_parameters'
+             - $ref: '#/components/schemas/text_target_type_parameters'
         required:
         - type
-      target_type_parameters:
+      geo_target_type_parameters:
         type: object
         properties:
           endpoint:
@@ -3080,6 +3081,20 @@ contents: >
             example:
               - reg
               - geo
+        required:
+          - endpoint
+          - queryString
+      text_target_type_parameters:
+        type: object
+        properties:
+          textId:
+            type: string
+            exmaple: "vicavMission"
+          teiSource:
+            type: string
+            example: "https://github.com"
+        required:
+         - textId
       main_items_type:
         type: array
         minItems: 0
