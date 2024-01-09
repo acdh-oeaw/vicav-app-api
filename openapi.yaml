@@ -166,7 +166,7 @@ paths:
                                       "type": "item",
                                       "targetType": "WMap",
                                       "label": "All Bibl. Locations on Map",
-                                      "query": {
+                                      "params": {
                                         "endpoint": "bibl_markers_tei",
                                         "queryString": ".*",
                                         "scope": [
@@ -181,7 +181,7 @@ paths:
                                       "type": "item",
                                       "targetType": "WMap",
                                       "label": "All Bibl. Regions on Map",
-                                      "query": {
+                                      "params": {
                                         "endpoint": "bibl_markers_tei",
                                         "queryString": ".*",
                                         "scope": [
@@ -196,7 +196,7 @@ paths:
                                       "type": "item",
                                       "targetType": "WMap",
                                       "label": "All Bibl. Dialect Regions on Map",
-                                      "query": {
+                                      "params": {
                                         "endpoint": "bibl_markers_tei",
                                         "queryString": "This feature is unused at the moment",
                                         "scope": [
@@ -214,7 +214,7 @@ paths:
                                       "type": "item",
                                       "targetType": "WMap",
                                       "label": "All Dictionaries in Bibl. on Map",
-                                      "query": {
+                                      "params": {
                                         "endpoint": "bibl_markers_tei",
                                         "queryString": "vt:dictionary",
                                         "scope": [
@@ -230,7 +230,7 @@ paths:
                                       "type": "item",
                                       "targetType": "WMap",
                                       "label": "All Textbooks in Bibl. on Map",
-                                      "query": {
+                                      "params": {
                                         "endpoint": "bibl_markers_tei",
                                         "queryString": "vt:textbook",
                                         "scope": [
@@ -287,7 +287,7 @@ paths:
                                       "type": "item",
                                       "targetType": "WMap",
                                       "label": "Show All Profiles on Map",
-                                      "query": {
+                                      "params": {
                                         "endpoint": "profile_markers",
                                         "queryString": "",
                                         "scope": [
@@ -339,7 +339,7 @@ paths:
                                       "type": "item",
                                       "targetType": "WMap",
                                       "label": "Show All Feature Lists on Map",
-                                      "query": {
+                                      "params": {
                                         "endpoint": "feature_markers",
                                         "queryString": "",
                                         "scope": [
@@ -383,7 +383,7 @@ paths:
                                       "type": "item",
                                       "targetType": "WMap",
                                       "label": "Show All Samples on Map",
-                                      "query": {
+                                      "params": {
                                         "endpoint": "sample_markers",
                                         "queryString": "",
                                         "scope": [
@@ -432,7 +432,7 @@ paths:
                                       "type": "item",
                                       "targetType": "WMap",
                                       "label": "All Dictionaries in Bibl. on Map",
-                                      "query": {
+                                      "params": {
                                         "endpoint": "bibl_markers_tei",
                                         "queryString": "vt:dictionary",
                                         "scope": [
@@ -448,7 +448,7 @@ paths:
                                       "type": "item",
                                       "targetType": "WMap",
                                       "label": "All VICAV Dictionaries on Map",
-                                      "query": {
+                                      "params": {
                                         "endpoint": "dict_markers",
                                         "queryString": "",
                                         "scope": [
@@ -685,7 +685,7 @@ paths:
                                   "type": "item",
                                   "targetType": "WMap",
                                   "label": "Bibl. Locations",
-                                  "query": {
+                                  "params": {
                                     "endpoint": "bibl_markers_tei",
                                     "queryString": ".*",
                                     "scope": [
@@ -700,7 +700,7 @@ paths:
                                   "type": "item",
                                   "targetType": "WMap",
                                   "label": "Bibl. Regions",
-                                  "query": {
+                                  "params": {
                                     "endpoint": "bibl_markers_tei",
                                     "queryString": ".*",
                                     "scope": [
@@ -715,7 +715,7 @@ paths:
                                   "type": "item",
                                   "targetType": "WMap",
                                   "label": "Bibl. (Dictionaries)",
-                                  "query": {
+                                  "params": {
                                     "endpoint": "bibl_markers_tei",
                                     "queryString": "vt:dictionary",
                                     "scope": [
@@ -731,7 +731,7 @@ paths:
                                   "type": "item",
                                   "targetType": "WMap",
                                   "label": "Bibl. (Textbooks)",
-                                  "query": {
+                                  "params": {
                                     "endpoint": "bibl_markers_tei",
                                     "queryString": "vt:textbook",
                                     "scope": [
@@ -747,7 +747,7 @@ paths:
                                   "type": "item",
                                   "targetType": "WMap",
                                   "label": "Profiles",
-                                  "query": {
+                                  "params": {
                                     "endpoint": "profile_markers",
                                     "queryString": "",
                                     "scope": [
@@ -761,7 +761,7 @@ paths:
                                   "type": "item",
                                   "targetType": "WMap",
                                   "label": "Features",
-                                  "query": {
+                                  "params": {
                                     "endpoint": "feature_markers",
                                     "queryString": "",
                                     "scope": [
@@ -775,7 +775,7 @@ paths:
                                   "type": "item",
                                   "targetType": "WMap",
                                   "label": "Samples",
-                                  "query": {
+                                  "params": {
                                     "endpoint": "sample_markers",
                                     "queryString": "",
                                     "scope": [
@@ -789,7 +789,7 @@ paths:
                                   "type": "item",
                                   "targetType": "WMap",
                                   "label": "VICAV Dictionaries",
-                                  "query": {
+                                  "params": {
                                     "endpoint": "dict_markers",
                                     "queryString": "",
                                     "scope": [
@@ -879,7 +879,7 @@ paths:
                                 "type": "item",
                                 "targetType": "WMap",
                                 "label": "",
-                                "query": {
+                                "params": {
                                   "endpoint": "profile_markers",
                                   "query": "",
                                   "scope": []
@@ -941,7 +941,7 @@ paths:
                             "type": "item",
                             "targetType": "WMap",
                             "label": "",
-                            "query": {
+                            "params": {
                               "endpoint": "profile_markers",
                               "query": "",
                               "scope": []
@@ -953,7 +953,7 @@ paths:
                             "type": "item",
                             "targetType": "WMap",
                             "label": "",
-                            "query": {
+                            "params": {
                               "endpoint": "feature_markers",
                               "query": "",
                               "scope": []
@@ -965,7 +965,7 @@ paths:
                             "type": "item",
                             "targetType": "WMap",
                             "label": "",
-                            "query": {
+                            "params": {
                               "endpoint": "sample_markers",
                               "query": "",
                               "scope": []
@@ -3011,7 +3011,7 @@ components:
         id:
           type: string
           summary: A unique if for this UI element
-        targetT:
+        target:
           type: string
           summary: An ID for the target panel/window that this UI item opens or brings to the front
         title:
@@ -3047,11 +3047,11 @@ components:
           type: string
           enum:
             - active
-        query:
-          $ref: '#/components/schemas/query_description'
+        params:
+          $ref: '#/components/schemas/target_type_parameters'
       required:
       - type
-    query_description:
+    target_type_parameters:
       type: object
       properties:
         endpoint:
