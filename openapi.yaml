@@ -3277,7 +3277,7 @@ components:
               "href": "/restvle/?page=1&pageSize=1"
             }
           }
-        _embeded:
+        _embedded:
           type: object
           required:
            - _
@@ -3342,7 +3342,7 @@ components:
               "href": "/restvle/?page=1&pageSize=1"
             }
           }
-        _embeded:
+        _embedded:
           type: object
           required:
            - dicts
@@ -3407,7 +3407,7 @@ components:
               "href": "/restvle/?page=1&pageSize=1"
             }
           }
-        _embeded:
+        _embedded:
           type: object
           required:
            - _
@@ -3500,7 +3500,7 @@ components:
               "href": "/restvle/?page=1&pageSize=1"
             }
           }
-        _embeded:
+        _embedded:
           type: object
           required:
            - entries

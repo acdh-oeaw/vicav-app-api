@@ -3040,7 +3040,7 @@
               }
             }
           },
-          "_embeded": {
+          "_embedded": {
             "type": "object",
             "required": [
               "_"
@@ -3123,7 +3123,7 @@
               }
             }
           },
-          "_embeded": {
+          "_embedded": {
             "type": "object",
             "required": [
               "dicts"
@@ -3206,7 +3206,7 @@
               }
             }
           },
-          "_embeded": {
+          "_embedded": {
             "type": "object",
             "required": [
               "_"
@@ -3321,7 +3321,7 @@
               }
             }
           },
-          "_embeded": {
+          "_embedded": {
             "type": "object",
             "required": [
               "entries"
