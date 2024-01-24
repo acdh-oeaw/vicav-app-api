@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1704825741610
+modified: 1706096527065
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >
@@ -3286,7 +3286,7 @@ contents: >
                 "href": "/restvle/?page=1&pageSize=1"
               }
             }
-          _embeded:
+          _embedded:
             type: object
             required:
              - _
@@ -3351,7 +3351,7 @@ contents: >
                 "href": "/restvle/?page=1&pageSize=1"
               }
             }
-          _embeded:
+          _embedded:
             type: object
             required:
              - dicts
@@ -3416,7 +3416,7 @@ contents: >
                 "href": "/restvle/?page=1&pageSize=1"
               }
             }
-          _embeded:
+          _embedded:
             type: object
             required:
              - _
@@ -3509,7 +3509,7 @@ contents: >
                 "href": "/restvle/?page=1&pageSize=1"
               }
             }
-          _embeded:
+          _embedded:
             type: object
             required:
              - entries
