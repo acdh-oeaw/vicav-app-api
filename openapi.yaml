@@ -2568,6 +2568,9 @@ paths:
           description: '-'
         '406':
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/RFC7807Problem'
@@ -2577,6 +2580,9 @@ paths:
           description: Can not generate result according to Accept header.
         '500':
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/RFC7807Problem'
@@ -2614,6 +2620,9 @@ paths:
             A JSON HAL based list of dictionaries. Links to the individual dictionaires are included.
         '406':
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/RFC7807Problem'
@@ -2623,6 +2632,9 @@ paths:
           description: Can not generate result according to Accept header.
         '500':
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/RFC7807Problem'
@@ -2654,6 +2666,9 @@ paths:
           description: Info about the requested dictionary.
         '404':
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/RFC7807Problem'
@@ -2663,6 +2678,9 @@ paths:
           description: No dictionary with that name.
         '406':
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/RFC7807Problem'
@@ -2672,6 +2690,9 @@ paths:
           description: Can not generate result according to Accept header.
         '500':
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/RFC7807Problem'
@@ -2775,6 +2796,9 @@ paths:
           description: A JSON HAL based list of entry URIs.
         '404':
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/RFC7807Problem'
@@ -2784,6 +2808,9 @@ paths:
           description: No dictionary with that name.
         '406':
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/RFC7807Problem'
@@ -2793,6 +2820,9 @@ paths:
           description: Can not generate result according to Accept header.
         '500':
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/RFC7807Problem'
@@ -2843,6 +2873,9 @@ paths:
             data.
         '404':
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/RFC7807Problem'
@@ -2852,6 +2885,9 @@ paths:
           description: No dictionary with that name.
         '406':
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/RFC7807Problem'
@@ -2861,6 +2897,9 @@ paths:
           description: Can not generate result according to Accept header.
         '500':
           content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RFC7807Problem'
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/RFC7807Problem'
