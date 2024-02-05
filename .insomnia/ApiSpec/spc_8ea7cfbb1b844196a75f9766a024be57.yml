@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1706096527065
+modified: 1707159025303
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >
@@ -2577,6 +2577,9 @@ contents: >
             description: '-'
           '406':
             content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
               application/problem+json:
                 schema:
                   $ref: '#/components/schemas/RFC7807Problem'
@@ -2586,6 +2589,9 @@ contents: >
             description: Can not generate result according to Accept header.
           '500':
             content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
               application/problem+json:
                 schema:
                   $ref: '#/components/schemas/RFC7807Problem'
@@ -2623,6 +2629,9 @@ contents: >
               A JSON HAL based list of dictionaries. Links to the individual dictionaires are included.
           '406':
             content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
               application/problem+json:
                 schema:
                   $ref: '#/components/schemas/RFC7807Problem'
@@ -2632,6 +2641,9 @@ contents: >
             description: Can not generate result according to Accept header.
           '500':
             content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
               application/problem+json:
                 schema:
                   $ref: '#/components/schemas/RFC7807Problem'
@@ -2663,6 +2675,9 @@ contents: >
             description: Info about the requested dictionary.
           '404':
             content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
               application/problem+json:
                 schema:
                   $ref: '#/components/schemas/RFC7807Problem'
@@ -2672,6 +2687,9 @@ contents: >
             description: No dictionary with that name.
           '406':
             content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
               application/problem+json:
                 schema:
                   $ref: '#/components/schemas/RFC7807Problem'
@@ -2681,6 +2699,9 @@ contents: >
             description: Can not generate result according to Accept header.
           '500':
             content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
               application/problem+json:
                 schema:
                   $ref: '#/components/schemas/RFC7807Problem'
@@ -2784,6 +2805,9 @@ contents: >
             description: A JSON HAL based list of entry URIs.
           '404':
             content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
               application/problem+json:
                 schema:
                   $ref: '#/components/schemas/RFC7807Problem'
@@ -2793,6 +2817,9 @@ contents: >
             description: No dictionary with that name.
           '406':
             content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
               application/problem+json:
                 schema:
                   $ref: '#/components/schemas/RFC7807Problem'
@@ -2802,6 +2829,9 @@ contents: >
             description: Can not generate result according to Accept header.
           '500':
             content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
               application/problem+json:
                 schema:
                   $ref: '#/components/schemas/RFC7807Problem'
@@ -2852,6 +2882,9 @@ contents: >
               data.
           '404':
             content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
               application/problem+json:
                 schema:
                   $ref: '#/components/schemas/RFC7807Problem'
@@ -2861,6 +2894,9 @@ contents: >
             description: No dictionary with that name.
           '406':
             content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
               application/problem+json:
                 schema:
                   $ref: '#/components/schemas/RFC7807Problem'
@@ -2870,6 +2906,9 @@ contents: >
             description: Can not generate result according to Accept header.
           '500':
             content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
               application/problem+json:
                 schema:
                   $ref: '#/components/schemas/RFC7807Problem'
