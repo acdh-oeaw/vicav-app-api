@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1707159025303
+modified: 1707833282158
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >
@@ -3021,6 +3021,18 @@ contents: >
             type: string
             nullable: true
             description: A CSS snippet that should be loaded to customize the colors for a particular instance (Shawi, tunocent)
+          static_data:
+            type: object
+            nullable: true
+            properties:
+              geo:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FeatureCollection'
+              table:
+                type: array
+                itmes:
+                  type: object
       logo_type:
         type: object
         properties:
@@ -3176,6 +3188,8 @@ contents: >
         - type
         - properties
         - geometry
+        externalDocs:
+          url: https://tools.ietf.org/html/rfc7946#section-3.2
         properties:
           type:
             type: string
@@ -3193,6 +3207,25 @@ contents: >
             oneOf:
             - type: 'null'
             - $ref: '#/components/schemas/Point'
+      FeatureCollection:
+        type: object
+        description: GeoJSon Feature collection
+        required:
+         - type
+         - features
+        externalDocs:
+          url: https://tools.ietf.org/html/rfc7946#section-3.3
+        properties:
+          type:
+            type: string
+            enum:
+            - FeatureCollection
+          features:
+            type: array
+            items:
+              $ref: '#/components/schemas/Feature'
+          properties:
+            type: object
       MarkerProperties:
         title: Properties of a marker which should be displayed
         type: object
