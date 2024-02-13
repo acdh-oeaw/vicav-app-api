@@ -3012,6 +3012,18 @@ components:
           type: string
           nullable: true
           description: A CSS snippet that should be loaded to customize the colors for a particular instance (Shawi, tunocent)
+        static_data:
+          type: object
+          nullable: true
+          properties:
+            geo:
+              type: array
+              items:
+                $ref: '#/components/schemas/FeatureCollection'
+            table:
+              type: array
+              itmes:
+                type: object
     logo_type:
       type: object
       properties:
@@ -3167,6 +3179,8 @@ components:
       - type
       - properties
       - geometry
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.2
       properties:
         type:
           type: string
@@ -3177,13 +3191,87 @@ components:
           - type: number
           - type: string
         properties:
-          oneOf:
+          anyOf:
           - type: 'null'
           - $ref: '#/components/schemas/MarkerProperties'
+          - $ref: '#/components/schemas/VarietyFeatures'
         geometry:
           oneOf:
           - type: 'null'
           - $ref: '#/components/schemas/Point'
+    VarietyFeatures:
+      title: ""
+      type: object
+      additionalProperties:
+        FeatureReference:
+          type: string
+        FeatureValues:
+          type: object
+          additionalProperties:
+            FeatureValueReference:
+              type: string
+            FeatureValuesObservations:
+              $ref: '#/components/schemas/FeatureValuesObservation'
+    FeatureValuesObservation:
+      type: object
+      rewuired:
+        - sources
+      properties:
+        sources:
+          type: array
+          items:
+            type: string
+        person_groups:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              PersonGroupType:
+                type: string
+              PersonGroupReference:
+                type: string
+        source_representations:
+          type: array
+          items:
+            type: string
+        examples:
+          type: array
+          items:
+            type: string    
+        notes:
+          type: array
+          items:
+            type: string       
+    FeatureCollection:
+      type: object
+      description: GeoJSon Feature collection
+      required:
+       - type
+       - features
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.3
+      properties:
+        type:
+          type: string
+          enum:
+          - FeatureCollection
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
+        properties:
+          oneOf:
+            - type: object
+            - $ref: '#/components/schemas/ColumnHeadings'
+    ColumnHeadings:
+      type: array
+      items:
+        type: object
+        additionalProperties:
+          Reference:
+            type: string
+          Heading:
+            type: string
     MarkerProperties:
       title: Properties of a marker which should be displayed
       type: object
