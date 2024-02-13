@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1707833282158
+modified: 1707835565297
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >
@@ -3200,13 +3200,57 @@ contents: >
             - type: number
             - type: string
           properties:
-            oneOf:
+            anyOf:
             - type: 'null'
             - $ref: '#/components/schemas/MarkerProperties'
+            - $ref: '#/components/schemas/VarietyFeatures'
           geometry:
             oneOf:
             - type: 'null'
             - $ref: '#/components/schemas/Point'
+      VarietyFeatures:
+        title: ""
+        type: object
+        additionalProperties:
+          FeatureReference:
+            type: string
+          FeatureValues:
+            type: object
+            additionalProperties:
+              FeatureValueReference:
+                type: string
+              FeatureValuesObservations:
+                $ref: '#/components/schemas/FeatureValuesObservation'
+      FeatureValuesObservation:
+        type: object
+        rewuired:
+          - sources
+        properties:
+          sources:
+            type: array
+            items:
+              type: string
+          person_groups:
+            type: array
+            items:
+              type: object
+              additionalProperties:
+                PersonGroupType:
+                  type: string
+                PersonGroupReference:
+                  type: string
+          source_representations:
+            type: array
+            items:
+              type: string
+          examples:
+            type: array
+            items:
+              type: string    
+          notes:
+            type: array
+            items:
+              type: string       
       FeatureCollection:
         type: object
         description: GeoJSon Feature collection
@@ -3225,7 +3269,18 @@ contents: >
             items:
               $ref: '#/components/schemas/Feature'
           properties:
-            type: object
+            oneOf:
+              - type: object
+              - $ref: '#/components/schemas/ColumnHeadings'
+      ColumnHeadings:
+        type: array
+        items:
+          type: object
+          additionalProperties:
+            Reference:
+              type: string
+            Heading:
+              type: string
       MarkerProperties:
         title: Properties of a marker which should be displayed
         type: object
