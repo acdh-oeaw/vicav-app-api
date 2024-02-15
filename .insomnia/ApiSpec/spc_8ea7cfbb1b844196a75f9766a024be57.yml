@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1708006333053
+modified: 1707918614008
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >
@@ -1759,7 +1759,7 @@ contents: >
                                   "type": "reg",
                                   "name": "Morocco",
                                   "hitCount": 1157,
-                                  "target-type": "Bibl",
+                                  "targetType": "Bibl",
                                   "query": "Ma.*+Morocco"
                                 }
                               }
@@ -1844,8 +1844,8 @@ contents: >
                                 "type": "geo",
                                 "name": "Deir ez-Zor",
                                 "hitCount": 1,
-                                "text-id": "profile_derizzor_01",
-                                "target-type": "Profile"
+                                "textId": "profile_derizzor_01",
+                                "targetType": "Profile"
                               }
                             },
                             {
@@ -1861,8 +1861,8 @@ contents: >
                                 "type": "geo",
                                 "name": "Sicily",
                                 "hitCount": 1,
-                                "text-id": "profile_sicily_01",
-                                "target-type": "Profile"
+                                "textId": "profile_sicily_01",
+                                "targetType": "Profile"
                               }
                             }
                            ]
@@ -3441,9 +3441,9 @@ contents: >
             type: string
           hitCount:
             type: number
-          target-type:
+          targetType:
             type: string
-          text-id:
+          textId:
             type: string
           query:
             type: string         

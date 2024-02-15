@@ -1434,7 +1434,7 @@
                           "type": "reg",
                           "name": "Morocco",
                           "hitCount": 1157,
-                          "target-type": "Bibl",
+                          "targetType": "Bibl",
                           "query": "Ma.*+Morocco"
                         }
                       }
@@ -1528,8 +1528,8 @@
                           "type": "geo",
                           "name": "Deir ez-Zor",
                           "hitCount": 1,
-                          "text-id": "profile_derizzor_01",
-                          "target-type": "Profile"
+                          "textId": "profile_derizzor_01",
+                          "targetType": "Profile"
                         }
                       },
                       {
@@ -1545,8 +1545,8 @@
                           "type": "geo",
                           "name": "Sicily",
                           "hitCount": 1,
-                          "text-id": "profile_sicily_01",
-                          "target-type": "Profile"
+                          "textId": "profile_sicily_01",
+                          "targetType": "Profile"
                         }
                       }
                     ]
@@ -3093,10 +3093,10 @@
           "hitCount": {
             "type": "number"
           },
-          "target-type": {
+          "targetType": {
             "type": "string"
           },
-          "text-id": {
+          "textId": {
             "type": "string"
           },
           "query": {
