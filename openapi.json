@@ -1092,6 +1092,74 @@
         }
       }
     },
+    "/vicav/sample": {
+      "get": {
+        "tags": [
+          "noauth"
+        ],
+        "summary": "gets a linguistic sample text identtified by its tei:div@xml:id",
+        "operationId": "getSampleText",
+        "description": "By passing the appropriate xml-ID and xslt you can retrieve ready to display html\n",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "description": "the @xml:id of the tei:div xml element",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "xslt",
+            "required": false,
+            "description": "the filename of the xslt transformation (for development purposes only)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "the transformed html",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "string",
+                  "xml": {
+                    "name": "div",
+                    "wrapped": false
+                  }
+                },
+                "examples": {
+                  "html": {
+                    "summary": "A sample HTML response",
+                    "value": "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <div xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:tei=\"http://www.tei-c.org/ns/1.0\">\n    <table class=\"tbHeader\">\n        <tr>\n            <td>\n                <h2>A sample of Ain Soltane Arabic</h2>\n            </td>\n            <td class=\"tdTeiLink\">{teiLink}</td>\n            <td class=\"tdPrintLink\">\n                <a href=\"#\" data-print=\"true\" class=\"aTEIButton\" data-sampletext=\"vicav_sample_ainsoltane_02\">Print</a>\n            </td>\n        </tr>\n    </table>\n    <p xml:space=\"preserve\">\n        By \n        <i>Sarah B (revision: 2020-09-11)</i>\n    </p>\n    <ul id=\"informants\">\n        <li xml:space=\"preserve\">\n            Informant ID: \n\n            <i>AinSoltane1</i>\n            , Sex: \n            <i>m</i>\n            , Age: \n            <i>50</i>\n        </li>\n    </ul>\n    <span class=\"spSentence\" xml:space=\"preserve\">\n        <span class=\"sample-text-tooltip\" data-html=\"true\" data-toggle=\"tooltip\" data-placement=\"top\" title=\" يوم الاثنين بعد الفجر ذهبتُ إلى السوق لأشتري بيضا وخضروات مثل الباذنجان والثوم\">\n            <i class=\"fa fa-commenting-o\" aria-hidden=\"true\">\n                <span/>\n            </i>\n        </span>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"nhāṛ\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">nhāṛ</span>\n        </a>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"l\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">l</span>\n        </a>\n        <span class=\"pc\">-</span>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"iṯnīn\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">iṯnīn</span>\n        </a>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"baʕd\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">baʕd</span>\n        </a>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"il\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">il</span>\n        </a>\n        <span class=\"pc\">-</span>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"fažⁱr\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">fažⁱr</span>\n        </a>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"ⁱmšīt\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">ⁱmšīt</span>\n        </a>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"l\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">l</span>\n        </a>\n        <span class=\"pc\">-</span>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"is\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">is</span>\n        </a>\n        <span class=\"pc\">-</span>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"sūg\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">sūg</span>\n        </a>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"nišri\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">nišri</span>\n        </a>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"ʕḏ̣amm\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">ʕḏ̣amm</span>\n        </a>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"w\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">w</span>\n        </a>\n        <span class=\"pc\">-</span>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"xuḏ̣ṛa\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">xuḏ̣ṛa</span>\n        </a>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"w\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">w</span>\n        </a>\n        <span class=\"pc\">-</span>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"iṯ\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">iṯ</span>\n        </a>\n        <span class=\"pc\">-</span>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"ṯūm\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">ṯūm</span>\n        </a>\n        <span class=\"pc\">. </span>\n    </span>\n</div>\n"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "bad input parameter",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "html": {
+                    "summary": "A sample HTML response",
+                    "value": "<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/vicav/profile": {
       "get": {
         "tags": [
@@ -1416,8 +1484,9 @@
                         "properties": {
                           "type": "geo",
                           "name": "Tétouan",
+                          "label": "Tétouan",
                           "hitCount": 16,
-                          "target-type": "Bibl",
+                          "targetType": "Bibl",
                           "query": "Ma.*+Tétouan"
                         }
                       },
@@ -1433,6 +1502,7 @@
                         "properties": {
                           "type": "reg",
                           "name": "Morocco",
+                          "label": "Morocco",
                           "hitCount": 1157,
                           "targetType": "Bibl",
                           "query": "Ma.*+Morocco"
@@ -1527,6 +1597,7 @@
                         "properties": {
                           "type": "geo",
                           "name": "Deir ez-Zor",
+                          "label": "Deir ez-Zor",
                           "hitCount": 1,
                           "textId": "profile_derizzor_01",
                           "targetType": "Profile"
@@ -1544,6 +1615,7 @@
                         "properties": {
                           "type": "geo",
                           "name": "Sicily",
+                          "label": "Sicily",
                           "hitCount": 1,
                           "textId": "profile_sicily_01",
                           "targetType": "Profile"
@@ -3073,7 +3145,7 @@
         "type": "object",
         "required": [
           "type",
-          "name",
+          "label",
           "hitCount"
         ],
         "properties": {
@@ -3085,6 +3157,9 @@
             ]
           },
           "name": {
+            "type": "string"
+          },
+          "label": {
             "type": "string"
           },
           "alt": {
