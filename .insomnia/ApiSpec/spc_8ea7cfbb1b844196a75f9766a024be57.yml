@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1708012036777
+modified: 1708092184200
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >
@@ -1743,8 +1743,8 @@ contents: >
                                   "name": "Tétouan",
                                   "label": "Tétouan",
                                   "hitCount": 16,
-                                  "targetType": "Bibl",
-                                  "query": "Ma.*+Tétouan"
+                                  "targetType": "BiblioEntries",
+                                  "queryString": "Ma.*+Tétouan"
                                 }
                               },
                               {
@@ -1761,8 +1761,8 @@ contents: >
                                   "name": "Morocco",
                                   "label": "Morocco",
                                   "hitCount": 1157,
-                                  "targetType": "Bibl",
-                                  "query": "Ma.*+Morocco"
+                                  "targetType": "BiblioEntries",
+                                  "queryString": "Ma.*+Morocco"
                                 }
                               }
                           ]
@@ -3451,7 +3451,7 @@ contents: >
             type: string
           textId:
             type: string
-          query:
+          queryString:
             type: string         
       Point:
         title: GeoJSON Point
