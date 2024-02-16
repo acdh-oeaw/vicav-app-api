@@ -1734,8 +1734,8 @@ paths:
                                 "name": "Tétouan",
                                 "label": "Tétouan",
                                 "hitCount": 16,
-                                "targetType": "Bibl",
-                                "query": "Ma.*+Tétouan"
+                                "targetType": "BiblioEntries",
+                                "queryString": "Ma.*+Tétouan"
                               }
                             },
                             {
@@ -1752,8 +1752,8 @@ paths:
                                 "name": "Morocco",
                                 "label": "Morocco",
                                 "hitCount": 1157,
-                                "targetType": "Bibl",
-                                "query": "Ma.*+Morocco"
+                                "targetType": "BiblioEntries",
+                                "queryString": "Ma.*+Morocco"
                               }
                             }
                         ]
@@ -3442,7 +3442,7 @@ components:
           type: string
         textId:
           type: string
-        query:
+        queryString:
           type: string         
     Point:
       title: GeoJSON Point

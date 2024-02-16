@@ -1486,8 +1486,8 @@
                           "name": "Tétouan",
                           "label": "Tétouan",
                           "hitCount": 16,
-                          "targetType": "Bibl",
-                          "query": "Ma.*+Tétouan"
+                          "targetType": "BiblioEntries",
+                          "queryString": "Ma.*+Tétouan"
                         }
                       },
                       {
@@ -1504,8 +1504,8 @@
                           "name": "Morocco",
                           "label": "Morocco",
                           "hitCount": 1157,
-                          "targetType": "Bibl",
-                          "query": "Ma.*+Morocco"
+                          "targetType": "BiblioEntries",
+                          "queryString": "Ma.*+Morocco"
                         }
                       }
                     ]
@@ -3174,7 +3174,7 @@
           "textId": {
             "type": "string"
           },
-          "query": {
+          "queryString": {
             "type": "string"
           }
         }
