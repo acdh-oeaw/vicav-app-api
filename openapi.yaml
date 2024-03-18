@@ -3099,9 +3099,12 @@ components:
         content: 
           type: object
           properties:
-            left: string
-            kwic: string
-            right: string
+            left: 
+              type: string
+            kwic: 
+              type: string
+            right: 
+              type: string
     ProjectConfig:
       type: object
       properties:
