@@ -2332,38 +2332,41 @@ paths:
               examples: 
                 corpus_search_json:
                   summary: 'Corpus search results'
-                  value: 
+                  value:
                     {
-                      "query":"dār",
+                      "query":"w",
                       "hits":[
                         {
-                          "u":"URFA-077_a72",
-                          "doc":"URFA-077",
-                          "docHits": [
-                            "URFA-077_a72"
+                          "u":"URFA-011_a2",
+                          "doc":"URFA-011",
+                          "docHits":[
+                            "",
+                            "URFA-011_xTok_000047",
+                            "",
+                            "URFA-011_xTok_000251",
+                            "",
+                            "URFA-011_xTok_000437",
+                            "",
+                            "URFA-011_xTok_000630",
+                            "",
+                            "URFA-011_xTok_000853",
+                            "",
+                            "URFA-011_xTok_000908",
+                            "",
+                            "URFA-011_xTok_000912",
+                            "",
+                            "URFA-011_xTok_000920",
+                            "",
+                            "URFA-011_xTok_001008"
                           ],
-                          "content":"<div class=\"corpus-search-result\" id=\"corpus-w-URFA-077_xTok_001078\"><div class=\"left\"><span class=\"w\" id=\"URFA-077_xTok_001071\">āni<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-077_xTok_001072\">nāyim<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-077_xTok_001073\">hēne<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-077_xTok_001074\">b<\/span><span class=\"w\" id=\"URFA-077_xTok_001076\">ad<\/span><\/div><div class=\"keyword\"><span class=\"w\">dār<\/span><span xml:space=\"preserve\"> <\/span><\/div><div class=\"right\"><span class=\"w\">haḏiyye<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">nāyim<\/span><span xml:space=\"preserve\"> <\/span><\/div><\/div>"
-                        },
-                        {
-                          "u":"URFA-115_a4",
-                          "doc":"URFA-115",
-                          "docHits": ["URFA-115_a4"],
-                          "content":"<div class=\"corpus-search-result\" id=\"corpus-w-URFA-115_xTok_000096\"><div class=\"left\"><span class=\"w\" id=\"URFA-115_xTok_000087\">rəḥalaw<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-115_xTok_000089\">xall<\/span><span class=\"w\" id=\"URFA-115_xTok_000091\">ō<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-115_xTok_000092\">b<\/span><span class=\"w\" id=\"URFA-115_xTok_000094\">ad<\/span><\/div><div class=\"keyword\"><span class=\"w\">dār<\/span><span xml:space=\"preserve\"> <\/span><\/div><div class=\"right\"><span class=\"w\">w<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">šālaw<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">eger<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">miṯil<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">al<\/span><\/div><\/div>"
-                        },
-                        {
-                          "docHits": ["URFA-122_a13"],
-                          "doc":"URFA-122",
-                          "content":"<div class=\"corpus-search-result\" id=\"corpus-w-URFA-122_xTok_000738\"><div class=\"left\"><span class=\"w\" id=\"URFA-122_xTok_000730\">u<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-122_xTok_000731\">ˀal<\/span><span class=\"w\" id=\"URFA-122_xTok_000733\">bāb<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-122_xTok_000734\">b<\/span><span class=\"w\" id=\"URFA-122_xTok_000736\">ad<\/span><\/div><div class=\"keyword\"><span class=\"w\">dār<\/span><span xml:space=\"preserve\"> <\/span><\/div><div class=\"right\"><span class=\"w\">imčallṭīn<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">al<\/span><span class=\"w\">qīrān<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">aṭ<\/span><span class=\"w\">ṭūg<\/span><span xml:space=\"preserve\"> <\/span><\/div><\/div>"
-                        },
-                        {
-                          "u":"URFA-125_a9",
-                          "doc":"URFA-125",
-                          "docHits": ["URFA-125_a9"],
-                          "content":"<div class=\"corpus-search-result\" id=\"corpus-w-URFA-125_xTok_000258\"><div class=\"left\"><span class=\"w\" id=\"URFA-125_xTok_000253\">hēn<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-125_xTok_000254\">ṛāyiḥ<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-125_xTok_000255\">āni<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-125_xTok_000256\">ˀarīd<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-125_xTok_000257\">agḏ̣ub<\/span><span xml:space=\"preserve\"> <\/span><\/div><div class=\"keyword\"><span class=\"w\">dār<\/span><span xml:space=\"preserve\"> <\/span><\/div><div class=\"right\"><span class=\"w\">aš<\/span><span class=\"w\">šēx<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">w<\/span><span class=\"w\">arīd<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">āni<\/span><span xml:space=\"preserve\"> <\/span><\/div><\/div>"
+                          "content":{
+                            "left":"<span class=\"w\" id=\"URFA-011_xTok_000038\">u<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-011_xTok_000040\">al<\/span><span>-<\/span><span class=\"w\" id=\"URFA-011_xTok_000042\">xōǧe<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-011_xTok_000043\">yqassl<\/span><span>-<\/span><span class=\"w\" id=\"URFA-011_xTok_000045\">u<\/span><span xml:space=\"preserve\"> <\/span>",
+                            "kwic":"<span class=\"w\" id=\"URFA-011_xTok_000047\">w<\/span><span>-<\/span>",
+                            "right":"<span class=\"w\">yǧībūn<\/span><span>-<\/span><span class=\"w\">u<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">hēne<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">yčaffnūn<\/span><span>-<\/span><span class=\"w\">u<\/span><span xml:space=\"preserve\"> <\/span>"
+                          }
                         }
                       ]
-                    }
-          
+                    }          
             application/xml:
               schema:
                 type: string
@@ -3094,7 +3097,11 @@ components:
         doc:
           type: string
         content: 
-          type: string
+          type: object
+          properties:
+            left: string
+            kwic: string
+            right: string
     ProjectConfig:
       type: object
       properties:
