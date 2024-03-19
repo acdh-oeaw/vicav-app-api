@@ -5,7 +5,9 @@ servers:
     description: "current ACDH-CH prod server"
   - url: https://vicav.acdh-ch-dev.oeaw.ac.at
     description: "current ACDH-CH dev server"
-  - url: https://tunocent.acdh-cluster-2.arz.oeaw.ac.at/vicav
+  - url: https://tunocent.acdh-cluster-2.arz.oeaw.ac.at
+    description: "current tunocent private dev server"
+  - url: https://tunocent-vicav.acdh-dev.oeaw.ac.at
     description: "current tunocent dev server"
   - url: https://shawi.acdh-ch-dev.oeaw.ac.at
     description: "current shawi dev server"
@@ -3059,6 +3061,10 @@ paths:
         - vleserver-api
       description: '-'
 components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
   schemas:
     CorpusText: 
       type: object
@@ -3839,4 +3845,5 @@ components:
         took:
           type: string
           example: "23.83"
-
+security:
+  - basicAuth: []

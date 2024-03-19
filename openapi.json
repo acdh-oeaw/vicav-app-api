@@ -11,7 +11,11 @@
       "description": "current ACDH-CH dev server"
     },
     {
-      "url": "https://tunocent.acdh-cluster-2.arz.oeaw.ac.at/vicav",
+      "url": "https://tunocent.acdh-cluster-2.arz.oeaw.ac.at",
+      "description": "current tunocent private dev server"
+    },
+    {
+      "url": "https://tunocent-vicav.acdh-dev.oeaw.ac.at",
       "description": "current tunocent dev server"
     },
     {
@@ -2593,6 +2597,12 @@
     }
   },
   "components": {
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    },
     "schemas": {
       "CorpusText": {
         "type": "object",
@@ -3689,5 +3699,10 @@
         }
       }
     }
-  }
+  },
+  "security": [
+    {
+      "basicAuth": []
+    }
+  ]
 }
