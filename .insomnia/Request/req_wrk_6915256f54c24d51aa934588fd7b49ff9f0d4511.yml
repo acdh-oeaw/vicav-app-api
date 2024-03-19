@@ -1,7 +1,7 @@
 _id: req_wrk_6915256f54c24d51aa934588fd7b49ff9f0d4511
 type: Request
 parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
-modified: 1710862602108
+modified: 1710874757802
 created: 1675795155949
 url: "{{ base_url }}/vicav/project"
 name: gets basic project configuration

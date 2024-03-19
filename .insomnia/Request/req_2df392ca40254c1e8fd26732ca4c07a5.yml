@@ -1,0 +1,38 @@
+_id: req_2df392ca40254c1e8fd26732ca4c07a5
+type: Request
+parentId: wrk_6915256f54c24d51aa934588fd7b49ff
+modified: 1710872756294
+created: 1710867911775
+url: "{{ base_url }}"
+name: CORS options test
+description: ""
+method: OPTIONS
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: insomnia/2023.5.8
+    id: pair_0335aba4b3cd42489fb12d09585027db
+  - id: pair_2b1727753c83422390cc7e2a0b510f16
+    name: Origin
+    value: http://localhost:3000
+    description: ""
+    disabled: true
+  - id: pair_38c3081c438a4c52a015388a29c0dc08
+    name: Origin
+    value: https://tunocent-vue.acdh-dev.oeaw.ac.at
+    description: ""
+authentication:
+  type: basic
+  useISO88591: false
+  disabled: true
+  username: "{{ _.user }}"
+  password: "{{ _.pass }}"
+metaSortKey: -1710867911775
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
