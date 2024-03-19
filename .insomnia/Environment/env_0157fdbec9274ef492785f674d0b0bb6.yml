@@ -1,14 +1,18 @@
 _id: env_0157fdbec9274ef492785f674d0b0bb6
 type: Environment
 parentId: env_9a21f4d181d64765d33c7bbe158a0e24fc2976d0
-modified: 1700838872699
+modified: 1710861421274
 created: 1700838872699
 name: OpenAPI env tunocent.acdh-cluster-2.arz.oeaw.ac.at
 data:
   scheme: https
-  base_path: /vicav
+  base_path: /
   host: tunocent.acdh-cluster-2.arz.oeaw.ac.at
-dataPropertyOrder: null
+dataPropertyOrder:
+  "&":
+    - scheme
+    - base_path
+    - host
 color: null
 isPrivate: false
 metaSortKey: 1700838872699

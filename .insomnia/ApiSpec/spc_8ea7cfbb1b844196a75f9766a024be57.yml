@@ -1,10 +1,10 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1710763336726
+modified: 1710860673575
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
-contents: >
+contents: >-
   openapi: 3.1.0
 
   jsonSchemaDialect: 'https://spec.openapis.org/oas/3.1/dialect/base'
@@ -14,7 +14,9 @@ contents: >
       description: "current ACDH-CH prod server"
     - url: https://vicav.acdh-ch-dev.oeaw.ac.at
       description: "current ACDH-CH dev server"
-    - url: https://tunocent.acdh-cluster-2.arz.oeaw.ac.at/vicav
+    - url: https://tunocent.acdh-cluster-2.arz.oeaw.ac.at
+      description: "current tunocent private dev server"
+    - url: https://tunocent-vicav.acdh-dev.oeaw.ac.at
       description: "current tunocent dev server"
     - url: https://shawi.acdh-ch-dev.oeaw.ac.at
       description: "current shawi dev server"
@@ -3068,6 +3070,10 @@ contents: >
           - vleserver-api
         description: '-'
   components:
+    securitySchemes:
+      basicAuth:
+        type: http
+        scheme: basic
     schemas:
       CorpusText: 
         type: object
@@ -3848,4 +3854,6 @@ contents: >
           took:
             type: string
             example: "23.83"
+  security:
+    - basicAuth: []
 contentType: yaml
