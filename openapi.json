@@ -27,7 +27,7 @@
       "url": "https://virtserver.swaggerhub.com/ctot-nondef/Vicav/1.0.0"
     },
     {
-      "url": "http://localhost:8984/vicav",
+      "url": "http://localhost:8984",
       "description": "local development"
     },
     {
@@ -1023,6 +1023,27 @@
                   }
                 }
               }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "noauth"
+        ],
+        "summary": "creates a cache with for the JSON returned for projectConfig",
+        "description": "-",
+        "operationId": "createProjectConfigCache",
+        "responses": {
+          "200": {
+            "description": "the cached JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectConfig"
+                }
+              },
+              "application/xml": {}
             }
           }
         }
@@ -2685,6 +2706,14 @@
       "projectConfig_type": {
         "type": "object",
         "properties": {
+          "cached": {
+            "type": "boolean",
+            "description": "Whether this JSON was generated on demand or fetched from a cache."
+          },
+          "baseURIPublic": {
+            "type": "string",
+            "description": "The base URI used in this project config"
+          },
           "title": {
             "type": "string"
           },
