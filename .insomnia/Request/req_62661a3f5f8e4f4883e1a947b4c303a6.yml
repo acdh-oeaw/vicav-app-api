@@ -1,0 +1,40 @@
+_id: req_62661a3f5f8e4f4883e1a947b4c303a6
+type: Request
+parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
+modified: 1712577973320
+created: 1712573483507
+url: "{{ base_url }}/vicav/project"
+name: create prerendered basic project configuration
+description: ""
+method: PUT
+body: {}
+parameters: []
+headers:
+  - id: pair_841a2c7f19ee42b2812889e400464d95
+    name: Accept
+    value: application/json
+    description: ""
+    disabled: false
+  - id: pair_472e0ddad5bd4c0fb517a5b7f7bc8bfd
+    name: Origin
+    value: https://localhost:8984
+    description: ""
+    disabled: true
+  - id: pair_ea3dcbf970124564ad3e21b135de94ab
+    name: Origin
+    value: https://{{ _.host }}
+    description: ""
+authentication:
+  type: basic
+  useISO88591: false
+  disabled: true
+  username: "{{ _.user }}"
+  password: "{{ _.pass }}"
+metaSortKey: -1675795155947
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

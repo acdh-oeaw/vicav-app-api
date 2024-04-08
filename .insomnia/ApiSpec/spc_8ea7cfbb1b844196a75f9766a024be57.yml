@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1710860673575
+modified: 1712577909961
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -23,7 +23,7 @@ contents: >-
     # Added by API Auto Mocking Plugin
     - description: SwaggerHub API Auto Mocking
       url: https://virtserver.swaggerhub.com/ctot-nondef/Vicav/1.0.0
-    - url: http://localhost:8984/vicav
+    - url: http://localhost:8984
       description: "local development"
     - url: http://shawi-local.acdh.oeaw.ac.at:8984
       description: "local development"
@@ -1056,6 +1056,20 @@ contents: >-
                           </menu>
                         </renderedMenu>
                       </project>
+      put:
+        tags:
+          - noauth
+        summary: creates a cache with for the JSON returned for projectConfig
+        description: '-'
+        operationId: createProjectConfigCache
+        responses:
+          '200':
+            description: the cached JSON
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ProjectConfig'
+              application/xml: {}
     /vicav/text:
       get:
         tags:
