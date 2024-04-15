@@ -3271,6 +3271,7 @@ components:
           - Feature
           - UnknownTypeWarning
           - BiblioEntries
+          - ListMap
         label:
           type: string
           summary: The caption (or part of it) for the target panel/window that this UI item opens or brings to the front
