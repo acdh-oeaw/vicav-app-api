@@ -2893,7 +2893,8 @@
               "Profile",
               "Feature",
               "UnknownTypeWarning",
-              "BiblioEntries"
+              "BiblioEntries",
+              "ListMap"
             ]
           },
           "label": {
