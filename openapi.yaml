@@ -3193,7 +3193,7 @@ components:
           type: string
           nullable: true
           description: A CSS snippet that should be loaded to customize the colors for a particular instance (Shawi, tunocent)
-        static_data:
+        staticData:
           type: object
           nullable: true
           properties:
