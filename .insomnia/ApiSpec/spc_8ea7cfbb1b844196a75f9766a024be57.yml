@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1713191157461
+modified: 1713205370542
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -3452,17 +3452,20 @@ contents: >-
               $ref: '#/components/schemas/Feature'
           properties:
             oneOf:
-              - type: object
               - $ref: '#/components/schemas/ColumnHeadings'
+              - type: object
       ColumnHeadings:
-        type: array
-        items:
-          type: object
-          additionalProperties:
-            Reference:
-              type: string
-            Heading:
-              type: string
+        type: object
+        properties:
+          column_headings:
+            type: array
+            items:
+              type: object
+              additionalProperties:
+                Reference:
+                  type: string
+                Heading:
+                  type: string
       MarkerProperties:
         title: Properties of a marker which should be displayed
         type: object
