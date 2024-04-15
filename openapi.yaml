@@ -3443,17 +3443,20 @@ components:
             $ref: '#/components/schemas/Feature'
         properties:
           oneOf:
-            - type: object
             - $ref: '#/components/schemas/ColumnHeadings'
+            - type: object
     ColumnHeadings:
-      type: array
-      items:
-        type: object
-        additionalProperties:
-          Reference:
-            type: string
-          Heading:
-            type: string
+      type: object
+      properties:
+        column_headings:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              Reference:
+                type: string
+              Heading:
+                type: string
     MarkerProperties:
       title: Properties of a marker which should be displayed
       type: object
