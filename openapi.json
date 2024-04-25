@@ -1305,14 +1305,14 @@
         "tags": [
           "noauth"
         ],
-        "summary": "gets a specific html transformed via a specified xslt",
+        "summary": "Search sample texts or feature lists by keyword or meatadata and return a rendered list of matching sentences.",
         "operationId": "getExploreSamples",
         "description": "By passing the appropriate xml-ID and xslt you can retrieve ready to display html\n",
         "parameters": [
           {
             "in": "query",
             "name": "type",
-            "description": "the type of query?",
+            "description": "collection to query eg. vicav_lingfeatures",
             "required": true,
             "schema": {
               "type": "string"
@@ -1321,10 +1321,19 @@
           {
             "in": "query",
             "name": "word",
-            "description": "the word to search for?",
-            "required": true,
+            "description": "the word to search for",
+            "required": false,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "person",
+            "description": "only search specific speakers info",
+            "required": true,
+            "schema": {
+              "type": false
             }
           },
           {
@@ -2803,7 +2812,7 @@
               },
               "table": {
                 "type": "array",
-                "itmes": {
+                "items": {
                   "type": "object"
                 }
               }
