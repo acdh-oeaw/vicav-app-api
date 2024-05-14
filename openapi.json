@@ -1330,8 +1330,35 @@
           {
             "in": "query",
             "name": "person",
-            "description": "only search specific speakers info",
-            "required": true,
+            "description": "search by speaker",
+            "required": false,
+            "schema": {
+              "type": false
+            }
+          },
+          {
+            "in": "query",
+            "name": "features",
+            "description": "only search specific features",
+            "required": false,
+            "schema": {
+              "type": false
+            }
+          },
+          {
+            "in": "query",
+            "name": "comment",
+            "description": "search in comment",
+            "required": false,
+            "schema": {
+              "type": false
+            }
+          },
+          {
+            "in": "query",
+            "name": "translation",
+            "description": "only search specific features",
+            "required": false,
             "schema": {
               "type": false
             }
