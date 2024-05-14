@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1713702349323
+modified: 1715681211774
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -1612,11 +1612,29 @@ contents: >-
               type: string
           - in: query
             name: person
-            description: only search specific speakers info
-            required: true
+            description: search by speaker
+            required: false
             schema:
               type: false
 
+          - in: query
+            name: features
+            description: only search specific features
+            required: false
+            schema:
+              type: false
+          - in: query
+            name: comment
+            description: search in comment
+            required: false
+            schema:
+              type: false
+          - in: query
+            name: translation
+            description: only search specific features
+            required: false
+            schema:
+              type: false 
 
           - in: query
             name: xslt
@@ -1648,6 +1666,50 @@ contents: >-
                   html:
                     summary: A sample HTML response
                     value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
+    /vicav/feature_labels:
+      get:
+        operationId: getFeatureLabels
+        summary: Feature labels and values.
+        description: A simple list of supported feature codes alog with their human-readable labels
+        tags:
+         - noauth
+        responses:
+          '200': 
+             description: Succesful reasult JSON
+             content:
+               application/xml:
+                 schema:
+                   type: string
+               application/json:
+                 schema: 
+                   $ref: "#/components/schemas/SearchTags"
+    /vicav/data_words:
+      get:
+        operationId: getDataWords
+        summary: Get all distinct words in a given corpus.
+        description: A simple list of all distinct words in a database to be used as tag options in search form.
+        tags:
+         - noauth
+        parameters:
+          - in: query
+            name: type
+            required: false
+            description: Database name not including vicav_ prefix
+            schema:
+              type: string
+        responses:
+          '200': 
+             description: Succesful result
+             content:
+               application/xml:
+                 schema:
+                   type: string
+               application/json:
+                 schema: 
+                   type: array
+                   items: 
+                     type: string
+    
     /vicav/biblio_tei:
       get:
         tags:
@@ -3855,6 +3917,17 @@ contents: >-
           took:
             type: string
             example: "0.46"
+      SearchTags:
+        type: array
+        items:
+          type: object
+          properties:
+            label: 
+              type: string
+              description: Label to dispplay for this item
+            value: 
+              type: string
+              description: Value to pass to search endpoint
       RestVLEEntry:
         type: object
         properties:
