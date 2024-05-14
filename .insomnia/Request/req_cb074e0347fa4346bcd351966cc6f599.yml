@@ -1,0 +1,37 @@
+_id: req_cb074e0347fa4346bcd351966cc6f599
+type: Request
+parentId: fld_5962ba31c6594d5ab94654672a8bd6e5
+modified: 1715681028505
+created: 1715681028505
+url: "{{ _.base_url }}/vicav/explore_samples"
+name: Search sample texts or feature lists by keyword or meatadata and return a
+  rendered list of matching sentences.
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: type
+    disabled: false
+    value: string
+  - name: word
+    disabled: true
+    value: string
+  - name: person
+    disabled: false
+    value: "null"
+  - name: xslt
+    disabled: true
+    value: string
+headers: []
+authentication:
+  type: basic
+  username: "{{ _.httpUsername }}"
+  password: "{{ _.httpPassword }}"
+metaSortKey: -1715681028505
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
