@@ -2890,6 +2890,11 @@
             "nullable": true,
             "description": "The host the NoSkE engine for this instance of the interface runs on if any (Shawi interface)"
           },
+          "specialCharacters": {
+            "type": "array",
+            "nullable": true,
+            "description": "A list of special transliteration characters to display on input boxes (specific to projects as dialect requirements can vary)."
+          },
           "style": {
             "type": "string",
             "nullable": true,
