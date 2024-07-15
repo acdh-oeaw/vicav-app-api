@@ -1,22 +1,18 @@
 _id: env_566c55d71ccf4d9cb545bd71c056442e
 type: Environment
 parentId: env_9a21f4d181d64765d33c7bbe158a0e24fc2976d0
-modified: 1710861462472
+modified: 1721050670717
 created: 1710861371413
-name: OpenAPI env tunocent-vicav.acdh-dev.oeaw.ac.at
+name: OpenAPI env tunocent....acdh-dev.oeaw.ac.at
 data:
   scheme: https
   base_path: /
-  host: tunocent-vicav.acdh-dev.oeaw.ac.at
-  user: tunocent
-  pass: imaala
+  host: tunocent-22a417b1-9f07-406b-9098-288b3f981d99.acdh-ch-dev.oeaw.ac.at
 dataPropertyOrder:
   "&":
     - scheme
     - base_path
     - host
-    - user
-    - pass
 color: null
 isPrivate: false
-metaSortKey: 1700838872697
+metaSortKey: 1700838872691

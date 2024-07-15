@@ -1,20 +1,18 @@
 _id: env_459ffba3d02c487da657de2401937193
 type: Environment
 parentId: env_9a21f4d181d64765d33c7bbe158a0e24fc2976d0
-modified: 1712246211997
+modified: 1721050653380
 created: 1707829402689
-name: OpenAPI env wibarab
+name: OpenAPI env wibarab-api.acdh-ch-dev.oeaw.ac.at
 data:
   scheme: https
   base_path: /
   host: wibarab-api.acdh-ch-dev.oeaw.ac.at
-  name: profile
 dataPropertyOrder:
   "&":
     - scheme
     - base_path
     - host
-    - name
 color: null
 isPrivate: false
 metaSortKey: 1690210094629
