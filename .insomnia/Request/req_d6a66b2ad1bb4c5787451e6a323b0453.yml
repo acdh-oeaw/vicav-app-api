@@ -1,0 +1,27 @@
+_id: req_d6a66b2ad1bb4c5787451e6a323b0453
+type: Request
+parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
+modified: 1718980534335
+created: 1718978956873
+url: "{{ _.base_url }}/vicav/tei_doc_list"
+name: Get generic metadata list
+description: ""
+method: GET
+body: {}
+parameters:
+  - id: pair_e6a800dfb6914bd7af86b8f4eb9ade1a
+    name: type
+    value: vicav_corpus
+    description: ""
+headers:
+  - name: User-Agent
+    value: insomnia/2023.5.8
+authentication: {}
+metaSortKey: -1675795390896
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
