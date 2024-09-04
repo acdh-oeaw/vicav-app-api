@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1725370373957
+modified: 1725439340734
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -1694,6 +1694,7 @@ contents: >-
             required: true
             schema:
               type: string
+
           - in: query
             name: features
             description: only search specific features
@@ -1712,7 +1713,6 @@ contents: >-
             required: false
             schema:
               type: string 
-
         responses:
           '200':
             description: the transformed html
@@ -1737,7 +1737,7 @@ contents: >-
                   html:
                     summary: A sample HTML response
                     value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
-
+                    
     /vicav/compare_markers:
       get:
         tags:
@@ -1783,7 +1783,6 @@ contents: >-
             required: false
             schema:
               type: string 
-
         responses:
           '200':
             description: the transformed html
@@ -1808,7 +1807,7 @@ contents: >-
                   html:
                     summary: A sample HTML response
                     value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
-
+                 
     /vicav/feature_labels:
       get:
         operationId: getFeatureLabels
