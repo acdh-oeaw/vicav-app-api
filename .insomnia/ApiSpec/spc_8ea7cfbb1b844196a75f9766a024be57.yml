@@ -1691,28 +1691,27 @@ contents: >-
           - in: query
             name: ids
             description: search by document ids
-            required: false
+            required: true
             schema:
-              type: false
-
+              type: string
           - in: query
             name: features
             description: only search specific features
             required: false
             schema:
-              type: false
+              type: string
           - in: query
             name: comment
             description: search in comment
             required: false
             schema:
-              type: false
+              type: string
           - in: query
             name: translation
             description: only search specific features
             required: false
             schema:
-              type: false 
+              type: string 
 
         responses:
           '200':
@@ -1738,7 +1737,78 @@ contents: >-
                   html:
                     summary: A sample HTML response
                     value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
-                 
+
+    /vicav/compare_markers:
+      get:
+        tags:
+          - noauth
+        summary: Search sample texts or feature lists by keyword or meatadata and return a rendered list of matching sentences.
+        operationId: getCompareMarkers
+        description: |
+          By passing the appropriate xml-ID and xslt you can retrieve ready to display html
+        parameters:
+          - in: query
+            name: type
+            description: collection to query eg. lingfeatures
+            required: true
+            schema:
+              type: string
+          - in: query
+            name: word
+            description: the word to search for
+            required: false
+            schema:
+              type: string
+          - in: query
+            name: ids
+            description: search by document ids
+            required: true
+            schema:
+              type: string
+          - in: query
+            name: features
+            description: only search specific features
+            required: false
+            schema:
+              type: string
+          - in: query
+            name: comment
+            description: search in comment
+            required: false
+            schema:
+              type: string
+          - in: query
+            name: translation
+            description: only search specific features
+            required: false
+            schema:
+              type: string 
+
+        responses:
+          '200':
+            description: the transformed html
+            content:
+              application/xml:
+                schema:
+                  type: string
+                  xml:
+                    name: div
+                    wrapped: false
+                examples:
+                  html:
+                    summary: A sample HTML response
+                    value: '<div xmlns="http://www.w3.org/1999/xhtml" xmlns:tei="http://www.tei-c.org/ns/1.0"><div class="explore-samples"><table class="tbHeader"><tr><td><h2 xml:space="preserve">Compare samples</h2></td><td class="tdPrintLink"><a href="#" data-print="true" class="aTEIButton">Print</a></td></tr></table><div class="explore-samples-summary"><h4>Summary</h4><table><tr><th>unknown</th><td>1</td></tr></table></div><h3>3</h3><h4>unknown</h4><p xml:space="preserve">1 sentences found.</p><table class="tbFeatures"><tr><td class="tdFeaturesHeadRight"><small xml:space="preserve">%as</small></td><td class="tdFeaturesRightTarget"><a class="show-sentence" title="Show full sample text" href="#" data-sampletext="douz_sample_01"><i class="fa fa-eye" aria-hidden="true"><span/></i></a><span xmlns:acdh="http://acdh.oeaw.ac.at" class="spSentence" xml:space="preserve"><span class="sample-text-tooltip" data-html="true" data-toggle="tooltip" data-placement="top" title="Tomaten nahm ich keine, weil sie sehr teuer&#xA;                     waren."><i class="fa fa-commenting-o" aria-hidden="true"><span/></i></span> <a class="word-search" href="#" data-wordform="mā" data-type="sample"><span data-html="true" data-placement="top" class="w">mā</span></a><a class="word-search" href="#" data-wordform="-" data-type="sample"><span data-html="true" data-placement="top" class="w">-</span></a><a class="word-search" href="#" data-wordform="šrīt" data-type="sample"><span data-html="true" data-placement="top" class="w highlight">šrīt</span></a><a class="word-search" href="#" data-wordform="-" data-type="sample"><span data-html="true" data-placement="top" class="w">-</span></a><a class="word-search" href="#" data-wordform="ǝš" data-type="sample"><span data-html="true" data-placement="top" class="w">ǝš</span></a> <a class="word-search" href="#" data-wordform="iṭ" data-type="sample"><span data-html="true" data-placement="top" class="w">iṭ</span></a><a class="word-search" href="#" data-wordform="-" data-type="sample"><span data-html="true" data-placement="top" class="w">-</span></a><a class="word-search" href="#" data-wordform="ṭamāṭim" data-type="sample"><span data-html="true" data-placement="top" class="w">ṭamāṭim</span></a> <a class="word-search" href="#" data-wordform="ʿal" data-type="sample"><span data-html="true" data-placement="top" class="w">ʿal</span></a><a class="word-search" href="#" data-wordform="-" data-type="sample"><span data-html="true" data-placement="top" class="w">-</span></a><a class="word-search" href="#" data-wordform="xāṭir" data-type="sample"><span data-html="true" data-placement="top" class="w">xāṭir</span></a> <a class="word-search" href="#" data-wordform="kānat" data-type="sample"><span data-html="true" data-placement="top" class="w">kānat</span></a> <a class="word-search" href="#" data-wordform="ġālya" data-type="sample"><span data-html="true" data-placement="top" class="w">ġālya</span></a><a class="word-search" href="#" data-wordform="." data-type="sample"><span data-html="true" data-placement="top" class="w">.</span></a> </span></td></tr></table></div></div>'
+          '500':
+            description: bad input parameter
+            content:
+              application/xml:
+                schema:
+                  type: string
+                examples:
+                  html:
+                    summary: A sample HTML response
+                    value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
+
     /vicav/feature_labels:
       get:
         operationId: getFeatureLabels
