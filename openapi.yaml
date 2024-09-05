@@ -1685,6 +1685,7 @@ paths:
           required: true
           schema:
             type: string
+
         - in: query
           name: features
           description: only search specific features
@@ -1703,7 +1704,18 @@ paths:
           required: false
           schema:
             type: string 
-
+        - in: query
+          name: page
+          description: only search specific features
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: print
+          description: only search specific features
+          required: false
+          schema:
+            type: string 
       responses:
         '200':
           description: the transformed html
@@ -1728,7 +1740,7 @@ paths:
                 html:
                   summary: A sample HTML response
                   value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
-
+                  
   /vicav/compare_markers:
     get:
       tags:
@@ -1774,7 +1786,6 @@ paths:
           required: false
           schema:
             type: string 
-
       responses:
         '200':
           description: the transformed html
@@ -1799,7 +1810,7 @@ paths:
                 html:
                   summary: A sample HTML response
                   value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
-
+               
   /vicav/feature_labels:
     get:
       operationId: getFeatureLabels
