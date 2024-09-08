@@ -3565,6 +3565,29 @@
           },
           "queryString": {
             "type": "string"
+          },
+          "params": {
+            "type": "object",
+            "properties": {
+              "dataType": {
+                "type": "string"
+              },
+              "features": {
+                "type": "string"
+              },
+              "ids": {
+                "type": "string"
+              },
+              "translation": {
+                "type": "string"
+              },
+              "comment": {
+                "type": "string"
+              },
+              "word": {
+                "type": "string"
+              }
+            }
           }
         }
       },
