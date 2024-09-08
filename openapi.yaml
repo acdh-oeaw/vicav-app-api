@@ -3711,7 +3711,22 @@ components:
         textId:
           type: string
         queryString:
-          type: string         
+          type: string    
+        params: 
+          type: object
+          properties: 
+            dataType: 
+              type: string
+            features: 
+              type: string
+            ids: 
+              type: string
+            translation: 
+              type: string
+            comment: 
+              type: string
+            word:
+              type: string
     Point:
       title: GeoJSON Point
       type: object
