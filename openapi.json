@@ -3301,6 +3301,29 @@
             "type": "string",
             "example": ".*"
           },
+          "queryParams": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "features": {
+                "type": "string"
+              },
+              "ids": {
+                "type": "string"
+              },
+              "translation": {
+                "type": "string"
+              },
+              "comment": {
+                "type": "string"
+              },
+              "word": {
+                "type": "string"
+              }
+            }
+          },
           "scope": {
             "type": "array",
             "items": {
