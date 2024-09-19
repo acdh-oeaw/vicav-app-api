@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1725802160202
+modified: 1726755332937
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -3528,9 +3528,11 @@ contents: >-
             - CorpusText
             - Profile
             - Feature
-            - UnknownTypeWarning
             - BiblioEntries
             - ListMap
+            - ExploreSamplesForm
+            - ExploreSamples
+            - DataTable
           label:
             type: string
             summary: The caption (or part of it) for the target panel/window that this UI item opens or brings to the front
