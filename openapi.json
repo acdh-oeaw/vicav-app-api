@@ -1684,14 +1684,14 @@
           "200": {
             "description": "Succesful reasult JSON",
             "content": {
-              "application/xml": {
-                "schema": {
-                  "type": "string"
-                }
-              },
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SearchTags"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "string"
                 }
               }
             }
@@ -1722,17 +1722,17 @@
           "200": {
             "description": "Succesful result",
             "content": {
-              "application/xml": {
-                "schema": {
-                  "type": "string"
-                }
-              },
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "string"
                 }
               }
             }
