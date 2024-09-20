@@ -919,7 +919,7 @@
                                   "id": "liVicavContributeProfile",
                                   "title": "Contribute a Profile",
                                   "type": "item",
-                                  "targetType": "UnknownTypeWarning",
+                                  "targetType": "Text",
                                   "label": ""
                                 }
                               ],
@@ -3174,6 +3174,19 @@
                 "items": {
                   "type": "object"
                 }
+              }
+            }
+          },
+          "version": {
+            "type": "object",
+            "properties": {
+              "backend": {
+                "type": "string",
+                "description": "The git hash or version string of the backend code"
+              },
+              "data": {
+                "type": "string",
+                "description": "The git hash or version string of the data this backend serves"
               }
             }
           }
