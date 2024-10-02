@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1727881337443
+modified: 1727882093787
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -4214,7 +4214,7 @@ contents: >-
           type: object
           required:
            - value
-          items:
+          properties:
             value:
               type: string
               description: The character that should be displayed on a button and inserted in the input field unless text exists. Then this is only the character for the input field.
