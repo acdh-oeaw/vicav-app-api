@@ -3980,7 +3980,7 @@
                     "note",
                     "_links"
                   ],
-                  "items": {
+                  "properties": {
                     "note": {
                       "type": "string"
                     },

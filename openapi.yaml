@@ -4022,7 +4022,7 @@ components:
                required:
                  - note
                  - _links
-               items:
+               properties:
                  note:
                    type: string
                  _links:
