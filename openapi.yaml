@@ -4205,7 +4205,7 @@ components:
         type: object
         required:
          - value
-        items:
+        properties:
           value:
             type: string
             description: The character that should be displayed on a button and inserted in the input field unless text exists. Then this is only the character for the input field.
