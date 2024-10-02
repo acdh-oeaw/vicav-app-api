@@ -3150,9 +3150,7 @@
             "description": "The host the NoSkE engine for this instance of the interface runs on if any (Shawi interface)"
           },
           "specialCharacters": {
-            "type": "array",
-            "nullable": true,
-            "description": "A list of special transliteration characters to display on input boxes (specific to projects as dialect requirements can vary)."
+            "$ref": "#/components/schemas/SpecialCharacters"
           },
           "style": {
             "type": "string",
@@ -3996,6 +3994,9 @@
                         "type": "string"
                       }
                     },
+                    "specialCharacters": {
+                      "$ref": "#/components/schemas/SpecialCharacters"
+                    },
                     "dbNames": {
                       "type": "array",
                       "items": {
@@ -4014,6 +4015,33 @@
                       "sense",
                       "ft_tr",
                       "ft_all"
+                    ],
+                    "specialCharacters": [
+                      {
+                        "value": "§"
+                      },
+                      {
+                        "value": "°"
+                      },
+                      {
+                        "value": "´"
+                      },
+                      {
+                        "value": "½"
+                      },
+                      {
+                        "value": "Ä"
+                      },
+                      {
+                        "value": "Ç"
+                      },
+                      {
+                        "value": "Ô"
+                      },
+                      {
+                        "text": "<sup>q</sup>",
+                        "value": "Q"
+                      }
                     ],
                     "dbNames": [
                       "dc_arz_eng_publ"
@@ -4177,6 +4205,35 @@
             "example": "23.83"
           }
         }
+      },
+      "SpecialCharacters": {
+        "type": "array",
+        "description": "A list of special transliteration characters usually not found on a keyboard to display on input boxes (specific to projects as dialect requirements can vary).",
+        "items": {
+          "type": "object",
+          "required": [
+            "value"
+          ],
+          "items": {
+            "value": {
+              "type": "string",
+              "description": "The character that should be displayed on a button and inserted in the input field unless text exists. Then this is only the character for the input field."
+            },
+            "text": {
+              "type": "string",
+              "description": "Optionally a character or an HTML snipet that should be displayed on the button."
+            }
+          }
+        },
+        "example": [
+          {
+            "value": "ö"
+          },
+          {
+            "text": "<sup>q</sup>",
+            "value": "Q"
+          }
+        ]
       }
     }
   },
