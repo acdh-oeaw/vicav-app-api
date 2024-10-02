@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1726859569337
+modified: 1727881337443
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -3445,9 +3445,7 @@ contents: >-
             nullable: true
             description: The host the NoSkE engine for this instance of the interface runs on if any (Shawi interface)
           specialCharacters:
-            type: array
-            nullable: true
-            description: A list of special transliteration characters to display on input boxes (specific to projects as dialect requirements can vary).
+            $ref: '#/components/schemas/SpecialCharacters'
           style:
             type: string
             nullable: true
@@ -4043,6 +4041,8 @@ contents: >-
                      type: array
                      items:
                        type: string
+                   specialCharacters:
+                     $ref: '#/components/schemas/SpecialCharacters'
                    dbNames:
                      type: array
                      items:
@@ -4057,6 +4057,33 @@ contents: >-
                       "sense",
                       "ft_tr",
                       "ft_all",
+                    ],
+                    "specialCharacters": [
+                      {
+                      "value": "§"
+                      },
+                      {
+                      "value": "°"
+                      },
+                      {
+                      "value": "´"
+                      },
+                      {
+                      "value": "½"
+                      },
+                      {
+                      "value": "Ä"
+                      },
+                      {
+                      "value": "Ç"
+                      },
+                      {
+                      "value": "Ô"
+                      },
+                      {
+                        "text":"<sup>q<\/sup>",
+                        "value":"Q"
+                      }
                     ],
                     "dbNames": [
                       "dc_arz_eng_publ"
@@ -4180,6 +4207,30 @@ contents: >-
           took:
             type: string
             example: "23.83"
+      SpecialCharacters:
+        type: array
+        description: A list of special transliteration characters usually not found on a keyboard to display on input boxes (specific to projects as dialect requirements can vary).
+        items:
+          type: object
+          required:
+           - value
+          items:
+            value:
+              type: string
+              description: The character that should be displayed on a button and inserted in the input field unless text exists. Then this is only the character for the input field.
+            text:
+              type: string
+              description: Optionally a character or an HTML snipet that should be displayed on the button.
+        example:
+          [
+            {
+              "value":"ö"
+            },
+            {
+              "text":"<sup>q<\/sup>",
+              "value":"Q"
+            }
+          ] 
   security:
     - basicAuth: []
 contentType: yaml
