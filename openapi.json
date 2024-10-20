@@ -1716,6 +1716,15 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "in": "query",
+            "name": "query",
+            "required": false,
+            "description": "Search words by this fragment",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
