@@ -1864,6 +1864,12 @@ paths:
           description: Database name not including vicav_ prefix
           schema:
             type: string
+        - in: query
+          name: query
+          required: false
+          description: Search words by this fragment
+          schema:
+            type: string
       responses:
         '200': 
            description: Succesful result
