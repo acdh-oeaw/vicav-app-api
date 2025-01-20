@@ -3346,8 +3346,6 @@ components:
       properties: 
         id: 
           type: string
-        audio:
-          type: string
         content: 
           type: string
     CorpusSearch:
@@ -3461,6 +3459,21 @@ components:
               type: array
               items:
                 type: object
+        funders:
+          type: array
+          description: The institutions that funded this project
+          items:
+            type: object
+            properties:
+              logoID:
+                type: string
+                description: An ID of a logo image contained in the frontend repo or an https URL pointing to a logo image.
+              text:
+                type: string
+                description: The prescribed attribution text of this funder
+              funderLink:
+                type: string
+                description: The prescribed URI of this funder (most probably a https://doi.org URI).
         version:
           type: object
           properties:
