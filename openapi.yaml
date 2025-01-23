@@ -3779,6 +3779,15 @@ components:
               type: string
             word:
               type: string
+            filters: 
+              type: array
+              items: 
+                type: object
+                properties: 
+                  key: 
+                    type: string
+                  value: 
+                    type: string
     Point:
       title: GeoJSON Point
       type: object
