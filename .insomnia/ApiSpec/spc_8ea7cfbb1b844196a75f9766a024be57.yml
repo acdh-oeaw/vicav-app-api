@@ -3355,6 +3355,8 @@ contents: >-
         properties: 
           id: 
             type: string
+          audio:
+            type: string
           content: 
             type: string
       CorpusSearch:
