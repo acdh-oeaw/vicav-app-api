@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1737395804303
+modified: 1737888968000
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -3406,6 +3406,15 @@ contents: >-
             type: string
           logo:
             $ref: '#/components/schemas/logo_type'
+          editors: 
+            type: array
+            items: 
+              type: object
+              properties: 
+                given: 
+                  type: string
+                family:
+                  type: string 
           icon:
             type: string
             description: The URL/path of the 'needle' to be used on the maps

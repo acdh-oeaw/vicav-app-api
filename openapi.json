@@ -3095,6 +3095,20 @@
           "logo": {
             "$ref": "#/components/schemas/logo_type"
           },
+          "editors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "given": {
+                  "type": "string"
+                },
+                "family": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "icon": {
             "type": "string",
             "description": "The URL/path of the 'needle' to be used on the maps"
