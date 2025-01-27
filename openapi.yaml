@@ -3406,6 +3406,10 @@ components:
                 type: string
               family:
                 type: string 
+        pubDate:
+          type: array
+          items: 
+            type: number 
         icon:
           type: string
           description: The URL/path of the 'needle' to be used on the maps
