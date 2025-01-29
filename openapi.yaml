@@ -3489,6 +3489,22 @@ components:
               funderLink:
                 type: string
                 description: The prescribed URI of this funder (most probably a https://doi.org URI).
+        partners:
+          type: array
+          description: The partner institutions
+          items:
+            type: object
+            properties:
+              logoID:
+                type: string
+                description: An ID of a logo image contained in the frontend repo or an https URL pointing to a logo image.
+              text:
+                type: string
+                description: Attribution of our partner
+              partnerLink:
+                type: string
+                nullable: true
+                description: A URI to a page at our partner instituion. Can be absent.
         version:
           type: object
           properties:
