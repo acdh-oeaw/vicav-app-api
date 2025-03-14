@@ -1,9 +1,9 @@
 _id: env_env_9a21f4d181d64765d33c7bbe158a0e24fc2976d0_sub__ed85342f
 type: Environment
 parentId: env_9a21f4d181d64765d33c7bbe158a0e24fc2976d0
-modified: 1721050402620
+modified: 1741967354924
 created: 1675795155961
-name: OpenAPI env vicav-dev.acdh.oeaw.ac.at
+name: vicav-dev.acdh.oeaw.ac.at
 data:
   scheme: https
   base_path: /

@@ -1,9 +1,9 @@
 _id: env_566c55d71ccf4d9cb545bd71c056442e
 type: Environment
 parentId: env_9a21f4d181d64765d33c7bbe158a0e24fc2976d0
-modified: 1721050670717
+modified: 1741967400804
 created: 1710861371413
-name: OpenAPI env tunocent....acdh-dev.oeaw.ac.at
+name: tunocent dev acdh-dev.oeaw.ac.at
 data:
   scheme: https
   base_path: /
