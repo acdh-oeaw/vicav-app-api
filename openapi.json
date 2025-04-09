@@ -3181,6 +3181,23 @@
             "nullable": true,
             "description": "The host the NoSkE engine for this instance of the interface runs on if any (Shawi interface)"
           },
+          "commentOptions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "sampleTextSentences": {
+            "type": "string"
+          },
           "specialCharacters": {
             "$ref": "#/components/schemas/SpecialCharacters"
           },
