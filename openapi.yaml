@@ -3484,7 +3484,15 @@ components:
             table:
               type: array
               items:
-                type: object
+                anyOf:
+                  [ 
+                    {
+                      $ref: '#/components/schemas/Biblio'
+                    },
+                    {
+                      type: object
+                    }
+                  ]                
         funders:
           type: array
           description: The institutions that funded this project
@@ -3691,6 +3699,574 @@ components:
           $ref: '#/components/schemas/main_items_type'
         subnav:
           $ref: '#/components/schemas/subnavs_type'
+    Biblio:
+      type: object
+      additionalProperties: false
+      properties:
+        '@id':
+          type: string
+        teiHeader:
+          $ref: '#/components/schemas/TeiHeader'
+        text:
+          $ref: '#/components/schemas/Text'
+      required:
+        - '@id'
+        - teiHeader
+        - text
+      title: Biblio
+    TeiHeader:
+      type: object
+      additionalProperties: false
+      properties:
+        fileDesc:
+          $ref: '#/components/schemas/FileDesc'
+      required:
+        - fileDesc
+      title: TeiHeader
+    FileDesc:
+      type: object
+      additionalProperties: false
+      properties:
+        titleStmt:
+          $ref: '#/components/schemas/TitleStmt'
+        publicationStmt:
+          $ref: '#/components/schemas/PublicationStmt'
+        sourceDesc:
+          $ref: '#/components/schemas/PublicationStmt'
+      required:
+        - publicationStmt
+        - sourceDesc
+        - titleStmt
+      title: FileDesc
+    PublicationStmt:
+      type: object
+      additionalProperties: false
+      properties:
+        p:
+          $ref: '#/components/schemas/XmlTextNode'
+      required:
+        - p
+      title: PublicationStmt
+    XmlTextNode:
+      type: object
+      additionalProperties: false
+      properties:
+        $:
+          type: string
+      required:
+        - $
+      title: XmlTextNode
+    TitleStmt:
+      type: object
+      additionalProperties: false
+      properties:
+        title:
+          $ref: '#/components/schemas/XmlTextNode'
+      required:
+        - title
+      title: TitleStmt
+    Text:
+      type: object
+      additionalProperties: false
+      properties:
+        body:
+          $ref: '#/components/schemas/Body'
+      required:
+        - body
+      title: Text
+    Body:
+      type: object
+      additionalProperties: false
+      properties:
+        listBibl:
+          $ref: '#/components/schemas/ListBibl'
+      required:
+        - listBibl
+      title: Body
+    ListBibl:
+      type: object
+      additionalProperties: false
+      properties:
+        biblStructs:
+          type: array
+          items:
+            $ref: '#/components/schemas/BiblStruct'
+      required:
+        - biblStructs
+      title: ListBibl
+    BiblStruct:
+      type: object
+      additionalProperties: false
+      properties:
+        '@type':
+          $ref: '#/components/schemas/BiblStructType'
+        '@id':
+          type: string
+        '@corresp':
+          type: string
+          format: uri
+        '@n':
+          type: string
+        monogr:
+          $ref: '#/components/schemas/Monogr'
+        note:
+          $ref: '#/components/schemas/PurpleNote'
+        analytic:
+          $ref: '#/components/schemas/Analytic'
+        series:
+          $ref: '#/components/schemas/Series'
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/IndigoNote'
+      required:
+        - '@corresp'
+        - '@id'
+        - '@n'
+        - '@type'
+        - monogr
+      title: BiblStruct
+    Analytic:
+      type: object
+      additionalProperties: false
+      properties:
+        title:
+          $ref: '#/components/schemas/Title'
+        author:
+          $ref: '#/components/schemas/Author'
+        authors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Author'
+        idno:
+          $ref: '#/components/schemas/Idno'
+        titles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Title'
+      required: []
+      title: Analytic
+    Author:
+      type: object
+      additionalProperties: false
+      properties:
+        forename:
+          $ref: '#/components/schemas/XmlTextNode'
+        surname:
+          $ref: '#/components/schemas/XmlTextNode'
+        name:
+          $ref: '#/components/schemas/XmlTextNode'
+      required: []
+      title: Author
+    Title:
+      type: object
+      additionalProperties: false
+      properties:
+        '@level':
+          $ref: '#/components/schemas/Level'
+        $:
+          type: string
+        '@type':
+          $ref: '#/components/schemas/TitleType'
+      required: []
+      title: Title
+    Monogr:
+      type: object
+      additionalProperties: false
+      properties:
+        title:
+          $ref: '#/components/schemas/Title'
+        author:
+          $ref: '#/components/schemas/Author'
+        imprint:
+          $ref: '#/components/schemas/Imprint'
+        idno:
+          $ref: '#/components/schemas/Idno'
+        editors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Author'
+        authors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Author'
+        titles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Title'
+        editor:
+          $ref: '#/components/schemas/Author'
+        extent:
+          $ref: '#/components/schemas/XmlTextNode'
+        meeting:
+          $ref: '#/components/schemas/Meeting'
+        respStmt:
+          $ref: '#/components/schemas/RespStmt'
+        respStmts:
+          type: array
+          items:
+            $ref: '#/components/schemas/RespStmt'
+        edition:
+          $ref: '#/components/schemas/XmlTextNode'
+        idnos:
+          type: array
+          items:
+            $ref: '#/components/schemas/Idno'
+      required:
+        - imprint
+      title: Monogr
+    Idno:
+      type: object
+      additionalProperties: false
+      properties:
+        '@type':
+          $ref: '#/components/schemas/IdnoType'
+        $:
+          type: string
+      required:
+        - $
+        - '@type'
+      title: Idno
+    Imprint:
+      type: object
+      additionalProperties: false
+      properties:
+        date:
+          $ref: '#/components/schemas/XmlTextNode'
+        pubPlace:
+          $ref: '#/components/schemas/XmlTextNode'
+        biblScopes:
+          type: array
+          items:
+            $ref: '#/components/schemas/BiblScope'
+        publisher:
+          $ref: '#/components/schemas/XmlTextNode'
+        note:
+          $ref: '#/components/schemas/Idno'
+        biblScope:
+          $ref: '#/components/schemas/BiblScope'
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Idno'
+      required:
+        - date
+      title: Imprint
+    BiblScope:
+      type: object
+      additionalProperties: false
+      properties:
+        '@unit':
+          $ref: '#/components/schemas/Unit'
+        $:
+          type: string
+      required:
+        - $
+        - '@unit'
+      title: BiblScope
+    Meeting:
+      type: object
+      additionalProperties: false
+      properties:
+        name:
+          $ref: '#/components/schemas/XmlTextNode'
+        date:
+          $ref: '#/components/schemas/XmlTextNode'
+        placeName:
+          $ref: '#/components/schemas/XmlTextNode'
+      required:
+        - date
+        - name
+        - placeName
+      title: Meeting
+    RespStmt:
+      type: object
+      additionalProperties: false
+      properties:
+        resp:
+          $ref: '#/components/schemas/XmlTextNode'
+        persName:
+          $ref: '#/components/schemas/Author'
+      required:
+        - persName
+        - resp
+      title: RespStmt
+    PurpleNote:
+      type: object
+      additionalProperties: false
+      properties:
+        '@type':
+          $ref: '#/components/schemas/NoteType'
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/TentacledNote'
+        note:
+          $ref: '#/components/schemas/FluffyNote'
+        $:
+          type: string
+        p:
+          $ref: '#/components/schemas/XmlTextNode'
+        $$:
+          type: array
+          items:
+            $ref: '#/components/schemas/Note'
+      required: []
+      title: PurpleNote
+    Note:
+      type: object
+      properties:
+        his:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hi'
+        $:
+          type: string
+        hi:
+          $ref: '#/components/schemas/Hi'
+      required: []
+      title: Note
+    FluffyNote:
+      type: object
+      additionalProperties: false
+      properties:
+        '@type':
+          $ref: '#/components/schemas/NoteType'
+        date:
+          $ref: '#/components/schemas/Date'
+        name:
+          $ref: '#/components/schemas/Idno'
+        geo:
+          $ref: '#/components/schemas/XmlTextNode'
+        $:
+          type: string
+      required:
+        - '@type'
+      title: FluffyNote
+    Hi:
+      type: object
+      additionalProperties: false
+      properties:
+        '@style':
+          type: string
+        '@rend':
+          $ref: '#/components/schemas/Rend'
+        $:
+          type: string
+      required:
+        - $
+      title: Hi
+    Date:
+      type: object
+      additionalProperties: false
+      properties:
+        '@type':
+          $ref: '#/components/schemas/NoteType'
+        '@cert':
+          $ref: '#/components/schemas/Cert'
+        '@notBefore-iso':
+          type: string
+          format: date
+        '@notAfter-iso':
+          type: string
+          format: date
+        $:
+          type: string
+      required:
+        - $
+        - '@cert'
+        - '@notAfter-iso'
+        - '@notBefore-iso'
+        - '@type'
+      title: Date
+    TentacledNote:
+      type: object
+      additionalProperties: false
+      properties:
+        '@type':
+          $ref: '#/components/schemas/NoteType'
+        date:
+          $ref: '#/components/schemas/Date'
+        name:
+          $ref: '#/components/schemas/Idno'
+        geo:
+          $ref: '#/components/schemas/XmlTextNode'
+        $:
+          type: string
+        note:
+          $ref: '#/components/schemas/StickyNote'
+        '@subtype':
+          $ref: '#/components/schemas/Subtype'
+      required:
+        - '@type'
+      title: TentacledNote
+    StickyNote:
+      type: object
+      additionalProperties: false
+      properties:
+        '@type':
+          type: string
+      required:
+        - '@type'
+      title: StickyNote
+    IndigoNote:
+      type: object
+      additionalProperties: false
+      properties:
+        p:
+          $ref: '#/components/schemas/P'
+        ps:
+          type: array
+          items:
+            $ref: '#/components/schemas/P'
+        '@type':
+          $ref: '#/components/schemas/NoteType'
+        note:
+          $ref: '#/components/schemas/FluffyNote'
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/TentacledNote'
+        $:
+          type: string
+        div:
+          $ref: '#/components/schemas/Div'
+        hi:
+          $ref: '#/components/schemas/Hi'
+        his:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hi'
+      required: []
+      title: IndigoNote
+    Div:
+      type: object
+      additionalProperties: false
+      properties:
+        '@data-schema-version':
+          type: string
+          format: integer
+        p:
+          $ref: '#/components/schemas/P'
+      required:
+        - '@data-schema-version'
+        - p
+      title: Div
+    P:
+      type: object
+      additionalProperties: false
+      properties:
+        '@style':
+          type: string
+        $:
+          type: string
+        $$:
+          type: array
+          items:
+            $ref: '#/components/schemas/P'
+        hi:
+          $ref: '#/components/schemas/Hi'
+        his:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hi'
+      required: []
+      title: P
+    Series:
+      type: object
+      additionalProperties: false
+      properties:
+        title:
+          $ref: '#/components/schemas/Title'
+        biblScope:
+          $ref: '#/components/schemas/BiblScope'
+        editor:
+          $ref: '#/components/schemas/Author'
+        editors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Author'
+      required:
+        - title
+      title: Series
+    BiblStructType:
+      type: string
+      enum:
+        - thesis
+        - conferencePaper
+        - bookSection
+        - book
+        - journalArticle
+        - encyclopediaArticle
+        - presentation
+        - dataset
+        - report
+        - manuscript
+        - magazineArticle
+        - blogPost
+      title: BiblStructType
+    IdnoType:
+      type: string
+      enum:
+        - DOI
+        - ISSN
+        - ISBN
+        - callNumber
+        - thesisType
+        - url
+        - accessed
+        - reg
+        - geo
+      title: IdnoType
+    Level:
+      type: string
+      enum:
+        - a
+        - m
+        - j
+        - s
+      title: Level
+    TitleType:
+      type: string
+      enum:
+        - short
+        - conferenceName
+        - alternative
+      title: TitleType
+    Unit:
+      type: string
+      enum:
+        - page
+        - volume
+        - issue
+      title: Unit
+    Rend:
+      type: string
+      enum:
+        - i
+        - h2
+        - b
+      title: Rend
+    NoteType:
+      type: string
+      enum:
+        - dataCollection
+        - tag
+        - tags
+        - abstract
+      title: NoteType
+    Cert:
+      type: string
+      enum:
+        - low
+        - unknown
+        - high
+      title: Cert
+    Subtype:
+      type: string
+      enum:
+        - unmarked_geo
+      title: Subtype
     Feature:
       title: GeoJSON Feature
       type: object
