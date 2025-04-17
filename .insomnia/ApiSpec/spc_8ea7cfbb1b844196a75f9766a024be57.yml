@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1744919361985
+modified: 1744920872963
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >
@@ -10,23 +10,23 @@ contents: >
   jsonSchemaDialect: 'https://spec.openapis.org/oas/3.1/dialect/base'
 
   servers:
+    - url: http://localhost:8984
+      description: "local development"
     - url: https://vicav.acdh.oeaw.ac.at
       description: "current ACDH-CH prod server"
-    - url: https://vicav.acdh-ch-dev.oeaw.ac.at
+    - url: https://vicav-dev.acdh.oeaw.ac.at
       description: "current ACDH-CH dev server"
-    - url: https://tunocent.acdh-cluster-2.arz.oeaw.ac.at
-      description: "current tunocent private dev server"
-    - url: https://tunocent-vicav.acdh-dev.oeaw.ac.at
+    - url: https://tunocent-22a417b1-9f07-406b-9098-288b3f981d99.acdh-ch-dev.oeaw.ac.at
       description: "current tunocent dev server"
+    - url: https://tunocent-api.acdh.oeaw.ac.at
+      description: "current tunocent prod server"
     - url: https://shawi.acdh-ch-dev.oeaw.ac.at
       description: "current shawi dev server"
+    - url: https://wibarab-api.acdh-ch-dev.oeaw.ac.at
+      description: "current WIBARAB dev server"
     # Added by API Auto Mocking Plugin
     - description: SwaggerHub API Auto Mocking
       url: https://virtserver.swaggerhub.com/ctot-nondef/Vicav/1.0.0
-    - url: http://localhost:8984
-      description: "local development"
-    - url: http://shawi-local.acdh.oeaw.ac.at:8984
-      description: "local development"
   info:
     description: This is the currently implemented vicav API
     version: "1.0.0"
@@ -3826,6 +3826,15 @@ contents: >
             schema:
               type: string
           - in: query
+            name: render
+            description: Render the results as html or json. Default is html
+            required: false
+            schema:
+              type: string
+              enum:
+                - html
+                - json
+          - in: query
             name: print
             required: false
             description: 'Whether to retrieve a full HTML file with printer-friendly formatting.'
@@ -4036,6 +4045,15 @@ contents: >
             required: false
             schema:
               type: string
+          - in: query
+            name: render
+            description: Render the results as html or json. Default is html
+            required: false
+            schema:
+              type: string
+              enum:
+                - html
+                - json
           - in: query
             name: print
             required: false
