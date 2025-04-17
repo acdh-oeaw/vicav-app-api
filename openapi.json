@@ -3681,7 +3681,7 @@
             "$ref": "#/components/schemas/Monogr"
           },
           "note": {
-            "$ref": "#/components/schemas/PurpleNote"
+            "$ref": "#/components/schemas/Note"
           },
           "analytic": {
             "$ref": "#/components/schemas/Analytic"
@@ -3692,7 +3692,7 @@
           "notes": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/IndigoNote"
+              "$ref": "#/components/schemas/Note"
             }
           }
         },
@@ -3944,58 +3944,71 @@
         ],
         "title": "RespStmt"
       },
-      "PurpleNote": {
+      "Note": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "@type": {
             "$ref": "#/components/schemas/NoteType"
           },
+          "note": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/GeoNote"
+              },
+              {
+                "$ref": "#/components/schemas/Note"
+              }
+            ]
+          },
           "notes": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TentacledNote"
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/GeoNote"
+                },
+                {
+                  "$ref": "#/components/schemas/Note"
+                }
+              ]
             }
-          },
-          "note": {
-            "$ref": "#/components/schemas/FluffyNote"
           },
           "$": {
             "type": "string"
-          },
-          "p": {
-            "$ref": "#/components/schemas/XmlTextNode"
           },
           "$$": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Note"
             }
-          }
-        },
-        "required": [],
-        "title": "PurpleNote"
-      },
-      "Note": {
-        "type": "object",
-        "properties": {
+          },
+          "p": {
+            "$ref": "#/components/schemas/XmlTextNode"
+          },
+          "ps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/P"
+            }
+          },
+          "hi": {
+            "$ref": "#/components/schemas/Hi"
+          },
           "his": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Hi"
             }
           },
-          "$": {
-            "type": "string"
-          },
-          "hi": {
-            "$ref": "#/components/schemas/Hi"
+          "div": {
+            "$ref": "#/components/schemas/Div"
           }
         },
         "required": [],
         "title": "Note"
       },
-      "FluffyNote": {
+      "GeoNote": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -4013,12 +4026,18 @@
           },
           "$": {
             "type": "string"
+          },
+          "note": {
+            "$ref": "#/components/schemas/Note"
+          },
+          "@subtype": {
+            "$ref": "#/components/schemas/NoteSubtype"
           }
         },
         "required": [
           "@type"
         ],
-        "title": "FluffyNote"
+        "title": "GeoNote"
       },
       "Hi": {
         "type": "object",
@@ -4070,94 +4089,6 @@
         ],
         "title": "Date"
       },
-      "TentacledNote": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "@type": {
-            "$ref": "#/components/schemas/NoteType"
-          },
-          "date": {
-            "$ref": "#/components/schemas/Date"
-          },
-          "name": {
-            "$ref": "#/components/schemas/Idno"
-          },
-          "geo": {
-            "$ref": "#/components/schemas/XmlTextNode"
-          },
-          "$": {
-            "type": "string"
-          },
-          "note": {
-            "$ref": "#/components/schemas/StickyNote"
-          },
-          "@subtype": {
-            "$ref": "#/components/schemas/Subtype"
-          }
-        },
-        "required": [
-          "@type"
-        ],
-        "title": "TentacledNote"
-      },
-      "StickyNote": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "@type": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@type"
-        ],
-        "title": "StickyNote"
-      },
-      "IndigoNote": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "p": {
-            "$ref": "#/components/schemas/P"
-          },
-          "ps": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/P"
-            }
-          },
-          "@type": {
-            "$ref": "#/components/schemas/NoteType"
-          },
-          "note": {
-            "$ref": "#/components/schemas/FluffyNote"
-          },
-          "notes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TentacledNote"
-            }
-          },
-          "$": {
-            "type": "string"
-          },
-          "div": {
-            "$ref": "#/components/schemas/Div"
-          },
-          "hi": {
-            "$ref": "#/components/schemas/Hi"
-          },
-          "his": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Hi"
-            }
-          }
-        },
-        "required": [],
-        "title": "IndigoNote"
-      },
       "Div": {
         "type": "object",
         "additionalProperties": false,
@@ -4171,7 +4102,6 @@
           }
         },
         "required": [
-          "@data-schema-version",
           "p"
         ],
         "title": "Div"
@@ -4319,12 +4249,12 @@
         ],
         "title": "Cert"
       },
-      "Subtype": {
+      "NoteSubtype": {
         "type": "string",
         "enum": [
           "unmarked_geo"
         ],
-        "title": "Subtype"
+        "title": "NoteSubtype"
       },
       "Feature": {
         "title": "GeoJSON Feature",
