@@ -83,11 +83,17 @@
                     "summary": "the VICAV project configuration",
                     "value": {
                       "projectConfig": {
+                        "cached": true,
+                        "baseURIPublic": "https://vicav-dev.acdh.oeaw.ac.at//vicav",
+                        "partners": [],
+                        "funders": [],
+                        "space": "preserve",
+                        "id": "vicav_config_vicav",
                         "title": "VICAV3.0 - Vienna Corpus of Arabic Varieties",
                         "logo": {
-                          "img": "http://localhost:8984/vicav/images/vicav_logo.svg"
+                          "img": "https://vicav-dev.acdh.oeaw.ac.at//vicav/images/vicav_logo.svg"
                         },
-                        "icon": "http://localhost:8984/vicav/vendor/images/marker-icon.png",
+                        "icon": "https://vicav-dev.acdh.oeaw.ac.at//vicav/vendor/images/marker-icon.png",
                         "map": {
                           "zoom": 4,
                           "center": {
@@ -103,18 +109,41 @@
                           {
                             "id": "li_vicavMission",
                             "target": "vicavMission",
-                            "title": "MISSION",
-                            "type": "panel",
+                            "title": "Mission",
+                            "type": "item",
                             "targetType": "Text",
-                            "label": "Mission"
+                            "label": "Mission",
+                            "params": {
+                              "textId": "vicavMission",
+                              "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_mission.xml"
+                            }
                           },
                           {
                             "id": "li_vicavNews",
                             "target": "vicavNews",
-                            "title": "NEWS",
-                            "type": "panel",
+                            "title": "News",
+                            "type": "item",
                             "targetType": "Text",
-                            "label": "VICAV News"
+                            "label": "VICAV News",
+                            "params": {
+                              "textId": "vicavNews",
+                              "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_news.xml"
+                            }
+                          },
+                          {
+                            "id": "navBiblGeoMarkers",
+                            "target": "BiblGeoMarkers",
+                            "title": "All Bibl. Locations on Map",
+                            "type": "item",
+                            "targetType": "WMap",
+                            "label": "All Bibl. Locations on Map",
+                            "params": {
+                              "endpoint": "bibl_markers_tei",
+                              "queryString": ".*",
+                              "scope": [
+                                "geo"
+                              ]
+                            }
                           }
                         ],
                         "menu": {
@@ -130,7 +159,11 @@
                                   "title": "Mission",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Mission"
+                                  "label": "Mission",
+                                  "params": {
+                                    "textId": "vicavMission",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_mission.xml"
+                                  }
                                 },
                                 {
                                   "id": "li_vicavNews",
@@ -138,7 +171,11 @@
                                   "title": "News",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "VICAV News"
+                                  "label": "VICAV News",
+                                  "params": {
+                                    "textId": "vicavNews",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_news.xml"
+                                  }
                                 },
                                 {
                                   "type": "separator"
@@ -149,7 +186,11 @@
                                   "title": "Types of Text/Data",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Types of Text"
+                                  "label": "Types of Text",
+                                  "params": {
+                                    "textId": "vicavTypesOfText",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_types_of_text.xml"
+                                  }
                                 },
                                 {
                                   "id": "li_vicavContributors",
@@ -157,7 +198,11 @@
                                   "title": "Contributors",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Contributors"
+                                  "label": "Contributors",
+                                  "params": {
+                                    "textId": "vicavContributors",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_contributors.xml"
+                                  }
                                 },
                                 {
                                   "id": "li_vicavLinguistics",
@@ -165,7 +210,11 @@
                                   "title": "Linguistics",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Linguistics"
+                                  "label": "Linguistics",
+                                  "params": {
+                                    "textId": "vicavLinguistics",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_linguistics.xml"
+                                  }
                                 }
                               ],
                               "type": "dropdown"
@@ -181,7 +230,11 @@
                                   "title": "Explanation",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Bibliography (Details)"
+                                  "label": "Bibliography (Details)",
+                                  "params": {
+                                    "textId": "vicavExplanationBibliography",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_explanation_bibliography.xml"
+                                  }
                                 },
                                 {
                                   "type": "separator"
@@ -275,7 +328,10 @@
                                   "title": "Query Bibliography",
                                   "type": "item",
                                   "targetType": "BiblioEntries",
-                                  "label": "Query Bibliography"
+                                  "label": "Query Bibliography",
+                                  "params": {
+                                    "queryString": ""
+                                  }
                                 },
                                 {
                                   "type": "separator"
@@ -286,7 +342,11 @@
                                   "title": "Contribute to the Bibliography",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Contribute to Bibliography"
+                                  "label": "Contribute to Bibliography",
+                                  "params": {
+                                    "textId": "vicavContributeBibliography",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_contribute_bibliography.xml"
+                                  }
                                 }
                               ],
                               "type": "dropdown"
@@ -302,7 +362,11 @@
                                   "title": "Explanation + List",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Explanation + List"
+                                  "label": "Explanation + List",
+                                  "params": {
+                                    "textId": "vicavExplanationProfiles1",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_explanation_profiles.xml"
+                                  }
                                 },
                                 {
                                   "type": "separator"
@@ -329,7 +393,11 @@
                                   "title": "Contribute a Profile",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Contribute a Profile"
+                                  "label": "Contribute a Profile",
+                                  "params": {
+                                    "textId": "vicavContributeProfile",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_contribute_profile.xml"
+                                  }
                                 }
                               ],
                               "type": "dropdown"
@@ -345,7 +413,11 @@
                                   "title": "Explanation",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Features (Details)"
+                                  "label": "Features (Details)",
+                                  "params": {
+                                    "textId": "vicavExplanationFeatures",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_explanation_features.xml"
+                                  }
                                 },
                                 {
                                   "id": "li_vicavExploreFeatures",
@@ -353,7 +425,11 @@
                                   "title": "Cross-examine the VICAV Feature Lists",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Explore Features"
+                                  "label": "Explore Features",
+                                  "params": {
+                                    "textId": "vicavExploreFeatures",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_explore_features.xml"
+                                  }
                                 },
                                 {
                                   "type": "separator"
@@ -380,7 +456,11 @@
                                   "title": "Contribute a Feature List",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Contribute a Feature List"
+                                  "label": "Contribute a Feature List",
+                                  "params": {
+                                    "textId": "vicavContributeFeature",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_contribute_feature.xml"
+                                  }
                                 }
                               ],
                               "type": "dropdown"
@@ -396,7 +476,11 @@
                                   "title": "Explanation",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Samples (Details)"
+                                  "label": "Samples (Details)",
+                                  "params": {
+                                    "textId": "vicavExplanationSamples",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_explanation_sample_texts.xml"
+                                  }
                                 },
                                 {
                                   "type": "separator"
@@ -423,7 +507,11 @@
                                   "title": "Contribute a Sample Text",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Contribute a Sample Text"
+                                  "label": "Contribute a Sample Text",
+                                  "params": {
+                                    "textId": "vicavContributeSampleText",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_contribute_sample_text.xml"
+                                  }
                                 }
                               ],
                               "type": "dropdown"
@@ -439,7 +527,11 @@
                                   "title": "Explanation and Overview",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Corpus Texts (Details)"
+                                  "label": "Corpus Texts (Details)",
+                                  "params": {
+                                    "textId": "vicavExplanationCorpusTexts",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_explanation_corpus_texts.xml"
+                                  }
                                 }
                               ],
                               "type": "dropdown"
@@ -487,7 +579,11 @@
                                   "title": "Query the VICAV Dictionaries",
                                   "type": "item",
                                   "targetType": "CrossDictQuery",
-                                  "label": "Query the VICAV Dictionaries"
+                                  "label": "Query the VICAV Dictionaries",
+                                  "params": {
+                                    "textId": "VicavCrossDictQuery",
+                                    "teiSource": ""
+                                  }
                                 },
                                 {
                                   "type": "separator"
@@ -498,7 +594,11 @@
                                   "title": "TUNICO Dictionary",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "TUNICO Dictionary"
+                                  "label": "TUNICO Dictionary",
+                                  "params": {
+                                    "textId": "dictFrontPage_Tunis",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_dictFrontPage_tunico.xml"
+                                  }
                                 },
                                 {
                                   "id": "liVicavDict_Damascus",
@@ -506,7 +606,11 @@
                                   "title": "Damascus Dictionary",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Damascus Dictionary"
+                                  "label": "Damascus Dictionary",
+                                  "params": {
+                                    "textId": "dictFrontPage_Damascus",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_dictFrontPage_damascus.xml"
+                                  }
                                 },
                                 {
                                   "id": "liVicavDict_Cairo",
@@ -514,7 +618,11 @@
                                   "title": "Cairo Dictionary",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Cairo Dictionary"
+                                  "label": "Cairo Dictionary",
+                                  "params": {
+                                    "textId": "dictFrontPage_Cairo",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_dictFrontPage_cairo.xml"
+                                  }
                                 },
                                 {
                                   "id": "liVicavDict_Baghdad",
@@ -522,7 +630,11 @@
                                   "title": "Baghdad Dictionary",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Baghdad Dictionary"
+                                  "label": "Baghdad Dictionary",
+                                  "params": {
+                                    "textId": "dictFrontPage_Baghdad",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_dictFrontPage_baghdad.xml"
+                                  }
                                 },
                                 {
                                   "id": "liVicavDict_MSA",
@@ -530,7 +642,11 @@
                                   "title": "MSA Dictionary",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "MSA Dictionary"
+                                  "label": "MSA Dictionary",
+                                  "params": {
+                                    "textId": "dictFrontPage_MSA",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_dictFrontPage_MSA.xml"
+                                  }
                                 },
                                 {
                                   "type": "separator"
@@ -541,7 +657,11 @@
                                   "title": "Technicalities",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Dictionaries (Technicalities)"
+                                  "label": "Dictionaries (Technicalities)",
+                                  "params": {
+                                    "textId": "vicavDictionariesTechnicalities",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_dictionaries_technicalities.xml"
+                                  }
                                 },
                                 {
                                   "id": "li_vicavContributeDictionary",
@@ -549,7 +669,11 @@
                                   "title": "Contribute a Dictionary/Glossary",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Contribute a Dictionary"
+                                  "label": "Contribute a Dictionary",
+                                  "params": {
+                                    "textId": "vicavContributeDictionary",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_contribute_dictionary.xml"
+                                  }
                                 }
                               ],
                               "type": "dropdown"
@@ -565,7 +689,11 @@
                                   "title": "Dictionary Encoding",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Dictionaries (Encoding)"
+                                  "label": "Dictionaries (Encoding)",
+                                  "params": {
+                                    "textId": "vicavDictionaryEncoding",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_dictionary_encoding.xml"
+                                  }
                                 },
                                 {
                                   "id": "li_vicavVLE",
@@ -573,7 +701,11 @@
                                   "title": "Dictionary Editor (VLE)",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Dictionary Editor (VLE)"
+                                  "label": "Dictionary Editor (VLE)",
+                                  "params": {
+                                    "textId": "vicavVLE",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_overview_vle.xml"
+                                  }
                                 },
                                 {
                                   "id": "li_vicavArabicTools",
@@ -581,7 +713,11 @@
                                   "title": "Arabic Research Tools",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Arabic Tools"
+                                  "label": "Arabic Tools",
+                                  "params": {
+                                    "textId": "vicavArabicTools",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_tech_arabictools.xml"
+                                  }
                                 },
                                 {
                                   "id": "li_vicavOverview_corpora_spoken",
@@ -589,7 +725,11 @@
                                   "title": "      Corpora (Spoken Varieties)",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Corpora of Spoken Arabic"
+                                  "label": "Corpora of Spoken Arabic",
+                                  "params": {
+                                    "textId": "vicavOverview_corpora_spoken",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_spokencorpora.xml"
+                                  }
                                 },
                                 {
                                   "id": "li_vicavOverview_corpora_msa",
@@ -597,7 +737,11 @@
                                   "title": "      Corpora (MSA)",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "MSA Corpora"
+                                  "label": "MSA Corpora",
+                                  "params": {
+                                    "textId": "vicavOverview_corpora_msa",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_overview_corpora_msa.xml"
+                                  }
                                 },
                                 {
                                   "id": "li_vicavOverview_special_corpora",
@@ -605,7 +749,11 @@
                                   "title": "      Special Corpora",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Special Corpora"
+                                  "label": "Special Corpora",
+                                  "params": {
+                                    "textId": "vicavOverview_special_corpora",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_specialcorpora.xml"
+                                  }
                                 },
                                 {
                                   "id": "li_vicavOverview_corpora_historical_varieties",
@@ -613,7 +761,11 @@
                                   "title": "      Corpora (Historical Varieties)",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Corpora of Historical Language"
+                                  "label": "Corpora of Historical Language",
+                                  "params": {
+                                    "textId": "vicavOverview_corpora_historical_varieties",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_overview_corpora_historical_varieties.xml"
+                                  }
                                 },
                                 {
                                   "id": "li_vicavOverview_dictionaries",
@@ -621,7 +773,11 @@
                                   "title": "      Dictionaries",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Dictionary Projects"
+                                  "label": "Dictionary Projects",
+                                  "params": {
+                                    "textId": "vicavOverview_dictionaries",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_overview_dictionaries.xml"
+                                  }
                                 },
                                 {
                                   "id": "li_vicavOverview_nlp",
@@ -629,7 +785,11 @@
                                   "title": "      Language Processing Tools",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Arabic NLP"
+                                  "label": "Arabic NLP",
+                                  "params": {
+                                    "textId": "vicavOverview_nlp",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_overview_language_proecessing_tools.xml"
+                                  }
                                 },
                                 {
                                   "id": "li_vicavOverview_otherStuff",
@@ -637,7 +797,11 @@
                                   "title": "      Other Websites & Projects",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Other Websites & Projects"
+                                  "label": "Other Websites & Projects",
+                                  "params": {
+                                    "textId": "vicavOverview_otherStuff",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_various_resources.xml"
+                                  }
                                 },
                                 {
                                   "id": "li_vicavLearning",
@@ -645,7 +809,11 @@
                                   "title": "Learning Materials",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Learning"
+                                  "label": "Learning",
+                                  "params": {
+                                    "textId": "vicavLearning",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_texts.xml"
+                                  }
                                 },
                                 {
                                   "id": "li_vicavLearning_tb_damascus",
@@ -653,7 +821,11 @@
                                   "title": "      Textbook Syrian Arabic (Sound files)",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "      Textbook Syrian Arabic (Sound files)"
+                                  "label": "      Textbook Syrian Arabic (Sound files)",
+                                  "params": {
+                                    "textId": "vicavLearning_tb_damascus",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_textbook_damascus_sound.xml"
+                                  }
                                 },
                                 {
                                   "id": "li_vicavLearning_tb_baghdad",
@@ -661,7 +833,11 @@
                                   "title": "      Textbook Baghdad Arabic (Sound files)",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "      Textbook Baghdad Arabic (Sound files)"
+                                  "label": "      Textbook Baghdad Arabic (Sound files)",
+                                  "params": {
+                                    "textId": "vicavLearning_tb_baghdad",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_textbook_baghdad_sound.xml"
+                                  }
                                 },
                                 {
                                   "id": "li_vicavLearningSmartphone",
@@ -669,7 +845,11 @@
                                   "title": "      Vocabularies on Smartphones",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "VOCABULARIES on Smartphones"
+                                  "label": "VOCABULARIES on Smartphones",
+                                  "params": {
+                                    "textId": "vicavLearningSmartphone",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_texts.xml"
+                                  }
                                 },
                                 {
                                   "id": "li_vicavLearningPrograms",
@@ -677,7 +857,11 @@
                                   "title": "      Available Programs",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Learning Programs"
+                                  "label": "Learning Programs",
+                                  "params": {
+                                    "textId": "vicavLearningPrograms",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_texts.xml"
+                                  }
                                 },
                                 {
                                   "id": "li_vicavLearningData",
@@ -685,7 +869,11 @@
                                   "title": "      Available Data",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Learning Data"
+                                  "label": "Learning Data",
+                                  "params": {
+                                    "textId": "vicavLearningData",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_texts.xml"
+                                  }
                                 },
                                 {
                                   "id": "li_vicavKeyboards",
@@ -693,7 +881,11 @@
                                   "title": "Keyboard Layouts",
                                   "type": "item",
                                   "targetType": "Text",
-                                  "label": "Keyboards"
+                                  "label": "Keyboards",
+                                  "params": {
+                                    "textId": "vicavKeyboards",
+                                    "teiSource": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_tech_keyboards.xml"
+                                  }
                                 }
                               ],
                               "type": "dropdown"
@@ -820,11 +1012,1033 @@
                         "styleSettings": {
                           "colors": {
                             "nav": "#252771",
-                            "subNav": "#a85d8f"
+                            "subNav": "#a85d8f",
+                            "primary": "hsla(238, 51%, 29%, 1)",
+                            "secondary": "hsla(320, 30%, 51%, 1)"
                           }
                         },
-                        "style": ""
-                      }
+                        "style": "",
+                        "staticData": {
+                          "table": [
+                            {
+                              "@id": "vicav_lingfeatures",
+                              "TEIs": [
+                                {
+                                  "@id": "ling_features_urfa",
+                                  "teiHeader": {
+                                    "fileDesc": {
+                                      "titleStmt": {
+                                        "titles": [
+                                          {
+                                            "$": "A List of Linguistic features of Urfa-Harran"
+                                          }
+                                        ],
+                                        "authors": [
+                                          {
+                                            "$": "Stephan Procházka"
+                                          }
+                                        ],
+                                        "respStmts": []
+                                      },
+                                      "publicationStmt": {
+                                        "pubPlace": {
+                                          "$": "Vienna"
+                                        },
+                                        "date": {
+                                          "$": "2018"
+                                        },
+                                        "availability": {
+                                          "@status": "restricted",
+                                          "p": {
+                                            "@id": "id_p_12",
+                                            "ref": {
+                                              "@type": "license",
+                                              "@target": "http://creativecommons.org/licenses/by-nc-sa/3.0/"
+                                            }
+                                          }
+                                        },
+                                        "idno": {
+                                          "$": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_lingfeatures/vicav_lingfeatures_urfa_toks.xml"
+                                        },
+                                        "publishers": [
+                                          {
+                                            "$": "ACDH-OeAW"
+                                          }
+                                        ]
+                                      },
+                                      "sourceDesc": {
+                                        "p": {
+                                          "@id": "id_p_16",
+                                          "$": "This is an original digital text"
+                                        }
+                                      }
+                                    },
+                                    "encodingDesc": {
+                                      "listPrefixDef": [
+                                        {
+                                          "@matchPattern": "(.+)",
+                                          "@replacementPattern": "https://vocabs.acdh.oeaw.ac.at/vicav/vt_lex#$1",
+                                          "@ident": "semlib"
+                                        },
+                                        {
+                                          "@matchPattern": "(.+)",
+                                          "@replacementPattern": "../vocabs/fLib.xml#$1",
+                                          "@ident": "fvlib"
+                                        }
+                                      ]
+                                    },
+                                    "profileDesc": {
+                                      "": {
+                                        "categories": [
+                                          {
+                                            "@id": "featurelist",
+                                            "catDesc": {
+                                              "$": "linguistic feature list"
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      "particDesc": {
+                                        "person": {
+                                          "@sex": "",
+                                          "@age": "",
+                                          "$": "Urfa1"
+                                        }
+                                      },
+                                      "settingDesc": {
+                                        "place": {
+                                          "settlement": {
+                                            "name": [
+                                              {
+                                                "@lang": "en",
+                                                "$": "Urfa"
+                                              },
+                                              {
+                                                "@lang": "aeb",
+                                                "$": "Urfa"
+                                              }
+                                            ]
+                                          },
+                                          "region": {
+                                            "$": "Urfa"
+                                          },
+                                          "country": {
+                                            "$": "Turkey"
+                                          },
+                                          "location": {
+                                            "geo": {
+                                              "$": "37.15, 38.79"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "revisionDesc": {
+                                      "changes": [
+                                        {
+                                          "@n": "2025-02-24-6-g66c42eb",
+                                          "@who": "Omar Siam",
+                                          "@when": "2025-04-17",
+                                          "$": "Merge branch 'master' of https://github.com/acdh-oeaw/vicav-content"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                },
+                                {
+                                  "@id": "ling_features_tunis",
+                                  "teiHeader": {
+                                    "fileDesc": {
+                                      "titleStmt": {
+                                        "titles": [
+                                          {
+                                            "$": "A List of Linguistic Features of Tunis Arabic"
+                                          }
+                                        ],
+                                        "authors": [
+                                          {
+                                            "$": "Veronika Ritt-Benmimoun"
+                                          }
+                                        ],
+                                        "respStmts": []
+                                      },
+                                      "publicationStmt": {
+                                        "pubPlace": {
+                                          "$": "Vienna"
+                                        },
+                                        "date": {
+                                          "$": "2018"
+                                        },
+                                        "availability": {
+                                          "@status": "restricted",
+                                          "p": {
+                                            "@id": "id_p_12",
+                                            "ref": {
+                                              "@type": "license",
+                                              "@target": "http://creativecommons.org/licenses/by-nc-sa/3.0/"
+                                            }
+                                          }
+                                        },
+                                        "idno": {
+                                          "$": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_lingfeatures/vicav_lingfeatures_tunis_toks.xml"
+                                        },
+                                        "publishers": [
+                                          {
+                                            "$": "ACDH-OeAW"
+                                          }
+                                        ]
+                                      },
+                                      "sourceDesc": {
+                                        "p": {
+                                          "@id": "id_p_16",
+                                          "$": "This is an original digital text"
+                                        }
+                                      }
+                                    },
+                                    "encodingDesc": {
+                                      "listPrefixDef": [
+                                        {
+                                          "@matchPattern": "(.+)",
+                                          "@replacementPattern": "https://vocabs.acdh.oeaw.ac.at/vicav/vt_lex#$1",
+                                          "@ident": "semlib"
+                                        },
+                                        {
+                                          "@matchPattern": "(.+)",
+                                          "@replacementPattern": "../vocabs/fLib.xml#$1",
+                                          "@ident": "fvlib"
+                                        }
+                                      ]
+                                    },
+                                    "profileDesc": {
+                                      "": {
+                                        "categories": [
+                                          {
+                                            "@id": "featurelist",
+                                            "catDesc": {
+                                              "$": "linguistic feature list"
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      "particDesc": {
+                                        "person": {
+                                          "@sex": "",
+                                          "@age": "",
+                                          "$": "Tunis1"
+                                        }
+                                      },
+                                      "settingDesc": {
+                                        "place": {
+                                          "settlement": {
+                                            "name": [
+                                              {
+                                                "@lang": "en",
+                                                "$": "Tunis"
+                                              },
+                                              {
+                                                "@lang": "aeb",
+                                                "$": "Tunis"
+                                              }
+                                            ]
+                                          },
+                                          "region": {
+                                            "$": "Tunis"
+                                          },
+                                          "country": {
+                                            "$": "Tunisia"
+                                          },
+                                          "location": {
+                                            "geo": {
+                                              "$": "36.8, 10.18"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "revisionDesc": {
+                                      "changes": [
+                                        {
+                                          "@n": "2025-02-24-6-g66c42eb",
+                                          "@who": "Omar Siam",
+                                          "@when": "2025-04-17",
+                                          "$": "Merge branch 'master' of https://github.com/acdh-oeaw/vicav-content"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "@id": "vicav_samples",
+                              "teiHeader": {
+                                "fileDesc": {
+                                  "titleStmt": {
+                                    "titles": [
+                                      {
+                                        "$": "A Collection of Arabic Dialect Sample Texts"
+                                      }
+                                    ],
+                                    "authors": [
+                                      {
+                                        "$": "Stephan Procházka"
+                                      },
+                                      {
+                                        "$": "Charly Moerth"
+                                      }
+                                    ],
+                                    "respStmts": []
+                                  },
+                                  "publicationStmt": {
+                                    "pubPlace": {
+                                      "$": "Vienna"
+                                    },
+                                    "date": {
+                                      "$": "2014"
+                                    },
+                                    "availability": {
+                                      "@status": "restricted",
+                                      "p": {
+                                        "ref": {
+                                          "@type": "license",
+                                          "@target": "http://creativecommons.org/licenses/by-nc-sa/3.0/"
+                                        }
+                                      }
+                                    },
+                                    "idno": {
+                                      "$": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_samples/vicav_sample_text_002.xml"
+                                    },
+                                    "publishers": [
+                                      {
+                                        "$": "ACDH-OeAW"
+                                      }
+                                    ]
+                                  },
+                                  "sourceDesc": {
+                                    "p": {
+                                      "$": "This is an original digital text"
+                                    }
+                                  }
+                                },
+                                "revisionDesc": {
+                                  "changes": [
+                                    {
+                                      "@n": "2025-02-24-6-g66c42eb",
+                                      "@who": "Omar Siam",
+                                      "@when": "2025-04-17",
+                                      "$": "Merge branch 'master' of https://github.com/acdh-oeaw/vicav-content"
+                                    }
+                                  ]
+                                }
+                              },
+                              "TEIs": [
+                                {
+                                  "@id": "damascus_sample_01",
+                                  "teiHeader": {
+                                    "fileDesc": {
+                                      "titleStmt": {
+                                        "titles": [
+                                          {
+                                            "$": "Short sample text of Damascus Arabic"
+                                          }
+                                        ],
+                                        "authors": [
+                                          {
+                                            "$": "Stephan Procházka"
+                                          }
+                                        ],
+                                        "respStmts": []
+                                      },
+                                      "publicationStmt": {
+                                        "pubPlace": {
+                                          "$": "Vienna"
+                                        },
+                                        "date": {},
+                                        "availability": {
+                                          "@status": "restricted",
+                                          "p": {
+                                            "ref": {
+                                              "@type": "license",
+                                              "@target": "http://creativecommons.org/licenses/by-nc-sa/3.0/"
+                                            }
+                                          }
+                                        },
+                                        "idno": {
+                                          "$": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_samples/vicav_sample_text_002.xml"
+                                        },
+                                        "publishers": [
+                                          {
+                                            "$": "ACDH-OeAW"
+                                          }
+                                        ]
+                                      },
+                                      "sourceDesc": {
+                                        "p": {
+                                          "$": "This is an original digital text"
+                                        }
+                                      }
+                                    },
+                                    "revisionDesc": {
+                                      "changes": [
+                                        {
+                                          "@n": "2025-02-24-6-g66c42eb",
+                                          "@who": "Omar Siam",
+                                          "@when": "2025-04-17",
+                                          "$": "Merge branch 'master' of https://github.com/acdh-oeaw/vicav-content"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                },
+                                {
+                                  "@id": "damascus_sample_01_old",
+                                  "teiHeader": {
+                                    "fileDesc": {
+                                      "titleStmt": {
+                                        "titles": [
+                                          {
+                                            "$": "Short sample text of Damascus Arabic"
+                                          }
+                                        ],
+                                        "authors": [
+                                          {
+                                            "$": "Stephan Procházka"
+                                          }
+                                        ],
+                                        "respStmts": []
+                                      },
+                                      "publicationStmt": {
+                                        "pubPlace": {
+                                          "$": "Vienna"
+                                        },
+                                        "date": {
+                                          "$": "2018-03-21"
+                                        },
+                                        "availability": {
+                                          "@status": "restricted",
+                                          "p": {
+                                            "ref": {
+                                              "@type": "license",
+                                              "@target": "http://creativecommons.org/licenses/by-nc-sa/3.0/"
+                                            }
+                                          }
+                                        },
+                                        "idno": {
+                                          "$": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_samples/vicav_sample_text_002.xml"
+                                        },
+                                        "publishers": [
+                                          {
+                                            "$": "ACDH-OeAW"
+                                          }
+                                        ]
+                                      },
+                                      "sourceDesc": {
+                                        "p": {
+                                          "$": "This is an original digital text"
+                                        }
+                                      }
+                                    },
+                                    "revisionDesc": {
+                                      "changes": [
+                                        {
+                                          "@n": "2025-02-24-6-g66c42eb",
+                                          "@who": "Omar Siam",
+                                          "@when": "2025-04-17",
+                                          "$": "Merge branch 'master' of https://github.com/acdh-oeaw/vicav-content"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "@id": "vicav_profiles",
+                              "TEIs": [
+                                {
+                                  "@id": "profile_haskoey_01",
+                                  "teiHeader": {
+                                    "fileDesc": {
+                                      "titleStmt": {
+                                        "titles": [
+                                          {
+                                            "$": "A machine-readable profile of Hasköy Arabic"
+                                          }
+                                        ],
+                                        "authors": [
+                                          {
+                                            "@id": "bettina",
+                                            "$": "Bettina Leitner"
+                                          }
+                                        ],
+                                        "respStmts": [
+                                          {
+                                            "resp": {
+                                              "$": "document preparation"
+                                            },
+                                            "name": {
+                                              "@id": "BL",
+                                              "$": "Bettina Leitner"
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      "publicationStmt": {
+                                        "pubPlace": {
+                                          "$": "Vienna"
+                                        },
+                                        "date": {
+                                          "$": "2019"
+                                        },
+                                        "availability": {
+                                          "@status": "restricted",
+                                          "p": {
+                                            "ref": {
+                                              "@type": "license",
+                                              "@target": "http://creativecommons.org/licenses/by-nc-sa/3.0/"
+                                            }
+                                          }
+                                        },
+                                        "idno": {
+                                          "$": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_profiles/vicav_profile_haskoey.xml"
+                                        },
+                                        "publishers": [
+                                          {
+                                            "$": "ACDH-OeAW"
+                                          }
+                                        ]
+                                      },
+                                      "sourceDesc": {
+                                        "p": {
+                                          "$": "This is an original digital text"
+                                        }
+                                      }
+                                    },
+                                    "encodingDesc": {
+                                      "tagsDecl": {
+                                        "@partial": "true",
+                                        "renditions": [
+                                          {
+                                            "@id": "i",
+                                            "@scheme": "css",
+                                            "$": "font-style:italics;"
+                                          },
+                                          {
+                                            "@id": "u",
+                                            "@scheme": "css",
+                                            "$": "text-decoration:underline;"
+                                          },
+                                          {
+                                            "@id": "b",
+                                            "@scheme": "css",
+                                            "$": "font-weight:bold;"
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "revisionDesc": {
+                                      "changes": [
+                                        {
+                                          "@n": "2025-02-24-6-g66c42eb",
+                                          "@who": "Omar Siam",
+                                          "@when": "2025-04-17",
+                                          "$": "Merge branch 'master' of https://github.com/acdh-oeaw/vicav-content"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                },
+                                {
+                                  "@id": "profile_tlemcen_01",
+                                  "teiHeader": {
+                                    "fileDesc": {
+                                      "titleStmt": {
+                                        "titles": [
+                                          {
+                                            "$": "A machine-readable profile of Tlemcen Arabic"
+                                          }
+                                        ],
+                                        "authors": [
+                                          {
+                                            "@id": "aleksandra",
+                                            "$": "Aleksandra Ercegovčević"
+                                          }
+                                        ],
+                                        "respStmts": [
+                                          {
+                                            "resp": {
+                                              "$": "document preparation"
+                                            },
+                                            "name": {
+                                              "@id": "AE",
+                                              "$": "Aleksandra Ercegovcevic"
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      "publicationStmt": {
+                                        "pubPlace": {
+                                          "$": "Vienna"
+                                        },
+                                        "date": {
+                                          "$": "2019"
+                                        },
+                                        "availability": {
+                                          "@status": "restricted",
+                                          "p": {
+                                            "ref": {
+                                              "@type": "license",
+                                              "@target": "http://creativecommons.org/licenses/by-nc-sa/3.0/"
+                                            }
+                                          }
+                                        },
+                                        "idno": {
+                                          "$": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_profiles/vicav_profile_tlemcen.xml"
+                                        },
+                                        "publishers": [
+                                          {
+                                            "$": "ACDH-OeAW"
+                                          }
+                                        ]
+                                      },
+                                      "sourceDesc": {
+                                        "p": {
+                                          "$": "This is an original digital text"
+                                        }
+                                      }
+                                    },
+                                    "encodingDesc": {
+                                      "tagsDecl": {
+                                        "@partial": "true",
+                                        "renditions": [
+                                          {
+                                            "@id": "i",
+                                            "@scheme": "css",
+                                            "$": "font-style:italics;"
+                                          },
+                                          {
+                                            "@id": "u",
+                                            "@scheme": "css",
+                                            "$": "text-decoration:underline;"
+                                          },
+                                          {
+                                            "@id": "b",
+                                            "@scheme": "css",
+                                            "$": "font-weight:bold;"
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "revisionDesc": {
+                                      "changes": [
+                                        {
+                                          "@n": "2025-02-24-6-g66c42eb",
+                                          "@who": "Omar Siam",
+                                          "@when": "2025-04-17",
+                                          "$": "Merge branch 'master' of https://github.com/acdh-oeaw/vicav-content"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "@id": "vicav_corpus",
+                              "teiHeader": {
+                                "fileDesc": {
+                                  "titleStmt": {
+                                    "titles": [
+                                      {
+                                        "$": "A Collection of Arabic Dialect Texts"
+                                      }
+                                    ],
+                                    "authors": [
+                                      {
+                                        "$": "Stephan Procházka"
+                                      },
+                                      {
+                                        "$": "Charly Moerth"
+                                      }
+                                    ],
+                                    "respStmts": []
+                                  },
+                                  "publicationStmt": {
+                                    "pubPlace": {
+                                      "$": "Vienna"
+                                    },
+                                    "date": {
+                                      "$": "2018"
+                                    },
+                                    "availability": {
+                                      "@status": "restricted",
+                                      "p": {
+                                        "ref": {
+                                          "@type": "license",
+                                          "@target": "http://creativecommons.org/licenses/by-nc-sa/3.0/"
+                                        }
+                                      }
+                                    },
+                                    "idno": {
+                                      "$": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_corpus/vicav_corpus_v001.xml"
+                                    },
+                                    "publishers": [
+                                      {
+                                        "$": "ACDH-OeAW"
+                                      }
+                                    ]
+                                  },
+                                  "sourceDesc": {
+                                    "p": {
+                                      "$": "This is an original digital text"
+                                    }
+                                  }
+                                },
+                                "revisionDesc": {
+                                  "changes": [
+                                    {
+                                      "@n": "2025-02-24-6-g66c42eb",
+                                      "@who": "Omar Siam",
+                                      "@when": "2025-04-17",
+                                      "$": "Merge branch 'master' of https://github.com/acdh-oeaw/vicav-content"
+                                    }
+                                  ]
+                                }
+                              },
+                              "TEIs": [
+                                {
+                                  "@id": "cukurova_001",
+                                  "teiHeader": {
+                                    "fileDesc": {
+                                      "titleStmt": {
+                                        "titles": [
+                                          {
+                                            "$": "The Seven Brothers"
+                                          }
+                                        ],
+                                        "authors": [
+                                          {
+                                            "$": "Stephan Procházka"
+                                          }
+                                        ],
+                                        "respStmts": []
+                                      },
+                                      "publicationStmt": {
+                                        "pubPlace": {
+                                          "$": "Vienna"
+                                        },
+                                        "date": {
+                                          "$": "2018"
+                                        },
+                                        "idno": {
+                                          "$": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_corpus/vicav_corpus_v001.xml"
+                                        },
+                                        "publishers": [
+                                          {
+                                            "$": "ACDH-OeAW"
+                                          }
+                                        ]
+                                      },
+                                      "sourceDesc": {
+                                        "p": {
+                                          "$": "This is an original digital text"
+                                        }
+                                      }
+                                    },
+                                    "profileDesc": {
+                                      "particDesc": {
+                                        "p": {
+                                          "$": "This text was recorded during a fieldwork campaign in Cilicia in February 1998. The speaker is a then-fifty-year-old Alawi woman from the village of Kazanlı situated about 15 km east of the provincial capital Mersin and 30 km west of Tarsus."
+                                        }
+                                      }
+                                    },
+                                    "revisionDesc": {
+                                      "changes": [
+                                        {
+                                          "@n": "2025-02-24-6-g66c42eb",
+                                          "@who": "Omar Siam",
+                                          "@when": "2025-04-17",
+                                          "$": "Merge branch 'master' of https://github.com/acdh-oeaw/vicav-content"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                },
+                                {
+                                  "@id": "killing_jackal",
+                                  "teiHeader": {
+                                    "fileDesc": {
+                                      "titleStmt": {
+                                        "titles": [
+                                          {
+                                            "$": "Den Schakal töten (Killing the Jackal)"
+                                          }
+                                        ],
+                                        "authors": [
+                                          {
+                                            "$": "Georg Böhm"
+                                          }
+                                        ],
+                                        "respStmts": []
+                                      },
+                                      "publicationStmt": {
+                                        "p": {},
+                                        "idno": {
+                                          "$": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_corpus/vicav_corpus_v001.xml"
+                                        },
+                                        "publishers": []
+                                      },
+                                      "sourceDesc": {
+                                        "p": {
+                                          "$": "Information about the source"
+                                        }
+                                      }
+                                    },
+                                    "profileDesc": {
+                                      "particDesc": {
+                                        "p": {
+                                          "$": "This text was recorded in Morocoo."
+                                        }
+                                      }
+                                    },
+                                    "revisionDesc": {
+                                      "changes": [
+                                        {
+                                          "@n": "2025-02-24-6-g66c42eb",
+                                          "@who": "Omar Siam",
+                                          "@when": "2025-04-17",
+                                          "$": "Merge branch 'master' of https://github.com/acdh-oeaw/vicav-content"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "@id": "vicav_texts",
+                              "TEIs": [
+                                {
+                                  "@space": "preserve",
+                                  "teiHeader": {
+                                    "fileDesc": {
+                                      "titleStmt": {
+                                        "titles": [
+                                          {
+                                            "$": "VICAV Baghdad Dictionary FrontpPage"
+                                          }
+                                        ],
+                                        "respStmts": []
+                                      },
+                                      "publicationStmt": {
+                                        "p": {
+                                          "$": "Publication Information"
+                                        },
+                                        "idno": {
+                                          "$": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_dictFrontPage_baghdad.xml"
+                                        },
+                                        "publishers": []
+                                      },
+                                      "sourceDesc": {
+                                        "p": {
+                                          "$": "Information about the source"
+                                        }
+                                      }
+                                    },
+                                    "revisionDesc": {
+                                      "changes": [
+                                        {
+                                          "@n": "2025-02-24-6-g66c42eb",
+                                          "@who": "Omar Siam",
+                                          "@when": "2025-04-17",
+                                          "$": "Merge branch 'master' of https://github.com/acdh-oeaw/vicav-content"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                },
+                                {
+                                  "@space": "preserve",
+                                  "teiHeader": {
+                                    "fileDesc": {
+                                      "titleStmt": {
+                                        "titles": [
+                                          {
+                                            "$": "Explore the VICAV features"
+                                          }
+                                        ],
+                                        "respStmts": []
+                                      },
+                                      "publicationStmt": {
+                                        "p": {
+                                          "$": "Publication Information"
+                                        },
+                                        "idno": {
+                                          "$": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_texts/vicav_explore_features.xml"
+                                        },
+                                        "publishers": []
+                                      },
+                                      "sourceDesc": {
+                                        "p": {
+                                          "$": "Information about the source"
+                                        }
+                                      }
+                                    },
+                                    "revisionDesc": {
+                                      "changes": [
+                                        {
+                                          "@n": "2025-02-24-6-g66c42eb",
+                                          "@who": "Omar Siam",
+                                          "@when": "2025-04-17",
+                                          "$": "Merge branch 'master' of https://github.com/acdh-oeaw/vicav-content"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "@id": "vicav_biblio",
+                              "teiHeader": {
+                                "fileDesc": {
+                                  "titleStmt": {
+                                    "title": {
+                                      "$": "Exported from Zotero"
+                                    }
+                                  },
+                                  "publicationStmt": {
+                                    "p": {
+                                      "$": "unpublished"
+                                    },
+                                    "idno": {
+                                      "$": "https://github.com/acdh-oeaw/vicav-content/tree/66c42ebbcd1da3d5787eadb0f40ac0ec7265dc16/vicav_biblio/vicav_biblio_tei_zotero.xml"
+                                    }
+                                  },
+                                  "sourceDesc": {
+                                    "p": {
+                                      "$": "Generated from Zotero database by fetch_generated_tei_and_process.ipynb on 2024-11-27 15:08:43"
+                                    }
+                                  }
+                                },
+                                "revisionDesc": {
+                                  "change": {
+                                    "@n": "2025-02-24-6-g66c42eb",
+                                    "@who": "Omar Siam",
+                                    "@when": "2025-04-17",
+                                    "$": "Merge branch 'master' of https://github.com/acdh-oeaw/vicav-content"
+                                  }
+                                }
+                              },
+                              "text": {
+                                "body": {
+                                  "listBibl": {
+                                    "biblStructs": [
+                                      {
+                                        "@type": "thesis",
+                                        "@id": "AbuNahleh_1985_6344",
+                                        "@corresp": "http://zotero.org/groups/2165756/items/5PAG6FAF",
+                                        "@n": "Abu_Nahleh1985",
+                                        "monogr": {
+                                          "title": {
+                                            "@level": "m",
+                                            "$": "A Syntactic-Semantic Analysis of Object Clitics and Pronouns in Ramallah Palestinian Arabic"
+                                          },
+                                          "author": {
+                                            "forename": {
+                                              "$": "Lamis Yacoub"
+                                            },
+                                            "surname": {
+                                              "$": "Abu Nahleh"
+                                            }
+                                          },
+                                          "imprint": {
+                                            "date": {
+                                              "$": "1985"
+                                            }
+                                          }
+                                        },
+                                        "note": {
+                                          "@type": "tags",
+                                          "notes": [
+                                            {
+                                              "@type": "dataCollection",
+                                              "date": {
+                                                "@type": "dataCollection",
+                                                "@cert": "high",
+                                                "@notBefore-iso": "1980-01-01",
+                                                "@notAfter-iso": "1989-12-31",
+                                                "$": "1980s"
+                                              }
+                                            },
+                                            {
+                                              "@type": "tag",
+                                              "name": {
+                                                "@type": "geo",
+                                                "$": "Ramallah"
+                                              },
+                                              "geo": {
+                                                "$": "31.899722 35.204167"
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      {
+                                        "@type": "thesis",
+                                        "@id": "Alfaifi_2016_1493",
+                                        "@corresp": "http://zotero.org/groups/2165756/items/ASGAXUPW",
+                                        "@n": "Alfaifi2016",
+                                        "monogr": {
+                                          "title": {
+                                            "@level": "m",
+                                            "$": "Aspects of the Morpho-syntax of the Faifa Dialect of Saudi Arabic"
+                                          },
+                                          "author": {
+                                            "forename": {
+                                              "$": "Ali Hassan Jobran"
+                                            },
+                                            "surname": {
+                                              "$": "Alfaifi"
+                                            }
+                                          },
+                                          "imprint": {
+                                            "pubPlace": {
+                                              "$": "Ulster"
+                                            },
+                                            "date": {
+                                              "$": "2016"
+                                            }
+                                          }
+                                        },
+                                        "note": {
+                                          "@type": "tags",
+                                          "note": {
+                                            "@type": "dataCollection",
+                                            "date": {
+                                              "@type": "dataCollection",
+                                              "@cert": "low",
+                                              "@notBefore-iso": "2010-01-01",
+                                              "@notAfter-iso": "2019-12-31",
+                                              "$": "2010s"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "version": {
+                          "backend": "0eacbcd",
+                          "data": "2025-02-24-6-g66c42eb"
+                        }
+                      },
+                      "ETag": "53E3D848A8353876ACAB393378936991",
+                      "took": "4734.34"
                     }
                   },
                   "project_config_SHAWI": {
@@ -3219,7 +4433,7 @@
               "table": {
                 "type": "array",
                 "items": {
-                  "anyOf": [
+                  "oneOf": [
                     {
                       "$ref": "#/components/schemas/Biblio"
                     },
@@ -3553,6 +4767,9 @@
             "$ref": "#/components/schemas/FileDesc"
           }
         },
+        "revisionDesc": {
+          "$ref": "#/components/schemas/RevisionDesc"
+        },
         "required": [
           "fileDesc"
         ],
@@ -3579,6 +4796,34 @@
         ],
         "title": "FileDesc"
       },
+      "RevisionDesc": {
+        "type": "object",
+        "properties": {
+          "change": {
+            "type": "object",
+            "properties": {
+              "@n": {
+                "type": "string"
+              },
+              "@who": {
+                "type": "string"
+              },
+              "@when": {
+                "type": "string"
+              },
+              "$": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@n",
+              "@who",
+              "@when",
+              "$"
+            ]
+          }
+        }
+      },
       "PublicationStmt": {
         "type": "object",
         "additionalProperties": false,
@@ -3586,6 +4831,9 @@
           "p": {
             "$ref": "#/components/schemas/XmlTextNode"
           }
+        },
+        "idno": {
+          "$ref": "#/components/schemas/XmlTextNode"
         },
         "required": [
           "p"
@@ -3907,25 +5155,32 @@
         "title": "BiblScope"
       },
       "Meeting": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "$ref": "#/components/schemas/XmlTextNode"
+        "anyOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "$ref": "#/components/schemas/XmlTextNode"
+              },
+              "date": {
+                "$ref": "#/components/schemas/XmlTextNode"
+              },
+              "placeName": {
+                "$ref": "#/components/schemas/XmlTextNode"
+              }
+            },
+            "required": [
+              "date",
+              "name",
+              "placeName"
+            ],
+            "title": "Meeting"
           },
-          "date": {
-            "$ref": "#/components/schemas/XmlTextNode"
-          },
-          "placeName": {
+          {
             "$ref": "#/components/schemas/XmlTextNode"
           }
-        },
-        "required": [
-          "date",
-          "name",
-          "placeName"
-        ],
-        "title": "Meeting"
+        ]
       },
       "RespStmt": {
         "type": "object",
@@ -3946,10 +5201,11 @@
       },
       "Note": {
         "type": "object",
-        "additionalProperties": false,
+        "additionalProperties": true,
         "properties": {
           "@type": {
-            "$ref": "#/components/schemas/NoteType"
+            "$ref": "#/components/schemas/NoteType",
+            "type": "string"
           },
           "note": {
             "anyOf": [
@@ -3964,7 +5220,7 @@
           "notes": {
             "type": "array",
             "items": {
-              "anyOf": [
+              "oneOf": [
                 {
                   "$ref": "#/components/schemas/GeoNote"
                 },
@@ -3984,7 +5240,7 @@
             }
           },
           "p": {
-            "$ref": "#/components/schemas/XmlTextNode"
+            "$ref": "#/components/schemas/P"
           },
           "ps": {
             "type": "array",
@@ -4236,7 +5492,8 @@
           "dataCollection",
           "tag",
           "tags",
-          "abstract"
+          "abstract",
+          "missing_geo_data"
         ],
         "title": "NoteType"
       },
@@ -4285,7 +5542,7 @@
             ]
           },
           "properties": {
-            "anyOf": [
+            "oneOf": [
               {
                 "type": "null"
               },
@@ -4312,26 +5569,28 @@
       "VarietyFeatures": {
         "title": "",
         "type": "object",
-        "additionalProperties": {
+        "additionalProperties": false,
+        "properties": {
           "FeatureReference": {
             "type": "string"
           },
           "FeatureValues": {
-            "type": "object",
-            "additionalProperties": {
-              "FeatureValueReference": {
-                "type": "string"
-              },
-              "FeatureValuesObservations": {
-                "$ref": "#/components/schemas/FeatureValuesObservation"
-              }
+            "type": "object"
+          },
+          "additionalProperties": false,
+          "properties": {
+            "FeatureValueReference": {
+              "type": "string"
+            },
+            "FeatureValuesObservations": {
+              "$ref": "#/components/schemas/FeatureValuesObservation"
             }
           }
         }
       },
       "FeatureValuesObservation": {
         "type": "object",
-        "rewuired": [
+        "required": [
           "sources"
         ],
         "properties": {
@@ -4344,14 +5603,15 @@
           "person_groups": {
             "type": "array",
             "items": {
-              "type": "object",
-              "additionalProperties": {
-                "PersonGroupType": {
-                  "type": "string"
-                },
-                "PersonGroupReference": {
-                  "type": "string"
-                }
+              "type": "object"
+            },
+            "additionalProperties": false,
+            "properties": {
+              "PersonGroupType": {
+                "type": "string"
+              },
+              "PersonGroupReference": {
+                "type": "string"
               }
             }
           },
@@ -4416,14 +5676,15 @@
           "column_headings": {
             "type": "array",
             "items": {
-              "type": "object",
-              "additionalProperties": {
-                "Reference": {
-                  "type": "string"
-                },
-                "Heading": {
-                  "type": "string"
-                }
+              "type": "object"
+            },
+            "additionalProperties": false,
+            "properties": {
+              "Reference": {
+                "type": "string"
+              },
+              "Heading": {
+                "type": "string"
               }
             }
           }
