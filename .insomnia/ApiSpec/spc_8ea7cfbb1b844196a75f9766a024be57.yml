@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1744817437886
+modified: 1744886806804
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -3819,7 +3819,7 @@ contents: >-
           monogr:
             $ref: '#/components/schemas/Monogr'
           note:
-            $ref: '#/components/schemas/PurpleNote'
+            $ref: '#/components/schemas/Note'
           analytic:
             $ref: '#/components/schemas/Analytic'
           series:
@@ -3827,7 +3827,7 @@ contents: >-
           notes:
             type: array
             items:
-              $ref: '#/components/schemas/IndigoNote'
+              $ref: '#/components/schemas/Note'
         required:
           - '@corresp'
           - '@id'
@@ -4000,42 +4000,45 @@ contents: >-
           - persName
           - resp
         title: RespStmt
-      PurpleNote:
+      Note:
         type: object
         additionalProperties: false
         properties:
           '@type':
             $ref: '#/components/schemas/NoteType'
+          note:
+            anyOf:
+            - $ref: '#/components/schemas/GeoNote'
+            - $ref: '#/components/schemas/Note'
           notes:
             type: array
             items:
-              $ref: '#/components/schemas/TentacledNote'
-          note:
-            $ref: '#/components/schemas/FluffyNote'
+                anyOf:
+                - $ref: '#/components/schemas/GeoNote'
+                - $ref: '#/components/schemas/Note'
           $:
             type: string
-          p:
-            $ref: '#/components/schemas/XmlTextNode'
           $$:
             type: array
             items:
               $ref: '#/components/schemas/Note'
-        required: []
-        title: PurpleNote
-      Note:
-        type: object
-        properties:
+          p:
+            $ref: '#/components/schemas/XmlTextNode'
+          ps:
+            type: array
+            items:
+              $ref: '#/components/schemas/P'
+          hi:
+            $ref: '#/components/schemas/Hi'
           his:
             type: array
             items:
               $ref: '#/components/schemas/Hi'
-          $:
-            type: string
-          hi:
-            $ref: '#/components/schemas/Hi'
+          div:
+            $ref: '#/components/schemas/Div'
         required: []
         title: Note
-      FluffyNote:
+      GeoNote:
         type: object
         additionalProperties: false
         properties:
@@ -4049,9 +4052,13 @@ contents: >-
             $ref: '#/components/schemas/XmlTextNode'
           $:
             type: string
+          note:
+            $ref: '#/components/schemas/Note'
+          '@subtype':
+            $ref: '#/components/schemas/NoteSubtype'
         required:
           - '@type'
-        title: FluffyNote
+        title: GeoNote
       Hi:
         type: object
         additionalProperties: false
@@ -4088,66 +4095,6 @@ contents: >-
           - '@notBefore-iso'
           - '@type'
         title: Date
-      TentacledNote:
-        type: object
-        additionalProperties: false
-        properties:
-          '@type':
-            $ref: '#/components/schemas/NoteType'
-          date:
-            $ref: '#/components/schemas/Date'
-          name:
-            $ref: '#/components/schemas/Idno'
-          geo:
-            $ref: '#/components/schemas/XmlTextNode'
-          $:
-            type: string
-          note:
-            $ref: '#/components/schemas/StickyNote'
-          '@subtype':
-            $ref: '#/components/schemas/Subtype'
-        required:
-          - '@type'
-        title: TentacledNote
-      StickyNote:
-        type: object
-        additionalProperties: false
-        properties:
-          '@type':
-            type: string
-        required:
-          - '@type'
-        title: StickyNote
-      IndigoNote:
-        type: object
-        additionalProperties: false
-        properties:
-          p:
-            $ref: '#/components/schemas/P'
-          ps:
-            type: array
-            items:
-              $ref: '#/components/schemas/P'
-          '@type':
-            $ref: '#/components/schemas/NoteType'
-          note:
-            $ref: '#/components/schemas/FluffyNote'
-          notes:
-            type: array
-            items:
-              $ref: '#/components/schemas/TentacledNote'
-          $:
-            type: string
-          div:
-            $ref: '#/components/schemas/Div'
-          hi:
-            $ref: '#/components/schemas/Hi'
-          his:
-            type: array
-            items:
-              $ref: '#/components/schemas/Hi'
-        required: []
-        title: IndigoNote
       Div:
         type: object
         additionalProperties: false
@@ -4158,7 +4105,6 @@ contents: >-
           p:
             $ref: '#/components/schemas/P'
         required:
-          - '@data-schema-version'
           - p
         title: Div
       P:
@@ -4271,11 +4217,11 @@ contents: >-
           - unknown
           - high
         title: Cert
-      Subtype:
+      NoteSubtype:
         type: string
         enum:
           - unmarked_geo
-        title: Subtype
+        title: NoteSubtype
       Feature:
         title: GeoJSON Feature
         type: object
