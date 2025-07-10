@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1744920872963
+modified: 1752163705700
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >
@@ -4391,15 +4391,19 @@ contents: >
             name: dict_name
             description: Name of an existing dictionary
             required: true
-          - schema: {}
+          - schema:
+              type: integer
+              nullable: true
             in: query
-            example: '1'
+            example: 1
             name: page
             description: The page page to return based on the given pageSize
             required: false
-          - schema: {}
+          - schema:
+              type: integer
+              nullable: true
             in: query
-            example: '10'
+            example: 10
             name: pageSize
             description: Number of entries to return per request
             required: false
