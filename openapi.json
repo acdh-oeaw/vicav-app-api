@@ -3954,17 +3954,23 @@
             "required": true
           },
           {
-            "schema": {},
+            "schema": {
+              "type": "integer",
+              "nullable": true
+            },
             "in": "query",
-            "example": "1",
+            "example": 1,
             "name": "page",
             "description": "The page page to return based on the given pageSize",
             "required": false
           },
           {
-            "schema": {},
+            "schema": {
+              "type": "integer",
+              "nullable": true
+            },
             "in": "query",
-            "example": "10",
+            "example": 10,
             "name": "pageSize",
             "description": "Number of entries to return per request",
             "required": false
