@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1758206297537
+modified: 1758207354158
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >
@@ -5082,6 +5082,15 @@ contents: >
         required:
           - $
         title: XmlTextNode
+      XmlMixedContent:
+        type: array
+        items:
+          anyOf:
+            - $ref: '#/components/schemas/XmlTextNode'
+            - $ref: '#/components/schemas/att'
+            - $ref: '#/components/schemas/code'
+            - $ref: '#/components/schemas/gi'          
+            - $ref: '#/components/schemas/ref'
       TitleStmt:
         type: object
         additionalProperties: false
@@ -5762,8 +5771,7 @@ contents: >
             type: object
             properties:
               $$:
-                type: array
-
+                $ref: '#/components/schemas/XmlMixedContent'
             additionalProperties: false
             required:
               - $$
@@ -5773,6 +5781,36 @@ contents: >
           - '@matchPattern'
           - '@replacementPattern'
           - p
+      att:
+         type: object
+         properties:
+           att:
+             $ref: '#/components/schemas/XmlTextNode'
+         additionalProperties: false
+      code:
+         type: object
+         properties:
+           code:
+             $ref: '#/components/schemas/XmlTextNode'
+         additionalProperties: false
+      gi:
+         type: object
+         properties:
+           gi:
+             $ref: '#/components/schemas/XmlTextNode'
+         additionalProperties: false
+      ref:
+         type: object
+         properties:
+           ref:
+             allOff:
+              - $ref: '#/components/schemas/XmlTextNode'
+              - type: object
+                properties:
+                   '@target':
+                     type: string
+                additionalProperties: false
+         additionalProperties: false
       RFC7807Problem:
         title: A RFC 7807 problem report
         type: object
