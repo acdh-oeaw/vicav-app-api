@@ -3838,9 +3838,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CorpusSearch'
-              examples: 
-                corpus_search_json:
-                  summary: 'Corpus search results'
+              examples:
+                corpus_search_json_html:
+                  summary: 'Corpus search results as HTML'
                   value:
                     {
                       "query":"w",
@@ -4053,13 +4053,35 @@ paths:
             type: string
       responses:
         '200':
-          description: the transformed html
+          description: the XML transformed to JSON or html
           content:
             application/json:
-              schema: 
-                $ref: '#/components/schemas/CorpusText'
-              examples: 
-                corpustext_json:
+              schema:
+                anyOf:
+                - $ref: '#/components/schemas/corpus_text'
+                - $ref: '#/components/schemas/CorpusTextHTML'
+              examples:              
+                corpus_search_json:
+                  summary: "Corpus search results as JSON"
+                  value:
+                    {
+                      "doc": {                        
+                        "@id": "URFA-011",
+                        "listPrefixDef": [
+                            {
+                              "@ident": "dict",
+                              "@matchPattern": "^(.+)$",
+                              "@replacementPattern": "https://github.com/acdh-oeaw/shawi-data/blob/main/vicav_dicts/dc_shawi_eng.xml#$1",
+                              "p": {
+                                "$$":[{"$":"Private URIs using the"},{"code":{"$":"dict"}},{"$":"prefix are pointers to the"},{"att":{"$":"xml:id"}},{"$":"attribute on a"},{"gi":{"$":"entry"}},{"$":"in the"},{"ref":{"@target":"https://github.com/acdh-oeaw/shawi-data/blob/main/vicav_dicts/dc_shawi_eng.xml","$":"SHAWI glossary"}},{"$":"."}]
+                              }
+                            }
+                          ],
+                        "standOff": "",
+                        "divs": []
+                      }
+                    }
+                corpustext_json_html:
                   summary: sample json response
                   value:
                     {
@@ -4586,7 +4608,7 @@ components:
       type: http
       scheme: basic
   schemas:
-    CorpusText: 
+    CorpusTextHTML: 
       type: object
       properties: 
         id: 
@@ -4594,7 +4616,8 @@ components:
         utterances:
           type: array
           items: 
-            $ref: '#/components/schemas/corpusText_utterances'
+            $ref: '#/components/schemas/corpusText_utterances'      
+      additionalProperties: false
     corpusText_utterances:
       type: object
       properties: 
@@ -4604,6 +4627,29 @@ components:
           type: string
         content: 
           type: string
+    corpus_text:
+      type: object
+      properties:
+        doc:
+         type: object
+         properties:
+            '@id':
+              type: string
+            listPrefixDef:
+              type: array
+              items:
+                $ref: "#/components/schemas/prefixDef"
+              additionalProperties: false
+            standOff:
+              type: string
+            divs:
+              type: array
+         additionalProperties: false
+         required:
+            - '@id'
+            - divs
+            - standOff
+            - listPrefixDef
     CorpusSearch:
       type: object
       properties: 
@@ -5027,6 +5073,15 @@ components:
       required:
         - $
       title: XmlTextNode
+    XmlMixedContent:
+      type: array
+      items:
+        anyOf:
+          - $ref: '#/components/schemas/XmlTextNode'
+          - $ref: '#/components/schemas/att'
+          - $ref: '#/components/schemas/code'
+          - $ref: '#/components/schemas/gi'          
+          - $ref: '#/components/schemas/ref'
     TitleStmt:
       type: object
       additionalProperties: false
@@ -5667,6 +5722,86 @@ components:
           minItems: 4
           items:
             type: number
+    prefixDef:
+      type: object
+      properties:
+        '@matchPattern':
+          type: string
+          maxLength: 6
+          distinctValues: 1
+          minLength: 6
+          examples:
+            - ^(.+)$
+        '@ident':
+          type: string
+          maxLength: 6
+          distinctValues: 7
+          minLength: 3
+          examples:
+            - assets
+            - corpus
+            - dict
+            - geo
+            - rend
+            - share
+            - zotid
+        '@replacementPattern':
+          type: string
+          maxLength: 98
+          distinctValues: 7
+          minLength: 18
+          examples:
+            - \\share17.univie.ac.at\orientalistik\SHAWI\Recordings\*\*\$1.wav
+            - https://github.com/acdh-oeaw/shawi-data/blob/main/vicav_dicts/dc_shawi_eng.xml#$1
+            - https://github.com/acdh-oeaw/vicav-content/blob/master/tools/vicav_rendition.xml#$1
+            - https://github.com/acdh-oeaw/vicav-content/blob/master/vicav_biblio/vicav_biblio_tei_zotero.xml#$1
+            - https://github.com/acdh-oeaw/vicav-content/blob/master/vicav_biblio/vicav_geodata.xml#$1
+            - https://shawi-assets.acdh.oeaw.ac.at/$1
+            - shawiCorpus.xml#$1
+        p:
+          type: object
+          properties:
+            $$:
+              $ref: '#/components/schemas/XmlMixedContent'
+          additionalProperties: false
+          required:
+            - $$
+      additionalProperties: false
+      required:
+        - '@ident'
+        - '@matchPattern'
+        - '@replacementPattern'
+        - p
+    att:
+       type: object
+       properties:
+         att:
+           $ref: '#/components/schemas/XmlTextNode'
+       additionalProperties: false
+    code:
+       type: object
+       properties:
+         code:
+           $ref: '#/components/schemas/XmlTextNode'
+       additionalProperties: false
+    gi:
+       type: object
+       properties:
+         gi:
+           $ref: '#/components/schemas/XmlTextNode'
+       additionalProperties: false
+    ref:
+       type: object
+       properties:
+         ref:
+           allOff:
+            - $ref: '#/components/schemas/XmlTextNode'
+            - type: object
+              properties:
+                 '@target':
+                   type: string
+              additionalProperties: false
+       additionalProperties: false
     RFC7807Problem:
       title: A RFC 7807 problem report
       type: object
