@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1758207354158
+modified: 1759858136605
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >
@@ -4692,7 +4692,13 @@ contents: >
         type: object
         properties:
           projectConfig:
-            $ref: '#/components/schemas/projectConfig_type'
+            $ref: '#/components/schemas/projectConfig_type'        
+          ETag:
+            type: string
+            description: The current ETag/Hash of this JSON object.
+          took:
+            type: string
+            description: Time needed to create this JSON object on the server.
       projectConfig_type:
         type: object
         properties:
