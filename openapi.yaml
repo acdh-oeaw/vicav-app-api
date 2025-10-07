@@ -4683,7 +4683,13 @@ components:
       type: object
       properties:
         projectConfig:
-          $ref: '#/components/schemas/projectConfig_type'
+          $ref: '#/components/schemas/projectConfig_type'        
+        ETag:
+          type: string
+          description: The current ETag/Hash of this JSON object.
+        took:
+          type: string
+          description: Time needed to create this JSON object on the server.
     projectConfig_type:
       type: object
       properties:
