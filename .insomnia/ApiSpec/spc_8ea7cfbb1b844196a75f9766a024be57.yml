@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1759858136605
+modified: 1760542559138
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >
@@ -4074,7 +4074,7 @@ contents: >
                     summary: "Corpus search results as JSON"
                     value:
                       {
-                        "doc": {                        
+                        "doc": {
                           "@id": "URFA-011",
                           "listPrefixDef": [
                               {
@@ -4087,7 +4087,21 @@ contents: >
                               }
                             ],
                           "standOff": "",
-                          "divs": []
+                          "divs": [
+                            {
+                               "@id": "test",
+                               "u": {
+                                 "@id": "test-id",
+                                 "@lang": "test-x-vicav",
+                                 "@start": "#T1",
+                                 "@end": "#T2",
+                                 "@who": "corpus:dummy",
+                                 "$$": [
+                                   "w": {}
+                                 ]
+                               }
+                            }
+                          ]
                         }
                       }
                   corpustext_json_html:
@@ -4653,12 +4667,83 @@ contents: >
                 type: string
               divs:
                 type: array
+                items:
+                  $ref: "#/components/schemas/div"
            additionalProperties: false
            required:
               - '@id'
               - divs
               - standOff
               - listPrefixDef
+      div:
+        type: object
+        properties:
+          '@corresp':
+            type: string
+            examples:
+              - '#URFA-032_a7-audio-public #URFA-032_a7-audio-master'
+              - '#URFA-094_a13-audio-public #URFA-094_a13-audio-master'
+            pattern: ^(#[^\s]*-audio-(public|master)\s*)+$
+          '@id':
+            type: string
+            pattern: ^[^#][^\s]*
+          u:
+            $ref: "#/components/schemas/u"
+        additionalProperties: false
+        required:
+          - '@id'       
+      u:
+        type: object
+        properties:
+          '@lang':
+            type: string
+            examples:
+              - ar-acm-x-shawi-vicav
+          '@start':
+            type: string
+            examples:
+              - '#T10'
+              - '#T11'
+            pattern: ^#T
+          '@who':
+            type: string
+            format: uri
+            examples:
+              - corpus:Harran02
+              - corpus:TallXarma01
+              - corpus:Ziyara01
+          '@end':
+            type: string
+            examples:
+              - '#T10'
+              - '#T12'
+            pattern: ^#T
+          '@id':
+            type: string
+            examples:
+              - URFA-068_a2_u1
+              - URFA-068_a4_u1
+          '$$':
+             $ref: "#/components/schemas/mixed_utterance_content"
+        additionalProperties: false
+        required:
+          - '@lang'
+          - '@start'
+          - '@who'
+          - $$
+          - '@end'
+          - '@id'
+      mixed_utterance_content:
+        type: array
+        items:
+          type: object
+          properties:
+            w:
+              type: object
+            pc:
+              type: object
+            gap:
+              type: object
       CorpusSearch:
         type: object
         properties: 
