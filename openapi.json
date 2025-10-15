@@ -4781,6 +4781,8 @@
             "type": "string",
             "enum": [
               "article",
+              "complementizerParticle",
+              "interrogative",
               "negationParticle",
               "numeral",
               "particle",
@@ -4943,6 +4945,7 @@
             "type": "string"
           },
           "hits": {
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/corpusSearch_hits"
             }
