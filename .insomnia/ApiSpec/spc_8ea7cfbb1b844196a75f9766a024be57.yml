@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1760542559138
+modified: 1760544114389
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >
@@ -4097,9 +4097,64 @@ contents: >
                                  "@end": "#T2",
                                  "@who": "corpus:dummy",
                                  "$$": [
-                                   "w": {}
+                                   "w": {
+                                     "@id": "test-w",
+                                     "$": "kitab"
+                                   },
+                                   "pc": {
+                                     "@id": "test-pc",
+                                     "$": "!"
+                                   },
+                                   "gap": {
+                                     "@rendition": "rend:ellipsisInSquareBrackets"
+                                   }
                                  ]
                                }
+                            },
+                            {
+                              "@id": "test-us",
+                              "us": [
+                                {
+                                 "@id": "test-id-us1",
+                                 "@lang": "test-x-vicav",
+                                 "@start": "#T1",
+                                 "@end": "#T2",
+                                 "@who": "corpus:dummy",
+                                 "$$": [
+                                   "w": {
+                                     "@id": "test-w-us1",
+                                     "$": "kitab"
+                                   },
+                                   "pc": {
+                                     "@id": "test-pc-us1",
+                                     "$": "!"
+                                   },
+                                   "gap": {
+                                     "@rendition": "rend:ellipsisInSquareBrackets"
+                                   }
+                                 ]
+                               },
+                               {
+                                 "@id": "test-id-us2",
+                                 "@lang": "test-x-vicav",
+                                 "@start": "#T1",
+                                 "@end": "#T2",
+                                 "@who": "corpus:dummy",
+                                 "$$": [
+                                   "w": {
+                                     "@id": "test-w-us2",
+                                     "$": "kitab"
+                                   },
+                                   "pc": {
+                                     "@id": "test-pc-us2",
+                                     "$": "!"
+                                   },
+                                   "gap": {
+                                     "@rendition": "rend:ellipsisInSquareBrackets"
+                                   }
+                                 ]
+                               }
+                              ]
                             }
                           ]
                         }
@@ -4689,6 +4744,10 @@ contents: >
             pattern: ^[^#][^\s]*
           u:
             $ref: "#/components/schemas/u"
+          us:
+            type: array
+            items:
+               $ref: "#/components/schemas/u"
         additionalProperties: false
         required:
           - '@id'       
@@ -4739,11 +4798,158 @@ contents: >
           type: object
           properties:
             w:
-              type: object
+              $ref: "#/components/schemas/w"
             pc:
-              type: object
+              $ref: "#/components/schemas/pc"
             gap:
-              type: object
+              $ref: "#/components/schemas/gap"
+      w:
+        type: object
+        properties:
+          '@lemmaRef':
+            type: string
+            format: uri
+            examples:
+              - dict:DShaAr.maa_min_00000
+              - dict:DShaAr.muu_000
+              - dict:DShaAr.u_000
+            pattern: "^dict:"
+          subc:
+            type: string
+            enum:
+              - collectiveNoun
+              - pluralNoun
+              - toponym
+          derivedVerbClass:
+            type: string
+            enum:
+              - I
+              - II
+              - III
+              - IV
+              - VIII
+          inflectionType:
+            type: string
+            enum:
+              - I
+              - V
+          '@rendition':
+            type: string
+            enum:
+              - rend:dashAfter
+              - rend:ellipsisAfter
+              - rend:withBowBelow
+            pattern: '^rend:'
+          '@join':
+            type: string
+            enum:
+              - right
+              - left
+          synRoot:
+            type: string
+            examples:
+              - ʕlw š
+              - ʕnd
+          synRoots:
+            type: array
+            uniqueItems: true
+            items:
+              type: string
+              examples:
+                - rkb
+                - š lwn
+          diaRoot:
+            type: string
+            examples:
+              - bnt
+              - mʔ mn šyʔ
+          diaRoots:
+            type: array
+            items:
+              type: string
+          person:
+            type: string
+            enum:
+              - "1"
+              - "2"
+              - "3"
+          '@type':
+            type: string
+            enum:
+              - truncated
+          $:
+            type: string
+          '@lang':
+            type: string
+            pattern: -x-shawi-vicav$
+          number:
+            type: string
+            enum:
+              - plural
+              - singular
+          '@msd':
+            type: string
+            examples:
+              - 1.sg.
+              - 2.pl.m.
+              - ipfv.2.sg.m.
+              - pl.m.
+          degree:
+            type: string
+            enum:
+              - elative
+          pos:
+            type: string
+            enum:
+              - article
+              - negationParticle
+              - numeral
+              - particle
+              - preposition
+              - verb
+          gender:
+            type: string
+            enum:
+              - feminine
+              - masculine
+            pattern: ine$
+          '@id':
+            type: string
+            examples:
+              - URFA-068_xTok_000316
+              - URFA-179_xTok_000143
+        additionalProperties: false
+        required:
+          - $
+          - '@id'
+      pc:
+        type: object
+        properties:
+          '@join':
+            type: string
+            enum:
+              - right
+              - left
+          $:
+            type: string
+          '@id':
+            type: string
+            examples:
+              - xTok_000034
+        additionalProperties: false
+        required:
+          - '@id'
+          - $
+      gap:
+        type: object
+        properties:
+          '@rendition':
+            type: string
+            enum:
+              - rend:ellipsisInSquareBrackets
+        additionalProperties: false
+        required:
+          - '@rendition' 
       CorpusSearch:
         type: object
         properties: 
