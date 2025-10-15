@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1760544114389
+modified: 1760546318793
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >
@@ -3846,8 +3846,77 @@ contents: >
             content:
               application/json:
                 schema:
-                  $ref: '#/components/schemas/CorpusSearch'
+                  anyOf:
+                   - $ref: '#/components/schemas/CorpusSearchHTML'
+                   - $ref: '#/components/schemas/corpus_search' 
                 examples:
+                  corpus_search_json:
+                    summary: 'Corpus search results as JSON'
+                    value:
+                      {
+                        "query": "ma",
+                        "hits": {
+                            "divs": [
+                                {
+                                    "hits": [
+                                        "URFA-072_xTok_001223"
+                                    ],
+                                    "@docRef": "URFA-072",
+                                    "@corresp": "#URFA-072_a40-audio-public #URFA-072_a40-audio-master",
+                                    "@id": "URFA-072_a40",
+                                    "u": {
+                                        "@start": "#T108",
+                                        "@end": "#T109",
+                                        "@lang": "ar-acm-x-shawi-vicav",
+                                        "@id": "URFA-107_a40_u1",
+                                        "@who": "corpus:TallXarma01",
+                                        "$$": [
+                                            {
+                                                "w": {
+                                                    "@join": "right",
+                                                    "@id": "URFA-072_xTok_001221",
+                                                    "@lemmaRef": "dict:DShaAr.shnoon_000",
+                                                    "@lang": "ar-acm-x-shawi-vicav",
+                                                    "@rendition": "rend:dashAfter",
+                                                    "$": "šnōn",
+                                                    "pos": "interrogative",
+                                                    "synRoots": [
+                                                        "š nwn",
+                                                        "š lwn"
+                                                    ],
+                                                    "diaRoot": "š lwn"
+                                                }
+                                            },
+                                            {
+                                                "w": {
+                                                    "@id": "URFA-072_xTok_001223",
+                                                    "@lemmaRef": "dict:DShaAr.ma_000",
+                                                    "@lang": "ar-acm-x-shawi-vicav",
+                                                    "$": "ma",
+                                                    "pos": "complementizerParticle",
+                                                    "synRoot": "mʔ",
+                                                    "diaRoot": "mʔ"
+                                                }
+                                            },
+                                            {
+                                                "w": {
+                                                    "@id": "URFA-072_xTok_001224",
+                                                    "@msd": "ipfv.3.sg.f.",
+                                                    "@lemmaRef": "dict:DShaAr.gaam_00001",
+                                                    "@lang": "ar-acm-x-shawi-vicav",
+                                                    "$": "tgūm",
+                                                    "pos": "verb",
+                                                    "derivedVerbClass": "I",
+                                                    "synRoot": "gwm",
+                                                    "diaRoot": "qwm"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
                   corpus_search_json_html:
                     summary: 'Corpus search results as HTML'
                     value:
@@ -4748,6 +4817,17 @@ contents: >
             type: array
             items:
                $ref: "#/components/schemas/u"
+          Translation_spanGrp:
+             $ref: "#/components/schemas/Translation_spanGrp"
+          '@docRef':
+             description: "Used in search hits to reference the document the hits are from"
+             type:
+               string
+          hits:
+             description: "Used in search results to return the IDs of the tokens that matched the search"
+             type: array
+             items:
+               type: string
         additionalProperties: false
         required:
           - '@id'       
@@ -4949,14 +5029,72 @@ contents: >
               - rend:ellipsisInSquareBrackets
         additionalProperties: false
         required:
-          - '@rendition' 
-      CorpusSearch:
+          - '@rendition'
+      Translation_spanGrp:
+        type: object
+        properties:
+          span:
+            type: object
+            properties:
+              '@lang':
+                type: string
+                examples:
+                  - en
+              '@target':
+                type: string
+                examples:
+                  - '#URFA-068_a5'
+                  - '#URFA-094_a14'
+                pattern: ^#
+              $:
+                type: string
+                examples:
+                  - And we said, “If this one wants to come, she should come with us. This should come with us.”
+                  - He got himself ready and wanted to return to his homeland. He took his money, his aqčas and set off …
+              '@id':
+                type: string
+                examples:
+                  - a122
+                  - a140
+            additionalProperties: false
+            required:
+              - '@lang'
+              - '@target'
+              - '@id'
+              - $
+          '@type':
+            type: string
+            enum:
+              - Translation
+        additionalProperties: false
+        required:
+          - '@type'
+          - span
+      corpus_search:
+        type: object
+        properties:
+          query:
+            type: string
+            examples:
+              - awwal
+              - ma
+          hits:
+            type: object
+            properties:
+              listPrefixDef:
+                type: array
+                items:
+                  $ref: "#/components/schemas/prefixDef"
+              divs:
+                type: array
+                items:
+                  $ref: "#/components/schemas/div"
+      CorpusSearchHTML:
         type: object
         properties: 
           query: 
             type: string
           hits: 
-            type: array
             items:          
               $ref: '#/components/schemas/corpusSearch_hits'
       corpusSearch_hits: 
