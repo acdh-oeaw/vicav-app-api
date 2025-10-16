@@ -3904,10 +3904,90 @@ paths:
                                           }
                                       ]
                                   }
-                              }
-                          ]
-                      }
-                  }
+                              },                              
+                              {
+                                  "hits": [
+                                      "URFA-107_xTok_001214"
+                                  ],
+                                  "@docRef": "URFA-107",
+                                  "@corresp": "#URFA-107_a40-audio-public #URFA-107_a40-audio-master",
+                                  "@id": "URFA-107_a40",
+                                  "u": {
+                                      "@start": "#T108",
+                                      "@end": "#T109",
+                                      "@lang": "ar-acm-x-shawi-vicav",
+                                      "@id": "URFA-107_a40_u1",
+                                      "@who": "corpus:TallXarma01",
+                                      "$$": [
+                                          {
+                                              "phr": {
+                                                  "@id": "URFA-107_xPHR_000004",
+                                                  "@lang": "ar-acm-x-shawi-vicav",
+                                                  "@lemmaRef": "dict:DShaAr.mithil_ma_000",
+                                                  "$$": [
+                                                      {
+                                                          "w": {
+                                                              "@join": "right",
+                                                              "@id": "URFA-107_xTok_001212",
+                                                              "@lemmaRef": "dict:DShaAr.mithil_00000",
+                                                              "@lang": "ar-acm-x-shawi-vicav",
+                                                              "@rendition": "rend:dashAfter",
+                                                              "$": "miṯil",
+                                                              "pos": "preposition",
+                                                              "synRoot": "mṯl",
+                                                              "diaRoot": "mṯl"
+                                                          }
+                                                      },
+                                                      {
+                                                          "w": {
+                                                              "@id": "URFA-107_xTok_001214",
+                                                              "@lemmaRef": "dict:DShaAr.ma_000",
+                                                              "@lang": "ar-acm-x-shawi-vicav",
+                                                              "$": "ma",
+                                                              "pos": "complementizerParticle",
+                                                              "synRoot": "mʔ",
+                                                              "diaRoot": "mʔ"
+                                                          }
+                                                      }
+                                                  ],
+                                                  "pos": "conjunction",
+                                                  "synRoot": "mṯl",
+                                                  "diaRoot": "mṯl"
+                                              }
+                                          },
+                                          {
+                                              "w": {
+                                                  "@join": "right",
+                                                  "@id": "URFA-107_xTok_001215",
+                                                  "@rendition": "rend:dashAfter",
+                                                  "@lang": "ar-acm-x-shawi-vicav",
+                                                  "@msd": "ipfv.2.sg.m.",
+                                                  "@lemmaRef": "dict:DShaAr.soolaf_00000",
+                                                  "$": "tisōlaf",
+                                                  "pos": "verb",
+                                                  "derivedVerbClass": "IIIō",
+                                                  "synRoot": "slf",
+                                                  "diaRoot": "slf"
+                                              }
+                                          },
+                                          {
+                                              "w": {
+                                                  "@id": "URFA-107_xTok_001217",
+                                                  "@msd": "1.pl.",
+                                                  "@lemmaRef": "dict:DShaAr.na_001",
+                                                  "@lang": "ar-acm-x-shawi-vicav",
+                                                  "$": "ne",
+                                                  "pos": "pronounSuffix",
+                                                  "number": "plural",
+                                                  "person": "1"
+                                              }
+                                          }
+                                      ]
+                                   }
+                                }
+                            ]
+                        }
+                    }
                 corpus_search_json_html:
                   summary: 'Corpus search results as HTML'
                   value:
@@ -4874,6 +4954,8 @@ components:
             $ref: "#/components/schemas/pc"
           gap:
             $ref: "#/components/schemas/gap"
+          phr:
+            $ref: "#/components/schemas/phr"
     w:
       type: object
       properties:
@@ -5023,6 +5105,53 @@ components:
       additionalProperties: false
       required:
         - '@rendition'
+    phr:
+      type: object
+      properties:
+        '@lang':
+          type: string
+          enum:
+            - ar-acm-x-shawi-vicav
+        '@lemmaRef':
+          type: string
+          format: uri
+          examples:
+            - dict:DShaAr.b_nooba_00000
+            - dict:DShaAr.cugub_mi_001
+          pattern: "^dict:"
+        '@msd':
+          type: string
+          enum:
+            - coll.
+        synRoot:
+          type: string
+          examples:
+            - ʔwl fʔl
+            - ʕgb
+        diaRoot:
+          type: string
+          examples:
+            - b nwb
+            - ḥfẓ mlk
+        $$:
+          $ref: "#/components/schemas/mixed_utterance_content"
+        '@id':
+          type: string
+          examples:
+            - URFA-029_xPHR_000003
+            - Urfa-355_xPHR_000005
+        pos:
+          type: string
+          enum:
+            - adverb
+            - conjunction
+            - noun
+            - preposition
+            - verb
+      additionalProperties: false
+      required:
+        - $$
+        - '@id'
     Translation_spanGrp:
       type: object
       properties:
