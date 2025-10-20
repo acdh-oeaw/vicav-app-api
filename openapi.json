@@ -5708,6 +5708,30 @@
         ],
         "title": "XmlTextNode"
       },
+      "XmlLangTextNode": {
+        "allOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": null,
+            "@lang": {
+              "type": "string",
+              "examples": [
+                "ar-arz-x-cairo-vicav",
+                "de",
+                "en",
+                "ar"
+              ]
+            }
+          },
+          {
+            "$ref": "#/components/schemas/XmlTextNode"
+          }
+        ],
+        "required": [
+          "@lang"
+        ]
+      },
       "XmlMixedContent": {
         "type": "array",
         "items": {
@@ -5776,7 +5800,14 @@
           "biblStructs": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/BiblStruct"
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/BiblStruct"
+                },
+                {
+                  "$ref": "#/components/schemas/Bibl"
+                }
+              ]
             }
           }
         },
@@ -5829,6 +5860,63 @@
           "monogr"
         ],
         "title": "BiblStruct"
+      },
+      "Bibl": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "@id",
+          "title",
+          "biblScope"
+        ],
+        "properties": {
+          "biblScope": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@unit",
+              "$"
+            ],
+            "properties": {
+              "$": {
+                "type": "string",
+                "examples": [
+                  "p.165",
+                  "p.363"
+                ]
+              },
+              "@unit": {
+                "type": "string",
+                "examples": [
+                  "page"
+                ]
+              }
+            }
+          },
+          "title": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@ref"
+            ],
+            "properties": {
+              "@ref": {
+                "type": "string",
+                "examples": [
+                  "zot:Bettini2006",
+                  "zot:Lentin2013"
+                ]
+              }
+            }
+          },
+          "@id": {
+            "type": "string",
+            "examples": [
+              "d1e290015",
+              "d1e361788"
+            ]
+          }
+        }
       },
       "Analytic": {
         "type": "object",
@@ -6776,6 +6864,12 @@
                 "properties": {
                   "@target": {
                     "type": "string"
+                  },
+                  "@type": {
+                    "type": "string",
+                    "examples": [
+                      "example"
+                    ]
                   }
                 },
                 "additionalProperties": false
@@ -7281,13 +7375,27 @@
             "type": "string",
             "enum": [
               "entry",
-              "cit"
+              "example",
+              "header"
             ],
             "description": "One of 'entry', 'cit', ..."
           },
           "entry": {
-            "type": "string",
-            "description": "Either the source XML of the entry or rendered as HTML on the server"
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/DictEntry"
+              },
+              {
+                "$ref": "#/components/schemas/DictExample"
+              },
+              {
+                "$ref": "#/components/schemas/DictHeader"
+              },
+              {
+                "type": "string",
+                "description": "Either the source XML of the entry or rendered as HTML on the server"
+              }
+            ]
           },
           "storedEntryMd5": {
             "type": "string"
@@ -7298,6 +7406,1281 @@
           "took": {
             "type": "string",
             "example": "23.83"
+          }
+        }
+      },
+      "DictEntry": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "@lang",
+          "features",
+          "gramGrp",
+          "lemma_form",
+          "@id"
+        ],
+        "properties": {
+          "@lang": {
+            "type": "string",
+            "examples": [
+              "ar-acm-x-shawi-vicav"
+            ]
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DictChange"
+            }
+          },
+          "feature": {
+            "$ref": "#/components/schemas/DictChange"
+          },
+          "ref": {
+            "$ref": "#/components/schemas/ref"
+          },
+          "gramGrp": {
+            "$ref": "#/components/schemas/gramGrp"
+          },
+          "multiWordUnit_form": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@type"
+            ],
+            "properties": {
+              "orths": {
+                "type": "array",
+                "minItems": 2,
+                "prefixItems": [
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "@lang",
+                      "$"
+                    ],
+                    "properties": {
+                      "@lang": {
+                        "type": "string",
+                        "examples": [
+                          "ar-arz-x-cairo-vicav"
+                        ]
+                      },
+                      "$": {
+                        "type": "string",
+                        "examples": [
+                          "baʕdᴵ bukṛa",
+                          "baʕdᴵ ma"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "@lang"
+                    ],
+                    "properties": {
+                      "@lang": {
+                        "type": "string",
+                        "examples": [
+                          "ar"
+                        ]
+                      },
+                      "$": {
+                        "type": "string",
+                        "examples": [
+                          "بعد بكرة",
+                          "بعد ما"
+                        ]
+                      }
+                    }
+                  }
+                ],
+                "items": false
+              },
+              "orth": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "@lang",
+                  "$"
+                ],
+                "properties": {
+                  "@lang": {
+                    "type": "string",
+                    "examples": [
+                      "ar-arz-x-cairo-vicav"
+                    ]
+                  },
+                  "$": {
+                    "type": "string",
+                    "examples": [
+                      "ahammᴵ ḥāga",
+                      "badla rasmiyya"
+                    ]
+                  }
+                }
+              },
+              "@type": {
+                "type": "string",
+                "enum": [
+                  "multiWordUnit"
+                ]
+              }
+            }
+          },
+          "workflow_note": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@type",
+              "$"
+            ],
+            "properties": {
+              "@type": {
+                "type": "string",
+                "enum": [
+                  "workflow"
+                ]
+              },
+              "$": {
+                "type": "string",
+                "examples": [
+                  "addedByaozan"
+                ]
+              }
+            }
+          },
+          "note": {
+            "$ref": "#/components/schemas/XmlTextNode"
+          },
+          "example_cit": {
+            "$ref": "#/components/schemas/DictExample"
+          },
+          "example_cits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DictExample"
+            }
+          },
+          "def": {
+            "$ref": "#/components/schemas/XmlLangTextNode"
+          },
+          "defs": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "$ref": "#/components/schemas/XmlLangTextNode"
+            }
+          },
+          "translation_cit": {
+            "$ref": "#/components/schemas/translation_cit"
+          },
+          "translation_cits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/translation_cit"
+            }
+          },
+          "translationEquivalent_cit": {
+            "$ref": "#/components/schemas/translatationEquivalent_cit"
+          },
+          "translationEquivalent_cits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/translatationEquivalent_cit"
+            }
+          },
+          "lemma_form": {
+            "$ref": "#/components/schemas/lemma_form"
+          },
+          "lemmaVariant_forms": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/lemmaVariant_form"
+            }
+          },
+          "lemmaVariant_form": {
+            "$ref": "#/components/schemas/lemmaVariant_form"
+          },
+          "inflected_forms": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "$ref": "#/components/schemas/inflected_form"
+            }
+          },
+          "inflected_form": {
+            "$ref": "#/components/schemas/inflected_form"
+          },
+          "usgs": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "$ref": "#/components/schemas/XmlLangTextNode"
+            }
+          },
+          "geographic_usg": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@type"
+            ],
+            "properties": {
+              "@type": {
+                "type": "string",
+                "enum": [
+                  "geographic"
+                ]
+              },
+              "tribe_name": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "@type",
+                  "$"
+                ],
+                "properties": {
+                  "@type": {
+                    "type": "string",
+                    "enum": [
+                      "tribe"
+                    ]
+                  },
+                  "$": {
+                    "type": "string",
+                    "examples": [
+                      "Jbur"
+                    ]
+                  }
+                }
+              },
+              "place_name": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "@type",
+                  "$"
+                ],
+                "properties": {
+                  "@type": {
+                    "type": "string",
+                    "enum": [
+                      "place"
+                    ]
+                  },
+                  "$": {
+                    "type": "string",
+                    "examples": [
+                      "Harran-Urfa",
+                      "Jbur",
+                      "Mayadin"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "etym": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "lang": {
+              "$ref": "#/components/schemas/lang"
+            },
+            "mentioned": {
+              "$ref": "#/components/schemas/mentioned"
+            },
+            "$$": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/XmlTextNode"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "lang"
+                    ],
+                    "properties": {
+                      "lang": {
+                        "$ref": "#/components/schemas/lang"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "mentioned"
+                    ],
+                    "properties": {
+                      "mentioned": {
+                        "$ref": "#/components/schemas/mentioned"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "dom_usg": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@type",
+              "$"
+            ],
+            "properties": {
+              "@type": {
+                "type": "string",
+                "enum": [
+                  "dom"
+                ]
+              },
+              "$": {
+                "type": "string",
+                "examples": [
+                  "clothes",
+                  "colour",
+                  "country",
+                  "food",
+                  "profession",
+                  "religion",
+                  "tech",
+                  "zoology"
+                ]
+              }
+            }
+          }
+        },
+        "listBibl": {
+          "$ref": "#/components/schemas/ListBibl"
+        },
+        "@id": {
+          "type": "string",
+          "examples": [
+            "DShaAr.s_ak_000_0",
+            "DShaAr.s_harran_ovasi_00000_0"
+          ]
+        }
+      },
+      "gramGrp": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "gram": {
+            "$ref": "#/components/schemas/XmlLangTextNode"
+          },
+          "root_gram": {
+            "allOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "@type"
+                ],
+                "properties": {
+                  "@type": {
+                    "type": "string",
+                    "enum": [
+                      "root"
+                    ]
+                  }
+                }
+              },
+              {
+                "$ref": "#/components/schemas/XmlLangTextNode"
+              }
+            ]
+          },
+          "root_grams": {
+            "type": "array",
+            "items": null,
+            "allOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "@type"
+                ],
+                "properties": {
+                  "@type": {
+                    "type": "string",
+                    "enum": [
+                      "root"
+                    ]
+                  }
+                }
+              },
+              {
+                "$ref": "#/components/schemas/XmlLangTextNode"
+              }
+            ]
+          },
+          "roots_gram": {
+            "allOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "@type"
+                ],
+                "properties": {
+                  "@type": {
+                    "type": "string",
+                    "enum": [
+                      "roots"
+                    ]
+                  }
+                }
+              },
+              {
+                "$ref": "#/components/schemas/XmlLangTextNode"
+              }
+            ]
+          },
+          "number_gram": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@type",
+              "$"
+            ],
+            "properties": {
+              "@type": {
+                "type": "string",
+                "enum": [
+                  "number"
+                ]
+              },
+              "$": {
+                "type": "string",
+                "examples": [
+                  "singular"
+                ]
+              }
+            }
+          },
+          "pos_gram": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@type",
+              "$"
+            ],
+            "properties": {
+              "@type": {
+                "type": "string",
+                "enum": [
+                  "pos"
+                ]
+              },
+              "$": {
+                "type": "string",
+                "examples": [
+                  "adjective",
+                  "adverb",
+                  "collectiveNoun",
+                  "noun",
+                  "preposition",
+                  "properNoun",
+                  "verb",
+                  "pronounSuffix",
+                  "toponym"
+                ]
+              }
+            }
+          },
+          "person_gram": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@type",
+              "$"
+            ],
+            "properties": {
+              "@type": {
+                "type": "string",
+                "enum": [
+                  "person"
+                ]
+              },
+              "$": {
+                "type": "string",
+                "examples": [
+                  "2"
+                ]
+              }
+            }
+          },
+          "subc_gram": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@type",
+              "$"
+            ],
+            "properties": {
+              "@type": {
+                "type": "string",
+                "enum": [
+                  "subc"
+                ]
+              },
+              "$": {
+                "type": "string",
+                "examples": [
+                  "I",
+                  "II",
+                  "IV",
+                  "collectiveNoun",
+                  "invariable"
+                ]
+              }
+            }
+          },
+          "diaRoot_gram": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@type",
+              "@lang"
+            ],
+            "properties": {
+              "@lang": {
+                "type": "string",
+                "examples": [
+                  "ar"
+                ]
+              },
+              "@type": {
+                "type": "string",
+                "enum": [
+                  "diaRoot"
+                ]
+              },
+              "$": {
+                "type": "string",
+                "examples": [
+                  "frns",
+                  "mʔ",
+                  "swry"
+                ]
+              }
+            }
+          },
+          "gender_gram": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@type",
+              "$"
+            ],
+            "properties": {
+              "@type": {
+                "type": "string",
+                "enum": [
+                  "gender"
+                ]
+              },
+              "$": {
+                "type": "string",
+                "enum": [
+                  "feminine",
+                  "masculine"
+                ]
+              }
+            }
+          },
+          "inflectionType_gram": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@type",
+              "$"
+            ],
+            "properties": {
+              "@type": {
+                "type": "string",
+                "enum": [
+                  "inflectionType"
+                ]
+              },
+              "$": {
+                "type": "string",
+                "examples": [
+                  "I"
+                ]
+              }
+            }
+          },
+          "morphPattern_gram": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@type",
+              "@lang"
+            ],
+            "properties": {
+              "@lang": {
+                "type": "string",
+                "examples": [
+                  "ar-acm-x-shawi-vicav"
+                ]
+              },
+              "@type": {
+                "type": "string",
+                "enum": [
+                  "morphPattern"
+                ]
+              },
+              "$": {
+                "type": "string",
+                "examples": [
+                  "12a34a",
+                  "1a23a",
+                  "1i23ā4ī5"
+                ]
+              }
+            }
+          },
+          "usg_gram": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@type",
+              "$"
+            ],
+            "properties": {
+              "@type": {
+                "type": "string",
+                "enum": [
+                  "usg"
+                ]
+              },
+              "$": {
+                "type": "string",
+                "examples": [
+                  "only in phrases taken from Classical Arabic"
+                ]
+              }
+            }
+          },
+          "synRoot_gram": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@type",
+              "@lang"
+            ],
+            "properties": {
+              "@lang": {
+                "type": "string",
+                "examples": [
+                  "ar-acm-x-shawi-vicav"
+                ]
+              },
+              "@type": {
+                "type": "string",
+                "enum": [
+                  "synRoot"
+                ]
+              },
+              "$": {
+                "type": "string",
+                "examples": [
+                  "mʔ",
+                  "swry",
+                  "ḥrw"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "lemmaVariant_form": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "@type",
+          "orth"
+        ],
+        "properties": {
+          "@type": {
+            "type": "string",
+            "enum": [
+              "lemmaVariant"
+            ]
+          },
+          "orth": {
+            "$ref": "#/components/schemas/XmlLangTextNode"
+          },
+          "orths": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "$ref": "#/components/schemas/XmlLangTextNode"
+            }
+          },
+          "reg_usg": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@type",
+              "$"
+            ],
+            "properties": {
+              "@type": {
+                "type": "string",
+                "enum": [
+                  "reg"
+                ]
+              },
+              "$": {
+                "type": "string",
+                "examples": [
+                  "formal"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "inflected_form": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "@type"
+        ],
+        "properties": {
+          "orth": "#/components/schemas/XmlLangTextNode",
+          "orths": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "$ref": "#/components/schemas/XmlLangTextNode"
+            }
+          },
+          "@type": {
+            "type": "string",
+            "enum": [
+              "inflected"
+            ]
+          },
+          "reg_usg": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@type",
+              "$"
+            ],
+            "properties": {
+              "@type": {
+                "type": "string",
+                "enum": [
+                  "reg"
+                ]
+              },
+              "$": {
+                "type": "string",
+                "examples": [
+                  "high",
+                  "low"
+                ]
+              }
+            }
+          },
+          "@ana": {
+            "type": "string",
+            "examples": [
+              "#adj_elative",
+              "#adj_f",
+              "#v_pp"
+            ],
+            "pattern": "^#"
+          },
+          "geographic_usg": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@type",
+              "place_name"
+            ],
+            "properties": {
+              "@type": {
+                "type": "string",
+                "enum": [
+                  "geographic"
+                ]
+              },
+              "place_name": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "@type",
+                  "$"
+                ],
+                "properties": {
+                  "@type": {
+                    "type": "string",
+                    "enum": [
+                      "place"
+                    ]
+                  },
+                  "$": {
+                    "type": "string",
+                    "examples": [
+                      "Harran-Urfa"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "gramGrp": {
+            "$ref": "#/components/schemas/gramGrp"
+          }
+        }
+      },
+      "lang": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "$"
+        ],
+        "properties": {
+          "$": {
+            "type": "string",
+            "examples": [
+              "English",
+              "French",
+              "Turkish"
+            ]
+          }
+        }
+      },
+      "mentioned": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "$"
+        ],
+        "properties": {
+          "$": {
+            "type": "string",
+            "examples": [
+              "abat-jour",
+              "bacteria",
+              "bakrač",
+              "passeport"
+            ]
+          }
+        }
+      },
+      "lemma_form": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "@type"
+        ],
+        "properties": {
+          "@type": {
+            "type": "string",
+            "enum": [
+              "lemma"
+            ]
+          },
+          "@subtype": {
+            "type": "string",
+            "examples": [
+              "compound"
+            ]
+          },
+          "@lang": {
+            "type": "string",
+            "examples": [
+              "ar-acm-x-shawi-vicav"
+            ]
+          },
+          "orth": {
+            "$ref": "#/components/schemas/XmlTextNode"
+          },
+          "orths": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XmlLangTextNode"
+            }
+          },
+          "variant_form": {
+            "$ref": "#/components/schemas/variant_form"
+          },
+          "variant_forms": {
+            "minItems": 2,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/variant_form"
+            }
+          },
+          "geographic_usg": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@type",
+              "place_name"
+            ],
+            "properties": {
+              "@type": {
+                "type": "string",
+                "enum": [
+                  "geographic"
+                ]
+              },
+              "place_name": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "@type",
+                  "$"
+                ],
+                "properties": {
+                  "@type": {
+                    "type": "string",
+                    "enum": [
+                      "place"
+                    ]
+                  },
+                  "$": {
+                    "type": "string",
+                    "examples": [
+                      "Harran-Urfa"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "gramGrp": {
+            "$ref": "#/components/schemas/gramGrp"
+          },
+          "workflow_note": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@type",
+              "$"
+            ],
+            "properties": {
+              "@type": {
+                "type": "string",
+                "enum": [
+                  "workflow"
+                ]
+              },
+              "$": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "variant_form": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "@type",
+          "geographic_usg",
+          "orth"
+        ],
+        "properties": {
+          "orth": {
+            "$ref": "#/components/schemas/XmlTextNode"
+          },
+          "orths": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XmlLangTextNode"
+            }
+          },
+          "@type": {
+            "type": "string",
+            "enum": [
+              "variant"
+            ]
+          },
+          "geographic_usg": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@type",
+              "place_name"
+            ],
+            "properties": {
+              "@type": {
+                "type": "string",
+                "enum": [
+                  "geographic"
+                ]
+              },
+              "place_name": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "@type",
+                  "$"
+                ],
+                "properties": {
+                  "@type": {
+                    "type": "string",
+                    "enum": [
+                      "place"
+                    ]
+                  },
+                  "$": {
+                    "type": "string",
+                    "examples": [
+                      "Harran-Urfa"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "gramGrp": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "constraint_gram"
+            ],
+            "properties": {
+              "constraint_gram": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "@type",
+                  "$"
+                ],
+                "properties": {
+                  "@type": {
+                    "type": "string",
+                    "enum": [
+                      "constraint"
+                    ]
+                  },
+                  "$": {
+                    "type": "string",
+                    "examples": [
+                      "after verb"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "translation_cit": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "@type",
+          "@lang",
+          "quote"
+        ],
+        "properties": {
+          "@lang": {
+            "type": "string",
+            "examples": [
+              "en"
+            ]
+          },
+          "quote": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "$"
+            ],
+            "properties": {
+              "$": {
+                "type": "string",
+                "examples": [
+                  "Ahmad is still in hospital.",
+                  "As for his friend, he is a doctor.",
+                  "This is unacceptable."
+                ]
+              }
+            }
+          },
+          "@type": {
+            "type": "string",
+            "enum": [
+              "translation"
+            ]
+          }
+        }
+      },
+      "translatationEquivalent_cit": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "@type",
+          "@lang",
+          "form"
+        ],
+        "properties": {
+          "@lang": {
+            "type": "string",
+            "enum": [
+              "de",
+              "en",
+              "tr",
+              "fr"
+            ]
+          },
+          "@type": {
+            "type": "string",
+            "enum": [
+              "translationEquivalent"
+            ]
+          },
+          "form": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "orth"
+            ],
+            "properties": {
+              "orth": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "$"
+                ],
+                "properties": {
+                  "$": {
+                    "type": "string",
+                    "examples": [
+                      "Ebene von Harran",
+                      "Plain of Harran",
+                      "dich",
+                      "seni",
+                      "your"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "DictChange": {
+        "type": "object",
+        "properties": {
+          "change": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "who",
+              "when"
+            ],
+            "properties": {
+              "who": {
+                "type": "string",
+                "examples": [
+                  "StephanP"
+                ]
+              },
+              "when": {
+                "type": "string",
+                "examples": [
+                  "2024-04-02"
+                ],
+                "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\d$"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "released"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "DictExample": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "quote",
+          "@type",
+          "@id"
+        ],
+        "properties": {
+          "feature": {
+            "$ref": "#/components/schemas/DictChange"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DictChange"
+            }
+          },
+          "translation_cits": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "$ref": "#/components/schemas/translation_cit"
+            }
+          },
+          "quote": {
+            "$ref": "#/components/schemas/XmlLangTextNode"
+          },
+          "@vutlsk": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string",
+            "enum": [
+              "example"
+            ]
+          },
+          "@subtype": {
+            "type": "string",
+            "examples": [
+              "proverb"
+            ]
+          },
+          "translation_cit": {
+            "$ref": "#/components/schemas/translation_cit"
+          },
+          "@id": {
+            "type": "string",
+            "examples": [
+              "ahmad_lissa_fi_l_001",
+              "bacdi_ma_saab_001"
+            ]
+          }
+        }
+      },
+      "DictHeader": {
+        "type": "object",
+        "properties": {
+          "revisionDesc": {
+            "type": "object"
+          },
+          "fileDesc": {
+            "type": "object"
+          },
+          "@id": {
+            "type": "string",
+            "enum": [
+              "dictHeader"
+            ]
           }
         }
       },
