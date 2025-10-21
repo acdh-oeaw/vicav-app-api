@@ -2659,7 +2659,8 @@ paths:
               schema:
                 nullable: true
                 type: string
-                xml: div
+                xml:
+                 name: div
               examples:
                 html:
                   summary: A sample HTML response
@@ -3035,8 +3036,6 @@ paths:
                 xml:
                   name: rs
                   wrapped: false
-                items:
-                  type: object
               examples:
                 xml:
                   summary: A list of geo markers
@@ -3261,8 +3260,6 @@ paths:
                 xml:
                   name: rs
                   wrapped: false
-                items:
-                  type: object
               examples:
                 xml:
                   summary: a list of geo markers
@@ -3365,8 +3362,6 @@ paths:
                 xml:
                   name: rs
                   wrapped: false
-                items:
-                  type: object
               examples:
                 xml:
                   summary: A list of geo markers
@@ -4016,9 +4011,9 @@ paths:
                             "URFA-011_xTok_001008"
                           ],
                           "content":{
-                            "left":"<span class=\"w\" id=\"URFA-011_xTok_000038\">u<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-011_xTok_000040\">al<\/span><span>-<\/span><span class=\"w\" id=\"URFA-011_xTok_000042\">xōǧe<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\" id=\"URFA-011_xTok_000043\">yqassl<\/span><span>-<\/span><span class=\"w\" id=\"URFA-011_xTok_000045\">u<\/span><span xml:space=\"preserve\"> <\/span>",
-                            "kwic":"<span class=\"w\" id=\"URFA-011_xTok_000047\">w<\/span><span>-<\/span>",
-                            "right":"<span class=\"w\">yǧībūn<\/span><span>-<\/span><span class=\"w\">u<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">hēne<\/span><span xml:space=\"preserve\"> <\/span><span class=\"w\">yčaffnūn<\/span><span>-<\/span><span class=\"w\">u<\/span><span xml:space=\"preserve\"> <\/span>"
+                            "left":"<span class=\"w\" id=\"URFA-011_xTok_000038\">u</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000040\">al</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000042\">xōǧe</span><span xml:space=\"preserve\"> </span><span class=\"w\" id=\"URFA-011_xTok_000043\">yqassl</span><span>-</span><span class=\"w\" id=\"URFA-011_xTok_000045\">u</span><span xml:space=\"preserve\"> </span>",
+                            "kwic":"<span class=\"w\" id=\"URFA-011_xTok_000047\">w</span><span>-</span>",
+                            "right":"<span class=\"w\">yǧībūn</span><span>-</span><span class=\"w\">u</span><span xml:space=\"preserve\"> </span><span class=\"w\">hēne</span><span xml:space=\"preserve\"> </span><span class=\"w\">yčaffnūn</span><span>-</span><span class=\"w\">u</span><span xml:space=\"preserve\"> </span>"
                           }
                         }
                       ]
@@ -4855,7 +4850,6 @@ components:
               type: array
               items:
                 $ref: "#/components/schemas/prefixDef"
-              additionalProperties: false
             standOff:
               type: string
             divs:
@@ -5479,10 +5473,12 @@ components:
       properties:
         endpoint:
           type: string
-          example: bibl_markers_tei
+          examples:
+            - bibl_markers_tei
         queryString:
           type: string
-          example: ".*"
+          examples:
+            - ".*"
         queryParams: 
           type: object
           properties: 
@@ -5506,7 +5502,7 @@ components:
               - reg
               - geo
               - diaGroup
-          example:
+          examples:
             - reg
             - geo
       required:
@@ -5517,10 +5513,12 @@ components:
       properties:
         textId:
           type: string
-          exmaple: "vicavMission"
+          exmaples:
+           - "vicavMission"
         teiSource:
           type: string
-          example: "https://github.com"
+          examples:
+           - "https://github.com"
       required:
        - textId
     main_items_type:
@@ -6196,12 +6194,12 @@ components:
           type: string
         FeatureValues:
           type: object
-        additionalProperties: false
-        properties:
-            FeatureValueReference:
-              type: string
-            FeatureValuesObservations:
-              $ref: '#/components/schemas/FeatureValuesObservation'
+          additionalProperties: false
+          properties:
+              FeatureValueReference:
+                type: string
+              FeatureValuesObservations:
+                $ref: '#/components/schemas/FeatureValuesObservation'
     FeatureValuesObservation:
       type: object
       required:
@@ -6215,12 +6213,12 @@ components:
           type: array
           items:
             type: object
-          additionalProperties: false
-          properties:
-              PersonGroupType:
-                type: string
-              PersonGroupReference:
-                type: string
+            additionalProperties: false
+            properties:
+                PersonGroupType:
+                  type: string
+                PersonGroupReference:
+                  type: string
         source_representations:
           type: array
           items:
@@ -6261,8 +6259,8 @@ components:
           type: array
           items:
             type: object
-          additionalProperties: false
-          properties:
+            additionalProperties: false
+            properties:
               Reference:
                 type: string
               Heading:
@@ -6408,21 +6406,17 @@ components:
            $ref: '#/components/schemas/XmlTextNode'
        additionalProperties: false
     ref:
-       type: object
-       properties:
-         ref:
-           allOff:
-            - $ref: '#/components/schemas/XmlTextNode'
-            - type: object
-              properties:
-                 '@target':
-                   type: string
-                 '@type':
-                   type: string
-                   examples:
-                     - example
-              additionalProperties: false
-       additionalProperties: false
+      allOff:
+      - $ref: '#/components/schemas/XmlTextNode'
+      - type: object
+        properties:
+            '@target':
+              type: string
+            '@type':
+              type: string
+              examples:
+                - example
+        additionalProperties: false
     RFC7807Problem:
       title: A RFC 7807 problem report
       type: object
@@ -6455,8 +6449,8 @@ components:
       xml:
         name: 'problem'
         namespace: 'urn:ietf:rfc:7807'      
-      example:
-        {
+      examples:
+      - {
           "type": "https://tools.ietf.org/html/rfc7231#section-6",
           "title": "Not Found",
           "detail": "",
@@ -6498,7 +6492,8 @@ components:
       properties:
         _links:
           $ref: '#/components/schemas/HALLinks'
-          example: {
+          examples:
+          - {
             "self": {
               "href": "/restvle/?pageSize=1"
             },
@@ -6521,12 +6516,12 @@ components:
                required:
                  - note
                  - _links
-               items:
+               properties:
                  note:
                    type: string
                  _links:
                    $ref: '#/components/schemas/HALLinks'
-             example: [
+             examples: [
                 {
                   "note": "all dictionaries",
                   "_links": {
@@ -6538,19 +6533,24 @@ components:
               ]
         page_count:
           type: string
-          example: "1"
+          examples:
+            - "1"
         page_size:
           type: string
-          example:  "10"
+          examples:
+            - "10"
         total_items:
           type: string
-          example:  "1"
+          examples:
+            - "1"
         page:
           type: string
-          example:  "1"
+          examples:
+            - "1"
         took:
           type: string
-          example: "0.46"
+          examples:
+            - "0.46"
     RestVLEDicts:
       required:
         - _links
@@ -6563,7 +6563,8 @@ components:
       properties:
         _links:
           $ref: '#/components/schemas/HALLinks'
-          example: {
+          examples:
+          - {
             "self": {
               "href": "/restvle/?pageSize=1"
             },
@@ -6586,12 +6587,13 @@ components:
                required:
                  - name
                  - _links
-               items:
+               properties:
                  name:
                    type: string
                  _links:
                    $ref: '#/components/schemas/HALLinks'
-             example: [
+             examples:
+             - [
                 {
                   "name": "dc_apc_eng_publ",
                   "_links": {
@@ -6603,19 +6605,24 @@ components:
               ]
         page_count:
           type: string
-          example: "1"
+          examples:
+            - "1"
         page_size:
           type: string
-          example:  "10"
+          examples:
+            - "10"
         total_items:
           type: string
-          example:  "1"
+          examples:
+            - "1"
         page:
           type: string
-          example:  "1"
+          examples:
+            - "1"
         took:
           type: string
-          example: "0.46"
+          examples:
+            - "0.46"
     RestVLEDictInfo:
       required:
         - _links
@@ -6628,7 +6635,8 @@ components:
       properties:
         _links:
           $ref: '#/components/schemas/HALLinks'
-          example: {
+          examples: 
+          - {
             "self": {
               "href": "/restvle/?pageSize=1"
             },
@@ -6667,7 +6675,8 @@ components:
                    type: array
                    items:
                      type: string
-             example: [
+             examples: 
+             - [
                 {
                   "note": "all entries",
                   "queryTemplates": [
@@ -6701,7 +6710,7 @@ components:
                     "value": "Ô"
                     },
                     {
-                      "text":"<sup>q<\/sup>",
+                      "text":"<sup>q</sup>",
                       "value":"Q"
                     }
                   ],
@@ -6725,19 +6734,24 @@ components:
               ]
         page_count:
           type: string
-          example: "1"
-        page_size:
+          examples:
+            - "1"
+        page_sizes:
           type: string
-          example:  "10"
+          examples:
+            - "10"
         total_items:
           type: string
-          example:  "1"
+          examples:
+            - "1"
         page:
           type: string
-          example:  "1"
+          examples:
+            - "1"
         took:
           type: string
-          example: "0.46"
+          examples:
+            - "0.46"
     RestVLEEntries:
       required:
         - _links
@@ -6750,7 +6764,8 @@ components:
       properties:
         _links:
           $ref: '#/components/schemas/HALLinks'
-          example: {
+          examples:
+          - {
             "self": {
               "href": "/restvle/?pageSize=1"
             },
@@ -6772,19 +6787,24 @@ components:
                $ref: '#/components/schemas/RestVLEEntry'
         page_count:
           type: string
-          example: "1"
+          examples:
+            - "1"
         page_size:
           type: string
-          example:  "10"
+          examples:
+            - "10"
         total_items:
           type: string
-          example:  "1"
+          examples:
+            - "1"
         page:
           type: string
-          example:  "1"
+          examples:
+            - "1"
         took:
           type: string
-          example: "0.46"
+          examples:
+            - "0.46"
     SearchTags:
       type: array
       items:
@@ -6831,7 +6851,8 @@ components:
           $ref: '#/components/schemas/HALLinks'
         took:
           type: string
-          example: "23.83"
+          examples:
+            - "23.83"
     DictEntry:
       type: object
       additionalProperties: false
@@ -7674,8 +7695,8 @@ components:
           text:
             type: string
             description: Optionally a character or an HTML snipet that should be displayed on the button.
-      example:
-        [
+      examples:
+      - [
           {
             "value":"ö"
           },
@@ -7686,4 +7707,3 @@ components:
         ] 
 security:
   - basicAuth: []
-

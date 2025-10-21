@@ -2495,7 +2495,9 @@
                 "schema": {
                   "nullable": true,
                   "type": "string",
-                  "xml": "div"
+                  "xml": {
+                    "name": "div"
+                  }
                 },
                 "examples": {
                   "html": {
@@ -2837,9 +2839,6 @@
                   "xml": {
                     "name": "rs",
                     "wrapped": false
-                  },
-                  "items": {
-                    "type": "object"
                   }
                 },
                 "examples": {
@@ -3129,9 +3128,6 @@
                   "xml": {
                     "name": "rs",
                     "wrapped": false
-                  },
-                  "items": {
-                    "type": "object"
                   }
                 },
                 "examples": {
@@ -3242,9 +3238,6 @@
                   "xml": {
                     "name": "rs",
                     "wrapped": false
-                  },
-                  "items": {
-                    "type": "object"
                   }
                 },
                 "examples": {
@@ -4590,8 +4583,7 @@
                 "type": "array",
                 "items": {
                   "$ref": "#/components/schemas/prefixDef"
-                },
-                "additionalProperties": false
+                }
               },
               "standOff": {
                 "type": "string"
@@ -5476,11 +5468,15 @@
         "properties": {
           "endpoint": {
             "type": "string",
-            "example": "bibl_markers_tei"
+            "examples": [
+              "bibl_markers_tei"
+            ]
           },
           "queryString": {
             "type": "string",
-            "example": ".*"
+            "examples": [
+              ".*"
+            ]
           },
           "queryParams": {
             "type": "object",
@@ -5515,7 +5511,7 @@
                 "diaGroup"
               ]
             },
-            "example": [
+            "examples": [
               "reg",
               "geo"
             ]
@@ -5531,11 +5527,15 @@
         "properties": {
           "textId": {
             "type": "string",
-            "exmaple": "vicavMission"
+            "exmaples": [
+              "vicavMission"
+            ]
           },
           "teiSource": {
             "type": "string",
-            "example": "https://github.com"
+            "examples": [
+              "https://github.com"
+            ]
           }
         },
         "required": [
@@ -6535,15 +6535,15 @@
             "type": "string"
           },
           "FeatureValues": {
-            "type": "object"
-          },
-          "additionalProperties": false,
-          "properties": {
-            "FeatureValueReference": {
-              "type": "string"
-            },
-            "FeatureValuesObservations": {
-              "$ref": "#/components/schemas/FeatureValuesObservation"
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "FeatureValueReference": {
+                "type": "string"
+              },
+              "FeatureValuesObservations": {
+                "$ref": "#/components/schemas/FeatureValuesObservation"
+              }
             }
           }
         }
@@ -6563,15 +6563,15 @@
           "person_groups": {
             "type": "array",
             "items": {
-              "type": "object"
-            },
-            "additionalProperties": false,
-            "properties": {
-              "PersonGroupType": {
-                "type": "string"
-              },
-              "PersonGroupReference": {
-                "type": "string"
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "PersonGroupType": {
+                  "type": "string"
+                },
+                "PersonGroupReference": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -6636,15 +6636,15 @@
           "column_headings": {
             "type": "array",
             "items": {
-              "type": "object"
-            },
-            "additionalProperties": false,
-            "properties": {
-              "Reference": {
-                "type": "string"
-              },
-              "Heading": {
-                "type": "string"
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "Reference": {
+                  "type": "string"
+                },
+                "Heading": {
+                  "type": "string"
+                }
               }
             }
           }
@@ -6847,32 +6847,26 @@
         "additionalProperties": false
       },
       "ref": {
-        "type": "object",
-        "properties": {
-          "ref": {
-            "allOff": [
-              {
-                "$ref": "#/components/schemas/XmlTextNode"
+        "allOff": [
+          {
+            "$ref": "#/components/schemas/XmlTextNode"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "@target": {
+                "type": "string"
               },
-              {
-                "type": "object",
-                "properties": {
-                  "@target": {
-                    "type": "string"
-                  },
-                  "@type": {
-                    "type": "string",
-                    "examples": [
-                      "example"
-                    ]
-                  }
-                },
-                "additionalProperties": false
+              "@type": {
+                "type": "string",
+                "examples": [
+                  "example"
+                ]
               }
-            ]
+            },
+            "additionalProperties": false
           }
-        },
-        "additionalProperties": false
+        ]
       },
       "RFC7807Problem": {
         "title": "A RFC 7807 problem report",
@@ -6918,14 +6912,16 @@
           "name": "problem",
           "namespace": "urn:ietf:rfc:7807"
         },
-        "example": {
-          "type": "https://tools.ietf.org/html/rfc7231#section-6",
-          "title": "Not Found",
-          "detail": "",
-          "instance": "https://tools.ietf.org/html/rfc7231#section-6/_404",
-          "status": "404",
-          "trace": "/app/3rd-party/vleserver_basex/vleserver/dicts.xqm, 158/8"
-        }
+        "examples": [
+          {
+            "type": "https://tools.ietf.org/html/rfc7231#section-6",
+            "title": "Not Found",
+            "detail": "",
+            "instance": "https://tools.ietf.org/html/rfc7231#section-6/_404",
+            "status": "404",
+            "trace": "/app/3rd-party/vleserver_basex/vleserver/dicts.xqm, 158/8"
+          }
+        ]
       },
       "HALhref": {
         "title": "A hyperlink reference",
@@ -6972,17 +6968,19 @@
         "properties": {
           "_links": {
             "$ref": "#/components/schemas/HALLinks",
-            "example": {
-              "self": {
-                "href": "/restvle/?pageSize=1"
-              },
-              "first": {
-                "href": "/restvle/?page=1&pageSize=1"
-              },
-              "last": {
-                "href": "/restvle/?page=1&pageSize=1"
+            "examples": [
+              {
+                "self": {
+                  "href": "/restvle/?pageSize=1"
+                },
+                "first": {
+                  "href": "/restvle/?page=1&pageSize=1"
+                },
+                "last": {
+                  "href": "/restvle/?page=1&pageSize=1"
+                }
               }
-            }
+            ]
           },
           "_embedded": {
             "type": "object",
@@ -6998,7 +6996,7 @@
                     "note",
                     "_links"
                   ],
-                  "items": {
+                  "properties": {
                     "note": {
                       "type": "string"
                     },
@@ -7007,7 +7005,7 @@
                     }
                   }
                 },
-                "example": [
+                "examples": [
                   {
                     "note": "all dictionaries",
                     "_links": {
@@ -7022,23 +7020,33 @@
           },
           "page_count": {
             "type": "string",
-            "example": "1"
+            "examples": [
+              "1"
+            ]
           },
           "page_size": {
             "type": "string",
-            "example": "10"
+            "examples": [
+              "10"
+            ]
           },
           "total_items": {
             "type": "string",
-            "example": "1"
+            "examples": [
+              "1"
+            ]
           },
           "page": {
             "type": "string",
-            "example": "1"
+            "examples": [
+              "1"
+            ]
           },
           "took": {
             "type": "string",
-            "example": "0.46"
+            "examples": [
+              "0.46"
+            ]
           }
         }
       },
@@ -7055,17 +7063,19 @@
         "properties": {
           "_links": {
             "$ref": "#/components/schemas/HALLinks",
-            "example": {
-              "self": {
-                "href": "/restvle/?pageSize=1"
-              },
-              "first": {
-                "href": "/restvle/?page=1&pageSize=1"
-              },
-              "last": {
-                "href": "/restvle/?page=1&pageSize=1"
+            "examples": [
+              {
+                "self": {
+                  "href": "/restvle/?pageSize=1"
+                },
+                "first": {
+                  "href": "/restvle/?page=1&pageSize=1"
+                },
+                "last": {
+                  "href": "/restvle/?page=1&pageSize=1"
+                }
               }
-            }
+            ]
           },
           "_embedded": {
             "type": "object",
@@ -7081,7 +7091,7 @@
                     "name",
                     "_links"
                   ],
-                  "items": {
+                  "properties": {
                     "name": {
                       "type": "string"
                     },
@@ -7090,38 +7100,50 @@
                     }
                   }
                 },
-                "example": [
-                  {
-                    "name": "dc_apc_eng_publ",
-                    "_links": {
-                      "self": {
-                        "href": "/restvle/dicts/dc_apc_eng_publ"
+                "examples": [
+                  [
+                    {
+                      "name": "dc_apc_eng_publ",
+                      "_links": {
+                        "self": {
+                          "href": "/restvle/dicts/dc_apc_eng_publ"
+                        }
                       }
                     }
-                  }
+                  ]
                 ]
               }
             }
           },
           "page_count": {
             "type": "string",
-            "example": "1"
+            "examples": [
+              "1"
+            ]
           },
           "page_size": {
             "type": "string",
-            "example": "10"
+            "examples": [
+              "10"
+            ]
           },
           "total_items": {
             "type": "string",
-            "example": "1"
+            "examples": [
+              "1"
+            ]
           },
           "page": {
             "type": "string",
-            "example": "1"
+            "examples": [
+              "1"
+            ]
           },
           "took": {
             "type": "string",
-            "example": "0.46"
+            "examples": [
+              "0.46"
+            ]
           }
         }
       },
@@ -7138,17 +7160,19 @@
         "properties": {
           "_links": {
             "$ref": "#/components/schemas/HALLinks",
-            "example": {
-              "self": {
-                "href": "/restvle/?pageSize=1"
-              },
-              "first": {
-                "href": "/restvle/?page=1&pageSize=1"
-              },
-              "last": {
-                "href": "/restvle/?page=1&pageSize=1"
+            "examples": [
+              {
+                "self": {
+                  "href": "/restvle/?pageSize=1"
+                },
+                "first": {
+                  "href": "/restvle/?page=1&pageSize=1"
+                },
+                "last": {
+                  "href": "/restvle/?page=1&pageSize=1"
+                }
               }
-            }
+            ]
           },
           "_embedded": {
             "type": "object",
@@ -7189,84 +7213,96 @@
                     }
                   }
                 },
-                "example": [
-                  {
-                    "note": "all entries",
-                    "queryTemplates": [
-                      "subc",
-                      "ft_lem",
-                      "pos_root",
-                      "sense",
-                      "ft_tr",
-                      "ft_all"
-                    ],
-                    "specialCharacters": [
-                      {
-                        "value": "§"
-                      },
-                      {
-                        "value": "°"
-                      },
-                      {
-                        "value": "´"
-                      },
-                      {
-                        "value": "½"
-                      },
-                      {
-                        "value": "Ä"
-                      },
-                      {
-                        "value": "Ç"
-                      },
-                      {
-                        "value": "Ô"
-                      },
-                      {
-                        "text": "<sup>q</sup>",
-                        "value": "Q"
+                "examples": [
+                  [
+                    {
+                      "note": "all entries",
+                      "queryTemplates": [
+                        "subc",
+                        "ft_lem",
+                        "pos_root",
+                        "sense",
+                        "ft_tr",
+                        "ft_all"
+                      ],
+                      "specialCharacters": [
+                        {
+                          "value": "§"
+                        },
+                        {
+                          "value": "°"
+                        },
+                        {
+                          "value": "´"
+                        },
+                        {
+                          "value": "½"
+                        },
+                        {
+                          "value": "Ä"
+                        },
+                        {
+                          "value": "Ç"
+                        },
+                        {
+                          "value": "Ô"
+                        },
+                        {
+                          "text": "<sup>q</sup>",
+                          "value": "Q"
+                        }
+                      ],
+                      "dbNames": [
+                        "dc_arz_eng_publ"
+                      ],
+                      "_links": {
+                        "self": {
+                          "href": "/restvle/dicts/dc_arz_eng_publ//entries"
+                        }
                       }
-                    ],
-                    "dbNames": [
-                      "dc_arz_eng_publ"
-                    ],
-                    "_links": {
-                      "self": {
-                        "href": "/restvle/dicts/dc_arz_eng_publ//entries"
+                    },
+                    {
+                      "note": "all users with access to this dictionary",
+                      "_links": {
+                        "self": {
+                          "href": "/restvle/dicts/dc_arz_eng_publ//users"
+                        }
                       }
                     }
-                  },
-                  {
-                    "note": "all users with access to this dictionary",
-                    "_links": {
-                      "self": {
-                        "href": "/restvle/dicts/dc_arz_eng_publ//users"
-                      }
-                    }
-                  }
+                  ]
                 ]
               }
             }
           },
           "page_count": {
             "type": "string",
-            "example": "1"
+            "examples": [
+              "1"
+            ]
           },
-          "page_size": {
+          "page_sizes": {
             "type": "string",
-            "example": "10"
+            "examples": [
+              "10"
+            ]
           },
           "total_items": {
             "type": "string",
-            "example": "1"
+            "examples": [
+              "1"
+            ]
           },
           "page": {
             "type": "string",
-            "example": "1"
+            "examples": [
+              "1"
+            ]
           },
           "took": {
             "type": "string",
-            "example": "0.46"
+            "examples": [
+              "0.46"
+            ]
           }
         }
       },
@@ -7283,17 +7319,19 @@
         "properties": {
           "_links": {
             "$ref": "#/components/schemas/HALLinks",
-            "example": {
-              "self": {
-                "href": "/restvle/?pageSize=1"
-              },
-              "first": {
-                "href": "/restvle/?page=1&pageSize=1"
-              },
-              "last": {
-                "href": "/restvle/?page=1&pageSize=1"
+            "examples": [
+              {
+                "self": {
+                  "href": "/restvle/?pageSize=1"
+                },
+                "first": {
+                  "href": "/restvle/?page=1&pageSize=1"
+                },
+                "last": {
+                  "href": "/restvle/?page=1&pageSize=1"
+                }
               }
-            }
+            ]
           },
           "_embedded": {
             "type": "object",
@@ -7311,23 +7349,33 @@
           },
           "page_count": {
             "type": "string",
-            "example": "1"
+            "examples": [
+              "1"
+            ]
           },
           "page_size": {
             "type": "string",
-            "example": "10"
+            "examples": [
+              "10"
+            ]
           },
           "total_items": {
             "type": "string",
-            "example": "1"
+            "examples": [
+              "1"
+            ]
           },
           "page": {
             "type": "string",
-            "example": "1"
+            "examples": [
+              "1"
+            ]
           },
           "took": {
             "type": "string",
-            "example": "0.46"
+            "examples": [
+              "0.46"
+            ]
           }
         }
       },
@@ -7400,7 +7448,9 @@
           },
           "took": {
             "type": "string",
-            "example": "23.83"
+            "examples": [
+              "23.83"
+            ]
           }
         }
       },
@@ -8636,14 +8686,16 @@
             }
           }
         },
-        "example": [
-          {
-            "value": "ö"
-          },
-          {
-            "text": "<sup>q</sup>",
-            "value": "Q"
-          }
+        "examples": [
+          [
+            {
+              "value": "ö"
+            },
+            {
+              "text": "<sup>q</sup>",
+              "value": "Q"
+            }
+          ]
         ]
       }
     }
