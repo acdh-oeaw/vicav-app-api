@@ -8159,7 +8159,9 @@
           "@type"
         ],
         "properties": {
-          "orth": "#/components/schemas/XmlLangTextNode",
+          "orth": {
+            "$ref": "#/components/schemas/XmlLangTextNode"
+          },
           "orths": {
             "type": "array",
             "minItems": 2,
