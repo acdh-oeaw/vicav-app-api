@@ -2838,27 +2838,25 @@ paths:
           description: search by speaker
           required: false
           schema:
-            type: false
-
+            type: string
         - in: query
           name: features
           description: only search specific features
           required: false
           schema:
-            type: false
+            type: string
         - in: query
           name: comment
           description: search in comment
           required: false
           schema:
-            type: false
+            type: string
         - in: query
           name: translation
-          description: only search specific features
+          description: only search in translation
           required: false
           schema:
-            type: false 
-
+            type: string
         - in: query
           name: xslt
           required: false

@@ -2547,7 +2547,7 @@
             "description": "search by speaker",
             "required": false,
             "schema": {
-              "type": false
+              "type": "string"
             }
           },
           {
@@ -2556,7 +2556,7 @@
             "description": "only search specific features",
             "required": false,
             "schema": {
-              "type": false
+              "type": "string"
             }
           },
           {
@@ -2565,16 +2565,16 @@
             "description": "search in comment",
             "required": false,
             "schema": {
-              "type": false
+              "type": "string"
             }
           },
           {
             "in": "query",
             "name": "translation",
-            "description": "only search specific features",
+            "description": "only search in translation",
             "required": false,
             "schema": {
-              "type": false
+              "type": "string"
             }
           },
           {
