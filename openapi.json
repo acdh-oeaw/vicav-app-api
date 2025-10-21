@@ -7801,27 +7801,28 @@
           },
           "root_grams": {
             "type": "array",
-            "items": null,
-            "allOf": [
-              {
-                "type": "object",
-                "additionalProperties": false,
-                "required": [
-                  "@type"
-                ],
-                "properties": {
-                  "@type": {
-                    "type": "string",
-                    "enum": [
-                      "root"
-                    ]
+            "items": {
+              "allOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "@type"
+                  ],
+                  "properties": {
+                    "@type": {
+                      "type": "string",
+                      "enum": [
+                        "root"
+                      ]
+                    }
                   }
+                },
+                {
+                  "$ref": "#/components/schemas/XmlLangTextNode"
                 }
-              },
-              {
-                "$ref": "#/components/schemas/XmlLangTextNode"
-              }
-            ]
+              ]
+            }
           },
           "roots_gram": {
             "allOf": [
