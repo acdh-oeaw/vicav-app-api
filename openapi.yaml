@@ -6867,53 +6867,10 @@ components:
             orths:
               type: array
               minItems: 2
-              prefixItems:
-                - type: object
-                  additionalProperties: false
-                  required:
-                    - '@lang'
-                    - $
-                  properties:
-                    '@lang':
-                      type: string
-                      examples:
-                        - ar-arz-x-cairo-vicav
-                    $:
-                      type: string
-                      examples:
-                        - baʕdᴵ bukṛa
-                        - baʕdᴵ ma
-                - type: object
-                  additionalProperties: false
-                  required:
-                    - '@lang'
-                  properties:
-                    '@lang':
-                      type: string
-                      examples:
-                        - ar
-                    $:
-                      type: string
-                      examples:
-                        - بعد بكرة
-                        - بعد ما
-              items: false
+              items:
+                $ref: "#/components/schemas/XmlLangTextNode"
             orth:
-              type: object
-              additionalProperties: false
-              required:
-                - '@lang'
-                - $
-              properties:
-                '@lang':
-                  type: string
-                  examples:
-                    - ar-arz-x-cairo-vicav
-                $:
-                  type: string
-                  examples:
-                    - ahammᴵ ḥāga
-                    - badla rasmiyya
+              $ref: "#/components/schemas/XmlLangTextNode"
             '@type':
               type: string
               enum:
