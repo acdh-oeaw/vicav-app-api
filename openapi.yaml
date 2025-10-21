@@ -7104,17 +7104,17 @@ components:
         root_grams:
           type: array
           items:
-          allOf:
-          - type: object
-            additionalProperties: false
-            required:
-              - '@type'
-            properties:
-              '@type':
-                type: string
-                enum:
-                  - root
-          - $ref: '#/components/schemas/XmlLangTextNode'           
+            allOf:
+            - type: object
+              additionalProperties: false
+              required:
+                - '@type'
+              properties:
+                '@type':
+                  type: string
+                  enum:
+                    - root
+            - $ref: '#/components/schemas/XmlLangTextNode'           
         roots_gram:
           allOf:
           - type: object
