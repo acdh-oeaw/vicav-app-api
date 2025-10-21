@@ -7348,7 +7348,7 @@ components:
         - '@type'
       properties:
         orth:
-          '#/components/schemas/XmlLangTextNode' 
+          $ref: '#/components/schemas/XmlLangTextNode' 
         orths:
           type: array
           minItems: 2
