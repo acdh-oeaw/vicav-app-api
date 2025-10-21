@@ -5944,7 +5944,6 @@
             }
           }
         },
-        "required": [],
         "title": "Analytic"
       },
       "Author": {
@@ -5961,7 +5960,6 @@
             "$ref": "#/components/schemas/XmlTextNode"
           }
         },
-        "required": [],
         "title": "Author"
       },
       "Title": {
@@ -5978,7 +5976,6 @@
             "$ref": "#/components/schemas/TitleType"
           }
         },
-        "required": [],
         "title": "Title"
       },
       "Monogr": {
@@ -6226,7 +6223,6 @@
             "$ref": "#/components/schemas/Div"
           }
         },
-        "required": [],
         "title": "Note"
       },
       "GeoNote": {
@@ -6353,7 +6349,6 @@
             }
           }
         },
-        "required": [],
         "title": "P"
       },
       "Series": {

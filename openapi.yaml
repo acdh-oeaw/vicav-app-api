@@ -5794,7 +5794,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Title'
-      required: []
       title: Analytic
     Author:
       type: object
@@ -5806,7 +5805,6 @@ components:
           $ref: '#/components/schemas/XmlTextNode'
         name:
           $ref: '#/components/schemas/XmlTextNode'
-      required: []
       title: Author
     Title:
       type: object
@@ -5818,7 +5816,6 @@ components:
           type: string
         '@type':
           $ref: '#/components/schemas/TitleType'
-      required: []
       title: Title
     Monogr:
       type: object
@@ -5980,7 +5977,6 @@ components:
             $ref: '#/components/schemas/Hi'
         div:
           $ref: '#/components/schemas/Div'
-      required: []
       title: Note
     GeoNote:
       type: object
@@ -6069,7 +6065,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Hi'
-      required: []
       title: P
     Series:
       type: object
