@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1761304201033
+modified: 1761315563956
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -7371,26 +7371,6 @@ contents: >-
                   enum:
                     - dom
             - $ref: '#/components/schemas/XmlLangTextNode'
-          type: object
-          additionalProperties: false
-          required:
-            - '@type'
-            - $
-          properties:
-            '@type':
-              type: string
-              examples:
-                - dom
-              minLength: 3
-              distinctValues: 1
-              maxLength: 3
-            $:
-              type: string
-              examples:
-                - food
-              minLength: 4
-              distinctValues: 1
-              maxLength: 4
           defs:
             type: array
             minItems: 2
@@ -7478,8 +7458,6 @@ contents: >-
                   additionalProperties: false
                   required:
                     - '@type'
-                    - '@lang'
-                    - $
                   properties:
                     '@type':
                       type: string
