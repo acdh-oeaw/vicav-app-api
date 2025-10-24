@@ -7577,12 +7577,12 @@
             }
           },
           "translationEquivalent_cit": {
-            "$ref": "#/components/schemas/translatationEquivalent_cit"
+            "$ref": "#/components/schemas/translationEquivalent_cit"
           },
           "translationEquivalent_cits": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/translatationEquivalent_cit"
+              "$ref": "#/components/schemas/translationEquivalent_cit"
             }
           },
           "lemma_form": {
@@ -8100,6 +8100,13 @@
       "sense": {
         "type": "object",
         "properties": {
+          "@id": {
+            "type": "string",
+            "examples": [
+              "DShaAr.s_agrac_000_0",
+              "DShaAr.s_surucj_000_0"
+            ]
+          },
           "translation_cit": {
             "$ref": "#/components/schemas/translation_cit"
           },
@@ -8107,6 +8114,15 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/translation_cit"
+            }
+          },
+          "translationEquivalent_cit": {
+            "$ref": "#/components/schemas/translationEquivalent_cit"
+          },
+          "translationEquivalent_cits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/translationEquivalent_cit"
             }
           },
           "example_cit": {
@@ -8137,7 +8153,7 @@
               }
             ]
           },
-          "prag_usgs": {
+          "prag_usg": {
             "allOf": [
               {
                 "type": "object",
@@ -8158,6 +8174,86 @@
                 "$ref": "#/components/schemas/XmlLangTextNode"
               }
             ]
+          },
+          "prag_usgs": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "@type"
+                  ],
+                  "properties": {
+                    "@type": {
+                      "type": "string",
+                      "enum": [
+                        "prag"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "$ref": "#/components/schemas/XmlLangTextNode"
+                }
+              ]
+            }
+          },
+          "dom_usg": {
+            "allOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "@type"
+                ],
+                "properties": {
+                  "@type": {
+                    "type": "string",
+                    "enum": [
+                      "dom"
+                    ]
+                  }
+                }
+              },
+              {
+                "$ref": "#/components/schemas/XmlLangTextNode"
+              }
+            ]
+          },
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "@type",
+            "$"
+          ],
+          "properties": {
+            "@type": {
+              "type": "string",
+              "examples": [
+                "dom"
+              ],
+              "minLength": 3,
+              "distinctValues": 1,
+              "maxLength": 3
+            },
+            "$": {
+              "type": "string",
+              "examples": [
+                "food"
+              ],
+              "minLength": 4,
+              "distinctValues": 1,
+              "maxLength": 4
+            }
+          },
+          "defs": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "$ref": "#/components/schemas/XmlLangTextNode"
+            }
           },
           "construction_form": {
             "type": "object",
@@ -8745,7 +8841,7 @@
           }
         }
       },
-      "translatationEquivalent_cit": {
+      "translationEquivalent_cit": {
         "type": "object",
         "additionalProperties": false,
         "required": [
