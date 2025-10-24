@@ -7551,6 +7551,7 @@
           },
           "example_cits": {
             "type": "array",
+            "minItems": 2,
             "items": {
               "$ref": "#/components/schemas/DictExample"
             }
@@ -8120,12 +8121,20 @@
           },
           "translationEquivalent_cits": {
             "type": "array",
+            "minItmes": 2,
             "items": {
               "$ref": "#/components/schemas/translationEquivalent_cit"
             }
           },
           "example_cit": {
-            "$ref": "#/components/schemas/example_cit"
+            "$ref": "#/components/schemas/DictExample"
+          },
+          "example_cits": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "$ref": "#/components/schemas/DictExample"
+            }
           },
           "usg": {
             "$ref": "#/components/schemas/XmlLangTextNode"
@@ -8866,58 +8875,6 @@
           }
         }
       },
-      "example_cit": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "quote",
-          "@type",
-          "@id"
-        ],
-        "properties": {
-          "features": {
-            "type": "array",
-            "minItems": 2,
-            "items": {
-              "$ref": "#/components/schemas/DictChange"
-            }
-          },
-          "feature": {
-            "$ref": "#/components/schemas/DictChange"
-          },
-          "translation_cit": {
-            "$ref": "#/components/schemas/translation_cit"
-          },
-          "translation_cits": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/translation_cit"
-            }
-          },
-          "quote": {
-            "$ref": "#/components/schemas/XmlLangTextNode"
-          },
-          "@type": {
-            "type": "string",
-            "enum": [
-              "example"
-            ]
-          },
-          "@subtype": {
-            "type": "string",
-            "enum": [
-              "proverb"
-            ]
-          },
-          "@id": {
-            "type": "string",
-            "examples": [
-              "biyiddan_fi_malta_001",
-              "hiyya_mish_cayza_tiruuh_001"
-            ]
-          }
-        }
-      },
       "DictChange": {
         "type": "object",
         "properties": {
@@ -8961,14 +8918,29 @@
           "@id"
         ],
         "properties": {
-          "feature": {
-            "$ref": "#/components/schemas/DictChange"
+          "@id": {
+            "type": "string",
+            "examples": [
+              "ahmad_lissa_fi_l_001",
+              "bacdi_ma_saab_001",
+              "biyiddan_fi_malta_001",
+              "hiyya_mish_cayza_tiruuh_001"
+            ]
           },
-          "features": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DictChange"
-            }
+          "@type": {
+            "type": "string",
+            "enum": [
+              "example"
+            ]
+          },
+          "@subtype": {
+            "type": "string",
+            "enum": [
+              "proverb"
+            ]
+          },
+          "translation_cit": {
+            "$ref": "#/components/schemas/translation_cit"
           },
           "translation_cits": {
             "type": "array",
@@ -8980,30 +8952,14 @@
           "quote": {
             "$ref": "#/components/schemas/XmlLangTextNode"
           },
-          "@vutlsk": {
-            "type": "string"
+          "feature": {
+            "$ref": "#/components/schemas/DictChange"
           },
-          "@type": {
-            "type": "string",
-            "enum": [
-              "example"
-            ]
-          },
-          "@subtype": {
-            "type": "string",
-            "examples": [
-              "proverb"
-            ]
-          },
-          "translation_cit": {
-            "$ref": "#/components/schemas/translation_cit"
-          },
-          "@id": {
-            "type": "string",
-            "examples": [
-              "ahmad_lissa_fi_l_001",
-              "bacdi_ma_saab_001"
-            ]
+          "features": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DictChange"
+            }
           }
         }
       },

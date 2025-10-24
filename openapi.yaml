@@ -6922,6 +6922,7 @@ components:
           $ref: '#/components/schemas/DictExample'
         example_cits:
           type: array
+          minItems: 2
           items:
              $ref: '#/components/schemas/DictExample'
         def:
@@ -7305,10 +7306,16 @@ components:
           $ref: '#/components/schemas/translationEquivalent_cit'
         translationEquivalent_cits:
           type: array
+          minItmes: 2
           items:
             $ref: '#/components/schemas/translationEquivalent_cit'
         example_cit:
-          $ref: '#/components/schemas/example_cit'
+          $ref: '#/components/schemas/DictExample'
+        example_cits:
+          type: array
+          minItems: 2
+          items:
+             $ref: '#/components/schemas/DictExample'
         usg:
           $ref: '#/components/schemas/XmlLangTextNode'
         gram_usg:
@@ -7799,43 +7806,7 @@ components:
                     - Plain of Harran
                     - dich
                     - seni
-                    - your    
-    example_cit:
-      type: object
-      additionalProperties: false
-      required:
-        - quote
-        - '@type'
-        - '@id'
-      properties:                        
-        features:
-          type: array
-          minItems: 2
-          items:
-            $ref: '#/components/schemas/DictChange'
-        feature:
-          $ref: '#/components/schemas/DictChange'                      
-        translation_cit:
-          $ref: '#/components/schemas/translation_cit'
-        translation_cits:
-          type: array
-          items:
-            $ref: '#/components/schemas/translation_cit'
-        quote:
-            $ref: '#/components/schemas/XmlLangTextNode'
-        '@type':
-          type: string
-          enum:
-            - example
-        '@subtype':
-          type: string
-          enum:
-            - proverb
-        '@id':
-          type: string
-          examples:
-            - biyiddan_fi_malta_001
-            - hiyya_mish_cayza_tiruuh_001
+                    - your
     DictChange:
       type: object
       properties:
@@ -7867,12 +7838,23 @@ components:
         - '@type'
         - '@id'
       properties:
-        feature:
-          $ref: '#/components/schemas/DictChange'
-        features:
-          type: array
-          items:
-            $ref: '#/components/schemas/DictChange'
+        '@id':
+          type: string
+          examples:
+            - ahmad_lissa_fi_l_001
+            - bacdi_ma_saab_001
+            - biyiddan_fi_malta_001
+            - hiyya_mish_cayza_tiruuh_001
+        '@type':
+          type: string
+          enum:
+            - example
+        '@subtype':
+          type: string
+          enum:
+            - proverb
+        translation_cit:
+            $ref: '#/components/schemas/translation_cit'
         translation_cits:
           type: array
           minItems: 2
@@ -7880,23 +7862,12 @@ components:
             $ref: '#/components/schemas/translation_cit'
         quote:
           $ref: '#/components/schemas/XmlLangTextNode'
-        '@vutlsk':
-          type: string
-        '@type':
-          type: string
-          enum:
-            - example
-        '@subtype':
-          type: string
-          examples:
-            - proverb
-        translation_cit:
-            $ref: '#/components/schemas/translation_cit'
-        '@id':
-          type: string
-          examples:
-            - ahmad_lissa_fi_l_001
-            - bacdi_ma_saab_001
+        feature:
+          $ref: '#/components/schemas/DictChange'
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/DictChange'
     DictHeader:
       type: object
       properties:
