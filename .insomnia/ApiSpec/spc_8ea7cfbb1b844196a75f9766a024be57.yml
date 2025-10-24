@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1761315563956
+modified: 1761316192795
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -6415,17 +6415,17 @@ contents: >-
              $ref: '#/components/schemas/XmlTextNode'
          additionalProperties: false
       ref:
-        allOff:
+        allOf:
         - $ref: '#/components/schemas/XmlTextNode'
         - type: object
-          properties:
-              '@target':
-                type: string
-              '@type':
-                type: string
-                examples:
-                  - example
           additionalProperties: false
+          properties:
+            '@target':
+              type: string
+            '@type':
+              type: string
+              examples:
+                - example
       RFC7807Problem:
         title: A RFC 7807 problem report
         type: object
@@ -6866,11 +6866,10 @@ contents: >-
         type: object
         additionalProperties: false
         required:
+          - '@id'
           - '@lang'
-          - features
           - gramGrp
           - lemma_form
-          - '@id'
         properties:
           '@lang':
             type: string
@@ -7016,33 +7015,33 @@ contents: >-
                       - Harran-Urfa
                       - Jbur
                       - Mayadin
-        etym:
-          type: object
-          additionalProperties: false
-          properties:
-            lang:
-              $ref: '#/components/schemas/lang'     
-            mentioned:
-              $ref: '#/components/schemas/mentioned'
-            $$:
-              type: array
-              items:
-                anyOf:
-                - $ref: '#/components/schemas/XmlTextNode'
-                - type: object
-                  additionalProperties: false
-                  required:
-                    - lang
-                  properties:
-                    lang:
-                      $ref: '#/components/schemas/lang'                     
-                - type: object
-                  additionalProperties: false
-                  required:
-                    - mentioned
-                  properties:
-                    mentioned:
-                      $ref: '#/components/schemas/mentioned'
+          etym:
+            type: object
+            additionalProperties: false
+            properties:
+              lang:
+                $ref: '#/components/schemas/lang'     
+              mentioned:
+                $ref: '#/components/schemas/mentioned'
+              $$:
+                type: array
+                items:
+                  anyOf:
+                  - $ref: '#/components/schemas/XmlTextNode'
+                  - type: object
+                    additionalProperties: false
+                    required:
+                      - lang
+                    properties:
+                      lang:
+                        $ref: '#/components/schemas/lang'                     
+                  - type: object
+                    additionalProperties: false
+                    required:
+                      - mentioned
+                    properties:
+                      mentioned:
+                        $ref: '#/components/schemas/mentioned'
           dom_usg:
             type: object
             additionalProperties: false
@@ -7065,13 +7064,13 @@ contents: >-
                   - religion
                   - tech
                   - zoology
-        listBibl:
-          $ref: '#/components/schemas/ListBibl'
-        '@id':
-          type: string
-          examples:
-            - DShaAr.s_ak_000_0
-            - DShaAr.s_harran_ovasi_00000_0
+          listBibl:
+            $ref: '#/components/schemas/ListBibl'
+          '@id':
+            type: string
+            examples:
+              - DShaAr.s_ak_000_0
+              - DShaAr.s_harran_ovasi_00000_0
       gramGrp:
         type: object
         additionalProperties: false
