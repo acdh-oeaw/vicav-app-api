@@ -8222,32 +8222,6 @@
               }
             ]
           },
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "@type",
-            "$"
-          ],
-          "properties": {
-            "@type": {
-              "type": "string",
-              "examples": [
-                "dom"
-              ],
-              "minLength": 3,
-              "distinctValues": 1,
-              "maxLength": 3
-            },
-            "$": {
-              "type": "string",
-              "examples": [
-                "food"
-              ],
-              "minLength": 4,
-              "distinctValues": 1,
-              "maxLength": 4
-            }
-          },
           "defs": {
             "type": "array",
             "minItems": 2,
@@ -8374,9 +8348,7 @@
                     "type": "object",
                     "additionalProperties": false,
                     "required": [
-                      "@type",
-                      "@lang",
-                      "$"
+                      "@type"
                     ],
                     "properties": {
                       "@type": {
