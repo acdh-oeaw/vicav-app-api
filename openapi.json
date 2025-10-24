@@ -6847,12 +6847,13 @@
         "additionalProperties": false
       },
       "ref": {
-        "allOff": [
+        "allOf": [
           {
             "$ref": "#/components/schemas/XmlTextNode"
           },
           {
             "type": "object",
+            "additionalProperties": false,
             "properties": {
               "@target": {
                 "type": "string"
@@ -6863,8 +6864,7 @@
                   "example"
                 ]
               }
-            },
-            "additionalProperties": false
+            }
           }
         ]
       },
@@ -7458,11 +7458,10 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
+          "@id",
           "@lang",
-          "features",
           "gramGrp",
-          "lemma_form",
-          "@id"
+          "lemma_form"
         ],
         "properties": {
           "@lang": {
@@ -7674,50 +7673,50 @@
                 }
               }
             }
-          }
-        },
-        "etym": {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "lang": {
-              "$ref": "#/components/schemas/lang"
-            },
-            "mentioned": {
-              "$ref": "#/components/schemas/mentioned"
-            },
-            "$$": {
-              "type": "array",
-              "items": {
-                "anyOf": [
-                  {
-                    "$ref": "#/components/schemas/XmlTextNode"
-                  },
-                  {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "lang"
-                    ],
-                    "properties": {
-                      "lang": {
-                        "$ref": "#/components/schemas/lang"
+          },
+          "etym": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "lang": {
+                "$ref": "#/components/schemas/lang"
+              },
+              "mentioned": {
+                "$ref": "#/components/schemas/mentioned"
+              },
+              "$$": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/XmlTextNode"
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "lang"
+                      ],
+                      "properties": {
+                        "lang": {
+                          "$ref": "#/components/schemas/lang"
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "mentioned"
+                      ],
+                      "properties": {
+                        "mentioned": {
+                          "$ref": "#/components/schemas/mentioned"
+                        }
                       }
                     }
-                  },
-                  {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "mentioned"
-                    ],
-                    "properties": {
-                      "mentioned": {
-                        "$ref": "#/components/schemas/mentioned"
-                      }
-                    }
-                  }
-                ]
+                  ]
+                }
               }
             }
           },
@@ -7749,17 +7748,17 @@
                 ]
               }
             }
+          },
+          "listBibl": {
+            "$ref": "#/components/schemas/ListBibl"
+          },
+          "@id": {
+            "type": "string",
+            "examples": [
+              "DShaAr.s_ak_000_0",
+              "DShaAr.s_harran_ovasi_00000_0"
+            ]
           }
-        },
-        "listBibl": {
-          "$ref": "#/components/schemas/ListBibl"
-        },
-        "@id": {
-          "type": "string",
-          "examples": [
-            "DShaAr.s_ak_000_0",
-            "DShaAr.s_harran_ovasi_00000_0"
-          ]
         }
       },
       "gramGrp": {
