@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1761061121904
+modified: 1761302471293
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -6878,6 +6878,7 @@ contents: >-
               - ar-acm-x-shawi-vicav
           features:
             type: array
+            minItems: 2
             items:
               $ref: '#/components/schemas/DictChange'
           feature:
@@ -6886,6 +6887,13 @@ contents: >-
             $ref: '#/components/schemas/ref'
           gramGrp:
             $ref: '#/components/schemas/gramGrp'
+          sense:
+            $ref: '#/components/schemas/sense'
+          senses:
+            type: array
+            minItems: 2
+            items:
+              $ref: '#/components/schemas/sense'
           multiWordUnit_form:
             type: object
             additionalProperties: false
@@ -6937,6 +6945,7 @@ contents: >-
             $ref: '#/components/schemas/translation_cit'
           translation_cits:
             type: array
+            minItems: 2
             items:
               $ref: '#/components/schemas/translation_cit'
           translationEquivalent_cit:
@@ -7288,6 +7297,133 @@ contents: >-
                   - mʔ
                   - swry
                   - ḥrw
+      sense:
+        type: object
+        properties:
+          translation_cit:
+            $ref: '#/components/schemas/translation_cit'
+          translation_cits:
+            type: array
+            items:
+              $ref: '#/components/schemas/translation_cit'
+          example_cit:
+            $ref: '#/components/schemas/example_cit'
+          usg:
+            $ref: '#/components/schemas/XmlLangTextNode'
+          gram_usg:
+            allOf:
+            - type: object
+              additionalProperties: false
+              required:
+                - '@type'
+              properties:
+                '@type':
+                  type: string
+                  enum:
+                    - gram
+            - $ref: '#/components/schemas/XmlLangTextNode'
+          prag_usgs:
+            allOf:
+            - type: object
+              additionalProperties: false
+              required:
+                - '@type'
+              properties:
+                '@type':
+                  type: string
+                  enum:
+                    - prag
+            - $ref: '#/components/schemas/XmlLangTextNode'
+          construction_form:
+            type: object
+            additionalProperties: false
+            required:
+              - '@type'
+              - orth
+            properties:
+              orth:
+                type: object
+                additionalProperties: false
+                required:
+                  - '@lang'
+                  - $$
+                properties:
+                  '@lang':
+                    type: string
+                    examples:
+                      - ar-arz-x-cairo-vicav
+                  $$:
+                    type: array
+                    items: 
+                      anyOf:
+                      - type: object
+                        additionalProperties: false
+                        required:
+                          - '@lang'
+                        properties:
+                          '@lang':
+                            type: string
+                            examples:
+                              - ar-arz-x-cairo-vicav
+                      - type: object
+                        additionalProperties: false
+                        required:
+                          - $
+                        properties:
+                          $:
+                            type: string
+                            examples:
+                              - baʔa + li- +
+                              - ma +
+                              - +
+                              - + š +
+                      - type: object
+                        additionalProperties: false
+                        required:
+                          - constrPart_seg
+                        properties:
+                          constrPart_seg:
+                            type: object
+                            additionalProperties: false
+                            required:
+                              - '@type'
+                              - $
+                            properties:
+                              '@type':
+                                type: string
+                                enum:
+                                  - constrPart
+                              $:
+                                type: string
+                                examples:
+                                  - perfVF(baqa)
+                                  - pronSuffix | noun
+                                  - impfVF
+                                  - timeExpression
+              '@type':
+                type: string
+                enum:
+                  - construction
+          gramGrp:
+            type: object
+            additionalProperties: false
+            required:
+              - arguments_gram
+            properties:
+              arguments_gram:
+                allOf:
+                - type: object
+                  additionalProperties: false
+                  required:
+                    - '@type'
+                    - '@lang'
+                    - $
+                  properties:
+                    '@type':
+                      type: string
+                      enum:
+                        - arguments
+                - $ref: '#/components/schemas/XmlLangTextNode'
       lemmaVariant_form:
         type: object
         additionalProperties: false
@@ -7578,7 +7714,23 @@ contents: >-
           '@type':
             type: string
             enum:
-              - translation   
+              - translation            
+          hint_usg:
+            type: object
+            additionalProperties: false
+            required:
+              - '@type'
+              - $
+            properties:
+              '@type':
+                type: string
+                enum:
+                  - hint
+              $:
+                type: string
+                examples:
+                  - coin or note
+                  - of a cock
       translatationEquivalent_cit:
         type: object
         additionalProperties: false
@@ -7617,7 +7769,43 @@ contents: >-
                       - Plain of Harran
                       - dich
                       - seni
-                      - your
+                      - your    
+      example_cit:
+        type: object
+        additionalProperties: false
+        required:
+          - quote
+          - '@type'
+          - '@id'
+        properties:                        
+          features:
+            type: array
+            minItems: 2
+            items:
+              $ref: '#/components/schemas/DictChange'
+          feature:
+            $ref: '#/components/schemas/DictChange'                      
+          translation_cit:
+            $ref: '#/components/schemas/translation_cit'
+          translation_cits:
+            type: array
+            items:
+              $ref: '#/components/schemas/translation_cit'
+          quote:
+              $ref: '#/components/schemas/XmlLangTextNode'
+          '@type':
+            type: string
+            enum:
+              - example
+          '@subtype':
+            type: string
+            enum:
+              - proverb
+          '@id':
+            type: string
+            examples:
+              - biyiddan_fi_malta_001
+              - hiyya_mish_cayza_tiruuh_001
       DictChange:
         type: object
         properties:
