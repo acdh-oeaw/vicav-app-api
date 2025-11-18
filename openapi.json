@@ -4940,13 +4940,13 @@
       "milestone": {
         "type": "object",
         "properties": {
-          "unit": {
+          "@unit": {
             "type": "string",
             "examples": [
               "sentence"
             ]
           },
-          "rendition": {
+          "@rendition": {
             "type": "string",
             "enum": [
               "rend:ellipses"
