@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1761316973888
+modified: 1763470793323
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -3922,8 +3922,8 @@ contents: >-
                                         "@who": "corpus:TallXarma01",
                                         "$$": [
                                             {
-                                                "phr": {
-                                                    "@id": "URFA-107_xPHR_000004",
+                                                "seg": {
+                                                    "@id": "URFA-107_xSEG_000004",
                                                     "@lang": "ar-acm-x-shawi-vicav",
                                                     "@lemmaRef": "dict:DShaAr.mithil_ma_000",
                                                     "$$": [
@@ -3939,6 +3939,12 @@ contents: >-
                                                                 "synRoot": "mṯl",
                                                                 "diaRoot": "mṯl"
                                                             }
+                                                        },
+                                                        {
+                                                          "milestone": {
+                                                            "@unit": "sentence",
+                                                            "@rendition": "rend:ellipsis"
+                                                          }
                                                         },
                                                         {
                                                             "w": {
@@ -4953,10 +4959,12 @@ contents: >-
               $ref: "#/components/schemas/w"
             pc:
               $ref: "#/components/schemas/pc"
+            milestone:
+              $ref: "#/components/schemas/milestone"
             gap:
               $ref: "#/components/schemas/gap"
-            phr:
-              $ref: "#/components/schemas/phr"
+            seg:
+              $ref: "#/components/schemas/seg"
       w:
         type: object
         properties:
@@ -5106,7 +5114,18 @@ contents: >-
         additionalProperties: false
         required:
           - '@rendition'
-      phr:
+      milestone:
+        type: object
+        properties:
+          unit:
+            type: string
+            examples:
+              - sentence
+          rendition:
+             type: string
+             enum:
+               - 'rend:ellipses'
+      seg:
         type: object
         properties:
           '@lang':
@@ -5139,8 +5158,8 @@ contents: >-
           '@id':
             type: string
             examples:
-              - URFA-029_xPHR_000003
-              - Urfa-355_xPHR_000005
+              - URFA-029_xSEG_000003
+              - Urfa-355_xSEG_000005
           pos:
             type: string
             enum:
@@ -6415,17 +6434,17 @@ contents: >-
              $ref: '#/components/schemas/XmlTextNode'
          additionalProperties: false
       ref:
-        allOf:
+        allOff:
         - $ref: '#/components/schemas/XmlTextNode'
         - type: object
-          additionalProperties: false
           properties:
-            '@target':
-              type: string
-            '@type':
-              type: string
-              examples:
-                - example
+              '@target':
+                type: string
+              '@type':
+                type: string
+                examples:
+                  - example
+          additionalProperties: false
       RFC7807Problem:
         title: A RFC 7807 problem report
         type: object
@@ -6866,10 +6885,11 @@ contents: >-
         type: object
         additionalProperties: false
         required:
-          - '@id'
           - '@lang'
+          - features
           - gramGrp
           - lemma_form
+          - '@id'
         properties:
           '@lang':
             type: string
@@ -6877,7 +6897,6 @@ contents: >-
               - ar-acm-x-shawi-vicav
           features:
             type: array
-            minItems: 2
             items:
               $ref: '#/components/schemas/DictChange'
           feature:
@@ -6886,13 +6905,6 @@ contents: >-
             $ref: '#/components/schemas/ref'
           gramGrp:
             $ref: '#/components/schemas/gramGrp'
-          sense:
-            $ref: '#/components/schemas/sense'
-          senses:
-            type: array
-            minItems: 2
-            items:
-              $ref: '#/components/schemas/sense'
           multiWordUnit_form:
             type: object
             additionalProperties: false
@@ -6931,7 +6943,6 @@ contents: >-
             $ref: '#/components/schemas/DictExample'
           example_cits:
             type: array
-            minItems: 2
             items:
                $ref: '#/components/schemas/DictExample'
           def:
@@ -6945,15 +6956,14 @@ contents: >-
             $ref: '#/components/schemas/translation_cit'
           translation_cits:
             type: array
-            minItems: 2
             items:
               $ref: '#/components/schemas/translation_cit'
           translationEquivalent_cit:
-            $ref: '#/components/schemas/translationEquivalent_cit'
+            $ref: '#/components/schemas/translatationEquivalent_cit'
           translationEquivalent_cits:
             type: array
             items:
-              $ref: '#/components/schemas/translationEquivalent_cit'
+              $ref: '#/components/schemas/translatationEquivalent_cit'
           lemma_form:          
             $ref: '#/components/schemas/lemma_form'
           lemmaVariant_forms:
@@ -7016,33 +7026,33 @@ contents: >-
                       - Harran-Urfa
                       - Jbur
                       - Mayadin
-          etym:
-            type: object
-            additionalProperties: false
-            properties:
-              lang:
-                $ref: '#/components/schemas/lang'     
-              mentioned:
-                $ref: '#/components/schemas/mentioned'
-              $$:
-                type: array
-                items:
-                  anyOf:
-                  - $ref: '#/components/schemas/XmlTextNode'
-                  - type: object
-                    additionalProperties: false
-                    required:
-                      - lang
-                    properties:
-                      lang:
-                        $ref: '#/components/schemas/lang'                     
-                  - type: object
-                    additionalProperties: false
-                    required:
-                      - mentioned
-                    properties:
-                      mentioned:
-                        $ref: '#/components/schemas/mentioned'
+        etym:
+          type: object
+          additionalProperties: false
+          properties:
+            lang:
+              $ref: '#/components/schemas/lang'     
+            mentioned:
+              $ref: '#/components/schemas/mentioned'
+            $$:
+              type: array
+              items:
+                anyOf:
+                - $ref: '#/components/schemas/XmlTextNode'
+                - type: object
+                  additionalProperties: false
+                  required:
+                    - lang
+                  properties:
+                    lang:
+                      $ref: '#/components/schemas/lang'                     
+                - type: object
+                  additionalProperties: false
+                  required:
+                    - mentioned
+                  properties:
+                    mentioned:
+                      $ref: '#/components/schemas/mentioned'
           dom_usg:
             type: object
             additionalProperties: false
@@ -7065,13 +7075,13 @@ contents: >-
                   - religion
                   - tech
                   - zoology
-          listBibl:
-            $ref: '#/components/schemas/ListBibl'
-          '@id':
-            type: string
-            examples:
-              - DShaAr.s_ak_000_0
-              - DShaAr.s_harran_ovasi_00000_0
+        listBibl:
+          $ref: '#/components/schemas/ListBibl'
+        '@id':
+          type: string
+          examples:
+            - DShaAr.s_ak_000_0
+            - DShaAr.s_harran_ovasi_00000_0
       gramGrp:
         type: object
         additionalProperties: false
@@ -7297,179 +7307,6 @@ contents: >-
                   - mʔ
                   - swry
                   - ḥrw
-      sense:
-        type: object
-        properties:
-          '@id':
-            type: string
-            examples:
-              - DShaAr.s_agrac_000_0
-              - DShaAr.s_surucj_000_0
-          translation_cit:
-            $ref: '#/components/schemas/translation_cit'
-          translation_cits:
-            type: array
-            items:
-              $ref: '#/components/schemas/translation_cit'
-          translationEquivalent_cit:
-            $ref: '#/components/schemas/translationEquivalent_cit'
-          translationEquivalent_cits:
-            type: array
-            minItmes: 2
-            items:
-              $ref: '#/components/schemas/translationEquivalent_cit'
-          example_cit:
-            $ref: '#/components/schemas/DictExample'
-          example_cits:
-            type: array
-            minItems: 2
-            items:
-               $ref: '#/components/schemas/DictExample'
-          usg:
-            $ref: '#/components/schemas/XmlLangTextNode'
-          gram_usg:
-            allOf:
-            - type: object
-              additionalProperties: false
-              required:
-                - '@type'
-              properties:
-                '@type':
-                  type: string
-                  enum:
-                    - gram
-            - $ref: '#/components/schemas/XmlLangTextNode'
-          prag_usg:
-            allOf:
-            - type: object
-              additionalProperties: false
-              required:
-                - '@type'
-              properties:
-                '@type':
-                  type: string
-                  enum:
-                    - prag
-            - $ref: '#/components/schemas/XmlLangTextNode'
-          prag_usgs:
-            type: array
-            items:
-              allOf:
-              - type: object
-                additionalProperties: false
-                required:
-                  - '@type'
-                properties:
-                  '@type':
-                    type: string
-                    enum:
-                      - prag
-              - $ref: '#/components/schemas/XmlLangTextNode'            
-          dom_usg:
-            allOf:
-            - type: object
-              additionalProperties: false
-              required:
-                - '@type'
-              properties:
-                '@type':
-                  type: string
-                  enum:
-                    - dom
-            - $ref: '#/components/schemas/XmlLangTextNode'
-          defs:
-            type: array
-            minItems: 2
-            items:
-              $ref: '#/components/schemas/XmlLangTextNode'
-          construction_form:
-            type: object
-            additionalProperties: false
-            required:
-              - '@type'
-              - orth
-            properties:
-              orth:
-                type: object
-                additionalProperties: false
-                required:
-                  - '@lang'
-                  - $$
-                properties:
-                  '@lang':
-                    type: string
-                    examples:
-                      - ar-arz-x-cairo-vicav
-                  $$:
-                    type: array
-                    items: 
-                      anyOf:
-                      - type: object
-                        additionalProperties: false
-                        required:
-                          - '@lang'
-                        properties:
-                          '@lang':
-                            type: string
-                            examples:
-                              - ar-arz-x-cairo-vicav
-                      - type: object
-                        additionalProperties: false
-                        required:
-                          - $
-                        properties:
-                          $:
-                            type: string
-                            examples:
-                              - baʔa + li- +
-                              - ma +
-                              - +
-                              - + š +
-                      - type: object
-                        additionalProperties: false
-                        required:
-                          - constrPart_seg
-                        properties:
-                          constrPart_seg:
-                            type: object
-                            additionalProperties: false
-                            required:
-                              - '@type'
-                              - $
-                            properties:
-                              '@type':
-                                type: string
-                                enum:
-                                  - constrPart
-                              $:
-                                type: string
-                                examples:
-                                  - perfVF(baqa)
-                                  - pronSuffix | noun
-                                  - impfVF
-                                  - timeExpression
-              '@type':
-                type: string
-                enum:
-                  - construction
-          gramGrp:
-            type: object
-            additionalProperties: false
-            required:
-              - arguments_gram
-            properties:
-              arguments_gram:
-                allOf:
-                - type: object
-                  additionalProperties: false
-                  required:
-                    - '@type'
-                  properties:
-                    '@type':
-                      type: string
-                      enum:
-                        - arguments
-                - $ref: '#/components/schemas/XmlLangTextNode'
       lemmaVariant_form:
         type: object
         additionalProperties: false
@@ -7760,24 +7597,8 @@ contents: >-
           '@type':
             type: string
             enum:
-              - translation            
-          hint_usg:
-            type: object
-            additionalProperties: false
-            required:
-              - '@type'
-              - $
-            properties:
-              '@type':
-                type: string
-                enum:
-                  - hint
-              $:
-                type: string
-                examples:
-                  - coin or note
-                  - of a cock
-      translationEquivalent_cit:
+              - translation   
+      translatationEquivalent_cit:
         type: object
         additionalProperties: false
         required:
@@ -7847,23 +7668,12 @@ contents: >-
           - '@type'
           - '@id'
         properties:
-          '@id':
-            type: string
-            examples:
-              - ahmad_lissa_fi_l_001
-              - bacdi_ma_saab_001
-              - biyiddan_fi_malta_001
-              - hiyya_mish_cayza_tiruuh_001
-          '@type':
-            type: string
-            enum:
-              - example
-          '@subtype':
-            type: string
-            enum:
-              - proverb
-          translation_cit:
-              $ref: '#/components/schemas/translation_cit'
+          feature:
+            $ref: '#/components/schemas/DictChange'
+          features:
+            type: array
+            items:
+              $ref: '#/components/schemas/DictChange'
           translation_cits:
             type: array
             minItems: 2
@@ -7871,12 +7681,23 @@ contents: >-
               $ref: '#/components/schemas/translation_cit'
           quote:
             $ref: '#/components/schemas/XmlLangTextNode'
-          feature:
-            $ref: '#/components/schemas/DictChange'
-          features:
-            type: array
-            items:
-              $ref: '#/components/schemas/DictChange'
+          '@vutlsk':
+            type: string
+          '@type':
+            type: string
+            enum:
+              - example
+          '@subtype':
+            type: string
+            examples:
+              - proverb
+          translation_cit:
+              $ref: '#/components/schemas/translation_cit'
+          '@id':
+            type: string
+            examples:
+              - ahmad_lissa_fi_l_001
+              - bacdi_ma_saab_001
       DictHeader:
         type: object
         properties:
