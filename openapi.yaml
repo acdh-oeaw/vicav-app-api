@@ -5630,6 +5630,7 @@ components:
             - feature_markers
             - profile_markers
             - sample_markers
+            - compare_markers
         queryString:
           type: string
           examples:
