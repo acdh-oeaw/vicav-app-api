@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1763472937194
+modified: 1764166193537
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -2132,7 +2132,12 @@ contents: >-
                                   "title": "List all entries",
                                   "type": "item",
                                   "targetType": "DataList",
-                                  "label": ""
+                                  "label": "",
+                                  "params": {
+                                    "textId": "vicav_profiles",
+                                    "teiSource": "",
+                                    "dataTypes": ["Profile"]
+                                   }
                                 },
                                 {
                                   "type": "separator"
@@ -5267,10 +5272,16 @@ contents: >-
             $ref: '#/components/schemas/projectConfig_type'        
           ETag:
             type: string
-            description: The current ETag/Hash of this JSON object.
+            description: The current ETag/Hash of this JSON object.         
+            maxLength: 32
+            minLength: 32
+            examples:
+              - 24D775090C17E6161624268123494A50
           took:
             type: string
             description: Time needed to create this JSON object on the server.
+            examples:
+              - "3853.92"
       projectConfig_type:
         type: object
         properties:
@@ -5282,6 +5293,10 @@ contents: >-
             description: The base URI used in this project config
           title:
             type: string
+            examples:
+              - SHAWI
+              - 'TUNOCENT - Tunisia’s Linguistic terra incognita: An Investigation into the Arabic Varieties of North…'
+              - VICAV3.0 - Vienna Corpus of Arabic Varieties
           logo:
             $ref: '#/components/schemas/logo_type'
           editors: 
@@ -5295,28 +5310,56 @@ contents: >-
                   type: string 
           pubDate:
             type: array
-            items: 
-              type: number 
+            prefixItems:
+              - type: string
+                maxLength: 4
+                minLength: 4
+                examples:
+                  - "2025"
+              - type: string
+                maxLength: 2
+                minLength: 1
+                examples:
+                  - "12"
+              - type: string
+                maxLength: 2
+                minLength: 1
+                examples:
+                  - "31"
+            items: false
+            minItems: 3
+            maxItems: 3
           icon:
             type: string
             description: The URL/path of the 'needle' to be used on the maps
           map:
             type: object
             properties:
-              zoom:
-                type: number
               center:
                 type: object
                 properties:
-                  lat:
-                    type: number
                   lng:
                     type: number
+                  lat:
+                    type: number
+                additionalProperties: false
+                required:
+                  - lat
+                  - lng
+              zoom:
+                type: integer
+            additionalProperties: false
+            required:
+              - zoom
+              - center
             description: Settings for the map displayed initially 
           param:
             $ref: '#/components/schemas/param_type'
           panel:
-            $ref: '#/components/schemas/panels_type'
+            type: array
+            minItems: 0
+            items:
+              $ref: '#/components/schemas/item_type'
           menu:
             $ref: '#/components/schemas/menu_type'
           styleSettings:
@@ -5328,17 +5371,42 @@ contents: >-
                 properties:
                   nav:
                     type: string
+                    maxLength: 7
+                    minLength: 7
+                    examples:
+                      - '#B2A865'
+                      - '#FFA500'
                     description: Background color for the menu
                   subNav:
                     type: string
+                    maxLength: 7
+                    minLength: 7
+                    examples:
+                      - '#252771'
+                      - '#7C633F'
                     description: Background color for the (map) controls bar
                   primary:
                     type: string
+                    examples:
+                      - hsla(238, 51%, 29%, 1)
+                      - hsla(35, 33%, 37%, 1)
                     description: Background color for the menu and other primary elements as hsla expression
                   secondary:
                     type: string
+                    examples:
+                      - hsla(320, 30%, 51%, 1)
+                      - hsla(39, 100%, 50%, 1)
                     description: Background color for the (map) controls bar and other secondary elements as hsla expression
+                additionalProperties: false
+                required:
+                  - nav
+                  - subNav
+                  - primary
+                  - secondary
             description: Settings for the two main background colors in the main UI.
+            additionalProperties: false
+            required:
+              - colors
           noskeHost:
             type: string
             nullable: true
@@ -5352,6 +5420,10 @@ contents: >-
                   type: string
                 value: 
                   type: string
+              additionalProperties: false
+              required:
+                - text
+                - value
           sampleTextSentences:
             type: string
           specialCharacters:
@@ -5373,6 +5445,7 @@ contents: >-
                 items:
                   oneOf:
                   - $ref: '#/components/schemas/Biblio'
+                  - $ref: '#/components/schemas/Corpora'
                   - type: object
           funders:
             type: array
@@ -5382,13 +5455,24 @@ contents: >-
               properties:
                 logoID:
                   type: string
+                  examples:
+                    - FWF
                   description: An ID of a logo image contained in the frontend repo or an https URL pointing to a logo image.
                 text:
                   type: string
+                  examples:
+                    - This research was funded in whole or in part by ...
                   description: The prescribed attribution text of this funder
                 funderLink:
                   type: string
+                  examples:
+                    - https://doi.org/10.55776/P31647
                   description: The prescribed URI of this funder (most probably a https://doi.org URI).
+              additionalProperties: false
+              required:
+                - logoID
+                - text
+                - funderLink
           partners:
             type: array
             description: The partner institutions
@@ -5426,11 +5510,6 @@ contents: >-
         minItems: 0
         items:
           type: string
-      panels_type:
-        type: array
-        minItems: 0
-        items:
-          $ref: '#/components/schemas/item_type'
       markers_type:
         type: string
         enum:
@@ -5440,22 +5519,32 @@ contents: >-
           - profile
           - dict
           - feature
-      items_type:
-        type: array
-        minItems: 0
-        items:
-          $ref: '#/components/schemas/item_type'
       item_type:   
         type: object
         properties:
           id:
             type: string
+            examples:
+              - corpusQuery
+              - liDictDetailedExplanation
+              - li_vicavExplanationCorpusTexts
+              - shawiTeam
             summary: A unique if for this UI element
           target:
             type: string
+            examples:
+              - BiblGeoMarkers
+              - dictFrontPage_Tunis
+              - shawi.dict.odd
+              - shawi.paratexts.about
+              - vicav_corpus
             summary: An ID for the target panel/window that this UI item opens or brings to the front
           title:
             type: string
+            examples:
+              - Arabic Research Tools
+              - Contribute a Dictionary/Glossary
+              - Show All Samples on Map
             summary: The string to display for this UI element
           type:
             type: string
@@ -5485,6 +5574,10 @@ contents: >-
             - DataTable
           label:
             type: string
+            examples:
+              - All Bibl. Regions on Map
+              - Functional Requirements and Data Specification
+              - VOCABULARIES on Smartphones
             summary: The caption (or part of it) for the target panel/window that this UI item opens or brings to the front
           class:
             type: string
@@ -5496,17 +5589,64 @@ contents: >-
              - $ref: '#/components/schemas/text_target_type_parameters'
         required:
         - type
+        additionalProperties: false
+        dependentRequired:
+          id:
+            - target
+            - title
+            - targetType
+            - params
+            - label
+          target:
+            - id
+            - title
+            - targetType
+            - params
+            - label
+          title:
+            - id
+            - target
+            - targetType
+            - params
+            - label
+          targetType:
+            - id
+            - target
+            - title
+            - params
+            - label
+          params:
+            - label
+            - id
+            - target
+            - title
+            - targetType
+          label:
+            - params
+            - id
+            - target
+            - title
+            - targetType
       geo_target_type_parameters:
         type: object
         properties:
           endpoint:
             type: string
-            examples:
+            enum:
               - bibl_markers_tei
+              - data_markers
+              - dict_markers
+              - feature_markers
+              - profile_markers
+              - sample_markers
           queryString:
             type: string
             examples:
-              - ".*"
+              - ""
+              - .*
+              - SHAWI Glossary
+              - vt:dictionary
+              - vt:textbook
           queryParams: 
             type: object
             properties: 
@@ -5541,49 +5681,87 @@ contents: >-
         properties:
           textId:
             type: string
-            exmaples:
-             - "vicavMission"
+            examples:
+              - dictFrontPage_Tunis
+              - shawi.paratexts.news
+              - vicavVLE
           teiSource:
             type: string
             examples:
-             - "https://github.com"
+              - ""
+              - https://github.com/acdh-oeaw/tunocent-content/blob/72351d1639998881398db544ae1c11396cce7001/vicav_te…
+              - https://github.com/acdh-oeaw/vicav-content/tree/0ec446a16ad9f2394c1bcceebdd2341a835fb275/vicav_texts…
+          filterListBy:
+            type: object
+            properties:
+              key:
+                type: string
+                examples:
+                  - '@hasTEIw'
+              value:
+                type: string
+                examples:
+                  - "true"
+            additionalProperties: false
+            required:
+              - key
+              - value
+          dataTypes:
+            type: array
+            items:
+              type: string
+              enum:
+                - CorpusText
+                - Feature
+                - Profile
+                - SampleText
         required:
          - textId
-      main_items_type:
-        type: array
-        minItems: 0
-        items:
-          $ref: '#/components/schemas/main_item_type'
       main_item_type:
         type: object
         properties:
           id:
             type: string
+            examples:
+              - dropdown00
+              - dropdown07
+          target:
+            type: string
+            examples:
+              - dropdown00
+              - dropdown07
           title:
             type: string
+            examples:
+              - About
+              - Browse data
+              - Samples
           item:
-            $ref: '#/components/schemas/items_type'
+            type: array
+            items:
+              $ref: '#/components/schemas/item_type'
           type:
             type: string
             enum:
             - dropdown
+        additionalProperties: false
         required:
-        - item
         - id
+        - target
+        - item
         - title
         - type
-      subnavs_type:
-        type: array
-        minItems: 0
-        items:
-          $ref: '#/components/schemas/item_type'
       menu_type:
         type: object
         properties:
           main:
-            $ref: '#/components/schemas/main_items_type'
+            type: array
+            items:
+              $ref: '#/components/schemas/main_item_type'
           subnav:
-            $ref: '#/components/schemas/subnavs_type'
+            type: array
+            items:
+              $ref: '#/components/schemas/item_type'
       Biblio:
         type: object
         additionalProperties: false
@@ -5605,12 +5783,17 @@ contents: >-
         properties:
           fileDesc:
             $ref: '#/components/schemas/FileDesc'
+        profileDesc:
+          $ref: '#/components/schemas/ProfileDesc'
+        encodingDesc:
+          $ref: '#/components/schemas/EncodingDesc'
         revisionDesc:
           $ref: '#/components/schemas/RevisionDesc'
         required:
           - fileDesc
         title: TeiHeader
       FileDesc:
+        title: FileDesc
         type: object
         additionalProperties: false
         properties:
@@ -5619,42 +5802,454 @@ contents: >-
           publicationStmt:
             $ref: '#/components/schemas/PublicationStmt'
           sourceDesc:
-            $ref: '#/components/schemas/PublicationStmt'
+            $ref: '#/components/schemas/SourceDesc'
         required:
           - publicationStmt
           - sourceDesc
           - titleStmt
-        title: FileDesc
+      ProfileDesc:
+        type: object
+        properties:
+          settingsDesc:
+            $ref: '#/components/schemas/SettingsDesc'
+          textClass:
+            type: object
+            properties:
+              catRefs:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@target':
+                      type: string
+                      format: uri
+                      examples:
+                        - corpus:Animals
+                        - corpus:datatypes.vicav.fl
+                        - corpus:datatypes.vicav.st
+                  additionalProperties: false
+                  required:
+                    - '@target'
+            additionalProperties: false
+            required:
+              - catRefs
+          particDesc:
+            type: object
+            properties:
+              p:
+                $ref: '#/components/schemas/P'
+              person:
+                $ref: '#/components/schemas/Person'
+              listPerson:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+            additionalProperties: false
+      EncodingDesc:
+        type: object
+        properties:
+          tagsDecl:
+            type: object
+            properties:
+              '@partial':
+                type: string
+                examples:
+                  - "true"
+              renditions:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@scheme':
+                      type: string
+                      enum:
+                        - css
+                    $:
+                      type: string
+                      examples:
+                        - font-style:italics;
+                    '@id':
+                      type: string
+                      examples:
+                        - i
+                  additionalProperties: false
+                  required:
+                    - '@id'
+                    - '@scheme'
+                    - $
+            additionalProperties: false
+            required:
+              - '@partial'
+              - renditions
+          classDecl:
+            type: object
+            properties:
+              taxonomies:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    categories:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          '@n':
+                            type: string
+                            examples:
+                              - Abdalqadir
+                              - P
+                              - TUN
+                          catDesc:
+                            type: object
+                            properties:
+                              name:
+                                type: object
+                                properties:
+                                  '@lang':
+                                    type: string
+                                    enum:
+                                      - en
+                                  $:
+                                    type: string
+                                    examples:
+                                      - TUNOCENT Place Profile
+                                      - Unmonitored Speech
+                                      - VICAV Sample Texts
+                                      - WAD Questionnaire
+                                additionalProperties: false
+                                required:
+                                  - $
+                              $:
+                                type: string
+                                examples:
+                                  - TODO ADD DESCRIPTION in Subjects table!
+                            additionalProperties: false
+                            required: []
+                          '@id':
+                            type: string
+                            examples:
+                              - AboutPeople
+                              - datatypes.tunocent.wad
+                              - datatypes.vicav.p
+                        additionalProperties: false
+                        required:
+                          - '@id'
+                          - '@n'
+                          - catDesc
+                      minItems: 4
+                      maxItems: 20
+                  additionalProperties: false
+                  required:
+                    - categories
+            additionalProperties: false
+            required:
+              - taxonomies
+          listPrefixDef:
+            type: array
+            items:
+              type: object
+              properties:
+                '@matchPattern':
+                  type: string
+                  examples:
+                    - ([a-z]+)
+                    - ^(.+)$
+                '@ident':
+                  type: string
+                  examples:
+                    - arche
+                    - assets
+                    - corpus
+                    - fvlib
+                '@replacementPattern':
+                  type: string
+                  examples:
+                    - ../../vicav_corpus/tunocent/$1.xml
+                    - ../../vicav_lingfeatures/tunocent/$1.xml
+                    - https://id.acdh.oeaw.ac.at/tunocent/$1
+                    - vicav_corpus/tunocent/$1.xml
+                p:
+                  type: object
+                  properties:
+                    ref:
+                      type: object
+                      properties:
+                        '@target':
+                          type: string
+                          examples:
+                            - corpus.xml
+                            - https://github.com/acdh-oeaw/shawi-data/blob/main/vicav_dicts/dc_shawi_eng.xml
+                            - shawiCorpus.xml
+                        $:
+                          type: string
+                          examples:
+                            - SHAWI glossary
+                            - VICAV rendition library
+                      additionalProperties: false
+                      required:
+                        - '@target'
+                        - $
+                    code:
+                      type: object
+                      properties:
+                        $:
+                          type: string
+                          examples:
+                            - datatypes.tunocent.pp
+                            - share
+                      additionalProperties: false
+                      required:
+                        - $
+                    gi:
+                      type: object
+                      properties:
+                        $:
+                          type: string
+                          examples:
+                            - biblStruct
+                            - entry
+                            - place
+                            - rendition
+                      additionalProperties: false
+                      required:
+                        - $
+                    att:
+                      type: object
+                      properties:
+                        $:
+                          type: string
+                          examples:
+                            - xml:id
+                      additionalProperties: false
+                      required:
+                        - $
+                    $:
+                      type: string
+                      examples:
+                        - Private URIs using the datatypes.tunocent.pp prefix are pointers to TUNOCENT place profiles.TUNOCENT teiCorpus …
+                        - Private URIs using the zotid prefix are pointers to the xml:id attribute on a biblStruct element in …
+                  additionalProperties: false
+                  required:
+                    - $
+              additionalProperties: false
+              required:
+                - '@ident'
+                - '@matchPattern'
+                - '@replacementPattern'
+        additionalProperties: false
       RevisionDesc:
         type: object
         properties:
+          changes:
+            type: array
+            items:
+              $ref: '#/components/schemas/Change'
           change:
+              $ref: '#/components/schemas/Change'
+      Change:
+        type: object
+        properties:
+          '@n':
+            type: string
+            examples:
+              - 0ec446a
+              - 72351d1
+          '@who':
+            type: string
+            examples:
+              - Omar Siam
+              - Veronika Engler
+          '@when':
+            type: string
+            examples:
+              - "2025-04-14"
+              - "2025-08-18"
+          $:
+            type: string
+            examples:
+              - Update json transformation
+              - update bibliography
+        required:
+          - '@n'
+          - '@who'
+          - '@when'
+          - $
+      Corpora:
+        type: object
+        properties:
+          '@document-uri':
+            type: string
+            examples:
+              - /vicav_corpus/vicav_corpus_v001.xml
+              - /vicav_texts/corpus.xml
+          teiHeader:
+            $ref: '#/components/schemas/TeiHeader'
+          TEIs:
+            type: array
+            items:
+              type: object
+              properties:
+                '@id':
+                  type: string
+                  examples:
+                    - aindifla1_f_56_e3
+                    - ling_features_ahwaz
+                '@document-uri':
+                  type: string
+                  examples:
+                    - /vicav_corpus/vicav_corpus_v001.xml
+                '@type':
+                  const: recording
+                '@corresp':
+                  type: string
+                  examples:
+                    - corpus:amaymiya1_m_46_fl
+                    - corpus:maagoula1_m_31_fl
+                '@hasTEIw':
+                  type: string
+                  enum:
+                    - "true"
+                '@space':
+                  const: preserve
+                teiHeader:
+                  $ref: '#/components/schemas/TeiHeader'
+                standOff:
+                  type: object
+          standOff:
             type: object
             properties:
-              '@n':
-                type: string
-              '@who':
-                type: string
-              '@when':
-                type: string
+              listPerson:
+                type: array
+                items:
+                  $ref: '#/components/schemas/listPersonStandOff'
+            additionalProperties: false
+            required:
+              - listPerson
+      listPersonStandOff:
+        type: object
+        properties:
+          persName:
+            type: object
+            properties:
+              surname:
+                type: object
+                properties:
+                  '$':
+                    type: string
+                    examples:
+                      - Abraham
+                      - Procházka
+                      - Schwemmer
+                      - Zouari
+                additionalProperties: false
+              forename:
+                type: object
+                properties:
+                 $:
+                    type: string
+                    examples:
+                      - Aleksandra
+                      - Charly
+                      - Zsófia Maura
+                additionalProperties: false
+                required:
+                  - $
+            additionalProperties: false
+            required:
+              - forename
+              - surname
+          note:
+            type: object
+            properties:
               $:
                 type: string
+                examples:
+                  - 'former name: Aleksandra Ercegovcevic'
+                  - 'former name: Ilona Bruckner'
+            additionalProperties: false
+            required: []
+          idno:
+            type: object
+            properties:
+              '@subtype':
+                const: ORCID
+              '@type':
+                type: string
+                maxLength: 5
+                distinctValues: 2
+                minLength: 3
+                examples:
+                  - ORCID
+                  - URI
+              $:
+                type: string
+                maxLength: 37
+                distinctValues: 12
+                minLength: 17
+                examples:
+                  - https://orcid.org/0000-0001-6104-7484
+                  - https://orcid.org/0000-0001-9421-1404
+                  - https://orcid.org/0009-0004-3540-2365
+            additionalProperties: false
             required:
-              - '@n'
-              - '@who'
-              - '@when'
+              - '@type'
               - $
-      PublicationStmt:
-        type: object
+          ptrs:
+            type: array
+            items:
+              type: string
+          '@id':
+            type: string
+            maxLength: 7
+            distinctValues: 27
+            minLength: 2
+            examples:
+              - DS
+              - VR
+              - WS
+              - YW
+          state:
+            type: object
+            properties:
+              desc:
+                type: object
+                properties:
+                  $:
+                    type: string
+                    maxLength: 28
+                    distinctValues: 6
+                    minLength: 4
+                    examples:
+                      - Dictionary
+                      - ELAN
+                      - National Cooperation Partner
+                      - Principal Investigator
+                      - Research Data Engineer
+                      - Transcription
+                additionalProperties: false
+                required: []
+              '@type':
+                const: projectRole
+            additionalProperties: false
+            required:
+              - '@type'
+              - desc
+          affiliation:
+            type: object
+            properties:
+              $:
+                type: string
+                examples:
+                  - ACDH-CH
+                  - Austrian Centre for Digital Humanities and Cultural Heritage
+                  - University of Vienna
+            additionalProperties: false
         additionalProperties: false
-        properties:
-          p:
-            $ref: '#/components/schemas/XmlTextNode'
-        idno:
-          $ref: '#/components/schemas/XmlTextNode'
         required:
-          - p
-        title: PublicationStmt
+          - persName
+          - ptrs
+          - '@id'
       XmlTextNode:
         type: object
         additionalProperties: false
@@ -5697,6 +6292,26 @@ contents: >-
         required:
           - title
         title: TitleStmt
+      PublicationStmt:
+        type: object
+        additionalProperties: false
+        properties:
+          p:
+            $ref: '#/components/schemas/XmlTextNode'
+        idno:
+          $ref: '#/components/schemas/XmlTextNode'
+        required:
+          - p
+        title: PublicationStmt
+      SourceDesc:
+        type: object
+        properties:
+          biblStruct:
+            $ref: '#/components/schemas/BiblStruct'
+          p:
+            $ref: '#/components/schemas/P'
+          recordingStmt:
+            $ref: '#/components/schemas/RecordingStmt'
       Text:
         type: object
         additionalProperties: false
@@ -5820,8 +6435,7 @@ contents: >-
               $ref: '#/components/schemas/Title'
         title: Analytic
       Author:
-        type: object
-        additionalProperties: false
+        title: Author
         properties:
           forename:
             $ref: '#/components/schemas/XmlTextNode'
@@ -5829,7 +6443,25 @@ contents: >-
             $ref: '#/components/schemas/XmlTextNode'
           name:
             $ref: '#/components/schemas/XmlTextNode'
-        title: Author
+        additionalProperties: false
+      AuthorRef:
+        title: Reference to an Author
+        type: object
+        properties:
+          '@ref':
+            type: string
+            format: uri
+            examples:
+              - corpus:AHu
+              - corpus:RT
+          $:
+            type: string
+            examples:
+              - Aozan Hussien
+        required:
+          - '@ref'
+        additionalProperties: false
+        
       Title:
         type: object
         additionalProperties: false
@@ -5959,7 +6591,9 @@ contents: >-
           resp:
             $ref: '#/components/schemas/XmlTextNode'
           persName:
-            $ref: '#/components/schemas/Author'
+            oneOf:
+            - $ref: '#/components/schemas/Author'
+            - $ref: '#/components/schemas/AuthorRef'
         required:
           - persName
           - resp
@@ -6445,6 +7079,320 @@ contents: >-
                 examples:
                   - example
           additionalProperties: false
+      RecordingStmt:
+        type: object
+        properties:
+          '@id':
+            type: string
+            examples:
+              - aindifla1_f_56_e1_recordingStmt
+              - aindifla4_f_75_tun3_recordingStmt
+          '@sameAs':
+            type: string
+            format: uri
+            examples:
+              - corpus:jabbes6_f_50_fl_recordingStmt
+              - corpus:zarrouk2_f_70_fl_recordingStmt
+          recording:
+            type: object
+            properties:
+              '@type':
+                type: string
+                enum:
+                  - audio
+              '@dur-iso':
+                type: string
+                examples:
+                  - 03:00
+                  - PT105.0S
+                  - PT862.0S
+              respStmt:
+                $ref: '#/components/schemas/RespStmt'
+              date:
+                type: object
+                properties:
+                  '@when':
+                    type: string
+                    format: date
+                    examples:
+                      - "2020-07-13"
+                      - "2020-07-15"
+                      - "2022-05-12"
+                additionalProperties: false
+                required:
+                  - '@when'
+              media:
+                type: object
+                properties:
+                  '@decls':
+                    type: string
+                    examples:
+                      - '#aindifla1_f_56_tun2-restricted'
+                      - corpus:ouledsaid2_m_68_fl-restricted
+                  desc:
+                    type: object
+                    properties:
+                      $:
+                        type: string
+                        examples:
+                          - The informant has agreed to the publ…
+                          - The informant has not explicitly agr…
+                          - This is the compressed distribution…
+                    additionalProperties: false
+                    required:
+                      - $
+                  '@mimeType':
+                    type: string
+                    enum:
+                      - audio/m4a
+                      - audio/mp3
+                      - audio/mp4
+                      - audio/wav
+                  '@url':
+                    type: string
+                    format: uri
+                    examples:
+                      - arche:Gafsa/Bou_Omrane/FL/bouomrane9_f_49_fl.mp3
+                      - share:Syria-000_Short-Syria-2022.wav
+                  '@type':
+                    type: string
+                    enum:
+                      - distributionFile
+                      - master
+                  '@id':
+                    type: string
+                    examples:
+                      - aindifla1_f_56_e3-master
+                      - tajerouine5_f_47_st-master
+                additionalProperties: false
+                required:
+                  - '@url'
+                  - '@mimeType'
+                  - '@type'
+            additionalProperties: false
+            required:
+              - '@dur-iso'
+              - respStmt
+              - date
+              - media
+              - '@type'
+        additionalProperties: false
+        required:
+          - recording
+      SettingsDesc:
+        type: object
+        properties:
+          place:
+            type: object
+            properties:
+              '@sameAs':
+                type: string
+                format: uri
+                examples:
+                  - geo:AinDifla
+                  - geo:syria
+              location:
+                type: object
+                properties:
+                  geo:
+                    type: object
+                    properties:
+                      $:
+                        type: string
+                        examples:
+                          - 34.351148,9.095068
+                          - 34.99, 9.45
+                          - 36.95, 8.75
+                    additionalProperties: false
+                    required:
+                      - $
+                additionalProperties: false
+                required:
+                  - geo
+              placeName:
+                type: object
+                properties:
+                  $:
+                    type: string
+                    examples:
+                      - Syria
+                additionalProperties: false
+                required:
+                  - $
+              country:
+                type: object
+                properties:
+                  $:
+                    type: string
+                    examples:
+                      - Egypt
+                      - Turkey
+                additionalProperties: false
+                required:
+                  - $
+              region:
+                type: object
+                properties:
+                  $:
+                    type: string
+                    examples:
+                      - Cairo
+                      - Damascus
+                      - Jendouba
+                additionalProperties: false
+                required:
+                  - $
+              settlement:
+                type: object
+                properties:
+                  name:
+                    type: array
+                    prefixItems:
+                      - type: object
+                        properties:
+                          '@lang':
+                            type: string
+                            enum:
+                              - en
+                          $:
+                            type: string
+                            maxLength: 14
+                            distinctValues: 52
+                            minLength: 3
+                            examples:
+                              - Ain Difla
+                              - Sidi Shil
+                              - Urfa
+                        additionalProperties: false
+                        required:
+                          - '@lang'
+                          - $
+                      - type: object
+                        properties:
+                          '@lang':
+                            type: string
+                            enum:
+                              - aeb
+                          $:
+                            type: string
+                            examples:
+                              - Bāṭun Ġuzǟl
+                              - Firyǟna
+                              - ʕĒn Difla
+                        additionalProperties: false
+                        required:
+                          - '@lang'
+                          - $
+                    items: false
+                    minItems: 2
+                    maxItems: 2
+                additionalProperties: false
+                required:
+                  - name
+        additionalProperties: false
+        required:
+          - place
+      Person:
+        type: object
+        properties:
+          '@id':
+            type: string
+            examples:
+              - AinDifla1
+              - Harran15
+          '@sameAs':
+            type: string
+            format: uri
+            examples:
+              - corpus:AinDifla4
+              - corpus:Tajerouine7
+          '@age':
+            type: string
+            examples:
+              - "24"
+              - "76"
+          '@sex':
+            type: string
+            enum:
+              - f
+              - m
+          sex:
+            type: object
+            properties:
+              $:
+                type: string
+                enum:
+                  - F
+                  - M
+            additionalProperties: false
+          idno:
+            type: object
+            properties:
+              $:
+                type: string
+                examples:
+                  - AinDifla1/f/56
+                  - Zarrouk2
+            additionalProperties: false
+            required:
+              - $
+          name:
+            type: object
+            properties:
+              '@type':
+                type: string
+                enum:
+                  - pseudonym
+              $:
+                type: string
+                examples:
+                  - Ceylanpinar01
+                  - Harran01
+                  - Syria04
+            additionalProperties: false
+            required:
+              - '@type'
+              - $
+          birth:
+            type: object
+            properties:
+              $:
+                type: string
+                examples:
+                  - "1912"
+                  - "1968"
+                  - "1974"
+            additionalProperties: false
+          note:
+            type: object
+            properties:
+              $:
+                type: string
+                examples:
+                  - Harran
+            additionalProperties: false
+            required:
+              - $
+          ptrs:
+            type: array
+            items:
+              type: object
+              properties:
+                '@target':
+                  type: string
+                  examples:
+                    - corpus:aindraham11_f_45_aindraham12_f_20_fl
+                    - datatypes.vicav.st:vicav_sample_ainksiba_02
+                '@type':
+                  type: string
+                  enum:
+                    - participantIn
+                    - participatedIn
+              additionalProperties: false
+              required:
+                - '@type'
+                - '@target'
+        additionalProperties: false
       RFC7807Problem:
         title: A RFC 7807 problem report
         type: object
