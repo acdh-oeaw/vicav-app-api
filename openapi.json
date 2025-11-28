@@ -6143,7 +6143,7 @@
                       "$ref": "#/components/schemas/Biblio"
                     },
                     {
-                      "$ref": "#/components/schemas/Corpora"
+                      "$ref": "#/components/schemas/TeiCorpus"
                     },
                     {
                       "type": "object"
@@ -7030,7 +7030,7 @@
           "$"
         ]
       },
-      "Corpora": {
+      "TeiCorpus": {
         "type": "object",
         "properties": {
           "@document-uri": {
@@ -7046,47 +7046,7 @@
           "TEIs": {
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {
-                "@id": {
-                  "type": "string",
-                  "examples": [
-                    "aindifla1_f_56_e3",
-                    "ling_features_ahwaz"
-                  ]
-                },
-                "@document-uri": {
-                  "type": "string",
-                  "examples": [
-                    "/vicav_corpus/vicav_corpus_v001.xml"
-                  ]
-                },
-                "@type": {
-                  "const": "recording"
-                },
-                "@corresp": {
-                  "type": "string",
-                  "examples": [
-                    "corpus:amaymiya1_m_46_fl",
-                    "corpus:maagoula1_m_31_fl"
-                  ]
-                },
-                "@hasTEIw": {
-                  "type": "string",
-                  "enum": [
-                    "true"
-                  ]
-                },
-                "@space": {
-                  "const": "preserve"
-                },
-                "teiHeader": {
-                  "$ref": "#/components/schemas/TeiHeader"
-                },
-                "standOff": {
-                  "type": "object"
-                }
-              }
+              "$ref": "#/components/schemas/TEI"
             }
           },
           "standOff": {
@@ -7103,6 +7063,49 @@
             "required": [
               "listPerson"
             ]
+          }
+        }
+      },
+      "TEI": {
+        "type": "object",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "examples": [
+              "aindifla1_f_56_e3",
+              "ling_features_ahwaz"
+            ]
+          },
+          "@document-uri": {
+            "type": "string",
+            "examples": [
+              "/vicav_corpus/vicav_corpus_v001.xml"
+            ]
+          },
+          "@type": {
+            "const": "recording"
+          },
+          "@corresp": {
+            "type": "string",
+            "examples": [
+              "corpus:amaymiya1_m_46_fl",
+              "corpus:maagoula1_m_31_fl"
+            ]
+          },
+          "@hasTEIw": {
+            "type": "string",
+            "enum": [
+              "true"
+            ]
+          },
+          "@space": {
+            "const": "preserve"
+          },
+          "teiHeader": {
+            "$ref": "#/components/schemas/TeiHeader"
+          },
+          "standOff": {
+            "type": "object"
           }
         }
       },
