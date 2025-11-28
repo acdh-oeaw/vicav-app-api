@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1764353914037
+modified: 1764354511538
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -6183,7 +6183,7 @@ contents: >-
                 items:
                   oneOf:
                   - $ref: '#/components/schemas/Biblio'
-                  - $ref: '#/components/schemas/Corpora'
+                  - $ref: '#/components/schemas/TeiCorpus'
                   - type: object
           funders:
             type: array
@@ -6814,7 +6814,7 @@ contents: >-
           - '@who'
           - '@when'
           - $
-      Corpora:
+      TeiCorpus:
         type: object
         properties:
           '@document-uri':
@@ -6827,34 +6827,7 @@ contents: >-
           TEIs:
             type: array
             items:
-              type: object
-              properties:
-                '@id':
-                  type: string
-                  examples:
-                    - aindifla1_f_56_e3
-                    - ling_features_ahwaz
-                '@document-uri':
-                  type: string
-                  examples:
-                    - /vicav_corpus/vicav_corpus_v001.xml
-                '@type':
-                  const: recording
-                '@corresp':
-                  type: string
-                  examples:
-                    - corpus:amaymiya1_m_46_fl
-                    - corpus:maagoula1_m_31_fl
-                '@hasTEIw':
-                  type: string
-                  enum:
-                    - "true"
-                '@space':
-                  const: preserve
-                teiHeader:
-                  $ref: '#/components/schemas/TeiHeader'
-                standOff:
-                  type: object
+              $ref: '#/components/schemas/TEI'
           standOff:
             type: object
             properties:
@@ -6865,6 +6838,35 @@ contents: >-
             additionalProperties: false
             required:
               - listPerson
+      TEI:   
+        type: object
+        properties:
+          '@id':
+            type: string
+            examples:
+              - aindifla1_f_56_e3
+              - ling_features_ahwaz
+          '@document-uri':
+            type: string
+            examples:
+              - /vicav_corpus/vicav_corpus_v001.xml
+          '@type':
+            const: recording
+          '@corresp':
+            type: string
+            examples:
+              - corpus:amaymiya1_m_46_fl
+              - corpus:maagoula1_m_31_fl
+          '@hasTEIw':
+            type: string
+            enum:
+              - "true"
+          '@space':
+            const: preserve
+          teiHeader:
+            $ref: '#/components/schemas/TeiHeader'
+          standOff:
+            type: object
       listPersonStandOff:
         type: object
         properties:
