@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1764354511538
+modified: 1764355035413
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -6549,8 +6549,8 @@ contents: >-
       ProfileDesc:
         type: object
         properties:
-          settingsDesc:
-            $ref: '#/components/schemas/SettingsDesc'
+          settingDesc:
+            $ref: '#/components/schemas/SettingDesc'
           textClass:
             type: object
             properties:
@@ -7931,7 +7931,7 @@ contents: >-
         additionalProperties: false
         required:
           - recording
-      SettingsDesc:
+      SettingDesc:
         type: object
         properties:
           place:
@@ -8144,6 +8144,8 @@ contents: >-
               required:
                 - '@type'
                 - '@target'
+          $:
+            type: string
         additionalProperties: false
       RFC7807Problem:
         title: A RFC 7807 problem report
