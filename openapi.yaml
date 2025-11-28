@@ -2044,11 +2044,16 @@ paths:
                   summary: the SHAWI project configuration
                   value: {
                     "projectConfig": {
+                      "cached": true,
+                      "baseURIPublic": "https://shawi.acdh-ch-dev.oeaw.ac.at/vicav",
+                      "partners": [],
+                      "funders": [],
+                      "id": "vicav_config_shawi",
                       "title": "SHAWI",
                       "logo": {
                         "string": "shawi"
                       },
-                      "icon": "shawi/marker-icon.png",
+                      "icon": "https://shawi.acdh-ch-dev.oeaw.ac.at/vicav/vendor/images/shawi/marker-icon.png",
                       "map": {
                         "zoom": 6,
                         "center": {
@@ -2062,37 +2067,39 @@ paths:
                         "main": [
                           {
                             "id": "dropdown01",
+                            "target": "dropdown01",
                             "title": "About",
                             "item": [
                               {
                                 "id": "shawiAbout",
-                                "target": "shawi_about",
+                                "target": "shawi.paratexts.about",
                                 "title": "About",
                                 "type": "item",
                                 "targetType": "Text",
-                                "label": ""
+                                "label": "About",
+                                "params": {
+                                  "textId": "shawi.paratexts.about",
+                                  "teiSource": "https://github.com/acdh-oeaw/shawi-data/blob/f79d1a69500ba7e0821a8841652d5f1e461f40ff/vicav_texts/shawi/aboutTheProject.xml"
+                                }
                               },
                               {
                                 "id": "shawiTeam",
-                                "target": "shawi_team",
+                                "target": "shawi.paratexts.team",
                                 "title": "Team",
                                 "type": "item",
                                 "targetType": "Text",
-                                "label": ""
-                              },
-                              {
-                                "id": "shawiNews",
-                                "target": "shawi_news",
-                                "title": "News",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": ""
+                                "label": "Team",
+                                "params": {
+                                  "textId": "shawi.paratexts.team",
+                                  "teiSource": "https://github.com/acdh-oeaw/shawi-data/blob/f79d1a69500ba7e0821a8841652d5f1e461f40ff/vicav_texts/shawi/team.xml"
+                                }
                               }
                             ],
                             "type": "dropdown"
                           },
                           {
                             "id": "dropdown02",
+                            "target": "dropdown02",
                             "title": "Profiles",
                             "item": [
                               {
@@ -2101,72 +2108,14 @@ paths:
                                 "title": "Explanation",
                                 "type": "item",
                                 "targetType": "Text",
-                                "label": ""
-                              },
-                              {
-                                "type": "separator"
-                              },
-                              {
-                                "id": "navProfilesGeoRegMarkers",
-                                "title": "Show All Locations",
-                                "type": "item",
-                                "targetType": "WMap",
-                                "label": "",
+                                "label": "Explanation",
                                 "params": {
-                                  "endpoint": "profile_markers",
-                                  "queryString": "",
-                                  "scope": []
+                                  "textId": "tunocentExplanationProfiles",
+                                  "teiSource": ""
                                 }
                               },
                               {
-                                "id": "liProfilesList",
-                                "title": "List all entries",
-                                "type": "item",
-                                "targetType": "DataList",
-                                "label": "",
-                                "params": {
-                                  "textId": "vicav_profiles",
-                                  "teiSource": "",
-                                  "dataTypes": ["Profile"]
-                                 }
-                              },
-                              {
                                 "type": "separator"
-                              },
-                              {
-                                "id": "liVicavContributeProfile",
-                                "title": "Contribute a Profile",
-                                "type": "item",
-                                "targetType": "Text",
-                                "label": ""
-                              }
-                            ],
-                            "type": "dropdown"
-                          },
-                          {
-                            "id": "dropdown04",
-                            "title": "Corpus",
-                            "item": [
-                              {
-                                "id": "liSamplesList",
-                                "title": "List all entries",
-                                "type": "item",
-                                "targetType": "DataList",
-                                "label": ""
-                              },
-                              {
-                                "id": "corpusQuery",
-                                "title": "Search the corpus",
-                                "type": "item",
-                                "targetType": "CorpusQuery",
-                                "label": ""
-                              },
-                              {
-                                "id": "corpusText",
-                                "title": "Read corpus texts",
-                                "type": "item",
-                                "targetType": "CorpusText",
-                                "label": ""
                               }
                             ],
                             "type": "dropdown"
@@ -2175,10 +2124,11 @@ paths:
                         "subnav": [
                           {
                             "id": "subNavProfilesGeoRegMarkers",
+                            "target": "ProfilesGeoRegMarkers",
                             "title": "Profiles",
                             "type": "item",
                             "targetType": "WMap",
-                            "label": "",
+                            "label": "Profiles",
                             "params": {
                               "endpoint": "profile_markers",
                               "queryString": "",
@@ -2187,30 +2137,27 @@ paths:
                           },
                           {
                             "id": "subNavFeaturesGeoRegMarkers",
+                            "target": "FeaturesGeoRegMarkers",
                             "title": "Features",
                             "type": "item",
                             "targetType": "WMap",
-                            "label": "",
+                            "label": "Features",
                             "params": {
                               "endpoint": "feature_markers",
-                              "queryString": "",
-                              "scope": []
-                            }
-                          },
-                          {
-                            "id": "subNavSamplesGeoRegMarkers",
-                            "title": "Samples",
-                            "type": "item",
-                            "targetType": "WMap",
-                            "label": "",
-                            "params": {
-                              "endpoint": "sample_markers",
                               "queryString": "",
                               "scope": []
                             }
                           }
                         ]
                       },
+                      "specialCharacters": [
+                        {
+                          "value": "{"
+                        },
+                        {
+                          "value": "|"
+                        }
+                      ],
                       "styleSettings": {
                         "colors": {
                           "nav": "#7C633F",
@@ -2220,8 +2167,799 @@ paths:
                         }
                       },
                       "noskeHost": "https://shawi-noske.acdh-dev.oeaw.ac.at",
-                      "style": "\n.navbar, .main-footer {\n\tbackground-color: #7C633F;\n}\n.sub-nav, .panel-chrome, .footer-imprint-bar {\n\tbackground-color: #FFA500;\n}\n\n.main-footer a {\n\tcolor: gold;\n}\n\na.navbar-brand {\n\tfont-size: 2.5em;\n\tfont-family: Times, serif;\n\tfont-style: italic;\n\tline-height: 1;\n\tmargin-top: -10px;\n}\n\nbody .navbar ul.navbar-nav {\n\tborder-left: none;\n}\n\n.h3Profile {\n\tborder-bottom: #7C633F;\n}\n\nh3::after, h4::after {\n\tborder-top: solid 4px #7C633F;\n}\n\n.tdFeaturesHead, .tdFeaturesHeadRight, .tdHead, .aVicText:hover, .aTEIButton:hover, .dropdown-item:active, .dvStats {\n\tbackground: #7C633F;\n}\n\n.dvAuthor {\n\tborder-top: 0.5px dotted #7C633F;\n}\n\n.tdFeaturesLeft, .tdProfileTableRight, .aVicText, .aTEIButton {\n\tcolor: #7C633F !important;\n}\n\n.tdFeaturesHead, .tdFeaturesHeadRight, .tdFeaturesRightSource, .tdFeaturesLeft, .tdFeaturesRightTarget, .dvStats {\n\tborder: solid 1px #7C633F;\n}\n\n.tdFeaturesRightTarget {\n\tfont-style: inherit;\n}\n\n.tdProfileTableRight {\n\tborder-bottom: solid 1px #7C633F;\n}\n\n.aTEIButton {\n\tborder: solid 1px #7C633F;\n}\n\na:hover { color: #7C633F }\n\n.word-search [data-toggle=\"tooltip\"] {\n    background-color: rgba(255,255,0,0.3);\t\n}\n\n[data-toggle = \"tooltip\"].sample-text-variant {\n    background-color: #FFA500;\n    color: white;\n    padding: 0 2px;\n}\n\n.aligncenter {\n\tmargin: 0 auto;\n\ttext-align: center;\n}\n.alignright {\n    float: right;\n}\n.alignleft {\n    float: left;\n}\n.has-background-dim {\n    background-color: #eee;\n    display: flex;\n}\nwp-block-image {\n    max-width: 100%;\n    margin-bottom: 1em;\n    margin-left: 0;\n    margin-right: 0;\n\n}\n.wp-block-cover {\n    position: relative;\n    min-height: 430px;\n    width: 100%;\n    margin: 0 0 1.5em;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    overflow: hidden;\n}\n.wp-block-cover.has-background-dim::before {\n    content: \"\";\n    position: absolute;\n    top: 0;\n    left: 0;\n    bottom: 0;\n    right: 0;\n    background-color: inherit;\n    opacity: .5;\n    z-index: 1;\n}\n\n.wp-block-cover .wp-block-cover__inner-container {\n    width: calc(100% - 70px);\n    z-index: 1;\n    color: #f8f9f9;\n}\n.wp-block-columns { display: flex; }\n\n.has-2-columns .wp-block-column { flex-basis: 50% }\n\nfigure, img {\n    height: auto;\n}\n\n\t"
-                    }
+                      "style": "\n.navbar, .main-footer {\n\tbackground-color: #7C633F;\n}\n.sub-nav, .panel-chrome, .footer-imprint-bar {\n\tbackground-color: #FFA500;\n}\n\n.main-footer a {\n\tcolor: gold;\n}\n\na.navbar-brand {\n\tfont-size: 2.5em;\n\tfont-family: Times, serif;\n\tfont-style: [...]",
+                      "staticData": {
+                        "table": [
+                          {
+                            "@document-uri": "/vicav_profiles/shawi/corpus.xml",
+                            "@id": "vicav_profiles",
+                            "TEIs": [
+                              {
+                                "@space": "preserve",
+                                "@id": "profile_urfa_01",
+                                "teiHeader": {
+                                  "fileDesc": {
+                                    "titleStmt": {
+                                      "titles": [
+                                        {
+                                          "$": "A machine-readable language profile of Urfa Arabic"
+                                        }
+                                      ],
+                                      "respStmts": [
+                                        {
+                                          "persName": {
+                                            "@id": "stephan",
+                                            "$": "Stephan Procházka"
+                                          },
+                                          "resp": {
+                                            "$": "author"
+                                          }
+                                        },
+                                        {
+                                          "persName": {
+                                            "@id": "charly",
+                                            "$": "Karlheinz Moerth"
+                                          },
+                                          "resp": {
+                                            "$": "Technical_Editor"
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "publicationStmt": {
+                                      "pubPlace": {
+                                        "$": "Vienna"
+                                      },
+                                      "date": {
+                                        "$": "2011"
+                                      },
+                                      "availability": {
+                                        "@status": "restricted",
+                                        "p": {
+                                          "ref": {
+                                            "@type": "license",
+                                            "@target": "http://creativecommons.org/licenses/by-nc-sa/3.0/"
+                                          }
+                                        }
+                                      },
+                                      "teiSource_idno": {
+                                        "@type": "teiSource",
+                                        "$": "https://github.com/acdh-oeaw/shawi-data/blob/f79d1a69500ba7e0821a8841652d5f1e461f40ff/vicav_profiles/shawi/vicav_profile_urfa.xml"
+                                      },
+                                      "publishers": [
+                                        {
+                                          "$": "ACDH-OeAW"
+                                        }
+                                      ]
+                                    },
+                                    "sourceDesc": {
+                                      "p": {
+                                        "$": "This is an original digital text"
+                                      }
+                                    }
+                                  },
+                                  "encodingDesc": {
+                                    "tagsDecl": {
+                                      "@partial": "true",
+                                      "renditions": [
+                                        {
+                                          "@id": "i",
+                                          "@scheme": "css",
+                                          "$": "font-style:italics;"
+                                        },
+                                        {
+                                          "@id": "u",
+                                          "@scheme": "css",
+                                          "$": "text-decoration:underline;"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "revisionDesc": {
+                                    "changes": [
+                                      {
+                                        "@n": "f79d1a6",
+                                        "@who": "github-actions[bot]",
+                                        "@when": "2025-11-28",
+                                        "$": "Automatic generated TEI files"
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "@document-uri": "/vicav_corpus/shawi/shawiCorpus.xml",
+                            "@id": "vicav_corpus",
+                            "teiHeader": {
+                              "fileDesc": {
+                                "titleStmt": {
+                                  "titles": [
+                                    {
+                                      "@level": "s",
+                                      "$": "SHAWI Corpus"
+                                    }
+                                  ],
+                                  "funder": {
+                                    "orgName": {
+                                      "@ref": "https://ror.org/013tf3c58",
+                                      "$": "FWF Austrian Science Fund"
+                                    },
+                                    "idno": {
+                                      "@type": "projectNumber",
+                                      "$": "P 33574"
+                                    },
+                                    "$": "Funded by the FWF Austrian Science Fund under the number P 33574"
+                                  },
+                                  "respStmts": [
+                                    {
+                                      "persName": {
+                                        "@ref": "#SP",
+                                        "forename": {
+                                          "$": "Stephan"
+                                        },
+                                        "surname": {
+                                          "$": "Procházka"
+                                        }
+                                      },
+                                      "resp": {
+                                        "$": "Principal Investigator"
+                                      }
+                                    },
+                                    {
+                                      "persName": {
+                                        "@ref": "#AHu",
+                                        "forename": {
+                                          "$": "Aozan"
+                                        },
+                                        "surname": {
+                                          "$": "Hussien"
+                                        }
+                                      },
+                                      "resp": {
+                                        "$": "Transcription"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "publicationStmt": {
+                                  "distributor": {
+                                    "@ref": "https://ror.org/028bsh698",
+                                    "$": "Austrian Center for Digital Humanities and Cultural Heritage"
+                                  },
+                                  "date": {
+                                    "$": "TODO Set publication date here"
+                                  },
+                                  "address": [
+                                    {
+                                      "$": "Bäckerstraße 13"
+                                    },
+                                    {
+                                      "$": "1010 Vienna"
+                                    }
+                                  ],
+                                  "availability": {
+                                    "@status": "free",
+                                    "licence": {
+                                      "@target": "https://creativecommons.org/licenses/by/4.0/",
+                                      "$": "CC BY 4.0"
+                                    }
+                                  },
+                                  "teiSource_idno": {
+                                    "@type": "teiSource",
+                                    "$": "https://github.com/acdh-oeaw/shawi-data/blob/f79d1a69500ba7e0821a8841652d5f1e461f40ff/103_tei_w/shawiCorpus.xml"
+                                  },
+                                  "publishers": [
+                                    {
+                                      "@ref": "https://ror.org/03anc3s24",
+                                      "$": "Austrian Academy of Sciences"
+                                    },
+                                    {
+                                      "@ref": "https://ror.org/03prydq77",
+                                      "$": "University of Vienna"
+                                    }
+                                  ]
+                                },
+                                "sourceDesc": {
+                                  "p": {
+                                    "ptr": {
+                                      "@target": "https://oeawacat.sharepoint.com/:x:/r/sites/ACDH-CH_p_ShawiTypeArabicDialects_Shawi/[...]"
+                                    },
+                                    "$": "Derived from via xlsxtotei and table2corpus.xsl"
+                                  }
+                                }
+                              },
+                              "encodingDesc": {
+                                "classDecl": {
+                                  "taxonomies": [
+                                    {
+                                      "categories": [
+                                        {
+                                          "@id": "Brothers",
+                                          "@n": "3 Brothers",
+                                          "catDesc": {
+                                            "$": "TODO ADD DESCRIPTION in Subjects table!"
+                                          }
+                                        },
+                                        {
+                                          "@id": "Abdalqadir",
+                                          "@n": "Abdalqadir",
+                                          "catDesc": {
+                                            "$": "TODO ADD DESCRIPTION in Subjects table!"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                "listPrefixDef": [
+                                  {
+                                    "@ident": "corpus",
+                                    "@matchPattern": "^(.+)$",
+                                    "@replacementPattern": "shawiCorpus.xml#$1",
+                                    "p": {
+                                      "code": {
+                                        "$": "teiCorpusHeader"
+                                      },
+                                      "ref": {
+                                        "@target": "shawiCorpus.xml",
+                                        "$": "SHAWI teiCorpus document"
+                                      },
+                                      "$": "Private URIs using the teiCorpusHeader prefix are pointers to any element in the SHAWI teiCorpus document ."
+                                    }
+                                  },
+                                  {
+                                    "@ident": "share",
+                                    "@matchPattern": "^(.+)$",
+                                    "@replacementPattern": "\\\\share17.univie.ac.at\\orientalistik\\SHAWI\\Recordings\\*\\*\\$1.wav",
+                                    "p": {
+                                      "code": {
+                                        "$": "share"
+                                      },
+                                      "$": "Private URIs using the share prefix are pointers to audio file residing on the SHAWI network share."
+                                    }
+                                  }
+                                ]
+                              },
+                              "profileDesc": {
+                                "particDesc": {
+                                  "listPerson": [
+                                    {
+                                      "@id": "Ceylanpinar01",
+                                      "name": {
+                                        "@type": "pseudonym",
+                                        "$": "Ceylanpinar01"
+                                      },
+                                      "sex": {
+                                        "$": "M"
+                                      },
+                                      "birth": {},
+                                      "note": {
+                                        "$": "Harran"
+                                      },
+                                      "ptrs": []
+                                    },
+                                    {
+                                      "@id": "Ceylanpinar02",
+                                      "name": {
+                                        "@type": "pseudonym",
+                                        "$": "Ceylanpinar02"
+                                      },
+                                      "sex": {
+                                        "$": "M"
+                                      },
+                                      "birth": {},
+                                      "note": {
+                                        "$": "Harran"
+                                      },
+                                      "ptrs": []
+                                    }
+                                  ]
+                                }
+                              }
+                            },
+                            "standOff": {
+                              "listPerson": [
+                                {
+                                  "@id": "SP",
+                                  "persName": {
+                                    "forename": {
+                                      "$": "Stephan"
+                                    },
+                                    "surname": {
+                                      "$": "Procházka"
+                                    }
+                                  },
+                                  "state": {
+                                    "@type": "projectRole",
+                                    "desc": {
+                                      "$": "Principal Investigator"
+                                    }
+                                  },
+                                  "idno": {
+                                    "@type": "URI",
+                                    "@subtype": "ORCID",
+                                    "$": "https://orcid.org/0000-0001-9421-1404"
+                                  },
+                                  "affiliation": {
+                                    "$": "University of Vienna"
+                                  },
+                                  "note": {},
+                                  "ptrs": []
+                                },
+                                {
+                                  "@id": "AHu",
+                                  "persName": {
+                                    "forename": {
+                                      "$": "Aozan"
+                                    },
+                                    "surname": {
+                                      "$": "Hussien"
+                                    }
+                                  },
+                                  "state": {
+                                    "@type": "projectRole",
+                                    "desc": {
+                                      "$": "Transcription"
+                                    }
+                                  },
+                                  "idno": {
+                                    "@type": "URI",
+                                    "@subtype": "ORCID",
+                                    "$": "https://orcid.org/0000-0002-0963-8639"
+                                  },
+                                  "affiliation": {
+                                    "$": "University of Vienna"
+                                  },
+                                  "note": {},
+                                  "ptrs": []
+                                }
+                              ]
+                            },
+                            "TEIs": [
+                              {
+                                "teiHeader": {
+                                  "fileDesc": {
+                                    "titleStmt": {
+                                      "titles": [
+                                        {
+                                          "@level": "a",
+                                          "$": "Short Syria"
+                                        },
+                                        {
+                                          "@level": "s",
+                                          "$": "SHAWI Corpus"
+                                        }
+                                      ],
+                                      "funder": {
+                                        "orgName": {
+                                          "@ref": "https://ror.org/013tf3c58",
+                                          "$": "FWF Austrian Science Fund"
+                                        },
+                                        "idno": {
+                                          "@type": "projectNumber",
+                                          "$": "P 33574"
+                                        },
+                                        "$": "Funded by the FWF Austrian Science Fund under the number P 33574"
+                                      },
+                                      "respStmts": [
+                                        {
+                                          "persName": {
+                                            "@ref": "corpus:AHu",
+                                            "$": "Aozan Hussien"
+                                          },
+                                          "resp": {
+                                            "$": "recording"
+                                          }
+                                        },
+                                        {
+                                          "persName": {
+                                            "@ref": "corpus:No Need",
+                                            "$": "No Need/ unqualified"
+                                          },
+                                          "resp": {
+                                            "$": "transcription"
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "publicationStmt": {
+                                      "distributor": {
+                                        "@ref": "https://ror.org/028bsh698",
+                                        "$": "Austrian Center for Digital Humanities and Cultural Heritage"
+                                      },
+                                      "date": {
+                                        "$": "TODO Set publication date here"
+                                      },
+                                      "address": [
+                                        {
+                                          "$": "Bäckerstraße 13"
+                                        },
+                                        {
+                                          "$": "1010 Vienna"
+                                        }
+                                      ],
+                                      "availability": {
+                                        "@status": "free",
+                                        "licence": {
+                                          "@target": "https://creativecommons.org/licenses/by/4.0/",
+                                          "$": "CC BY 4.0"
+                                        }
+                                      },
+                                      "idno": {
+                                        "@type": "SHAWICorpusID",
+                                        "$": "Syria-000"
+                                      },
+                                      "teiSource_idno": {
+                                        "@type": "teiSource",
+                                        "$": "https://github.com/acdh-oeaw/shawi-data/blob/f79d1a69500ba7e0821a8841652d5f1e461f40ff/103_tei_w/shawiCorpus.xml"
+                                      },
+                                      "publishers": [
+                                        {
+                                          "@ref": "https://ror.org/03anc3s24",
+                                          "$": "Austrian Academy of Sciences"
+                                        },
+                                        {
+                                          "@ref": "https://ror.org/03prydq77",
+                                          "$": "University of Vienna"
+                                        }
+                                      ]
+                                    },
+                                    "sourceDesc": {
+                                      "recordingStmt": {
+                                        "recording": {
+                                          "@dur-iso": "00:34",
+                                          "@type": "audio",
+                                          "date": {
+                                            "@when": "2022-04-21"
+                                          },
+                                          "respStmt": {
+                                            "persName": {
+                                              "@ref": "corpus:AHu",
+                                              "$": "Aozan Hussien"
+                                            },
+                                            "resp": {
+                                              "$": "recording"
+                                            }
+                                          },
+                                          "media": {
+                                            "@url": "share:Syria-000_Short-Syria-2022.wav",
+                                            "@mimeType": "audio/wav",
+                                            "@type": "master"
+                                          }
+                                        }
+                                      },
+                                      "biblStruct": {
+                                        "@type": "dataset",
+                                        "@id": "Procházka2025",
+                                        "@corresp": "http://zotero.org/groups/2165756/items/ITRWL9TA",
+                                        "@n": "Procházka2025",
+                                        "monogr": {
+                                          "title": {
+                                            "@level": "m",
+                                            "$": "A Digital Dictionary of Shawi Arabic"
+                                          },
+                                          "author": {
+                                            "persName": {
+                                              "$": "Stephan Procházka"
+                                            }
+                                          },
+                                          "respStmt": {
+                                            "resp": {
+                                              "$": "contributor"
+                                            },
+                                            "persName": {
+                                              "$": "Daniel Schopper"
+                                            }
+                                          },
+                                          "imprint": {
+                                            "biblScopes": [],
+                                            "date": {
+                                              "$": "2025"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "encodingDesc": {
+                                    "listPrefixDef": [
+                                      {
+                                        "@ident": "corpus",
+                                        "@matchPattern": "^(.+)$",
+                                        "@replacementPattern": "shawiCorpus.xml#$1",
+                                        "p": {
+                                          "code": {
+                                            "$": "teiCorpusHeader"
+                                          },
+                                          "ref": {
+                                            "@target": "shawiCorpus.xml",
+                                            "$": "SHAWI teiCorpus document"
+                                          },
+                                          "$": "Private URIs using the teiCorpusHeader prefix are pointers to any element in the SHAWI teiCorpus document ."
+                                        }
+                                      },
+                                      {
+                                        "@ident": "share",
+                                        "@matchPattern": "^(.+)$",
+                                        "@replacementPattern": "\\\\share17.univie.ac.at\\orientalistik\\SHAWI\\Recordings\\*\\*\\$1.wav",
+                                        "p": {
+                                          "code": {
+                                            "$": "share"
+                                          },
+                                          "$": "Private URIs using the share prefix are pointers to audio file residing on the SHAWI network share."
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  "profileDesc": {
+                                    "particDesc": {
+                                      "listPerson": [
+                                        {
+                                          "@sameAs": "corpus:Syria01",
+                                          "name": {
+                                            "@type": "pseudonym",
+                                            "$": "Syria01"
+                                          },
+                                          "ptrs": []
+                                        },
+                                        {
+                                          "@sameAs": "corpus:Syria03",
+                                          "name": {
+                                            "@type": "pseudonym",
+                                            "$": "Syria03"
+                                          },
+                                          "ptrs": []
+                                        }
+                                      ]
+                                    },
+                                    "settingDesc": {
+                                      "place": {
+                                        "@sameAs": "geo:syria",
+                                        "placeName": {
+                                          "$": "Syria"
+                                        }
+                                      }
+                                    },
+                                    "textClass": {
+                                      "catRefs": [
+                                        {
+                                          "@target": "corpus:Consent"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "teiHeader": {
+                                  "fileDesc": {
+                                    "titleStmt": {
+                                      "titles": [
+                                        {
+                                          "@level": "a",
+                                          "$": "Xathir Syria"
+                                        },
+                                        {
+                                          "@level": "s",
+                                          "$": "SHAWI Corpus"
+                                        }
+                                      ],
+                                      "funder": {
+                                        "orgName": {
+                                          "@ref": "https://ror.org/013tf3c58",
+                                          "$": "FWF Austrian Science Fund"
+                                        },
+                                        "idno": {
+                                          "@type": "projectNumber",
+                                          "$": "P 33574"
+                                        },
+                                        "$": "Funded by the FWF Austrian Science Fund under the number P 33574"
+                                      },
+                                      "respStmts": [
+                                        {
+                                          "persName": {
+                                            "@ref": "corpus:AHu",
+                                            "$": "Aozan Hussien"
+                                          },
+                                          "resp": {
+                                            "$": "recording"
+                                          }
+                                        },
+                                        {
+                                          "persName": {
+                                            "@ref": "corpus:AHu",
+                                            "$": "Aozan Hussien"
+                                          },
+                                          "resp": {
+                                            "$": "transcription"
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "publicationStmt": {
+                                      "distributor": {
+                                        "@ref": "https://ror.org/028bsh698",
+                                        "$": "Austrian Center for Digital Humanities and Cultural Heritage"
+                                      },
+                                      "date": {
+                                        "$": "TODO Set publication date here"
+                                      },
+                                      "address": [
+                                        {
+                                          "$": "Bäckerstraße 13"
+                                        },
+                                        {
+                                          "$": "1010 Vienna"
+                                        }
+                                      ],
+                                      "availability": {
+                                        "@status": "free",
+                                        "licence": {
+                                          "@target": "https://creativecommons.org/licenses/by/4.0/",
+                                          "$": "CC BY 4.0"
+                                        }
+                                      },
+                                      "idno": {
+                                        "@type": "SHAWICorpusID",
+                                        "$": "Syria-001"
+                                      },
+                                      "teiSource_idno": {
+                                        "@type": "teiSource",
+                                        "$": "https://github.com/acdh-oeaw/shawi-data/blob/f79d1a69500ba7e0821a8841652d5f1e461f40ff/103_tei_w/shawiCorpus.xml"
+                                      },
+                                      "publishers": [
+                                        {
+                                          "@ref": "https://ror.org/03anc3s24",
+                                          "$": "Austrian Academy of Sciences"
+                                        },
+                                        {
+                                          "@ref": "https://ror.org/03prydq77",
+                                          "$": "University of Vienna"
+                                        }
+                                      ]
+                                    },
+                                    "sourceDesc": {
+                                      "recordingStmt": {
+                                        "recording": {
+                                          "@dur-iso": "10:41",
+                                          "@type": "audio",
+                                          "date": {
+                                            "@when": "2022-04-21"
+                                          },
+                                          "respStmt": {
+                                            "persName": {
+                                              "@ref": "corpus:AHu",
+                                              "$": "Aozan Hussien"
+                                            },
+                                            "resp": {
+                                              "$": "recording"
+                                            }
+                                          },
+                                          "media": {
+                                            "@url": "share:Syria-001_Xathir-Syria-2022.wav",
+                                            "@mimeType": "audio/wav",
+                                            "@type": "master"
+                                          }
+                                        }
+                                      },
+                                      "biblStruct": {
+                                        "@type": "dataset",
+                                        "@id": "Procházka2025",
+                                        "@corresp": "http://zotero.org/groups/2165756/items/ITRWL9TA",
+                                        "@n": "Procházka2025",
+                                        "monogr": {
+                                          "title": {
+                                            "@level": "m",
+                                            "$": "A Digital Dictionary of Shawi Arabic"
+                                          },
+                                          "author": {
+                                            "persName": {
+                                              "$": "Stephan Procházka"
+                                            }
+                                          },
+                                          "respStmt": {
+                                            "resp": {
+                                              "$": "contributor"
+                                            },
+                                            "persName": {
+                                              "$": "Daniel Schopper"
+                                            }
+                                          },
+                                          "imprint": {
+                                            "biblScopes": [],
+                                            "date": {
+                                              "$": "2025"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "encodingDesc": {
+                                    "listPrefixDef": [
+                                      {
+                                        "@ident": "corpus",
+                                        "@matchPattern": "^(.+)$",
+                                        "@replacementPattern": "shawiCorpus.xml#$1",
+                                        "p": {
+                                          "code": {
+                                            "$": "teiCorpusHeader"
+                                          },
+                                          "ref": {
+                                            "@target": "shawiCorpus.xml",
+                                            "$": "SHAWI teiCorpus document"
+                                          },
+                                          "$": "Private URIs using the teiCorpusHeader prefix are pointers to any element in the SHAWI teiCorpus document ."
+                                        }
+                                      },
+                                      {
+                                        "@ident": "share",
+                                        "@matchPattern": "^(.+)$",
+                                        "@replacementPattern": "\\\\share17.univie.ac.at\\orientalistik\\SHAWI\\Recordings\\*\\*\\$1.wav",
+                                        "p": {
+                                          "code": {
+                                            "$": "share"
+                                          },
+                                          "$": "Private URIs using the share prefix are pointers to audio file residing on the SHAWI network share."
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  "profileDesc": {
+                                    "particDesc": {
+                                      "listPerson": [
+                                        {
+                                          "@sameAs": "corpus:Syria01",
+                                          "name": {
+                                            "@type": "pseudonym",
+                                            "$": "Syria01"
+                                          },
+                                          "ptrs": []
+                                        },
+                                        {
+                                          "@sameAs": "corpus:Syria03",
+                                          "name": {
+                                            "@type": "pseudonym",
+                                            "$": "Syria03"
+                                          },
+                                          "ptrs": []
+                                        }
+                                      ]
+                                    },
+                                    "settingDesc": {
+                                      "place": {
+                                        "@sameAs": "geo:syria",
+                                        "placeName": {
+                                          "$": "Syria"
+                                        }
+                                      }
+                                    },
+                                    "textClass": {
+                                      "catRefs": [
+                                        {
+                                          "@target": "corpus:Animals"
+                                        },
+                                        {
+                                          "@target": "corpus:Family"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "version": {
+                        "backend": "8ab0fff",
+                        "data": "f79d1a6"
+                      }
+                    },
+                    "ETag": "D44B1B45BC723DBD50BF9F1EFB13CEFA",
+                    "took": "3265.59"
                   }
             application/xml:
               schema:
@@ -6290,8 +7028,19 @@ components:
       properties:
         p:
           $ref: '#/components/schemas/XmlTextNode'
-      idno:
-        $ref: '#/components/schemas/XmlTextNode'
+        idno:
+          $ref: '#/components/schemas/XmlTextNode'
+        teiSource_idno:
+          type: object
+          title: TEI XML Source reference
+          description: The text node is a link to the XML on either github or arche
+          properties:
+            '@type':
+              type: string
+              const: 'teiSource'
+            $:
+              type: string
+              fromat: uri
       required:
         - p
       title: PublicationStmt
