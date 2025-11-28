@@ -6513,12 +6513,12 @@ components:
       properties:
         fileDesc:
           $ref: '#/components/schemas/FileDesc'
-      profileDesc:
-        $ref: '#/components/schemas/ProfileDesc'
-      encodingDesc:
-        $ref: '#/components/schemas/EncodingDesc'
-      revisionDesc:
-        $ref: '#/components/schemas/RevisionDesc'
+        profileDesc:
+          $ref: '#/components/schemas/ProfileDesc'
+        encodingDesc:
+          $ref: '#/components/schemas/EncodingDesc'
+        revisionDesc:
+          $ref: '#/components/schemas/RevisionDesc'
       required:
         - fileDesc
       title: TeiHeader
