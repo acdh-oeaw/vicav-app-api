@@ -6651,8 +6651,8 @@
       "ProfileDesc": {
         "type": "object",
         "properties": {
-          "settingsDesc": {
-            "$ref": "#/components/schemas/SettingsDesc"
+          "settingDesc": {
+            "$ref": "#/components/schemas/SettingDesc"
           },
           "textClass": {
             "type": "object",
@@ -8662,7 +8662,7 @@
           "recording"
         ]
       },
-      "SettingsDesc": {
+      "SettingDesc": {
         "type": "object",
         "properties": {
           "place": {
@@ -8966,6 +8966,9 @@
                 "@target"
               ]
             }
+          },
+          "$": {
+            "type": "string"
           }
         },
         "additionalProperties": false

@@ -6540,8 +6540,8 @@ components:
     ProfileDesc:
       type: object
       properties:
-        settingsDesc:
-          $ref: '#/components/schemas/SettingsDesc'
+        settingDesc:
+          $ref: '#/components/schemas/SettingDesc'
         textClass:
           type: object
           properties:
@@ -7922,7 +7922,7 @@ components:
       additionalProperties: false
       required:
         - recording
-    SettingsDesc:
+    SettingDesc:
       type: object
       properties:
         place:
@@ -8135,6 +8135,8 @@ components:
             required:
               - '@type'
               - '@target'
+        $:
+          type: string
       additionalProperties: false
     RFC7807Problem:
       title: A RFC 7807 problem report
