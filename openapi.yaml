@@ -7026,25 +7026,240 @@ components:
       title: TitleStmt
     PublicationStmt:
       type: object
-      additionalProperties: false
       properties:
-        p:
-          $ref: '#/components/schemas/XmlTextNode'
-        idno:
-          $ref: '#/components/schemas/XmlTextNode'
         teiSource_idno:
           type: object
-          title: TEI XML Source reference
-          description: The text node is a link to the XML on either github or arche
           properties:
             '@type':
               type: string
-              const: 'teiSource'
+              enum:
+                - teiSource
             $:
               type: string
-              fromat: uri
+              format: uri
+              examples:
+                - https://github.com/acdh-oeaw/shawi-data/blob/875bfe3fb13c0a7d8355d93b429a19eea6f56fa3/103_tei_w/shaw…
+                - https://github.com/acdh-oeaw/shawi-data/blob/875bfe3fb13c0a7d8355d93b429a19eea6f56fa3/vicav_profiles…
+              pattern: ^https://github\.com/.*\.xml$
+          additionalProperties: false
+          required:
+            - '@type'
+            - $
+        availability:
+          type: object
+          properties:
+            '@default':
+              type: string
+              enum:
+                - "false"
+                - "true"
+              pattern: e$
+            '@corresp':
+              type: string
+              examples:
+                - '#aindifla3_m_76_e2-master'
+                - '#aindifla4_f_75_e8-master'
+                - '#zouarine1_m_40_st-master'
+              pattern: ^#
+            licence:
+              type: object
+              properties:
+                '@target':
+                  type: string
+                  examples:
+                    - http://creativecommons.org/licenses/by-nc-sa/3.0/
+                    - https://creativecommons.org/licenses/by/4.0/
+                  pattern: ^http
+                $:
+                  type: string
+                  examples:
+                    - CC BY 4.0
+              additionalProperties: false
+              required:
+                - '@target'
+            '@status':
+              type: string
+              enum:
+                - free
+                - restricted
+            '@id':
+              type: string
+              examples:
+                - aindifla1_f_56_tun1-restricted
+                - garaattoufiya1_f_70_st-restricted
+                - tajerouine7_m_42_st-restricted
+            '@sameAs':
+              type: string
+              format: uri
+              examples:
+                - corpus:garaattoufiya1_f_70_st-restricted
+                - corpus:guettar3_m_65_st-restricted
+                - corpus:talah6_f_18_st-restricted
+              pattern: '^[^:]+:'
+            p:
+              type: object
+              properties:
+                ref:
+                  type: object
+                  properties:
+                    '@target':
+                      type: string
+                      format: uri
+                      examples:
+                        - http://creativecommons.org/licenses/by-nc-sa/3.0/
+                    '@type':
+                      type: string
+                      examples:
+                        - license
+                  additionalProperties: false
+                  required:
+                    - '@type'
+                    - '@target'
+                $:
+                  type: string
+                  examples:
+                    - Audio recording is restricted.
+                    - The audio can be used by anyone honoring the specified license.
+                    - The audio recordings and transcriptions are available under various restrictions, for more informati…
+                  pattern: \.$
+                '@id':
+                  type: string
+                  examples:
+                    - id_p_12
+              additionalProperties: false
+          additionalProperties: false
+          required:
+            - '@status'
+        pubPlace:
+          type: object
+          properties:
+            $:
+              type: string
+              examples:
+                - Vienna
+          additionalProperties: false
+          required:
+            - $
+        date:
+          type: object
+          properties:
+            '@when':
+              type: string
+              examples:
+                - "2018-09-12"
+                - "2025-02-01"
+                - ????-??-??
+            $:
+              type: string
+              examples:
+                - "2011"
+                - "2018-03-21"
+                - February 2025
+                - TODO Set publication date here
+          additionalProperties: false
+        idno:
+          type: object
+          properties:
+            '@type':
+              type: string
+              maxLength: 16
+              distinctValues: 3
+              minLength: 13
+              examples:
+                - SHAWICorpusID
+                - TUNOCENTCorpusID
+                - WIBARABCorpusID
+              pattern: CorpusID$
+            $:
+              type: string
+              examples:
+                - SAU_2022_Speaker20_traditionaltools
+                - Syria-010
+                - Syria-011
+          additionalProperties: false
+          required:
+            - $
+        p:
+          type: object
+          properties:
+            $:
+              type: string
+              examples:
+                - Publication Information
+          additionalProperties: false
+          required:
+            - $
+        address:
+          type: array
+          items:
+            type: object
+            properties:
+              $:
+                type: string
+                examples:
+                  - Bäckerstraße 13
+                  - 1010 Vienna
+                  - Austria
+            additionalProperties: false
+            required:
+              - $
+        distributor:
+          type: object
+          properties:
+            $:
+              type: string
+              examples:
+                - Austrian Center for Digital Humanities
+            '@ref':
+              type: string
+              format: uri
+              examples:
+                - https://ror.org/028bsh698
+          additionalProperties: false
+          required:
+            - '@ref'
+            - $
+        publishers:
+          type: array
+          items:
+            type: object
+            properties:
+              orgName:
+                type: object
+                properties:
+                  $:
+                    type: string
+                    examples:
+                      - Austrian Centre for Digital Humanities and Cultural Heritage
+                additionalProperties: false
+                required:
+                  - $
+              date:
+                type: object
+                properties:
+                  $:
+                    type: string
+                    examples:
+                      - 2020ff.
+                additionalProperties: false
+                required:
+                  - $
+              $:
+                type: string
+                examples:
+                  - ACDH-OeAW
+                  - Austrian Academy of Sciences
+                  - University of Vienna
+              '@ref':
+                type: string
+                examples:
+                  - https://ror.org/03anc3s24
+                  - https://ror.org/03prydq77
+                pattern: ^https://ror\.org/03
+            additionalProperties: false
+      additionalProperties: false
       required:
-        - p
+        - publishers
       title: PublicationStmt
     SourceDesc:
       type: object
