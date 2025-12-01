@@ -7710,17 +7710,36 @@ components:
           type: object
           properties:
             $:
-              type: string
-              examples:
-                - Technical_Editor
-                - data management and conversion
-                - recording
-                - transcription
-                - with collaboration of
+              $ref: '#/components/schemas/Responsibility'
           additionalProperties: false
       additionalProperties: false
       required:
         - resp
+    Responsibility:
+      type: string
+      enum:
+       - Dictionary
+       - ELAN
+       - National Cooperation Partner
+       - Principal Investigator
+       - DH consulting
+       - Research Data Engineer
+       - Technical_Editor
+       - Transcription
+       - author
+       - contributor
+       - data management and conversion
+       - recording
+       - transcription
+       - transcription check
+       - translation
+       - translation check
+       - Interviewer
+       - Principal
+       - data management
+       - principal
+       - technical implementation
+       - transfer to ELAN
     Note:
       type: object
       additionalProperties: true
