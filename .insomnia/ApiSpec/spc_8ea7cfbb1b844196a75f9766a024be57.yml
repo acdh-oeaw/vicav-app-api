@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1764596210840
+modified: 1764600571849
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -7025,14 +7025,216 @@ contents: >-
             - $ref: '#/components/schemas/gi'          
             - $ref: '#/components/schemas/ref'
       TitleStmt:
-        type: object
-        additionalProperties: false
-        properties:
-          title:
-            $ref: '#/components/schemas/XmlTextNode'
-        required:
-          - title
         title: TitleStmt
+        type: object
+        properties:
+          authors:
+            type: array
+            items:
+              type: object
+              properties:
+                $:
+                  type: string
+                  examples:
+                    - Bettina Leitner
+                    - Charly Moerth
+                    - Stephan Procházka
+                    - Veronika Ritt-Benmimoun
+                '@id':
+                  type: string
+                  maxLength: 10
+                  distinctValues: 4
+                  minLength: 7
+                  examples:
+                    - aleksandra
+                    - karoline
+                    - stephan
+                    - veronika
+              additionalProperties: false
+              required:
+                - $
+          title:
+            type: object
+            properties:
+              $:
+                type: string
+                examples:
+                  - Exported from Zotero
+            additionalProperties: false
+            required:
+              - $
+          respStmts:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: object
+                  properties:
+                    $:
+                      type: string
+                      examples:
+                        - Aleksandra Ercegovcevic
+                    '@id':
+                      type: string
+                      examples:
+                        - AE
+                  additionalProperties: false
+                  required:
+                    - '@id'
+                    - $
+                persName:
+                  type: object
+                  properties:
+                    surname:
+                      type: object
+                      properties:
+                        $:
+                          type: string
+                          examples:
+                            - Aloui
+                            - Batan
+                            - Tlili
+                      additionalProperties: false
+                    $:
+                      type: string
+                      examples:
+                        - Aleksandra Ercegovčević
+                        - Aozan Hussien
+                        - Wissem Saybi
+                    '@ref':
+                      type: string
+                      examples:
+                        - 'corpus:'
+                        - corpus:AN
+                        - corpus:VB
+                      pattern: "^[^:]+:"
+                    forename:
+                      type: object
+                      properties:
+                        $:
+                          type: string
+                          examples:
+                            - Aleksandra
+                            - Charly
+                            - Veronika
+                      additionalProperties: false
+                      required:
+                        - $
+                    '@id':
+                      type: string
+                      examples:
+                        - AE
+                        - sherin
+                        - stephan
+                  additionalProperties: false
+                resp:
+                  type: object
+                  properties:
+                    $:
+                      type: string
+                      examples:
+                        - Technical_Editor
+                        - data management and conversion
+                        - recording
+                        - transcription
+                        - with collaboration of
+                  additionalProperties: false
+              additionalProperties: false
+              required:
+                - resp
+          funder:
+            type: object
+            properties:
+              orgName:
+                type: object
+                properties:
+                  $:
+                    type: string
+                    examples:
+                      - European Research Council
+                      - FWF Austrian Science Fund
+                  '@ref':
+                    type: string
+                    format: uri
+                    examples:
+                      - https://ror.org/013tf3c58
+                      - https://ror.org/0472cxd90
+                    pattern: ^https://ror\.org/0
+                additionalProperties: false
+                required:
+                  - '@ref'
+                  - $
+              idno:
+                type: object
+                properties:
+                  '@type':
+                    type: string
+                    examples:
+                      - projectNumber
+                  $:
+                    type: string
+                    examples:
+                      - "101020127"
+                      - P 31647
+                      - P 33574
+                additionalProperties: false
+                required:
+                  - '@type'
+                  - $
+              $:
+                type: string
+                examples:
+                  - Funded by the European Research Council under the Grant Agreement 101020127 .
+                  - Funded by the FWF Austrian Science Fund under the number P 31647
+                  - Funded by the FWF Austrian Science Fund under the number P 33574
+                pattern: '^Funded by the '
+            additionalProperties: false
+            required:
+              - orgName
+              - idno
+              - $
+          titles:
+            type: array
+            items:
+              type: object
+              properties:
+                '@level':
+                  type: string
+                  examples:
+                    - a
+                    - s
+                $:
+                  type: string
+                  examples:
+                    - A Collection of Tunesian Dialect Sample Texts
+                    - A sample of Ṭbarga Arabic
+                    - Consent Ras Al Ain
+                    - Linguistic features of Maagoula Arabic
+              additionalProperties: false
+              required:
+                - $
+          editor:
+            type: object
+            properties:
+              $:
+                type: string
+                examples:
+                  - Karlheinz Moerth
+              '@role':
+                type: string
+                examples:
+                  - Technical_Editor
+              '@id':
+                type: string
+                examples:
+                  - charly
+            additionalProperties: false
+            required:
+              - '@id'
+              - '@role'
+              - $
+        additionalProperties: false
       PublicationStmt:
         type: object
         properties:
