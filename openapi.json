@@ -8967,17 +8967,33 @@
       "SettingDesc": {
         "type": "object",
         "properties": {
+          "@corresp": {
+            "type": "string",
+            "format": "uri",
+            "examples": [
+              "sources:KUW_2022_GK",
+              "sources:SAU_2022_GK"
+            ],
+            "pattern": "^[^:]+:"
+          },
+          "p": {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "examples": [
+                  "No place of Recording provided."
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "$"
+            ]
+          },
           "place": {
             "type": "object",
             "properties": {
-              "@sameAs": {
-                "type": "string",
-                "format": "uri",
-                "examples": [
-                  "geo:AinDifla",
-                  "geo:syria"
-                ]
-              },
               "location": {
                 "type": "object",
                 "properties": {
@@ -8987,10 +9003,11 @@
                       "$": {
                         "type": "string",
                         "examples": [
-                          "34.351148,9.095068",
-                          "34.99, 9.45",
-                          "36.95, 8.75"
-                        ]
+                          "34.57, 9.76",
+                          "35.581769, 8.564029",
+                          "35.85, 8.58"
+                        ],
+                        "pattern": "^3"
                       }
                     },
                     "additionalProperties": false,
@@ -9026,7 +9043,8 @@
                     "type": "string",
                     "examples": [
                       "Egypt",
-                      "Turkey"
+                      "Syria",
+                      "Tunisia"
                     ]
                   }
                 },
@@ -9035,15 +9053,24 @@
                   "$"
                 ]
               },
+              "@sameAs": {
+                "type": "string",
+                "format": "uri",
+                "examples": [
+                  "geo:AinDifla",
+                  "geo:syria"
+                ],
+                "pattern": "^[^:]+:"
+              },
               "region": {
                 "type": "object",
                 "properties": {
                   "$": {
                     "type": "string",
                     "examples": [
-                      "Cairo",
+                      "Ahwaz",
                       "Damascus",
-                      "Jendouba"
+                      "Siliana"
                     ]
                   }
                 },
@@ -9057,62 +9084,33 @@
                 "properties": {
                   "name": {
                     "type": "array",
-                    "prefixItems": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "@lang": {
-                            "type": "string",
-                            "enum": [
-                              "en"
-                            ]
-                          },
-                          "$": {
-                            "type": "string",
-                            "maxLength": 14,
-                            "distinctValues": 52,
-                            "minLength": 3,
-                            "examples": [
-                              "Ain Difla",
-                              "Sidi Shil",
-                              "Urfa"
-                            ]
-                          }
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "@lang": {
+                          "type": "string",
+                          "examples": [
+                            "aeb",
+                            "en"
+                          ]
                         },
-                        "additionalProperties": false,
-                        "required": [
-                          "@lang",
-                          "$"
-                        ]
+                        "$": {
+                          "type": "string",
+                          "examples": [
+                            "Ain Difla",
+                            "Jabbes",
+                            "Urfa",
+                            "Sbība",
+                            "ʕĒn Difla"
+                          ]
+                        }
                       },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "@lang": {
-                            "type": "string",
-                            "enum": [
-                              "aeb"
-                            ]
-                          },
-                          "$": {
-                            "type": "string",
-                            "examples": [
-                              "Bāṭun Ġuzǟl",
-                              "Firyǟna",
-                              "ʕĒn Difla"
-                            ]
-                          }
-                        },
-                        "additionalProperties": false,
-                        "required": [
-                          "@lang",
-                          "$"
-                        ]
-                      }
-                    ],
-                    "items": false,
-                    "minItems": 2,
-                    "maxItems": 2
+                      "additionalProperties": false,
+                      "required": [
+                        "@lang",
+                        "$"
+                      ]
+                    }
                   }
                 },
                 "additionalProperties": false,
@@ -9120,13 +9118,11 @@
                   "name"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
-        "additionalProperties": false,
-        "required": [
-          "place"
-        ]
+        "additionalProperties": false
       },
       "Person": {
         "type": "object",
