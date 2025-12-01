@@ -7390,113 +7390,7 @@
           "respStmts": {
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "object",
-                  "properties": {
-                    "$": {
-                      "type": "string",
-                      "examples": [
-                        "Aleksandra Ercegovcevic"
-                      ]
-                    },
-                    "@id": {
-                      "type": "string",
-                      "examples": [
-                        "AE"
-                      ]
-                    }
-                  },
-                  "additionalProperties": false,
-                  "required": [
-                    "@id",
-                    "$"
-                  ]
-                },
-                "persName": {
-                  "type": "object",
-                  "properties": {
-                    "surname": {
-                      "type": "object",
-                      "properties": {
-                        "$": {
-                          "type": "string",
-                          "examples": [
-                            "Aloui",
-                            "Batan",
-                            "Tlili"
-                          ]
-                        }
-                      },
-                      "additionalProperties": false
-                    },
-                    "$": {
-                      "type": "string",
-                      "examples": [
-                        "Aleksandra Ercegovčević",
-                        "Aozan Hussien",
-                        "Wissem Saybi"
-                      ]
-                    },
-                    "@ref": {
-                      "type": "string",
-                      "examples": [
-                        "corpus:",
-                        "corpus:AN",
-                        "corpus:VB"
-                      ],
-                      "pattern": "^[^:]+:"
-                    },
-                    "forename": {
-                      "type": "object",
-                      "properties": {
-                        "$": {
-                          "type": "string",
-                          "examples": [
-                            "Aleksandra",
-                            "Charly",
-                            "Veronika"
-                          ]
-                        }
-                      },
-                      "additionalProperties": false,
-                      "required": [
-                        "$"
-                      ]
-                    },
-                    "@id": {
-                      "type": "string",
-                      "examples": [
-                        "AE",
-                        "sherin",
-                        "stephan"
-                      ]
-                    }
-                  },
-                  "additionalProperties": false
-                },
-                "resp": {
-                  "type": "object",
-                  "properties": {
-                    "$": {
-                      "type": "string",
-                      "examples": [
-                        "Technical_Editor",
-                        "data management and conversion",
-                        "recording",
-                        "transcription",
-                        "with collaboration of"
-                      ]
-                    }
-                  },
-                  "additionalProperties": false
-                }
-              },
-              "additionalProperties": false,
-              "required": [
-                "resp"
-              ]
+              "$ref": "#/components/schemas/RespStmt"
             }
           },
           "funder": {
@@ -8158,6 +8052,14 @@
       "Author": {
         "title": "Author",
         "properties": {
+          "@id": {
+            "type": "string",
+            "examples": [
+              "AE",
+              "sherin",
+              "stephan"
+            ]
+          },
           "forename": {
             "$ref": "#/components/schemas/XmlTextNode"
           },
@@ -8174,24 +8076,24 @@
         "title": "Reference to an Author",
         "type": "object",
         "properties": {
-          "@ref": {
-            "type": "string",
-            "format": "uri",
-            "examples": [
-              "corpus:AHu",
-              "corpus:RT"
-            ]
-          },
           "$": {
             "type": "string",
             "examples": [
-              "Aozan Hussien"
+              "Aleksandra Ercegovčević",
+              "Aozan Hussien",
+              "Wissem Saybi"
             ]
+          },
+          "@ref": {
+            "type": "string",
+            "examples": [
+              "corpus:",
+              "corpus:AN",
+              "corpus:VB"
+            ],
+            "pattern": "^[^:]+:"
           }
         },
-        "required": [
-          "@ref"
-        ],
         "additionalProperties": false
       },
       "Title": {
@@ -8377,11 +8279,30 @@
         ]
       },
       "RespStmt": {
+        "title": "RespStmt",
         "type": "object",
-        "additionalProperties": false,
         "properties": {
-          "resp": {
-            "$ref": "#/components/schemas/XmlTextNode"
+          "name": {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "examples": [
+                  "Aleksandra Ercegovcevic"
+                ]
+              },
+              "@id": {
+                "type": "string",
+                "examples": [
+                  "AE"
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "@id",
+              "$"
+            ]
           },
           "persName": {
             "oneOf": [
@@ -8392,13 +8313,28 @@
                 "$ref": "#/components/schemas/AuthorRef"
               }
             ]
+          },
+          "resp": {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "examples": [
+                  "Technical_Editor",
+                  "data management and conversion",
+                  "recording",
+                  "transcription",
+                  "with collaboration of"
+                ]
+              }
+            },
+            "additionalProperties": false
           }
         },
+        "additionalProperties": false,
         "required": [
-          "persName",
           "resp"
-        ],
-        "title": "RespStmt"
+        ]
       },
       "Note": {
         "type": "object",
