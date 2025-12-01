@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1764610424419
+modified: 1764612706136
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -7719,17 +7719,36 @@ contents: >-
             type: object
             properties:
               $:
-                type: string
-                examples:
-                  - Technical_Editor
-                  - data management and conversion
-                  - recording
-                  - transcription
-                  - with collaboration of
+                $ref: '#/components/schemas/Responsibility'
             additionalProperties: false
         additionalProperties: false
         required:
           - resp
+      Responsibility:
+        type: string
+        enum:
+         - Dictionary
+         - ELAN
+         - National Cooperation Partner
+         - Principal Investigator
+         - DH consulting
+         - Research Data Engineer
+         - Technical_Editor
+         - Transcription
+         - author
+         - contributor
+         - data management and conversion
+         - recording
+         - transcription
+         - transcription check
+         - translation
+         - translation check
+         - Interviewer
+         - Principal
+         - data management
+         - principal
+         - technical implementation
+         - transfer to ELAN
       Note:
         type: object
         additionalProperties: true
