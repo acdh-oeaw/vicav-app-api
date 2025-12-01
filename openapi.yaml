@@ -6808,6 +6808,14 @@ components:
     TeiCorpus:
       type: object
       properties:
+        '@id':
+          type: string
+          examples:
+            - vicav_corpus
+            - vicav_lingfeatures
+            - vicav_profiles
+            - vicav_samples
+            - vicav_texts
         '@document-uri':
           type: string
           examples:
