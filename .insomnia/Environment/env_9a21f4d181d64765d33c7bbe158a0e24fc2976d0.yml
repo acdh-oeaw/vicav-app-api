@@ -1,7 +1,7 @@
 _id: env_9a21f4d181d64765d33c7bbe158a0e24fc2976d0
 type: Environment
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1721050289241
+modified: 1770220818253
 created: 1675182316918
 name: Base environment
 data:
@@ -11,7 +11,7 @@ data:
   host: vicav-dev.acdh.oeaw.ac.at
   name: profile
   dict_name: dc_arz_eng_publ
-  id: il_mafruud_001
+  id: VAED.mafruud_001
 dataPropertyOrder:
   "&":
     - base_url
