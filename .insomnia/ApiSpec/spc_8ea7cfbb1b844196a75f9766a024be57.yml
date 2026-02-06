@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1770382889869
+modified: 1770384400506
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -9128,62 +9128,74 @@ contents: >-
                       - Harran-Urfa
                       - Jbur
                       - Mayadin
-        etym:
-          type: object
-          additionalProperties: false
-          properties:
-            lang:
-              $ref: '#/components/schemas/lang'     
-            mentioned:
-              $ref: '#/components/schemas/mentioned'
-            $$:
-              type: array
-              items:
-                anyOf:
-                - $ref: '#/components/schemas/XmlTextNode'
-                - type: object
-                  additionalProperties: false
-                  required:
-                    - lang
-                  properties:
-                    lang:
-                      $ref: '#/components/schemas/lang'                     
-                - type: object
-                  additionalProperties: false
-                  required:
-                    - mentioned
-                  properties:
-                    mentioned:
-                      $ref: '#/components/schemas/mentioned'
-          dom_usg:
-            type: object
-            additionalProperties: false
-            required:
-              - '@type'
-              - $
-            properties:
-              '@type':
-                type: string
-                enum:
-                  - dom
-              $:
-                type: string
-                examples:
-                  - clothes
-                  - colour
-                  - country
-                  - food
-                  - profession
-                  - religion
-                  - tech
-                  - zoology
-        listBibl:
-          $ref: '#/components/schemas/ListBibl'
-        '@id':
-          type: string
-          examples:
-            - DShaAr.s_ak_000_0
-            - DShaAr.s_harran_ovasi_00000_0
+          etym:
+            anyOf:
+            - type: object
+              properties:
+                etymon_cit:
+                  $ref: '#/components/schemas/etymon_cit'
+                etymon_cits:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/etymon_cit'
+                  minItems: 2
+              additionalProperties: false
+            - type: object
+              deprecated: true
+              additionalProperties: false
+              properties:
+                lang:
+                  $ref: '#/components/schemas/lang'     
+                mentioned:
+                  $ref: '#/components/schemas/mentioned'
+                $$:
+                  type: array
+                  items:
+                    anyOf:
+                    - $ref: '#/components/schemas/XmlTextNode'
+                    - type: object
+                      additionalProperties: false
+                      required:
+                        - lang
+                      properties:
+                        lang:
+                          $ref: '#/components/schemas/lang'                     
+                    - type: object
+                      additionalProperties: false
+                      required:
+                        - mentioned
+                      properties:
+                        mentioned:
+                          $ref: '#/components/schemas/mentioned'
+            dom_usg:
+              type: object
+              additionalProperties: false
+              required:
+                - '@type'
+                - $
+              properties:
+                '@type':
+                  type: string
+                  enum:
+                    - dom
+                $:
+                  type: string
+                  examples:
+                    - clothes
+                    - colour
+                    - country
+                    - food
+                    - profession
+                    - religion
+                    - tech
+                    - zoology
+          listBibl:
+            $ref: '#/components/schemas/ListBibl'
+          '@id':
+            type: string
+            examples:
+              - DShaAr.s_ak_000_0
+              - DShaAr.s_harran_ovasi_00000_0
       gramGrp:
         type: object
         additionalProperties: false
