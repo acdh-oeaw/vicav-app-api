@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1770384400506
+modified: 1770389105387
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -9007,6 +9007,13 @@ contents: >-
             $ref: '#/components/schemas/ref'
           gramGrp:
             $ref: '#/components/schemas/gramGrp'
+          sense:
+            $ref: '#/components/schemas/sense'
+          senses:
+            type: array
+            items:
+              $ref: '#/components/schemas/sense'
+            minLength: 2
           multiWordUnit_form:
             type: object
             additionalProperties: false
@@ -9061,11 +9068,11 @@ contents: >-
             items:
               $ref: '#/components/schemas/translation_cit'
           translationEquivalent_cit:
-            $ref: '#/components/schemas/translatationEquivalent_cit'
+            $ref: '#/components/schemas/translationEquivalent_cit'
           translationEquivalent_cits:
             type: array
             items:
-              $ref: '#/components/schemas/translatationEquivalent_cit'
+              $ref: '#/components/schemas/translationEquivalent_cit'
           lemma_form:          
             $ref: '#/components/schemas/lemma_form'
           lemmaVariant_forms:
@@ -9588,6 +9595,338 @@ contents: >-
                 type: string
                 examples:
                   - formal
+      sense:
+        type: object
+        properties:
+          '@id':
+            type: string
+            examples:
+              - VAED.s_0ugra_001_2
+              - VAED.s_nasama_001_1
+              - VAED.s_tabliig_001_1
+          '@ana':
+            type: string
+            examples:
+              - '#semCats.food'
+              - '#semCats.geoPlaces.city'
+              - '#semCats.profession'
+          domain_usg:
+            $ref: '#/components/schemas/domain_usg'
+          domain_usgs:
+            type: array
+            items:
+              $ref: '#/components/schemas/domain_usg'
+            minItems: 2
+          pragmatics_usg:
+            $ref: '#/components/schemas/pragmatics_usg'
+          pragmatics_usgs:
+            type: array
+            items:
+              $ref: '#/components/schemas/pragmatics_usg'
+            minItems: 2
+          socioCultural_usg:
+            type: object
+            properties:
+              '@type':
+                const: socioCultural
+              $:
+                type: string
+                enum:
+                  - formal
+                  - high
+            additionalProperties: false
+            required:
+              - $
+              - '@type'
+          gramGrp:
+            $ref: '#/components/schemas/sense_gramGrp'
+          gramGrps:
+            type: array
+            items:
+              $ref: '#/components/schemas/sense_gramGrp'
+            minLength: 2
+          translationEquivalent_cit:
+            $ref: '#/components/schemas/translationEquivalent_cit'
+          translationEquivalent_cits:
+            type: array
+            items:
+              $ref: '#/components/schemas/translationEquivalent_cit'
+          glosses:
+            type: array
+            items:
+              $ref: '#/components/schemas/XmlTextNode'
+          geographic_usg:
+            type: object
+            properties:
+              '@type':
+                const: geographic
+              $:
+                type: string
+                examples:
+                  - Egypt
+            additionalProperties: false
+            required:
+              - $
+              - '@type'
+          def:
+            type: object
+          defs:
+            type: array
+            items:
+              type: object        
+          example_cit:
+            $ref: '#/components/schemas/example_cit'
+          example_cits:
+            type: array
+            items:
+              $ref: '#/components/schemas/example_cit'
+        additionalProperties: false
+        required:
+          - '@id'
+      sense_gramGrp:
+        type: object
+        properties:
+          constraint_gram:
+            type: object
+            properties:
+              '@lang':
+                examples:
+                  - en
+                  - de
+              '@type':
+                const: constraint
+              $:
+                type: string
+                examples:
+                  - imperative only
+                  - negative only
+                  - with imperatives
+                  - ʕa-l-fāḍi
+            additionalProperties: false
+            required:
+              - $
+              - '@type'
+          valency_gram:
+            type: object
+            properties:
+              '@type':
+                const: valency
+              $:
+                type: string
+                enum:
+                  - intransitive
+                  - transitive
+            additionalProperties: false
+            required:
+              - $
+              - '@type'
+          government_gram:
+            type: object
+            properties:
+              '@type':
+                const: government
+              $:
+                type: string
+                examples:
+                  - imperfect
+                  - imperfect|participle
+            additionalProperties: false
+            required:
+              - $
+              - '@type'
+          construction_grams:
+            type: array
+            items:
+              type: array
+              items:
+                type: object
+                properties:
+                  '@lang':
+                    type: string
+                    examples:
+                      - ar-Latn
+                  oRef_ref:
+                    type: object
+                    properties:
+                      '@valueDatcat':
+                        type: string
+                        examples:
+                          - '#imperative'
+                      '@type':
+                        const: oRef
+                    additionalProperties: false
+                    required:
+                      - '@type'
+                  constrPart_seg:
+                    type: object
+                    properties:
+                      '@valueDatcat':
+                        type: string
+                        examples:
+                          - '#imperative'
+                          - '#imperfective'
+                          - '#imperfectiveVerb'
+                          - '#nominal'
+                          - '#noun'
+                          - '#persSuffix'
+                          - '#pronSuffix'
+                          - '#timeExpression'
+                        pattern: ^#
+                      '@type':
+                        const: constrPart
+                      $:
+                        type: string
+                        examples:
+                          - -l
+                    additionalProperties: false
+                    required:
+                      - '@type'
+                  '@type':
+                    const: construction
+                  $:
+                    type: string
+                    examples:
+                      - '-'
+                      - -hu ʕalā
+                      - -l-
+                      - an
+                      - li-
+                      - ma-
+                      -  
+                additionalProperties: false
+          collocate_gram:
+            type: object
+            properties:
+              '@lang':
+                examples:
+                  - ar-Latn
+                  - ar-arz-x-cairo-vicav
+              '@type':
+                const: collocate
+              $:
+                type: string
+                examples:
+                  - -hu
+                  - bi-
+                  - ʕala
+                  - ʕan
+            additionalProperties: false
+            required:
+              - $
+              - '@type'
+        additionalProperties: false
+      domain_usg:
+        type: object
+        properties:
+          '@valueDatcat':
+            type: string
+            examples:
+              - '#domains.architecture'
+              - '#domains.biology'
+              - '#domains.sports'
+              - '#domains.technology'
+            pattern: ^#domains\.
+          '@type':
+            const: domain
+          $:
+            type: string
+            examples:
+              - IT
+              - botany
+              - zoology
+        additionalProperties: false
+        required:
+          - $
+          - '@valueDatcat'
+          - '@type'
+      example_cit:
+        type: object
+        properties:
+          '@type':
+            const: example
+          '@subtype':
+            type: string
+            enum:
+              - proverb
+          translation_cit:
+            $ref: '#/components/schemas/translation_cit'      
+          translation_cits:
+            type: array
+            items:
+              $ref: '#/components/schemas/translation_cit'
+            minItems: 2
+          quote:
+            type: object
+            properties:
+              '@lang':
+                type: string
+                examples:
+                  - ar
+                  - ar-Latn
+              $:
+                type: string 1928
+                minLength: 6
+                examples:
+                  - bitišṛab ṃayya maʕdaniyya bass.
+                  - تمت (عملية) رقمنة المخطوطات بالتعاون مع المكتبة الوطنية.
+                  - رأى المغامر ألوان كثيرة من النباتات والزهور.
+              $$:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@lang':
+                      type: string
+                      examples:
+                        - ar
+                        - ar-Latn
+                    exPart_seg:
+                      $ref: '#/components/schemas/expart_seg'
+                    exPart_segs:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/expart_seg'
+                      minItems: 2
+                    $:
+                      type: string
+                      examples:
+                        - ana
+                        - وغرقت العبارة
+                  additionalProperties: false
+                  required: []
+                minItems: 3
+                maxItems: 11
+            additionalProperties: false
+            required:
+              - '@lang'
+        additionalProperties: false
+        required:
+          - '@type'
+          - quote
+      expart_seg:
+        type: object
+        properties:
+          '@corresp':
+            type: string
+            examples:
+              - '#VAED.al_001'
+              - '#VDEA.saa0_001'
+              - '#VDEA.zaqzaq_001'
+            pattern: ^#V
+          '@type':
+            type: string
+            examples:
+              - exPart
+          $:
+            type: string
+            examples:
+              - abla
+              - ʔāmina
+        additionalProperties: false
+        required:
+          - $
+          - '@corresp'
+          - '@type'
       inflected_form:
         type: object
         additionalProperties: false
@@ -9846,7 +10185,7 @@ contents: >-
             type: string
             enum:
               - translation   
-      translatationEquivalent_cit:
+      translationEquivalent_cit:
         type: object
         additionalProperties: false
         required:
@@ -9862,9 +10201,7 @@ contents: >-
               - tr
               - fr
           '@type':
-            type: string
-            enum:
-              - translationEquivalent
+            const: translationEquivalent
           form:
             type: object
             additionalProperties: false
@@ -9885,6 +10222,23 @@ contents: >-
                       - dich
                       - seni
                       - your
+          gloss:
+            type: object
+            properties:
+              $:
+                type: string
+                examples:
+                  - Person
+                  - Schauspiel
+                  - Temperatur
+                  - in the hair
+                  - meal
+                  - of a doctor
+                  - time
+                  - trees
+            additionalProperties: false
+            required:
+              - $   
       etymon_cit:
         type: object
         properties:
@@ -9936,9 +10290,7 @@ contents: >-
               - en
               - de
           '@type':
-            type: string
-            enum:
-              - pragmatics
+            const: pragmatics
           $:
             type: string
             examples:
