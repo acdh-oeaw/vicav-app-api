@@ -10120,6 +10120,7 @@
           "@lang": {
             "type": "string",
             "examples": [
+              "ar-Latn",
               "ar-acm-x-shawi-vicav"
             ]
           },
@@ -10407,59 +10408,142 @@
         "additionalProperties": false,
         "properties": {
           "gram": {
-            "$ref": "#/components/schemas/XmlLangTextNode"
-          },
-          "root_gram": {
-            "allOf": [
+            "alllOf": [
               {
-                "type": "object",
-                "additionalProperties": false,
-                "required": [
-                  "@type"
-                ],
-                "properties": {
-                  "@type": {
-                    "type": "string",
-                    "enum": [
-                      "root"
-                    ]
-                  }
-                }
+                "deprecated": true
               },
               {
                 "$ref": "#/components/schemas/XmlLangTextNode"
               }
             ]
           },
+          "root_gram": {
+            "type": "object",
+            "properties": {
+              "@lang": {
+                "const": "ar-Latn"
+              },
+              "@type": {
+                "const": "root"
+              },
+              "$": {
+                "type": "string",
+                "examples": [
+                  "fyd",
+                  "lbn ḥlb",
+                  "štt"
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "@lang",
+              "@type"
+            ]
+          },
           "root_grams": {
             "type": "array",
             "items": {
-              "allOf": [
-                {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "@type"
-                  ],
-                  "properties": {
-                    "@type": {
-                      "type": "string",
-                      "enum": [
-                        "root"
-                      ]
-                    }
-                  }
+              "type": "object",
+              "properties": {
+                "@lang": {
+                  "type": "string",
+                  "enum": [
+                    "ar-Latn",
+                    "ar"
+                  ]
                 },
-                {
-                  "$ref": "#/components/schemas/XmlLangTextNode"
+                "@type": {
+                  "const": "root"
+                },
+                "$": {
+                  "type": "string",
+                  "examples": [
+                    "qṭn",
+                    "ǧmʕ",
+                    "ʕsl",
+                    "شهد",
+                    "عسل"
+                  ]
                 }
+              },
+              "additionalProperties": false,
+              "required": [
+                "$",
+                "@lang",
+                "@type"
               ]
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "synRoot_gram": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@type",
+              "@lang"
+            ],
+            "properties": {
+              "@lang": {
+                "type": "string",
+                "examples": [
+                  "ar-acm-x-shawi-vicav",
+                  "ar",
+                  "ar-Latn"
+                ]
+              },
+              "@type": {
+                "type": "string",
+                "enum": [
+                  "synRoot"
+                ]
+              },
+              "$": {
+                "type": "string",
+                "examples": [
+                  "mʔ",
+                  "swry"
+                ]
+              }
+            }
+          },
+          "diaRoot_gram": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "@type",
+              "@lang"
+            ],
+            "properties": {
+              "@lang": {
+                "type": "string",
+                "examples": [
+                  "ar",
+                  "ar-Latn"
+                ]
+              },
+              "@type": {
+                "type": "string",
+                "enum": [
+                  "diaRoot"
+                ]
+              },
+              "$": {
+                "type": "string",
+                "examples": [
+                  "frns",
+                  "mʔ",
+                  "swry"
+                ]
+              }
             }
           },
           "roots_gram": {
             "allOf": [
               {
                 "type": "object",
+                "deprecated": true,
                 "additionalProperties": false,
                 "required": [
                   "@type"
@@ -10470,6 +10554,9 @@
                     "enum": [
                       "roots"
                     ]
+                  },
+                  "@lang": {
+                    "const": "ar-Latn"
                   }
                 }
               },
@@ -10487,14 +10574,12 @@
             ],
             "properties": {
               "@type": {
-                "type": "string",
-                "enum": [
-                  "number"
-                ]
+                "const": "number"
               },
               "$": {
                 "type": "string",
                 "examples": [
+                  "plural",
                   "singular"
                 ]
               }
@@ -10509,10 +10594,7 @@
             ],
             "properties": {
               "@type": {
-                "type": "string",
-                "enum": [
-                  "pos"
-                ]
+                "const": "pos"
               },
               "$": {
                 "type": "string",
@@ -10525,7 +10607,9 @@
                   "properNoun",
                   "verb",
                   "pronounSuffix",
-                  "toponym"
+                  "toponym",
+                  "fraction",
+                  "unitNoun"
                 ]
               }
             }
@@ -10554,6 +10638,7 @@
           },
           "subc_gram": {
             "type": "object",
+            "deprecated": true,
             "additionalProperties": false,
             "required": [
               "@type",
@@ -10578,35 +10663,26 @@
               }
             }
           },
-          "diaRoot_gram": {
+          "derivedVerbClass_gram": {
             "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "@type",
-              "@lang"
-            ],
             "properties": {
-              "@lang": {
-                "type": "string",
-                "examples": [
-                  "ar"
-                ]
-              },
               "@type": {
-                "type": "string",
-                "enum": [
-                  "diaRoot"
-                ]
+                "const": "derivedVerbClass"
               },
               "$": {
                 "type": "string",
                 "examples": [
-                  "frns",
-                  "mʔ",
-                  "swry"
+                  "III",
+                  "Iī",
+                  "t-II"
                 ]
               }
-            }
+            },
+            "additionalProperties": false,
+            "required": [
+              "$",
+              "@type"
+            ]
           },
           "gender_gram": {
             "type": "object",
@@ -10617,15 +10693,13 @@
             ],
             "properties": {
               "@type": {
-                "type": "string",
-                "enum": [
-                  "gender"
-                ]
+                "const": "gender"
               },
               "$": {
                 "type": "string",
                 "enum": [
                   "feminine",
+                  "feminine/masculine",
                   "masculine"
                 ]
               }
@@ -10640,18 +10714,111 @@
             ],
             "properties": {
               "@type": {
+                "const": "inflectionType"
+              },
+              "$": {
                 "type": "string",
                 "enum": [
-                  "inflectionType"
+                  "diptotic",
+                  "invariable"
                 ]
+              }
+            }
+          },
+          "degree_gram": {
+            "type": "object",
+            "properties": {
+              "@type": {
+                "const": "degree"
+              },
+              "$": {
+                "const": "elative"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "$",
+              "@type"
+            ]
+          },
+          "voice_gram": {
+            "type": "object",
+            "properties": {
+              "@type": {
+                "const": "voice"
+              },
+              "$": {
+                "type": "string",
+                "enum": [
+                  "passive"
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "$",
+              "@type"
+            ]
+          },
+          "msd_gram": {
+            "type": "object",
+            "properties": {
+              "@type": {
+                "const": "msd"
+              },
+              "$": {
+                "enum": [
+                  "activeParticiple",
+                  "passiveParticiple"
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "$",
+              "@type"
+            ]
+          },
+          "constraint_gram": {
+            "type": "object",
+            "properties": {
+              "@type": {
+                "const": "constraint"
               },
               "$": {
                 "type": "string",
                 "examples": [
-                  "I"
+                  "before elatives",
+                  "imperfective only",
+                  "no plural",
+                  "only used in 3rd person singular present tense"
                 ]
               }
-            }
+            },
+            "additionalProperties": false,
+            "required": [
+              "$",
+              "@type"
+            ]
+          },
+          "mood_gram": {
+            "type": "object",
+            "properties": {
+              "@type": {
+                "const": "mood"
+              },
+              "$": {
+                "type": "string",
+                "enum": [
+                  "imperative"
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "$",
+              "@type"
+            ]
           },
           "morphPattern_gram": {
             "type": "object",
@@ -10683,8 +10850,49 @@
               }
             }
           },
+          "socioCultural_usg": {
+            "type": "object",
+            "properties": {
+              "@type": {
+                "const": "socioCultural"
+              },
+              "$": {
+                "type": "string",
+                "examples": [
+                  "formal",
+                  "high"
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "$",
+              "@type"
+            ]
+          },
+          "temporal_usg": {
+            "type": "object",
+            "properties": {
+              "@type": {
+                "const": "temporal"
+              },
+              "$": {
+                "type": "string",
+                "examples": [
+                  "archaic",
+                  "historical"
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "$",
+              "@type"
+            ]
+          },
           "usg_gram": {
             "type": "object",
+            "deprecated": true,
             "additionalProperties": false,
             "required": [
               "@type",
@@ -10700,36 +10908,7 @@
               "$": {
                 "type": "string",
                 "examples": [
-                  "only in phrases taken from Classical Arabic"
-                ]
-              }
-            }
-          },
-          "synRoot_gram": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "@type",
-              "@lang"
-            ],
-            "properties": {
-              "@lang": {
-                "type": "string",
-                "examples": [
-                  "ar-acm-x-shawi-vicav"
-                ]
-              },
-              "@type": {
-                "type": "string",
-                "enum": [
-                  "synRoot"
-                ]
-              },
-              "$": {
-                "type": "string",
-                "examples": [
-                  "mʔ",
-                  "swry",
+                  "only in phrases taken from Classical Arabic",
                   "ḥrw"
                 ]
               }
@@ -11212,6 +11391,100 @@
             }
           }
         }
+      },
+      "etymon_cit": {
+        "type": "object",
+        "properties": {
+          "@type": {
+            "type": "string",
+            "enum": [
+              "etymon"
+            ]
+          },
+          "@cert": {
+            "type": "string",
+            "enum": [
+              "medium"
+            ]
+          },
+          "form": {
+            "type": "object",
+            "properties": {
+              "orth": {
+                "type": "object",
+                "properties": {
+                  "@lang": {
+                    "type": "string",
+                    "examples": [
+                      "en",
+                      "fa"
+                    ]
+                  },
+                  "@cert": {
+                    "type": "string",
+                    "enum": [
+                      "unknown"
+                    ]
+                  },
+                  "$": {
+                    "type": "string",
+                    "examples": [
+                      "adabxāne",
+                      "cable"
+                    ]
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "$",
+                  "@lang"
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "orth"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "form",
+          "@type"
+        ]
+      },
+      "pragmatics_usg": {
+        "type": "object",
+        "properties": {
+          "@lang": {
+            "type": "string",
+            "enum": [
+              "en",
+              "de"
+            ]
+          },
+          "@type": {
+            "type": "string",
+            "enum": [
+              "pragmatics"
+            ]
+          },
+          "$": {
+            "type": "string",
+            "examples": [
+              "often derogatory",
+              "respectful term of address",
+              "to attract the evil eye by talking about something",
+              "to express wishes, intentions",
+              "used to respectfully address an older woman, such as e.g. teachers etc."
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "$",
+          "@type"
+        ]
       },
       "DictChange": {
         "type": "object",
