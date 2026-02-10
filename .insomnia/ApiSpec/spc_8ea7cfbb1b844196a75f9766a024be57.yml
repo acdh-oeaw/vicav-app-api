@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1770389105387
+modified: 1770741899460
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -9137,16 +9137,7 @@ contents: >-
                       - Mayadin
           etym:
             anyOf:
-            - type: object
-              properties:
-                etymon_cit:
-                  $ref: '#/components/schemas/etymon_cit'
-                etymon_cits:
-                  type: array
-                  items:
-                    $ref: '#/components/schemas/etymon_cit'
-                  minItems: 2
-              additionalProperties: false
+            - $ref: '#/components/schemas/etym'
             - type: object
               deprecated: true
               additionalProperties: false
@@ -10238,7 +10229,20 @@ contents: >-
                   - trees
             additionalProperties: false
             required:
-              - $   
+              - $
+      etym:
+        type: object
+        properties:
+          etym:
+            $ref: '#/components/schemas/etym'
+          etymon_cit:
+            $ref: '#/components/schemas/etymon_cit'
+          etymon_cits:
+            type: array
+            items:
+              $ref: '#/components/schemas/etymon_cit'
+            minItems: 2
+        additionalProperties: false
       etymon_cit:
         type: object
         properties:
