@@ -10329,20 +10329,7 @@
           "etym": {
             "anyOf": [
               {
-                "type": "object",
-                "properties": {
-                  "etymon_cit": {
-                    "$ref": "#/components/schemas/etymon_cit"
-                  },
-                  "etymon_cits": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/etymon_cit"
-                    },
-                    "minItems": 2
-                  }
-                },
-                "additionalProperties": false
+                "$ref": "#/components/schemas/etym"
               },
               {
                 "type": "object",
@@ -11908,6 +11895,25 @@
             ]
           }
         }
+      },
+      "etym": {
+        "type": "object",
+        "properties": {
+          "etym": {
+            "$ref": "#/components/schemas/etym"
+          },
+          "etymon_cit": {
+            "$ref": "#/components/schemas/etymon_cit"
+          },
+          "etymon_cits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/etymon_cit"
+            },
+            "minItems": 2
+          }
+        },
+        "additionalProperties": false
       },
       "etymon_cit": {
         "type": "object",
