@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1770741899460
+modified: 1770994198813
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -9007,6 +9007,10 @@ contents: >-
             $ref: '#/components/schemas/ref'
           gramGrp:
             $ref: '#/components/schemas/gramGrp'
+          gramGrps:
+            type: array
+            items:
+              $ref: '#/components/schemas/gramGrp'
           sense:
             $ref: '#/components/schemas/sense'
           senses:
@@ -9165,6 +9169,10 @@ contents: >-
                       properties:
                         mentioned:
                           $ref: '#/components/schemas/mentioned'
+            etyms:
+              type: array
+              items:
+                $ref: '#/components/schemas/etym'
             dom_usg:
               type: object
               additionalProperties: false
@@ -9194,6 +9202,12 @@ contents: >-
             examples:
               - DShaAr.s_ak_000_0
               - DShaAr.s_harran_ovasi_00000_0
+          related_xr:
+            $ref:'#/components/schemas/example_related_xr'
+          related_xrs:
+            type: array
+            items:
+              $ref: '#/components/schemas/example_related_xr'
       gramGrp:
         type: object
         additionalProperties: false
@@ -9671,9 +9685,30 @@ contents: >-
             type: array
             items:
               $ref: '#/components/schemas/example_cit'
+          related_xr:
+            $ref:'#/components/schemas/example_related_xr'
+          related_xrs:
+            type: array
+            items:
+              $ref: '#/components/schemas/example_related_xr'
         additionalProperties: false
         required:
           - '@id'
+      example_related_xr:
+        type: object
+        properties:
+          example_cit:
+            $ref:  '#/components/schemas/example_cit'
+          '@type':
+            const: related
+          $:
+            type: string
+            description: |
+              A warning message genrated when the @type of the ref and the @type of the @target do not match
+        additionalProperties: false
+        required:
+          - '@type'
+          - example_cit
       sense_gramGrp:
         type: object
         properties:
@@ -10181,7 +10216,6 @@ contents: >-
         additionalProperties: false
         required:
           - '@type'
-          - '@lang'
           - form
         properties:
           '@lang':
@@ -10310,12 +10344,29 @@ contents: >-
       DictChange:
         type: object
         properties:
+          create:
+            type: object
+            properties:
+              who:
+                type: string
+                examples:
+                  - Charly
+              status:
+                enum:
+                  - stub
+              when:
+                examples:
+                  - "2024-04-02"
+                pattern: ^\d\d\d\d-\d\d-\d\d$
+            additionalProperties: false
+            required:
+              - status
+              - who      
           change:
             type: object
             additionalProperties: false
             required:
-              - who
-              - when
+              - status
             properties:
               who:
                 type: string
@@ -10329,7 +10380,9 @@ contents: >-
               status:
                 type: string
                 enum:
-                 - released
+                  - draft
+                  - released
+                  - stub
       DictExample:
         type: object
         additionalProperties: false
