@@ -9677,7 +9677,7 @@ components:
           items:
             $ref: '#/components/schemas/example_cit'
         related_xr:
-          $ref:'#/components/schemas/example_related_xr'
+          $ref: '#/components/schemas/example_related_xr'
         related_xrs:
           type: array
           items:
