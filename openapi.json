@@ -10431,7 +10431,9 @@
               "DShaAr.s_harran_ovasi_00000_0"
             ]
           },
-          "related_xr": "$ref:'#/components/schemas/example_related_xr'",
+          "related_xr": {
+            "$ref": "#/components/schemas/example_related_xr"
+          },
           "related_xrs": {
             "type": "array",
             "items": {
