@@ -8364,15 +8364,10 @@ components:
               required:
                 - geo
             placeName:
-              type: object
-              properties:
-                $:
-                  type: string
-                  examples:
-                    - Syria
-              additionalProperties: false
-              required:
-                - $
+              oneOf:
+               - $ref: '#/components/schemas/XmlTextNode'
+               - type: object
+                 maxProperties: 0
             country:
               type: object
               properties:
