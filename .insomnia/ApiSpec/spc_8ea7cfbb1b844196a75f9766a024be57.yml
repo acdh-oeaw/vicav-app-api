@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1771596341351
+modified: 1772553888602
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -7556,12 +7556,6 @@ contents: >-
         title: Reference to an Author
         type: object
         properties:
-          $:
-            type: string
-            examples:
-              - Aleksandra Ercegovčević
-              - Aozan Hussien
-              - Wissem Saybi
           '@ref':
             type: string
             examples:
@@ -7569,7 +7563,13 @@ contents: >-
               - corpus:AN
               - corpus:VB
             pattern: "^[^:]+:"
-        additionalProperties: false     
+          forename:
+            $ref: '#/components/schemas/XmlTextNode'
+          surname:
+            $ref: '#/components/schemas/XmlTextNode'
+        additionalProperties: false
+        required:
+          - '@ref'
       Title:
         type: object
         additionalProperties: false
