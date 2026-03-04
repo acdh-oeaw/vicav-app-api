@@ -7000,6 +7000,13 @@ components:
       required:
         - $
       title: XmlTextNode
+    XmlTextNodeOrEmpty:
+      type: object
+      additionalProperties: false
+      properties:
+        $:
+          type: string
+      title: XmlTextNodeOrEmpty
     XmlLangTextNode:
       allOf:
       - type: object
@@ -8364,10 +8371,7 @@ components:
               required:
                 - geo
             placeName:
-              oneOf:
-               - $ref: '#/components/schemas/XmlTextNode'
-               - type: object
-                 maxProperties: 0
+              $ref: '#/components/schemas/XmlTextNodeOrEmpty'
             country:
               type: object
               properties:

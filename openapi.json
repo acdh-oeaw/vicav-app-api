@@ -7301,6 +7301,16 @@
         ],
         "title": "XmlTextNode"
       },
+      "XmlTextNodeOrEmpty": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "$": {
+            "type": "string"
+          }
+        },
+        "title": "XmlTextNodeOrEmpty"
+      },
       "XmlLangTextNode": {
         "allOf": [
           {
@@ -9272,15 +9282,7 @@
                 ]
               },
               "placeName": {
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/XmlTextNode"
-                  },
-                  {
-                    "type": "object",
-                    "maxProperties": 0
-                  }
-                ]
+                "$ref": "#/components/schemas/XmlTextNodeOrEmpty"
               },
               "country": {
                 "type": "object",
