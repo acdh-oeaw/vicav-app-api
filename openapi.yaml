@@ -7869,7 +7869,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Hi'
+        ptr:
+          $ref: '#/components/schemas/Ptr'
       title: P
+    Ptr:
+      type: object
+      properties:
+        '@target':
+          type: string
+        $:
+          type: string
+      required:
+        - '@target'
     Series:
       type: object
       additionalProperties: false
