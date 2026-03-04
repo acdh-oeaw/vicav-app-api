@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1772627188804
+modified: 1772628074684
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -7878,7 +7878,18 @@ contents: >-
             type: array
             items:
               $ref: '#/components/schemas/Hi'
+          ptr:
+            $ref: '#/components/schemas/Ptr'
         title: P
+      Ptr:
+        type: object
+        properties:
+          '@target':
+            type: string
+          $:
+            type: string
+        required:
+          - '@target'
       Series:
         type: object
         additionalProperties: false
