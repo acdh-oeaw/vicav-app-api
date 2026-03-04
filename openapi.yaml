@@ -6802,10 +6802,7 @@ components:
             - Update json transformation
             - update bibliography
       required:
-        - '@n'
-        - '@who'
         - '@when'
-        - $
     TeiCorpus:
       type: object
       properties:

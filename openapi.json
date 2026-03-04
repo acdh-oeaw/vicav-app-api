@@ -7026,10 +7026,7 @@
           }
         },
         "required": [
-          "@n",
-          "@who",
-          "@when",
-          "$"
+          "@when"
         ]
       },
       "TeiCorpus": {
