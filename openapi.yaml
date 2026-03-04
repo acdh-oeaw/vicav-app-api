@@ -8305,6 +8305,7 @@ components:
                   enum:
                     - distributionFile
                     - master
+                    - fragment
                 '@id':
                   type: string
                   examples:

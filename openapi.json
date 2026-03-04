@@ -9187,7 +9187,8 @@
                     "type": "string",
                     "enum": [
                       "distributionFile",
-                      "master"
+                      "master",
+                      "fragment"
                     ]
                   },
                   "@id": {
