@@ -6893,10 +6893,9 @@ components:
               additionalProperties: false
               required:
                 - $
+            $:
+              type: string
           additionalProperties: false
-          required:
-            - forename
-            - surname
         note:
           type: object
           properties:

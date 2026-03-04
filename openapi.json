@@ -7155,13 +7155,12 @@
                 "required": [
                   "$"
                 ]
+              },
+              "$": {
+                "type": "string"
               }
             },
-            "additionalProperties": false,
-            "required": [
-              "forename",
-              "surname"
-            ]
+            "additionalProperties": false
           },
           "note": {
             "type": "object",
