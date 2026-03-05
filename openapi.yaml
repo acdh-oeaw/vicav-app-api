@@ -8440,6 +8440,18 @@ components:
               required:
                 - name
           additionalProperties: false
+        setting:
+          type: object
+          properties:
+            placeName:
+              type: object
+              properties:
+                '@sameAs':
+                  type: string
+                $:
+                  type: string              
+            additionalProperties: false
+          additionalProperties: false
       additionalProperties: false
     Person:
       type: object
