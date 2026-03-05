@@ -9221,6 +9221,9 @@
                   "@mimeType",
                   "@type"
                 ]
+              },
+              "p": {
+                "$ref": "#/components/schemas/P"
               }
             },
             "additionalProperties": false,
@@ -9228,7 +9231,6 @@
               "@dur-iso",
               "respStmt",
               "date",
-              "media",
               "@type"
             ]
           }

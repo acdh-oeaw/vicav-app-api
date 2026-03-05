@@ -8326,12 +8326,13 @@ components:
                 - '@url'
                 - '@mimeType'
                 - '@type'
+            p:
+              $ref: '#/components/schemas/P'
           additionalProperties: false
           required:
             - '@dur-iso'
             - respStmt
             - date
-            - media
             - '@type'
       additionalProperties: false
       required:
