@@ -9230,7 +9230,6 @@
             "required": [
               "@dur-iso",
               "respStmt",
-              "date",
               "@type"
             ]
           }

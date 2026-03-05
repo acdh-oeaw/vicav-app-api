@@ -8332,7 +8332,6 @@ components:
           required:
             - '@dur-iso'
             - respStmt
-            - date
             - '@type'
       additionalProperties: false
       required:
