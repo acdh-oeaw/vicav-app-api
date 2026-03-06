@@ -9176,6 +9176,7 @@
                   "@mimeType": {
                     "type": "string",
                     "enum": [
+                      "audio/wma",
                       "audio/m4a",
                       "audio/mp3",
                       "audio/mp4",
