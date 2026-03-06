@@ -7373,9 +7373,6 @@
                 },
                 "@id": {
                   "type": "string",
-                  "maxLength": 10,
-                  "distinctValues": 4,
-                  "minLength": 7,
                   "examples": [
                     "aleksandra",
                     "karoline",
