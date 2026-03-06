@@ -9530,6 +9530,9 @@
                   }
                 },
                 "additionalProperties": false
+              },
+              "note": {
+                "$ref": "#/components/schemas/XmlTextNode"
               }
             },
             "additionalProperties": false
