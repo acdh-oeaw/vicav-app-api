@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1772709359892
+modified: 1772793719529
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -8481,11 +8481,14 @@ contents: >-
             examples:
               - "24"
               - "76"
+              - "40s"
+              - "60s"
           '@sex':
             type: string
             enum:
               - f
               - m
+              - missing
           sex:
             type: object
             properties:
@@ -8532,6 +8535,39 @@ contents: >-
                   - "1912"
                   - "1968"
                   - "1974"
+              date:
+                type: object
+                properties:
+                  '@notBefore':
+                    type: string
+                  '@notAfter':
+                    type: string
+                  $:
+                    type: string
+                additionalProperties: false
+              placeName:
+                type: object
+                properties:
+                  $:
+                    type: string
+                additionalProperties: false
+            additionalProperties: false
+          state:
+            type: object
+            properties:
+              '@type':
+                const: 'consent'
+              label:
+                type: object
+                properties:
+                  $:
+                    type: string
+                    enum:
+                      - yes
+                      - no
+                      - missing
+                additionalProperties: false
+              additionalProperties: false
             additionalProperties: false
           note:
             type: object
