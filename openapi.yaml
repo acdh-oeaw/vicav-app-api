@@ -8301,6 +8301,7 @@ components:
                     - audio/m4a
                     - audio/mp3
                     - audio/mp4
+                    - audio/aac
                     - audio/wav
                 '@url':
                   type: string
