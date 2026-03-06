@@ -8544,6 +8544,8 @@ components:
                 $:
                   type: string
               additionalProperties: false
+            note:
+              $ref: '#/components/schemas/XmlTextNode'
           additionalProperties: false
         state:
           type: object
