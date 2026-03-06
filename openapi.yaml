@@ -7740,6 +7740,7 @@ components:
        - principal
        - technical implementation
        - transfer to ELAN
+       - document preparation
     Note:
       type: object
       additionalProperties: true
