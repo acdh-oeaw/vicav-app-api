@@ -8472,11 +8472,14 @@ components:
           examples:
             - "24"
             - "76"
+            - "40s"
+            - "60s"
         '@sex':
           type: string
           enum:
             - f
             - m
+            - missing
         sex:
           type: object
           properties:
@@ -8523,6 +8526,39 @@ components:
                 - "1912"
                 - "1968"
                 - "1974"
+            date:
+              type: object
+              properties:
+                '@notBefore':
+                  type: string
+                '@notAfter':
+                  type: string
+                $:
+                  type: string
+              additionalProperties: false
+            placeName:
+              type: object
+              properties:
+                $:
+                  type: string
+              additionalProperties: false
+          additionalProperties: false
+        state:
+          type: object
+          properties:
+            '@type':
+              const: 'consent'
+            label:
+              type: object
+              properties:
+                $:
+                  type: string
+                  enum:
+                    - yes
+                    - no
+                    - missing
+              additionalProperties: false
+            additionalProperties: false
           additionalProperties: false
         note:
           type: object
