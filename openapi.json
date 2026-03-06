@@ -9395,7 +9395,10 @@
                   }
                 }
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "p": {
+                "$ref": "#/components/schemas/XmlTextNode"
+              }
             },
             "additionalProperties": false
           }

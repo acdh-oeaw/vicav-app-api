@@ -8448,6 +8448,8 @@ components:
                 $:
                   type: string              
             additionalProperties: false
+            p:
+              $ref: '#/components/schemas/XmlTextNode'
           additionalProperties: false
       additionalProperties: false
     Person:
