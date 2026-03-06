@@ -7970,13 +7970,6 @@
             }
           }
         },
-        "required": [
-          "@corresp",
-          "@id",
-          "@n",
-          "@type",
-          "monogr"
-        ],
         "title": "BiblStruct"
       },
       "Bibl": {

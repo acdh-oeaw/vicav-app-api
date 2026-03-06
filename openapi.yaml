@@ -7461,12 +7461,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Note'
-      required:
-        - '@corresp'
-        - '@id'
-        - '@n'
-        - '@type'
-        - monogr
       title: BiblStruct
     Bibl:
       type: object
