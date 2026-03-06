@@ -7703,7 +7703,7 @@ components:
             - '@id'
             - $
         persName:
-          oneOf:
+          anyOf:
            - $ref: '#/components/schemas/Author'
            - $ref: '#/components/schemas/AuthorRef'
         resp:

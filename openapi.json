@@ -8321,7 +8321,7 @@
             ]
           },
           "persName": {
-            "oneOf": [
+            "anyOf": [
               {
                 "$ref": "#/components/schemas/Author"
               },
