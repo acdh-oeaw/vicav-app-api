@@ -9223,7 +9223,6 @@
             "additionalProperties": false,
             "required": [
               "@dur-iso",
-              "respStmt",
               "@type"
             ]
           }
