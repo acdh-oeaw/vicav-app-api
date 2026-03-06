@@ -9513,6 +9513,9 @@
                   "@notAfter": {
                     "type": "string"
                   },
+                  "@when": {
+                    "type": "string"
+                  },
                   "$": {
                     "type": "string"
                   }
