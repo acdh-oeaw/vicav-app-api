@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1772818831503
+modified: 1773162108448
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -16,7 +16,7 @@ contents: >-
       description: "current ACDH-CH prod server"
     - url: https://vicav-dev.acdh.oeaw.ac.at
       description: "current ACDH-CH dev server"
-    - url: https://tunocent-22a417b1-9f07-406b-9098-288b3f981d99.acdh-ch-dev.oeaw.ac.at
+    - url: https://tunocent-api.acdh-dev.oeaw.ac.at
       description: "current tunocent dev server"
     - url: https://tunocent-api.acdh.oeaw.ac.at
       description: "current tunocent prod server"
