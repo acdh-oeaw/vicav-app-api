@@ -6367,6 +6367,10 @@ contents: >-
             - targetType
       geo_target_type_parameters:
         type: object
+        required:
+          - endpoint
+          - query
+          - scope
         properties:
           endpoint:
             type: string
