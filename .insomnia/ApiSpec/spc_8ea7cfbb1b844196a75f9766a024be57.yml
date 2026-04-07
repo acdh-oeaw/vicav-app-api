@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1773162108448
+modified: 1775563734620
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -5974,6 +5974,8 @@ contents: >-
                 type: array
                 items:
                   $ref: "#/components/schemas/div"
+              div:
+                $ref: "#/components/schemas/div"
       CorpusSearchHTML:
         type: object
         properties: 
