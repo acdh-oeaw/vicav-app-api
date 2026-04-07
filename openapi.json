@@ -5842,6 +5842,9 @@
                 "items": {
                   "$ref": "#/components/schemas/div"
                 }
+              },
+              "div": {
+                "$ref": "#/components/schemas/div"
               }
             }
           }

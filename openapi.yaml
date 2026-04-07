@@ -5965,6 +5965,8 @@ components:
               type: array
               items:
                 $ref: "#/components/schemas/div"
+            div:
+              $ref: "#/components/schemas/div"
     CorpusSearchHTML:
       type: object
       properties: 
