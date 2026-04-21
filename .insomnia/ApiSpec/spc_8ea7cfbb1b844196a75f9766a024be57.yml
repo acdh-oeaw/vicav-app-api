@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1776773042843
+modified: 1776778110709
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -9939,7 +9939,7 @@ contents: >-
                   - ar
                   - ar-Latn
               $:
-                type: string 1928
+                type: string
                 minLength: 6
                 examples:
                   - bitišṛab ṃayya maʕdaniyya bass.
