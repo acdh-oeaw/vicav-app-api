@@ -7291,6 +7291,15 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
+          "@lang": {
+            "type": "string",
+            "examples": [
+              "ar-arz-x-cairo-vicav",
+              "de",
+              "en",
+              "ar"
+            ]
+          },
           "$": {
             "type": "string"
           }
@@ -7309,30 +7318,6 @@
           }
         },
         "title": "XmlTextNodeOrEmpty"
-      },
-      "XmlLangTextNode": {
-        "allOf": [
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": null,
-            "@lang": {
-              "type": "string",
-              "examples": [
-                "ar-arz-x-cairo-vicav",
-                "de",
-                "en",
-                "ar"
-              ]
-            }
-          },
-          {
-            "$ref": "#/components/schemas/XmlTextNode"
-          }
-        ],
-        "required": [
-          "@lang"
-        ]
       },
       "XmlMixedContent": {
         "type": "array",
@@ -10254,11 +10239,11 @@
                 "type": "array",
                 "minItems": 2,
                 "items": {
-                  "$ref": "#/components/schemas/XmlLangTextNode"
+                  "$ref": "#/components/schemas/XmlTextNode"
                 }
               },
               "orth": {
-                "$ref": "#/components/schemas/XmlLangTextNode"
+                "$ref": "#/components/schemas/XmlTextNode"
               },
               "@type": {
                 "type": "string",
@@ -10303,13 +10288,13 @@
             }
           },
           "def": {
-            "$ref": "#/components/schemas/XmlLangTextNode"
+            "$ref": "#/components/schemas/XmlTextNode"
           },
           "defs": {
             "type": "array",
             "minItems": 2,
             "items": {
-              "$ref": "#/components/schemas/XmlLangTextNode"
+              "$ref": "#/components/schemas/XmlTextNode"
             }
           },
           "translation_cit": {
@@ -10356,7 +10341,7 @@
             "type": "array",
             "minItems": 2,
             "items": {
-              "$ref": "#/components/schemas/XmlLangTextNode"
+              "$ref": "#/components/schemas/XmlTextNode"
             }
           },
           "geographic_usg": {
@@ -10540,7 +10525,7 @@
                 "deprecated": true
               },
               {
-                "$ref": "#/components/schemas/XmlLangTextNode"
+                "$ref": "#/components/schemas/XmlTextNode"
               }
             ]
           },
@@ -10688,7 +10673,7 @@
                 }
               },
               {
-                "$ref": "#/components/schemas/XmlLangTextNode"
+                "$ref": "#/components/schemas/XmlTextNode"
               }
             ]
           },
@@ -11058,13 +11043,13 @@
             ]
           },
           "orth": {
-            "$ref": "#/components/schemas/XmlLangTextNode"
+            "$ref": "#/components/schemas/XmlTextNode"
           },
           "orths": {
             "type": "array",
             "minItems": 2,
             "items": {
-              "$ref": "#/components/schemas/XmlLangTextNode"
+              "$ref": "#/components/schemas/XmlTextNode"
             }
           },
           "reg_usg": {
@@ -11595,13 +11580,13 @@
         ],
         "properties": {
           "orth": {
-            "$ref": "#/components/schemas/XmlLangTextNode"
+            "$ref": "#/components/schemas/XmlTextNode"
           },
           "orths": {
             "type": "array",
             "minItems": 2,
             "items": {
-              "$ref": "#/components/schemas/XmlLangTextNode"
+              "$ref": "#/components/schemas/XmlTextNode"
             }
           },
           "@type": {
@@ -11751,7 +11736,7 @@
           "orths": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/XmlLangTextNode"
+              "$ref": "#/components/schemas/XmlTextNode"
             }
           },
           "variant_form": {
@@ -11841,7 +11826,7 @@
           "orths": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/XmlLangTextNode"
+              "$ref": "#/components/schemas/XmlTextNode"
             }
           },
           "@type": {
@@ -11926,7 +11911,6 @@
         "additionalProperties": false,
         "required": [
           "@type",
-          "@lang",
           "quote"
         ],
         "properties": {
@@ -11937,21 +11921,7 @@
             ]
           },
           "quote": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "$"
-            ],
-            "properties": {
-              "$": {
-                "type": "string",
-                "examples": [
-                  "Ahmad is still in hospital.",
-                  "As for his friend, he is a doctor.",
-                  "This is unacceptable."
-                ]
-              }
-            }
+            "$ref": "#/components/schemas/XmlTextNode"
           },
           "@type": {
             "type": "string",
@@ -12231,7 +12201,7 @@
             }
           },
           "quote": {
-            "$ref": "#/components/schemas/XmlLangTextNode"
+            "$ref": "#/components/schemas/XmlTextNode"
           },
           "@vutlsk": {
             "type": "string"
