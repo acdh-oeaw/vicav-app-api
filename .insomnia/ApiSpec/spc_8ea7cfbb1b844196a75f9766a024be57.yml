@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1775563734620
+modified: 1776773042843
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -7002,6 +7002,13 @@ contents: >-
         type: object
         additionalProperties: false
         properties:
+          '@lang':
+            type: string
+            examples:
+              - ar-arz-x-cairo-vicav
+              - de
+              - en
+              - ar
           $:
             type: string
         required:
@@ -7014,21 +7021,6 @@ contents: >-
           $:
             type: string
         title: XmlTextNodeOrEmpty
-      XmlLangTextNode:
-        allOf:
-        - type: object
-          additionalProperties: false
-          properties:
-          '@lang':
-            type: string
-            examples:
-              - ar-arz-x-cairo-vicav
-              - de
-              - en
-              - ar
-        - $ref: '#/components/schemas/XmlTextNode'
-        required:
-          - '@lang'
       XmlMixedContent:
         type: array
         items:
@@ -9085,9 +9077,9 @@ contents: >-
                 type: array
                 minItems: 2
                 items:
-                  $ref: "#/components/schemas/XmlLangTextNode"
+                  $ref: "#/components/schemas/XmlTextNode"
               orth:
-                $ref: "#/components/schemas/XmlLangTextNode"
+                $ref: "#/components/schemas/XmlTextNode"
               '@type':
                 type: string
                 enum:
@@ -9116,12 +9108,12 @@ contents: >-
             items:
                $ref: '#/components/schemas/DictExample'
           def:
-            $ref: '#/components/schemas/XmlLangTextNode'
+            $ref: '#/components/schemas/XmlTextNode'
           defs:
             type: array
             minItems: 2
             items:
-              $ref: '#/components/schemas/XmlLangTextNode'
+              $ref: '#/components/schemas/XmlTextNode'
           translation_cit:
             $ref: '#/components/schemas/translation_cit'
           translation_cits:
@@ -9153,7 +9145,7 @@ contents: >-
             type: array
             minItems: 2
             items:
-              $ref: '#/components/schemas/XmlLangTextNode'
+              $ref: '#/components/schemas/XmlTextNode'
           geographic_usg:
             type: object
             additionalProperties: false
@@ -9272,7 +9264,7 @@ contents: >-
           gram:
             alllOf:
             - deprecated: true
-            - $ref: '#/components/schemas/XmlLangTextNode'   
+            - $ref: '#/components/schemas/XmlTextNode'   
           root_gram:
             type: object
             properties:
@@ -9375,7 +9367,7 @@ contents: >-
                     - roots
                 '@lang':
                   const: ar-Latn
-            - $ref: '#/components/schemas/XmlLangTextNode'            
+            - $ref: '#/components/schemas/XmlTextNode'            
           number_gram:
             type: object
             additionalProperties: false
@@ -9636,12 +9628,12 @@ contents: >-
             enum:
               - lemmaVariant
           orth:
-            $ref: '#/components/schemas/XmlLangTextNode'
+            $ref: '#/components/schemas/XmlTextNode'
           orths:
             type: array
             minItems: 2
             items:
-              $ref: '#/components/schemas/XmlLangTextNode'
+              $ref: '#/components/schemas/XmlTextNode'
           reg_usg:
             type: object
             additionalProperties: false
@@ -10017,12 +10009,12 @@ contents: >-
           - '@type'
         properties:
           orth:
-            $ref: '#/components/schemas/XmlLangTextNode' 
+            $ref: '#/components/schemas/XmlTextNode' 
           orths:
             type: array
             minItems: 2
             items:
-              $ref: '#/components/schemas/XmlLangTextNode'
+              $ref: '#/components/schemas/XmlTextNode'
           '@type':
             type: string
             enum:
@@ -10126,7 +10118,7 @@ contents: >-
           orths:
             type: array
             items:
-              $ref: '#/components/schemas/XmlLangTextNode'
+              $ref: '#/components/schemas/XmlTextNode'
           variant_form:
             $ref: '#/components/schemas/variant_form'
           variant_forms:
@@ -10188,7 +10180,7 @@ contents: >-
           orths:
             type: array
             items:
-              $ref: '#/components/schemas/XmlLangTextNode'  
+              $ref: '#/components/schemas/XmlTextNode'  
           '@type':
             type: string
             enum:
@@ -10245,7 +10237,6 @@ contents: >-
         additionalProperties: false
         required:
           - '@type'
-          - '@lang'
           - quote
         properties:
           '@lang':
@@ -10253,17 +10244,7 @@ contents: >-
             examples:
               - en
           quote:
-            type: object
-            additionalProperties: false
-            required:
-              - $
-            properties:
-              $:
-                type: string
-                examples:
-                  - Ahmad is still in hospital.
-                  - As for his friend, he is a doctor.
-                  - This is unacceptable.
+            $ref: '#/components/schemas/XmlTextNode'
           '@type':
             type: string
             enum:
@@ -10460,7 +10441,7 @@ contents: >-
             items:
               $ref: '#/components/schemas/translation_cit'
           quote:
-            $ref: '#/components/schemas/XmlLangTextNode'
+            $ref: '#/components/schemas/XmlTextNode'
           '@vutlsk':
             type: string
           '@type':
