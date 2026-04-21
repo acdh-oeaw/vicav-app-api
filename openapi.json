@@ -11482,7 +11482,7 @@
                 ]
               },
               "$": {
-                "type": "string 1928",
+                "type": "string",
                 "minLength": 6,
                 "examples": [
                   "bitišṛab ṃayya maʕdaniyya bass.",
