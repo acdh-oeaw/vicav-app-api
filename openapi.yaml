@@ -6562,6 +6562,13 @@ components:
                 additionalProperties: false
                 required:
                   - '@target'
+            keywords:
+              type: object
+              properties:
+                '@scheme':
+                   type: string
+                term:
+                  $ref: '#/components/schemas/XmlTextNode'
           additionalProperties: false
           required:
             - catRefs
