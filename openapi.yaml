@@ -9030,6 +9030,12 @@ components:
           type: string
           examples:
             - "23.83"
+      required:
+       - _links
+       - id
+       - sid
+       - lemma
+       - took
     DictEntry:
       type: object
       additionalProperties: false
