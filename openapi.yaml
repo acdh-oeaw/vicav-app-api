@@ -8665,6 +8665,7 @@ components:
         - page_size
         - total_items
         - page
+        - took
       properties:
         _links:
           $ref: '#/components/schemas/HALLinks'
@@ -9034,7 +9035,6 @@ components:
        - id
        - sid
        - lemma
-       - took
     DictEntry:
       type: object
       additionalProperties: false

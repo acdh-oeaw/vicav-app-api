@@ -9699,7 +9699,8 @@
           "page_count",
           "page_size",
           "total_items",
-          "page"
+          "page",
+          "took"
         ],
         "properties": {
           "_links": {
@@ -10193,8 +10194,7 @@
           "_links",
           "id",
           "sid",
-          "lemma",
-          "took"
+          "lemma"
         ]
       },
       "DictEntry": {
