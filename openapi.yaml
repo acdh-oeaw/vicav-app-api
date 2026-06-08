@@ -8665,7 +8665,6 @@ components:
         - page_size
         - total_items
         - page
-        - took
       properties:
         _links:
           $ref: '#/components/schemas/HALLinks'

@@ -9699,8 +9699,7 @@
           "page_count",
           "page_size",
           "total_items",
-          "page",
-          "took"
+          "page"
         ],
         "properties": {
           "_links": {
