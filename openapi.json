@@ -6988,7 +6988,6 @@
               "additionalProperties": false,
               "required": [
                 "@id",
-                "@n",
                 "catDesc"
               ]
             }
