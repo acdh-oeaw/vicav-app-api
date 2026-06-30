@@ -6559,6 +6559,10 @@ components:
                       - corpus:Animals
                       - corpus:datatypes.vicav.fl
                       - corpus:datatypes.vicav.st
+                  '@scheme':
+                    type: string
+                    examples:
+                      - corpus:datatypes.wibarab
                 additionalProperties: false
                 required:
                   - '@target'
