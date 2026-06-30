@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1780934722303
+modified: 1782824246067
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -6568,6 +6568,10 @@ contents: >-
                         - corpus:Animals
                         - corpus:datatypes.vicav.fl
                         - corpus:datatypes.vicav.st
+                    '@scheme':
+                      type: string
+                      examples:
+                        - corpus:datatypes.wibarab
                   additionalProperties: false
                   required:
                     - '@target'
