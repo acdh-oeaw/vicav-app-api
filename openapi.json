@@ -8463,57 +8463,52 @@
               },
               "geos": {
                 "type": "array",
-                "prefixItems": [
-                  {
-                    "type": "object",
-                    "properties": {
-                      "@decls": {
-                        "type": "string",
-                        "examples": [
-                          "#dms"
-                        ]
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "@decls": {
+                          "const": "#dms"
+                        },
+                        "$": {
+                          "type": "string",
+                          "examples": [
+                            "13°31'09\"N 18°34'52\"E",
+                            "25°17'08\"N 51°31'51\"E",
+                            "34°20′39\"N 36°28′28\"E"
+                          ]
+                        }
                       },
-                      "$": {
-                        "type": "string",
-                        "examples": [
-                          "13°31'09\"N 18°34'52\"E",
-                          "25°17'08\"N 51°31'51\"E",
-                          "34°20′39\"N 36°28′28\"E"
-                        ]
-                      }
+                      "additionalProperties": false,
+                      "required": [
+                        "@decls",
+                        "$"
+                      ]
                     },
-                    "additionalProperties": false,
-                    "required": [
-                      "@decls",
-                      "$"
-                    ]
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "@decls": {
-                        "type": "string",
-                        "examples": [
-                          "#dd"
-                        ]
+                    {
+                      "type": "object",
+                      "properties": {
+                        "@decls": {
+                          "const": "#dd"
+                        },
+                        "$": {
+                          "type": "string",
+                          "examples": [
+                            "13.5191 18.5812",
+                            "25.285556 51.530833",
+                            "34.34417 36.47444"
+                          ]
+                        }
                       },
-                      "$": {
-                        "type": "string",
-                        "examples": [
-                          "13.5191 18.5812",
-                          "25.285556 51.530833",
-                          "34.34417 36.47444"
-                        ]
-                      }
-                    },
-                    "additionalProperties": false,
-                    "required": [
-                      "@decls",
-                      "$"
-                    ]
-                  }
-                ],
-                "items": false,
+                      "additionalProperties": false,
+                      "required": [
+                        "@decls",
+                        "$"
+                      ]
+                    }
+                  ]
+                },
                 "minItems": 2,
                 "maxItems": 2
               }
@@ -8541,6 +8536,33 @@
             },
             "additionalProperties": false,
             "required": [
+              "@type"
+            ]
+          },
+          "standard_placeName": {
+            "type": "object",
+            "properties": {
+              "@lang": {
+                "type": "string",
+                "examples": [
+                  "ar"
+                ]
+              },
+              "@type": {
+                "const": "standard"
+              },
+              "$": {
+                "type": "string",
+                "examples": [
+                  "الخفسة",
+                  "المخا",
+                  "كورماكيتيس"
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "@lang",
               "@type",
               "$"
             ]

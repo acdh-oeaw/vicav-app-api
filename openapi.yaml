@@ -7800,13 +7800,12 @@ components:
                 - $
             geos:
               type: array
-              prefixItems:
+              items:
+                oneOf:
                 - type: object
                   properties:
                     '@decls':
-                      type: string
-                      examples:
-                        - '#dms'
+                      const: '#dms'
                     $:
                       type: string
                       examples:
@@ -7820,9 +7819,7 @@ components:
                 - type: object
                   properties:
                     '@decls':
-                      type: string
-                      examples:
-                        - '#dd'
+                      const: '#dd'
                     $:
                       type: string
                       examples:
@@ -7833,7 +7830,6 @@ components:
                   required:
                     - '@decls'
                     - $
-              items: false
               minItems: 2
               maxItems: 2
           additionalProperties: false
@@ -7853,6 +7849,25 @@ components:
                 - al-Qa'a
           additionalProperties: false
           required:
+            - '@type'
+        standard_placeName:
+          type: object
+          properties:
+            '@lang':
+              type: string
+              examples:
+                - ar
+            '@type':
+              const: standard
+            $:
+              type: string
+              examples:
+                - الخفسة
+                - المخا
+                - كورماكيتيس
+          additionalProperties: false
+          required:
+            - '@lang'
             - '@type'
             - $
         note:
