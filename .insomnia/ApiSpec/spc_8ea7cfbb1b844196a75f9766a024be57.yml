@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1783005286815
+modified: 1783006112480
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -7809,13 +7809,12 @@ contents: >-
                   - $
               geos:
                 type: array
-                prefixItems:
+                items:
+                  oneOf:
                   - type: object
                     properties:
                       '@decls':
-                        type: string
-                        examples:
-                          - '#dms'
+                        const: '#dms'
                       $:
                         type: string
                         examples:
@@ -7829,9 +7828,7 @@ contents: >-
                   - type: object
                     properties:
                       '@decls':
-                        type: string
-                        examples:
-                          - '#dd'
+                        const: '#dd'
                       $:
                         type: string
                         examples:
@@ -7842,7 +7839,6 @@ contents: >-
                     required:
                       - '@decls'
                       - $
-                items: false
                 minItems: 2
                 maxItems: 2
             additionalProperties: false
@@ -7862,6 +7858,25 @@ contents: >-
                   - al-Qa'a
             additionalProperties: false
             required:
+              - '@type'
+          standard_placeName:
+            type: object
+            properties:
+              '@lang':
+                type: string
+                examples:
+                  - ar
+              '@type':
+                const: standard
+              $:
+                type: string
+                examples:
+                  - الخفسة
+                  - المخا
+                  - كورماكيتيس
+            additionalProperties: false
+            required:
+              - '@lang'
               - '@type'
               - $
           note:
