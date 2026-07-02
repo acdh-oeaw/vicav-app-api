@@ -1,0 +1,32 @@
+_id: req_ff3451505b4646eba60ec44c541b1d2d
+type: Request
+parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
+modified: 1782999289561
+created: 1782998347799
+url: "{{ _.base_url }}/vicav/biblio_data"
+name: get biblio data in json or xml format
+description: ""
+method: GET
+body: {}
+parameters:
+  - id: pair_382d48097f26426f8c996e4c314aa594
+    name: render
+    value: json
+    description: ""
+headers:
+  - id: pair_e4a8ee5e53a8412e8615f9893b7e2480
+    name: Accept
+    value: application/json
+    description: ""
+authentication:
+  type: basic
+  username: ""
+  password: ""
+metaSortKey: -1675795155948
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
