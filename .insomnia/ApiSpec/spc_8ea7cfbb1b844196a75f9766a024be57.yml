@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1782999166039
+modified: 1783005286815
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -4079,8 +4079,14 @@ contents: >-
               application/json:
                 schema:
                   oneOf:
-                    - §ref: '#/components/schemas/ListBibl'
-                    - §ref: '#/components/schemas/ListPlace'
+                    - §ref: '#/components/schemas/Biblio'
+                    - §ref: '#/components/schemas/Geo'
+              application/xml:
+                schema:
+                  type: string
+                  xml:
+                    name: TEI
+                    wrapped: false
     /vicav/{name}_markers:
       get:
         tags:
@@ -6223,6 +6229,7 @@ contents: >-
                 items:
                   oneOf:
                   - $ref: '#/components/schemas/Biblio'
+                  - $ref: '#/components/schemas/Geo'
                   - $ref: '#/components/schemas/TeiCorpus'
                   - type: object
           funders:
@@ -6550,12 +6557,47 @@ contents: >-
           teiHeader:
             $ref: '#/components/schemas/TeiHeader'
           text:
-            $ref: '#/components/schemas/Text'
+            type: object
+            properties:
+              front:
+                type: object
+              body:
+                $ref: '#/components/schemas/ListBiblBody'
+              back:
+                type: object
+            required:
+              - body
+            additionalProperties: false
         required:
           - '@id'
           - teiHeader
           - text
         title: Biblio
+      Geo:
+        type: object
+        additionalProperties: false
+        properties:
+          '@id':
+            type: string
+          teiHeader:
+            $ref: '#/components/schemas/TeiHeader'
+          text:
+            type: object
+            properties:
+              front:
+                type: object
+              body:
+                $ref: '#/components/schemas/ListPlaceBody'
+              back:
+                type: object
+            required:
+              - body
+            additionalProperties: false
+        required:
+          - '@id'
+          - teiHeader
+          - text
+        title: Geo
       TeiHeader:
         type: object
         additionalProperties: false
@@ -7456,16 +7498,7 @@ contents: >-
             $ref: '#/components/schemas/P'
           recordingStmt:
             $ref: '#/components/schemas/RecordingStmt'
-      Text:
-        type: object
-        additionalProperties: false
-        properties:
-          body:
-            $ref: '#/components/schemas/Body'
-        required:
-          - body
-        title: Text
-      Body:
+      ListBiblBody:
         type: object
         additionalProperties: false
         properties:
@@ -7473,7 +7506,7 @@ contents: >-
             $ref: '#/components/schemas/ListBibl'
         required:
           - listBibl
-        title: Body
+        title: ListBiblBody
       ListBibl:
         type: object
         additionalProperties: false
@@ -7728,6 +7761,153 @@ contents: >-
               - placeName
             title: Meeting
           - $ref: '#/components/schemas/XmlTextNode'
+      ListPlaceBody:
+        type: object
+        additionalProperties: false
+        properties:
+          listPlace:
+            $ref: '#/components/schemas/ListPlace'
+        required:
+          - listPlace
+        title: ListBiblBody
+      ListPlace:
+        type: array
+        items:
+          $ref: '#/components/schemas/GeoPlace'
+      GeoPlace:
+        type: object
+        properties:
+          '@type':
+            const: geo
+          '@id':
+            type: string
+            examples:
+              - djedaa
+              - doha
+              - essaouira
+          location:
+            type: object
+            properties:
+              country:
+                type: object
+                properties:
+                  '@key':
+                    type: string
+                    examples:
+                      - LB
+                      - MA
+                      - TN
+                  $:
+                    type: string
+                    examples:
+                      - Chad
+                      - Morocco
+                      - Tunisia
+                additionalProperties: false
+                required:
+                  - '@key'
+                  - $
+              geos:
+                type: array
+                prefixItems:
+                  - type: object
+                    properties:
+                      '@decls':
+                        type: string
+                        examples:
+                          - '#dms'
+                      $:
+                        type: string
+                        examples:
+                          - 13°31'09"N 18°34'52"E
+                          - 25°17'08"N 51°31'51"E
+                          - 34°20′39"N 36°28′28"E
+                    additionalProperties: false
+                    required:
+                      - '@decls'
+                      - $
+                  - type: object
+                    properties:
+                      '@decls':
+                        type: string
+                        examples:
+                          - '#dd'
+                      $:
+                        type: string
+                        examples:
+                          - 13.5191 18.5812
+                          - 25.285556 51.530833
+                          - 34.34417 36.47444
+                    additionalProperties: false
+                    required:
+                      - '@decls'
+                      - $
+                items: false
+                minItems: 2
+                maxItems: 2
+            additionalProperties: false
+            required:
+              - geos
+              - country
+          prefLabel_placeName:
+            type: object
+            properties:
+              '@type':
+                const: prefLabel
+              $:
+                type: string
+                examples:
+                  - Djedaa
+                  - al-May
+                  - al-Qa'a
+            additionalProperties: false
+            required:
+              - '@type'
+              - $
+          note:
+            $ref: '#/components/schemas/XmlTextNode'
+          geoNames_idno:
+            type: object
+            properties:
+              '@type':
+                const: geoNames
+              $:
+                type: string
+                examples:
+                  - "118817185"
+                  - "280729"
+                  - "290030"
+            additionalProperties: false
+            required:
+              - '@type'
+              - $
+          local_placeName:
+            type: object
+            properties:
+              '@lang':
+                type: string
+                examples:
+                  - ar
+              '@type':
+                const: local
+              $:
+                type: string
+                examples:
+                  - الماي
+                  - جيدا
+                  - حارة صغيرة الرياض
+            additionalProperties: false
+            required:
+              - '@lang'
+              - '@type'
+              - $
+        additionalProperties: true
+        required:
+          - location
+          - prefLabel_placeName
+          - '@type'
+          - '@id'
+          - geoNames_idno
       RespStmt:
         title: RespStmt
         type: object
