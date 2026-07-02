@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1782824655291
+modified: 1782999166039
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -4043,6 +4043,44 @@ contents: >-
                   html:
                     summary: A sample HTML response
                     value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
+    /vicav/{dataType}_data:
+      get:
+        operationId: getDataLists
+        tags:
+          - noauth
+        summary: get data lists in json or xml format
+        description: |
+          returns all bibliographic or geo data
+        parameters:
+          - in: path
+            name: dataType
+            required: true
+            schema:
+              type: string
+              enum:
+                - biblio
+                - geo
+          - in: query
+            name: render
+            required: false
+            schema:
+              summary: how to render the retrieved TEI document
+              description: |
+                default is json
+              type: string
+              enum:
+               - json
+               - xml
+               - xml_for_parser
+        responses:
+          '200':
+            description: A list of geo or bibliographic data
+            content:
+              application/json:
+                schema:
+                  oneOf:
+                    - §ref: '#/components/schemas/ListBibl'
+                    - §ref: '#/components/schemas/ListPlace'
     /vicav/{name}_markers:
       get:
         tags:
