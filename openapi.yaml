@@ -8730,6 +8730,14 @@ components:
             p:
               $ref: '#/components/schemas/XmlTextNode'
           additionalProperties: false
+        listPlace:
+          type: object
+          properties:
+            place:
+              type: object
+              properties:
+                '@sameAs':
+                  type: string
       additionalProperties: false
     Person:
       type: object
