@@ -6683,14 +6683,14 @@ contents: >-
               language:
                 type: object
                 properties:
-                  @role:
+                  '@role':
                     type: string
-                  @ident:
+                  '@ident':
                     type: string
                   name:
                     type: object
                     properties:
-                      @type:
+                      '@type':
                         type: string
                       $:
                         type: string
@@ -6699,7 +6699,7 @@ contents: >-
                   date:
                     type: object
                     properties:
-                      @type:
+                      '@type':
                         type: string
                       note:
                         type: object
@@ -6709,17 +6709,18 @@ contents: >-
                   personGrp:
                     type: object
                     properties:
-                      @role:
+                      '@role':
                         type: string
-                      @corresp:
+                      '@corresp':
                         type: string
                   channel:
                     type: object
                     properties:
-                      @mode:
+                      '@mode':
                         type: string
                       $:
                         type: string
+            additionalProperties: false
       EncodingDesc:
         type: object
         properties:
