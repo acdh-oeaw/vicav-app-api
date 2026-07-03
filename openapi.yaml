@@ -6711,7 +6711,7 @@ components:
                       type: string
                     $:
                       type: string
-          additionalProperties: false
+          additionalProperties: true
     EncodingDesc:
       type: object
       properties:
