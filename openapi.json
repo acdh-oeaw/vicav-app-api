@@ -12512,11 +12512,54 @@
                   "$",
                   "@lang"
                 ]
+              },
+              "orths": {
+                "type": "array",
+                "minItems": 2,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "@lang": {
+                      "type": "string",
+                      "examples": [
+                        "en",
+                        "fa"
+                      ]
+                    },
+                    "@cert": {
+                      "type": "string",
+                      "enum": [
+                        "unknown"
+                      ]
+                    },
+                    "$": {
+                      "type": "string",
+                      "examples": [
+                        "adabxāne",
+                        "cable"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "$",
+                    "@lang"
+                  ]
+                }
               }
             },
             "additionalProperties": false,
-            "required": [
-              "orth"
+            "anyOf": [
+              {
+                "required": [
+                  "orth"
+                ]
+              },
+              {
+                "required": [
+                  "orths"
+                ]
+              }
             ]
           }
         },
