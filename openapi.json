@@ -8491,7 +8491,12 @@
         "type": "object",
         "properties": {
           "@type": {
-            "const": "geo"
+            "type": "string",
+            "enum": [
+              "geo",
+              "reg",
+              "diaGroup"
+            ]
           },
           "@id": {
             "type": "string",
