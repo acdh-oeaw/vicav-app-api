@@ -4078,6 +4078,23 @@ paths:
                 xml:
                   name: TEI
                   wrapped: false
+  /vicav/geojson_gazetteer:
+    get:
+      tags:
+        - noauth
+      summary: get the VICAV Gazetteer
+      description: |
+        FeatureCollection of all coordinates in the gazetteer and the place XML data in properties
+      operationId: getGeojsonGazetteer
+      parameters: []
+      responses:
+        '200':
+          description: |
+            FeatureCollection of all coordinates in the gazetteer and the place XML data in properties
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeatureCollection'
   /vicav/{name}_markers:
     get:
       tags:
@@ -6668,50 +6685,6 @@ components:
               items:
                 $ref: '#/components/schemas/Person'
           additionalProperties: false
-        langUsage:
-          type: object
-          properties:
-            language:
-              type: object
-              properties:
-                '@role':
-                  type: string
-                '@ident':
-                  type: string
-                name:
-                  type: object
-                  properties:
-                    '@type':
-                      type: string
-                    $:
-                      type: string
-                settingDesc:
-                  $ref: '#/components/schemas/SettingDesc'
-                date:
-                  type: object
-                  properties:
-                    '@type':
-                      type: string
-                    note:
-                      type: object
-                      properties:
-                        $:
-                          type: string
-                personGrp:
-                  type: object
-                  properties:
-                    '@role':
-                      type: string
-                    '@corresp':
-                      type: string
-                channel:
-                  type: object
-                  properties:
-                    '@mode':
-                      type: string
-                    $:
-                      type: string
-          additionalProperties: true
     EncodingDesc:
       type: object
       properties:
@@ -7813,11 +7786,7 @@ components:
       type: object
       properties:
         '@type':
-          type: string
-          enum:
-            - geo
-            - reg
-            - diaGroup
+          const: geo
         '@id':
           type: string
           examples:
@@ -8277,6 +8246,7 @@ components:
           - type: 'null'
           - $ref: '#/components/schemas/MarkerProperties'
           - $ref: '#/components/schemas/VarietyFeatures'
+          - $ref: '#/components/schemas/GeoPlace'
         geometry:
           oneOf:
           - type: 'null'
@@ -8734,14 +8704,6 @@ components:
             p:
               $ref: '#/components/schemas/XmlTextNode'
           additionalProperties: false
-        listPlace:
-          type: object
-          properties:
-            place:
-              type: object
-              properties:
-                '@sameAs':
-                  type: string
       additionalProperties: false
     Person:
       type: object
@@ -10646,36 +10608,9 @@ components:
               required:
                 - $
                 - '@lang'
-            orths:
-              type: array
-              minItems: 2
-              items:
-                type: object
-                properties:
-                  '@lang':
-                    type: string
-                    examples:
-                      - en
-                      - fa
-                  '@cert':
-                    type: string
-                    enum:
-                      - unknown
-                  $:
-                    type: string
-                    examples:
-                      - adabxāne
-                      - cable
-                additionalProperties: false
-                required:
-                  - $
-                  - '@lang'
           additionalProperties: false
-          anyOf:
-            - required:
-                - orth
-            - required:
-                - orths
+          required:
+            - orth
       additionalProperties: false
       required:
         - form
