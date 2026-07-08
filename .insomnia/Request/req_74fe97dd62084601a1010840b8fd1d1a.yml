@@ -1,7 +1,7 @@
 _id: req_74fe97dd62084601a1010840b8fd1d1a
 type: Request
 parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
-modified: 1783527013412
+modified: 1783528460444
 created: 1783526987284
 url: "{{ _.base_url }}/vicav/geojson_gazetteer"
 name: get the VICAV Gazetteer
@@ -9,11 +9,16 @@ description: ""
 method: GET
 body: {}
 parameters: []
-headers: []
+headers:
+  - id: pair_ed7f33c87e9d48cb87559856c139344e
+    name: Accept
+    value: application/json
+    description: ""
 authentication:
   type: basic
-  username: "{{ _.httpUsername }}"
-  password: "{{ _.httpPassword }}"
+  username: ""
+  password: ""
+  disabled: true
 metaSortKey: -1675795155948.5
 isPrivate: false
 settingStoreCookies: true
