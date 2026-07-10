@@ -8650,6 +8650,58 @@
               "@type",
               "$"
             ]
+          },
+          "referencedBy": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source": {
+                  "type": "string",
+                  "description": "The data type the reference was found in.\n",
+                  "examples": [
+                    "vicav_biblio",
+                    "vicav_corpus",
+                    "dc_shawi_eng"
+                  ]
+                },
+                "ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "reference": {
+                        "type": "string",
+                        "description": "The reference that was found. geo: + id.\n",
+                        "examples": [
+                          "geo:malta",
+                          "geo:harran_urfa"
+                        ]
+                      },
+                      "id": {
+                        "type": "string",
+                        "description": "The next item in the XML above that addressable by an ID.\n",
+                        "examples": [
+                          "abdel_massih_1979_0000",
+                          "DShaAr.agshar_000",
+                          "URFA-184"
+                        ]
+                      }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                      "reference",
+                      "id"
+                    ]
+                  }
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "source",
+                "ids"
+              ]
+            }
           }
         },
         "additionalProperties": true,
