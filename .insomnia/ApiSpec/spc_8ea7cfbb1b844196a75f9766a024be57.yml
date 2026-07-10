@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1783526980508
+modified: 1783686563260
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -7562,6 +7562,12 @@ contents: >-
             type: array
             items:
               $ref: '#/components/schemas/Note'
+          subject_ref:
+            $ref: '#/components/schemas/SubjectRef'
+          subject_refs:
+            type: array
+            items:
+              $ref: '#/components/schemas/SubjectRef'
         title: BiblStruct
       Bibl:
         type: object
@@ -8058,6 +8064,27 @@ contents: >-
         required:
           - '@type'
         title: GeoNote
+      SubjectRef:
+        type: object
+        additionalProperties: false
+        properties:
+          '@type':
+            const: "subject"
+          $:
+            type: string
+          '@target':
+            type: string          
+            pattern: "^[^:]+:"
+          '@subtype':
+            type: string
+            enum:
+             - geagraphic
+             - concept
+        required:
+          - '@type'
+          - '@target'
+          - '@subtype'
+          - '$'
       Hi:
         type: object
         additionalProperties: false
