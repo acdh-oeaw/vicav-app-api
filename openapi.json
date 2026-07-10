@@ -8103,6 +8103,15 @@
             "items": {
               "$ref": "#/components/schemas/Note"
             }
+          },
+          "subject_ref": {
+            "$ref": "#/components/schemas/SubjectRef"
+          },
+          "subject_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubjectRef"
+            }
           }
         },
         "title": "BiblStruct"
@@ -8826,6 +8835,35 @@
           "@type"
         ],
         "title": "GeoNote"
+      },
+      "SubjectRef": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "@type": {
+            "const": "subject"
+          },
+          "$": {
+            "type": "string"
+          },
+          "@target": {
+            "type": "string",
+            "pattern": "^[^:]+:"
+          },
+          "@subtype": {
+            "type": "string",
+            "enum": [
+              "geagraphic",
+              "concept"
+            ]
+          }
+        },
+        "required": [
+          "@type",
+          "@target",
+          "@subtype",
+          "$"
+        ]
       },
       "Hi": {
         "type": "object",
