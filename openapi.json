@@ -9930,6 +9930,19 @@
               }
             },
             "additionalProperties": false
+          },
+          "listPlace": {
+            "type": "object",
+            "properties": {
+              "place": {
+                "type": "object",
+                "properties": {
+                  "@sameAs": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
           }
         },
         "additionalProperties": false
