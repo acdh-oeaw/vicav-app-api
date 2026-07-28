@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1784037347455
+modified: 1785255853038
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -5811,6 +5811,19 @@ contents: >-
             enum:
               - right
               - left
+          root:
+            type: string
+            examples:
+              - ʕlw š
+              - ʕnd
+          roots:
+            type: array
+            uniqueItems: true
+            items:
+              type: string
+              examples:
+                - rkb
+                - š lwn
           synRoot:
             type: string
             examples:
@@ -5947,6 +5960,11 @@ contents: >-
             type: string
             enum:
               - coll.
+          root:
+            type: string
+            examples:
+              - ʔwl fʔl
+              - ʕgb
           synRoot:
             type: string
             examples:
