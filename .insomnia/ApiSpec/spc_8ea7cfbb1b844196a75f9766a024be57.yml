@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1785424433364
+modified: 1785424954998
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -6901,66 +6901,74 @@ contents: >-
           categories:
             type: array
             items:
-              type: object
-              properties:
-                '@n':
-                  type: string
-                  examples:
-                    - Abdalqadir
-                    - Coffee
-                    - P
-                '@corresp':
-                  type: string
-                catDesc:
-                  type: object
-                  properties:
-                    '@lang':
-                      type: string
-                    name:
-                      type: object
-                      properties:
-                        '@lang':
-                          type: string
-                          examples:
-                            - en
-                        $:
-                          type: string
-                          examples:
-                            - TUNOCENT Place Profile
-                            - WAD Questionnaire
-                      additionalProperties: false
-                      required:
-                        - $
-                    term:
-                      type: object
-                      properties:
-                        $:
-                          type: string
-                      additionalProperties: false
-                      required:
-                        - $
-                    $:
-                      type: string
-                      examples:
-                        - Civil war in Lebanon 1975-1990
-                        - Mother and daughter get into a small argument about the ideal children's upbringing
-                        - coffee traditions
-                        - preparing for pregnancy, during pregnancy, after
-                  additionalProperties: false
-                  required: []
-                '@id':
-                  type: string
-                  examples:
-                    - Abdalqadir
-                    - AbualAdas
-                    - datatypes.vicav.p
-              additionalProperties: false
-              required:
-                - '@id'
-                - catDesc
+              $ref: '#/components/schemas/Category'
         additionalProperties: false
         required:
           - categories
+      Category:   
+        type: object
+        properties:
+          '@id':
+            type: string
+            examples:
+              - Abdalqadir
+              - AbualAdas
+              - datatypes.vicav.p
+          '@n':
+            type: string
+            examples:
+              - Abdalqadir
+              - Coffee
+              - P
+          '@corresp':
+            type: string
+          catDesc:
+            type: object
+            properties:
+              '@lang':
+                type: string
+              name:
+                type: object
+                properties:
+                  '@lang':
+                    type: string
+                    examples:
+                      - en
+                  $:
+                    type: string
+                    examples:
+                      - TUNOCENT Place Profile
+                      - WAD Questionnaire
+                additionalProperties: false
+                required:
+                  - $
+              term:
+                type: object
+                properties:
+                  $:
+                    type: string
+                additionalProperties: false
+                required:
+                  - $
+              $:
+                type: string
+                examples:
+                  - Civil war in Lebanon 1975-1990
+                  - Mother and daughter get into a small argument about the ideal children's upbringing
+                  - coffee traditions
+                  - preparing for pregnancy, during pregnancy, after
+            additionalProperties: false
+            required: []
+          category:
+              $ref: '#/components/schemas/Category'
+          categories:
+            type: array
+            items:
+              $ref: '#/components/schemas/Category'          
+        additionalProperties: false
+        required:
+          - '@id'
+          - catDesc
       RevisionDesc:
         type: object
         properties:
