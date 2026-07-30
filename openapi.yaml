@@ -5802,6 +5802,19 @@ components:
           enum:
             - right
             - left
+        root:
+          type: string
+          examples:
+            - ʕlw š
+            - ʕnd
+        roots:
+          type: array
+          uniqueItems: true
+          items:
+            type: string
+            examples:
+              - rkb
+              - š lwn
         synRoot:
           type: string
           examples:
@@ -5938,6 +5951,11 @@ components:
           type: string
           enum:
             - coll.
+        root:
+          type: string
+          examples:
+            - ʔwl fʔl
+            - ʕgb
         synRoot:
           type: string
           examples:
@@ -6882,9 +6900,13 @@ components:
                   - Abdalqadir
                   - Coffee
                   - P
+              '@corresp':
+                type: string
               catDesc:
                 type: object
                 properties:
+                  '@lang':
+                    type: string
                   name:
                     type: object
                     properties:
@@ -6897,6 +6919,14 @@ components:
                         examples:
                           - TUNOCENT Place Profile
                           - WAD Questionnaire
+                    additionalProperties: false
+                    required:
+                      - $
+                  term:
+                    type: object
+                    properties:
+                      $:
+                        type: string
                     additionalProperties: false
                     required:
                       - $
@@ -7107,9 +7137,6 @@ components:
               properties:
                 $:
                   type: string
-                  maxLength: 28
-                  distinctValues: 6
-                  minLength: 4
                   examples:
                     - Dictionary
                     - ELAN
@@ -8043,7 +8070,6 @@ components:
                 - AE
           additionalProperties: false
           required:
-            - '@id'
             - $
         persName:
           anyOf:
@@ -8070,6 +8096,7 @@ components:
        - Research Software Engineer
        - Technical_Editor
        - Transcription
+       - Creator
        - author
        - contributor
        - data management and conversion
@@ -8085,6 +8112,8 @@ components:
        - technical implementation
        - transfer to ELAN
        - document preparation
+       - Transcription, TEI, Translation
+       - Recordings, Transcription, Dictionary
     Note:
       type: object
       additionalProperties: true
@@ -8864,6 +8893,7 @@ components:
               enum:
                 - F
                 - M
+                - D
           additionalProperties: false
         idno:
           type: object
@@ -8969,6 +8999,11 @@ components:
             required:
               - '@type'
               - '@target'
+        langKnowledge:
+          type: object
+          properties:
+            langKnown:
+              type: object
         $:
           type: string
       additionalProperties: false
