@@ -8,11 +8,11 @@
     },
     {
       "url": "https://vicav.acdh.oeaw.ac.at",
-      "description": "current ACDH-CH prod server"
+      "description": "current VICAV prod server"
     },
     {
       "url": "https://vicav-dev.acdh.oeaw.ac.at",
-      "description": "current ACDH-CH dev server"
+      "description": "current VICAV dev server"
     },
     {
       "url": "https://tunocent-api.acdh-dev.oeaw.ac.at",
@@ -23,7 +23,11 @@
       "description": "current tunocent prod server"
     },
     {
-      "url": "https://shawi.acdh-ch-dev.oeaw.ac.at",
+      "url": "https://shawi-api.acdh.oeaw.ac.at",
+      "description": "current shawi prod server"
+    },
+    {
+      "url": "https://shawi-api.acdh-dev.oeaw.ac.at",
       "description": "current shawi dev server"
     },
     {
