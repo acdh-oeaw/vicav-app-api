@@ -1,0 +1,18 @@
+_id: env_44f1737008b643f6945e55c8a2445add
+type: Environment
+parentId: env_9a21f4d181d64765d33c7bbe158a0e24fc2976d0
+modified: 1785525686328
+created: 1785525673230
+name: shawi-api.acdh.oeaw.ac.at
+data:
+  scheme: https
+  base_path: ""
+  host: shawi-api.acdh.oeaw.ac.at
+dataPropertyOrder:
+  "&":
+    - scheme
+    - base_path
+    - host
+color: null
+isPrivate: false
+metaSortKey: 1700838872691.25
