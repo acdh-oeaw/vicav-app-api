@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1785430906439
+modified: 1788350511005
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -58,8 +58,14 @@ contents: >-
         summary: gets basic project configuration
         operationId: getProject
         responses:
+          '500':
+            description: internal server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
           '200':
-            description: an xml with wrapped html contained
+            description: all data neeeded by the project that does not need to be changed dynamically
             content:
               application/json:
                 schema:
@@ -3069,6 +3075,18 @@ contents: >-
             schema:
               type: string
         responses:
+          '500':
+            description: internal server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
+          '404':
+            description: not found error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
           '200':
             description: the transformed html
             content:
@@ -3129,16 +3147,6 @@ contents: >-
                       </ul>
                       </p>
                       </div>
-          '500':
-            description: bad input parameter
-            content:
-              application/xml:
-                schema:
-                  type: string
-                examples:
-                  html:
-                    summary: A sample HTML response
-                    value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
     /vicav/sample:
       get:
         tags:
@@ -3161,6 +3169,18 @@ contents: >-
             schema:
               type: string
         responses:
+          '500':
+            description: internal server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
+          '404':
+            description: internal server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
           '200':
             description: the transformed html
             content:
@@ -3269,17 +3289,6 @@ contents: >-
                               <span class="pc">. </span>
                           </span>
                       </div>
-
-          '500':
-            description: bad input parameter
-            content:
-              application/xml:
-                schema:
-                  type: string
-                examples:
-                  html:
-                    summary: A sample HTML response
-                    value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
     /vicav/profile:
       get:
         tags:
@@ -3308,6 +3317,18 @@ contents: >-
             schema:
               type: string
         responses:
+          '500':
+            description: internal server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
+          '404':
+            description: internal server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
           '200':
             description: the transformed html
             content:
@@ -3384,16 +3405,6 @@ contents: >-
 
                       <div class="pNorm">To view publications on this variety click <a class="aVicText" href="javascript:getDBSnippet(&#34;bibl:geo:Skoura&#34;)">here</a>.</div>
                       <br><br><br></div>
-          '500':
-            description: bad input parameter
-            content:
-              application/xml:
-                schema:
-                  type: string
-                examples:
-                  html:
-                    summary: A sample HTML response
-                    value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
     /vicav/ling_feature:
       get:
         operationId: getLingFeature
@@ -3407,6 +3418,18 @@ contents: >-
             name: id
             required: false
         responses:
+          '500':
+            description: internal server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
+          '404':
+            description: internal server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
           '200':
             content:
               application/xml:
@@ -3888,6 +3911,18 @@ contents: >-
             schema:
               type: string
         responses:
+          '500':
+            description: internal server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
+          '404':
+            description: internal server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
           '200':
             description: the transformed html
             content:
@@ -3901,16 +3936,6 @@ contents: >-
                   html:
                     summary: A sample HTML response
                     value: '<div xmlns:tei="http://www.tei-c.org/ns/1.0"><div class="dvStats">Query:  <span class="spQueryText">{query}</span></div><div class="dvStats">1 record </div><div class="dvBibBook"><div class="dvAuthor"><b>Hagenbucher,<span xml:space="preserve"> </span>F.</b></div><div class="dvBiblBlock"><img class="imgBiblItem" src="images/book_001.jpg"/>Les arabes dits “suwa” du Nord-Cameroun.<span xml:space="preserve"> </span>Yaounde.<span xml:space="preserve"> </span>ORSTOM.<span xml:space="preserve"> </span>1973.</div></div></div>'
-          '500':
-            description: bad input parameter
-            content:
-              application/xml:
-                schema:
-                  type: string
-                examples:
-                  html:
-                    summary: A sample HTML response
-                    value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
     /vicav/bibl_markers_tei:
       get:
         tags:
@@ -3959,6 +3984,18 @@ contents: >-
                 - reg
                 - diaGroup
         responses:
+          '500':
+            description: internal server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
+          '404':
+            description: internal server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
           '200':
             description: a list of geo markers
             content:
@@ -4035,16 +4072,6 @@ contents: >-
                           <freq>4</freq>
                         </r>
                       </rs>
-          '500':
-            description: bad input parameter
-            content:
-              application/xml:
-                schema:
-                  type: string
-                examples:
-                  html:
-                    summary: A sample HTML response
-                    value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
     /vicav/{dataType}_data:
       get:
         operationId: getDataLists
@@ -4075,6 +4102,18 @@ contents: >-
                - xml
                - xml_for_parser
         responses:
+          '500':
+            description: internal server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
+          '404':
+            description: internal server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
           '200':
             description: A list of geo or bibliographic data
             content:
@@ -4122,6 +4161,18 @@ contents: >-
             schema:
               $ref: '#/components/schemas/markers_type'
         responses:
+          '500':
+            description: internal server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
+          '404':
+            description: internal server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
           '200':
             description: coordinates and names for displaying markers on a map
             content:
@@ -4203,16 +4254,6 @@ contents: >-
                           <freq>1</freq>
                         </r>
                       </rs>
-          '404':
-            description: not found
-            content:
-              application/xml:
-                schema:
-                  type: string
-                examples:
-                  html:
-                    summary: A sample HTML response
-                    value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
     /vicav/dict_api:
       get:
         tags:
@@ -4640,6 +4681,18 @@ contents: >-
             schema:
               type: string
         responses:
+          '500':
+            description: internal server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
+          '404':
+            description: internal server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
           '200':
             description: the transformed html
             content:
@@ -4954,16 +5007,6 @@ contents: >-
                               </div>
                           </div>
                       </div>
-          '500':
-            description: bad input parameter
-            content:
-              application/xml:
-                schema:
-                  type: string
-                examples:
-                  html:
-                    summary: A sample HTML response
-                    value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
     /vicav/corpus_text: 
       get:
         tags:
@@ -5015,6 +5058,18 @@ contents: >-
             schema:
               type: string
         responses:
+          '500':
+            description: internal server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
+          '404':
+            description: internal server error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
           '200':
             description: the XML transformed to JSON or html
             content:
@@ -5264,16 +5319,6 @@ contents: >-
                               <span xml:space="preserve"></span>
                           </div>
                       </div>
-          '500':
-            description: bad input parameter
-            content:
-              application/xml:
-                schema:
-                  type: string
-                examples:
-                  html:
-                    summary: A sample HTML response
-                    value: '<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>'
     /restvle:
       get:
         operationId: getRestVLEURLS
@@ -10929,7 +10974,7 @@ contents: >-
               "text":"<sup>q<\/sup>",
               "value":"Q"
             }
-          ] 
+          ]
   security:
     - basicAuth: []
 contentType: yaml
