@@ -75,8 +75,18 @@
         "summary": "gets basic project configuration",
         "operationId": "getProject",
         "responses": {
+          "500": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              }
+            }
+          },
           "200": {
-            "description": "an xml with wrapped html contained",
+            "description": "all data neeeded by the project that does not need to be changed dynamically",
             "content": {
               "application/json": {
                 "schema": {
@@ -3039,6 +3049,26 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              }
+            }
+          },
           "200": {
             "description": "the transformed html",
             "content": {
@@ -3054,22 +3084,6 @@
                   "html": {
                     "summary": "A sample HTML response",
                     "value": "<div xmlns:tei=\"http://www.tei-c.org/ns/1.0\">\n<table class=\"tbHeader\"> <tr> <td> <h2>Sample Texts (Explanation)</h2> </td> <td>{teiLink}</td> </tr> </table>\n\n<p>The sample texts are translations of the same <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;sample:msa_sample_01/Modern Standard Arabic&#34;, this)\">source text</a>. They vary slightly with respect to regional differences. However, they are homogeneous enough to allow students to compare the numerous linguistic phenomena displayed in the texts.</p>\n\n<p>Sofar we provide sample texts for six locations: <ul>\n<li> <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;sample:baghdad_sample_01/Baghdad&#34;, this)\">Baghdad</a> </li>\n<li> <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;sample:cairo_sample_01/Cairo&#34;, this)\">Cairo</a> </li>\n<li> <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;sample:damascus_sample_01/Damascus&#34;, this)\">Damascus</a> </li>\n<li> <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;sample:douz_sample_01/Douz&#34;, this)\">Douz</a> </li>\n<li> <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;sample:urfa_sample_01/%C5%9Eanl%C4%B1urfa&#34;, this)\">Şanlıurfa</a> </li>\n<li> <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;sample:tunis_sample_01/Tunis&#34;, this)\">Tunis</a> </li> </ul> </p> </div>\n"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "bad input parameter",
-            "content": {
-              "application/xml": {
-                "schema": {
-                  "type": "string"
-                },
-                "examples": {
-                  "html": {
-                    "summary": "A sample HTML response",
-                    "value": "<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>"
                   }
                 }
               }
@@ -3107,6 +3121,26 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              }
+            }
+          },
           "200": {
             "description": "the transformed html",
             "content": {
@@ -3122,22 +3156,6 @@
                   "html": {
                     "summary": "A sample HTML response",
                     "value": "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <div xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:tei=\"http://www.tei-c.org/ns/1.0\">\n    <table class=\"tbHeader\">\n        <tr>\n            <td>\n                <h2>A sample of Ain Soltane Arabic</h2>\n            </td>\n            <td class=\"tdTeiLink\">{teiLink}</td>\n            <td class=\"tdPrintLink\">\n                <a href=\"#\" data-print=\"true\" class=\"aTEIButton\" data-sampletext=\"vicav_sample_ainsoltane_02\">Print</a>\n            </td>\n        </tr>\n    </table>\n    <p xml:space=\"preserve\">\n        By \n        <i>Sarah B (revision: 2020-09-11)</i>\n    </p>\n    <ul id=\"informants\">\n        <li xml:space=\"preserve\">\n            Informant ID: \n\n            <i>AinSoltane1</i>\n            , Sex: \n            <i>m</i>\n            , Age: \n            <i>50</i>\n        </li>\n    </ul>\n    <span class=\"spSentence\" xml:space=\"preserve\">\n        <span class=\"sample-text-tooltip\" data-html=\"true\" data-toggle=\"tooltip\" data-placement=\"top\" title=\" يوم الاثنين بعد الفجر ذهبتُ إلى السوق لأشتري بيضا وخضروات مثل الباذنجان والثوم\">\n            <i class=\"fa fa-commenting-o\" aria-hidden=\"true\">\n                <span/>\n            </i>\n        </span>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"nhāṛ\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">nhāṛ</span>\n        </a>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"l\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">l</span>\n        </a>\n        <span class=\"pc\">-</span>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"iṯnīn\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">iṯnīn</span>\n        </a>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"baʕd\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">baʕd</span>\n        </a>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"il\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">il</span>\n        </a>\n        <span class=\"pc\">-</span>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"fažⁱr\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">fažⁱr</span>\n        </a>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"ⁱmšīt\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">ⁱmšīt</span>\n        </a>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"l\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">l</span>\n        </a>\n        <span class=\"pc\">-</span>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"is\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">is</span>\n        </a>\n        <span class=\"pc\">-</span>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"sūg\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">sūg</span>\n        </a>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"nišri\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">nišri</span>\n        </a>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"ʕḏ̣amm\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">ʕḏ̣amm</span>\n        </a>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"w\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">w</span>\n        </a>\n        <span class=\"pc\">-</span>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"xuḏ̣ṛa\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">xuḏ̣ṛa</span>\n        </a>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"w\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">w</span>\n        </a>\n        <span class=\"pc\">-</span>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"iṯ\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">iṯ</span>\n        </a>\n        <span class=\"pc\">-</span>\n        <a class=\"word-search\" href=\"#\" data-wordform=\"ṯūm\" data-type=\"sample\">\n            <span data-html=\"true\" data-placement=\"top\" class=\"w\">ṯūm</span>\n        </a>\n        <span class=\"pc\">. </span>\n    </span>\n</div>\n"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "bad input parameter",
-            "content": {
-              "application/xml": {
-                "schema": {
-                  "type": "string"
-                },
-                "examples": {
-                  "html": {
-                    "summary": "A sample HTML response",
-                    "value": "<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>"
                   }
                 }
               }
@@ -3184,6 +3202,26 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              }
+            }
+          },
           "200": {
             "description": "the transformed html",
             "content": {
@@ -3195,22 +3233,6 @@
                   "html": {
                     "summary": "A sample HTML response",
                     "value": "<div xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:tei=\"http://www.tei-c.org/ns/1.0\"> <table class=\"tbHeader\"> <tr> <td> <h2>Skoura</h2> </td> <td class=\"tdTeiLink\">{teiLink}</td> </tr> </table> <div class=\"profileHeader\"> <div class=\"dvImgProfile\"><img src=\"images/skoura_sp_2012.jpg\"><div class=\"imgCaption\">Courtesy of Stephan Procházka, 2012</div> </div> <table class=\"tbProfile\"> <tr> <td class=\"tdHead\">MSA Name</td> <td class=\"tdProfileTableRight\">سكورة</td> </tr> <tr> <td class=\"tdHead\">MSA Name (trans.)</td> <td class=\"tdProfileTableRight\">Sakūra Skūra</td> </tr> <tr> <td class=\"tdHead\">Geo location</td> <td class=\"tdProfileTableRight\"><i> 31°03'N 06°33'W Morocco </i></td> </tr> <tr> <td class=\"tdHead\">Contributed by</td> <td class=\"tdProfileTableRight\"><i>Aleksandra Ercegovčević</i></td> </tr> </table> </div> <div class=\"h3ProfileTypology\">Typology</div> <table class=\"tbProfile\"> <tr> <td colspan=\"2\" class=\"tdProfileTableRight\">West (Maghreb) › Morocco › Central type</td> </tr> <tr> <td colspan=\"2\" class=\"tdProfileTableRight\">Hilalian-type sedentary rural dialect with strong influence of Berber</td> </tr> </table> <div class=\"h3Profile\">General</div>\n<div class=\"pNorm\">Skūra is an Arabic enclave in the Berber-speaking area south of the High Atlas. Many of the 15,000 inhabitants are bilingual. They live mainly on agriculture and stock breeding.</div>\n<div class=\"h3Profile\">Research History</div>\n<div class=\"pNorm\">All available data on the dialect of Skūra is from the work of Jorge Aguadé and Mohammad Elyaâcoubi. <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;zotid:8SISG2GK&#34;)\">Aguadé 1994</a> is a brief study on the formation of the reflexive-passive forms of the verb. <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;zotid:E3T3HBCD&#34;)\">Aguadé and Elyaacoubi 1995</a> is a monograph on the dialect with chapters on phonology, nominal and verbal morphology, and verb paradigms. <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;zotid:I3FIKENT&#34;)\">Aguadé et al. 1996</a> deals with the irrigation system in the oasis of Skūra, and the technical terminology concerning irrigation in the dialect of Skūra. Elyaâcoubi 1998 treats the topic of the classification of south Moroccan Arabic dialects on the example of Skūra, where a three page-grammatical sketch of the dialect is also provided.</div>\n<div class=\"h3Profile\">Dictionaries</div>\n<div class=\"pNorm\"><a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;zotid:I3FIKENT&#34;)\">Aguadé et al. 1996</a> includes a 2-page glossary of terminology related to the irrigation system (<i>xiṭṭāra</i>).</div>\n<div class=\"h3Profile\">Bibliography</div>\n<div class=\"pNorm\">To view publications on this variety click <a class=\"aVicText\" href=\"javascript:getDBSnippet(&#34;bibl:geo:Skoura&#34;)\">here</a>.</div> <br><br><br></div>\n"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "bad input parameter",
-            "content": {
-              "application/xml": {
-                "schema": {
-                  "type": "string"
-                },
-                "examples": {
-                  "html": {
-                    "summary": "A sample HTML response",
-                    "value": "<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>"
                   }
                 }
               }
@@ -3236,6 +3258,26 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              }
+            }
+          },
           "200": {
             "content": {
               "application/xml": {
@@ -3738,6 +3780,26 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              }
+            }
+          },
           "200": {
             "description": "the transformed html",
             "content": {
@@ -3753,22 +3815,6 @@
                   "html": {
                     "summary": "A sample HTML response",
                     "value": "<div xmlns:tei=\"http://www.tei-c.org/ns/1.0\"><div class=\"dvStats\">Query:  <span class=\"spQueryText\">{query}</span></div><div class=\"dvStats\">1 record </div><div class=\"dvBibBook\"><div class=\"dvAuthor\"><b>Hagenbucher,<span xml:space=\"preserve\"> </span>F.</b></div><div class=\"dvBiblBlock\"><img class=\"imgBiblItem\" src=\"images/book_001.jpg\"/>Les arabes dits “suwa” du Nord-Cameroun.<span xml:space=\"preserve\"> </span>Yaounde.<span xml:space=\"preserve\"> </span>ORSTOM.<span xml:space=\"preserve\"> </span>1973.</div></div></div>"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "bad input parameter",
-            "content": {
-              "application/xml": {
-                "schema": {
-                  "type": "string"
-                },
-                "examples": {
-                  "html": {
-                    "summary": "A sample HTML response",
-                    "value": "<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>"
                   }
                 }
               }
@@ -3815,6 +3861,26 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              }
+            }
+          },
           "200": {
             "description": "a list of geo markers",
             "content": {
@@ -3885,22 +3951,6 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "bad input parameter",
-            "content": {
-              "application/xml": {
-                "schema": {
-                  "type": "string"
-                },
-                "examples": {
-                  "html": {
-                    "summary": "A sample HTML response",
-                    "value": "<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>"
-                  }
-                }
-              }
-            }
           }
         }
       }
@@ -3943,6 +3993,26 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              }
+            }
+          },
           "200": {
             "description": "A list of geo or bibliographic data",
             "content": {
@@ -4015,6 +4085,26 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              }
+            }
+          },
           "200": {
             "description": "coordinates and names for displaying markers on a map",
             "content": {
@@ -4081,22 +4171,6 @@
                   "xml": {
                     "summary": "A list of geo markers",
                     "value": "<rs>\n  <r type=\"geo\" xml:id=\"baghdad_sample_01\">\n    <loc>33°20'N 44°24'E</loc>\n    <locName>\n      <name xmlns=\"http://www.tei-c.org/ns/1.0\" xml:lang=\"eng\">Baghdad</name>\n    </locName>\n    <alt>\n      <name xmlns=\"http://www.tei-c.org/ns/1.0\" xml:lang=\"eng\">Baghdad</name>\n    </alt>\n    <freq>1</freq>\n  </r>\n  <r type=\"geo\" xml:id=\"cairo_sample_01\">\n    <loc>30°03'N 31°14'E</loc>\n    <locName>\n      <name xmlns=\"http://www.tei-c.org/ns/1.0\" xml:lang=\"eng\">Cairo</name>\n    </locName>\n    <alt>\n      <name xmlns=\"http://www.tei-c.org/ns/1.0\" xml:lang=\"eng\">Cairo</name>\n    </alt>\n    <freq>1</freq>\n  </r>\n</rs>\n"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "not found",
-            "content": {
-              "application/xml": {
-                "schema": {
-                  "type": "string"
-                },
-                "examples": {
-                  "html": {
-                    "summary": "A sample HTML response",
-                    "value": "<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>"
                   }
                 }
               }
@@ -4314,6 +4388,26 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              }
+            }
+          },
           "200": {
             "description": "the transformed html",
             "content": {
@@ -4537,22 +4631,6 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "bad input parameter",
-            "content": {
-              "application/xml": {
-                "schema": {
-                  "type": "string"
-                },
-                "examples": {
-                  "html": {
-                    "summary": "A sample HTML response",
-                    "value": "<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>"
-                  }
-                }
-              }
-            }
           }
         }
       }
@@ -4628,6 +4706,26 @@
           }
         ],
         "responses": {
+          "500": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              }
+            }
+          },
           "200": {
             "description": "the XML transformed to JSON or html",
             "content": {
@@ -4821,22 +4919,6 @@
                   "html": {
                     "summary": "A sample HTML response",
                     "value": "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <div xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:acdh=\"http://acdh.oeaw.ac.at\" xmlns:tei=\"http://www.tei-c.org/ns/1.0\" class=\"corpus-utterances\">\n    <div class=\"u\" id=\"URFA-011_a3\">\n        <span class=\"w\" id=\"URFA-011_xTok_000075\">al</span>\n        <span class=\"w\" id=\"URFA-011_xTok_000077\">gabǝr</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000078\">baʕdēn</span>\n        <span class=\"pc\" id=\"xTok_000079\">,</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000080\">ʕugub</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000081\">sabʕ</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000082\">ᵊsnīn</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000083\">yigdarūn</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000084\">yḥuṭṭūn</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000085\">qēr</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000086\">wāḥad</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000087\">bī</span>\n        <span class=\"w\" id=\"URFA-011_xTok_000089\">´</span>\n        <span class=\"pc\" id=\"xTok_000090\">.</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000091\">in</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000092\">mā</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000093\">ṣār</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000094\">sabʕ</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000095\">ᵊsnīn</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000096\">qēr</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000097\">wāḥad</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000098\">mā</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000099\">yḥuṭṭūn</span>\n        <span class=\"pc\" id=\"xTok_000100\">.</span>\n        <span xml:space=\"preserve\"></span>\n    </div>\n    <div class=\"u\" id=\"URFA-011_a4\">\n        <span class=\"w\" id=\"URFA-011_xTok_000101\">ta</span>\n        <span class=\"w\" id=\"URFA-011_xTok_000103\">ngūl</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000104\">hāḏa</span>\n        <span class=\"pc\" id=\"xTok_000105\">,</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000106\">mayyit</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000107\">luwwa</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000108\">sine</span>\n        <span class=\"pc\" id=\"xTok_000109\">,</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000110\">al</span>\n        <span class=\"w\" id=\"URFA-011_xTok_000112\">gabǝr</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000113\">hāḏa</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000114\">mā</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000115\">yiftaḥūn</span>\n        <span class=\"w\" id=\"URFA-011_xTok_000117\">u</span>\n        <span class=\"pc\" id=\"xTok_000118\">–</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000119\">mā</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000120\">yiftaḥūn</span>\n        <span class=\"w\" id=\"URFA-011_xTok_000122\">u</span>\n        <span class=\"pc\" id=\"xTok_000123\">–</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000124\">baˁad</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000125\">sabˁ</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000126\">ᵊsnīn</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000127\">yiftaḥūn</span>\n        <span class=\"w\" id=\"URFA-011_xTok_000129\">u</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000130\">yigdarūn</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000131\">in</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000132\">māt</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000133\">ḥade</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000134\">in</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000135\">ṣār</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000136\">mayyit</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000137\">uxṛa</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000138\">l</span>\n        <span class=\"w\" id=\"URFA-011_xTok_000140\">al</span>\n        <span class=\"w\" id=\"URFA-011_xTok_000142\">ˁēle</span>\n        <span class=\"pc\" id=\"xTok_000143\">,</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000144\">kull</span>\n        <span class=\"w\" id=\"URFA-011_xTok_000146\">min</span>\n        <span class=\"pc\" id=\"xTok_000147\">…</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000148\">ta</span>\n        <span class=\"w\" id=\"URFA-011_xTok_000150\">ngūl</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000151\">alḥaz</span>\n        <span xml:space=\"preserve\"></span>\n        <span class=\"w\" id=\"URFA-011_xTok_000152\">iḥna</span>\n        <span xml:space=\"preserve\"></span>\n    </div>\n</div>\n"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "bad input parameter",
-            "content": {
-              "application/xml": {
-                "schema": {
-                  "type": "string"
-                },
-                "examples": {
-                  "html": {
-                    "summary": "A sample HTML response",
-                    "value": "<html><body><ul><li>item 1</li><li>item 2</li></ul></body></html>"
                   }
                 }
               }
