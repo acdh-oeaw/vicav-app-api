@@ -6304,6 +6304,7 @@ components:
                 - $ref: '#/components/schemas/Biblio'
                 - $ref: '#/components/schemas/Geo'
                 - $ref: '#/components/schemas/TeiCorpus'
+                - $ref: '#/components/schemas/GuidedTourSteps'
                 - type: object
         funders:
           type: array

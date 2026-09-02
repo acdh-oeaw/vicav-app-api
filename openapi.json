@@ -6353,6 +6353,9 @@
                       "$ref": "#/components/schemas/TeiCorpus"
                     },
                     {
+                      "$ref": "#/components/schemas/GuidedTourSteps"
+                    },
+                    {
                       "type": "object"
                     }
                   ]
