@@ -12990,6 +12990,345 @@
             }
           ]
         ]
+      },
+      "GuidedTourSteps": {
+        "type": "array",
+        "description": "The tour in presentation order. The component walks the array from index 0; leaving the last step finishes the tour.",
+        "items": {
+          "$ref": "#/components/schemas/TourStep"
+        }
+      },
+      "TourStep": {
+        "type": "object",
+        "description": "A single stop on the guided tour.",
+        "required": [
+          "attachTo",
+          "content"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "attachTo": {
+            "$ref": "#/components/schemas/StepAttachTo"
+          },
+          "content": {
+            "$ref": "#/components/schemas/StepContent"
+          },
+          "options": {
+            "$ref": "#/components/schemas/VOnboardingWrapperOptions",
+            "description": "Per-step overrides of the wrapper options set on `VOnboardingWrapper`. Note that `hideNextStepDuringHook` and `hideButtons.next` are set by the component itself and are overwritten here."
+          },
+          "requireClick": {
+            "description": "When set, the step does not offer a \"Next\" button and the tour only advances once the user has clicked something: the element the step is attached to (`true`), or the CSS selector named here — useful when the step highlights a whole panel but hinges on one button inside it.",
+            "default": false,
+            "oneOf": [
+              {
+                "type": "boolean",
+                "description": "`true` waits for a click on the step's own `attachTo.element`."
+              },
+              {
+                "$ref": "#/components/schemas/AttachableElement",
+                "description": "Waits for a click on the element matching this selector instead."
+              }
+            ],
+            "examples": [
+              true,
+              "[data-onboarding=\"save-feature-values\"]"
+            ]
+          },
+          "waitTimeout": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 10000,
+            "description": "How long to wait for the step's element to turn up before giving up on the step, in milliseconds. Raise it where the user has to work through a menu or a dialog first. When the element never appears the step is skipped in the current direction rather than stranding the user.",
+            "examples": [
+              60000
+            ]
+          },
+          "settleDelay": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 400,
+            "description": "How long to let the layout settle before the step is positioned, in milliseconds. Raise it for steps that follow an interaction with a lot of reflow behind it.",
+            "examples": [
+              1000
+            ]
+          }
+        }
+      },
+      "StepAttachTo": {
+        "type": "object",
+        "description": "The element the step points at and cuts out of the overlay.",
+        "required": [
+          "element"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "element": {
+            "$ref": "#/components/schemas/AttachableElement"
+          },
+          "classList": {
+            "type": "array",
+            "description": "Classes added to the attached element for the duration of the step.",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "StepContent": {
+        "type": "object",
+        "description": "The text shown in the step's tooltip.",
+        "required": [
+          "title"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "html": {
+            "type": "boolean",
+            "default": false,
+            "description": "Render `title` and `description` as HTML rather than as text. Only safe for trusted, hand-authored content."
+          }
+        }
+      },
+      "AttachableElement": {
+        "type": "string",
+        "minLength": 1,
+        "description": "A CSS selector resolved against the document at the moment the step is entered. `v-onboarding` also accepts a getter function or a Vue `Ref`, but neither survives JSON, so steps defined in this file are limited to selectors.\n\nThe element does not have to exist yet: the component observes the DOM and waits up to `waitTimeout` for it, which is what lets a step attach to a window or dialog the previous step told the user to open.",
+        "examples": [
+          "#results-table",
+          "[data-window-type=\"FeatureValue\"] [data-onboarding=\"show-on-map\"]"
+        ]
+      },
+      "VOnboardingWrapperOptions": {
+        "type": "object",
+        "description": "Options accepted by `VOnboardingWrapper`, either globally or per step. `popper.modifiers` and `popper.onFirstUpdate` are omitted: both carry functions and cannot be expressed in JSON.",
+        "additionalProperties": false,
+        "properties": {
+          "popper": {
+            "type": "object",
+            "description": "Popper.js options for placing the tooltip relative to the attached element.",
+            "additionalProperties": false,
+            "properties": {
+              "placement": {
+                "$ref": "#/components/schemas/PopperPlacement"
+              },
+              "strategy": {
+                "type": "string",
+                "enum": [
+                  "absolute",
+                  "fixed"
+                ],
+                "default": "absolute",
+                "description": "Positioning strategy. `fixed` helps when an ancestor of the attached element clips or transforms it."
+              }
+            }
+          },
+          "overlay": {
+            "$ref": "#/components/schemas/SvgOverlayOptions"
+          },
+          "scrollToStep": {
+            "type": "object",
+            "description": "Whether to scroll the attached element into view before the step is shown.",
+            "additionalProperties": false,
+            "properties": {
+              "enabled": {
+                "type": "boolean",
+                "default": true
+              },
+              "options": {
+                "$ref": "#/components/schemas/ScrollIntoViewOptions"
+              }
+            }
+          },
+          "autoFinishByExit": {
+            "type": "boolean",
+            "default": true,
+            "description": "Finish the tour when the attached element leaves the viewport."
+          },
+          "hideButtons": {
+            "type": "object",
+            "description": "Hide individual tooltip buttons.",
+            "additionalProperties": false,
+            "properties": {
+              "previous": {
+                "type": "boolean",
+                "default": false
+              },
+              "next": {
+                "type": "boolean",
+                "default": false,
+                "description": "Set per step by the component: hidden whenever `requireClick` is set, so anything given here is overwritten."
+              },
+              "exit": {
+                "type": "boolean",
+                "default": false
+              }
+            }
+          },
+          "labels": {
+            "type": "object",
+            "description": "Labels for the tooltip buttons.",
+            "additionalProperties": false,
+            "properties": {
+              "previousButton": {
+                "type": "string"
+              },
+              "nextButton": {
+                "type": "string"
+              },
+              "finishButton": {
+                "type": "string"
+              }
+            }
+          },
+          "hideNextStepDuringHook": {
+            "type": "boolean",
+            "default": false,
+            "description": "Keep the tooltip hidden while an async `beforeStep` hook runs, instead of flashing it at the previous position. Set to `true` for every step by the component, so anything given here is overwritten."
+          }
+        }
+      },
+      "SvgOverlayOptions": {
+        "type": "object",
+        "description": "The dimmed backdrop and the cut-out around the attached element.",
+        "additionalProperties": false,
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "default": true
+          },
+          "padding": {
+            "description": "Space between the attached element and the edge of the cut-out, in pixels.",
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "top": {
+                    "type": "number"
+                  },
+                  "right": {
+                    "type": "number"
+                  },
+                  "bottom": {
+                    "type": "number"
+                  },
+                  "left": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "borderRadius": {
+            "description": "Corner radius of the cut-out, in pixels.",
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "leftTop": {
+                    "type": "number"
+                  },
+                  "rightTop": {
+                    "type": "number"
+                  },
+                  "rightBottom": {
+                    "type": "number"
+                  },
+                  "leftBottom": {
+                    "type": "number"
+                  }
+                }
+              }
+            ]
+          },
+          "preventOverlayInteraction": {
+            "type": "boolean",
+            "default": true,
+            "description": "Swallow clicks outside the tooltip. This tour sets it to `false` on the wrapper, because the steps talk the user through clicking the application itself; overriding it back to `true` on a step would also install a focus trap that cancels those clicks."
+          }
+        }
+      },
+      "ScrollIntoViewOptions": {
+        "type": "object",
+        "description": "Passed straight to `Element.scrollIntoView`, so only the options that method understands have an effect; anything else is ignored silently.",
+        "properties": {
+          "behavior": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "instant",
+              "smooth"
+            ],
+            "default": "auto"
+          },
+          "block": {
+            "type": "string",
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "nearest"
+            ],
+            "default": "start",
+            "description": "Alignment along the block axis (vertical, in this application)."
+          },
+          "inline": {
+            "type": "string",
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "nearest"
+            ],
+            "default": "nearest",
+            "description": "Alignment along the inline axis (horizontal, in this application)."
+          },
+          "container": {
+            "type": "string",
+            "enum": [
+              "all",
+              "nearest"
+            ],
+            "default": "all",
+            "description": "Defines the scrollable ancestor container."
+          }
+        }
+      },
+      "PopperPlacement": {
+        "type": "string",
+        "description": "Where the tooltip sits relative to the attached element. `auto*` picks the side with the most room.",
+        "default": "bottom",
+        "enum": [
+          "auto",
+          "auto-start",
+          "auto-end",
+          "top",
+          "top-start",
+          "top-end",
+          "bottom",
+          "bottom-start",
+          "bottom-end",
+          "right",
+          "right-start",
+          "right-end",
+          "left",
+          "left-start",
+          "left-end"
+        ]
       }
     }
   },
