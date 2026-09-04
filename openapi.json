@@ -6901,6 +6901,9 @@
           },
           "sourceDesc": {
             "$ref": "#/components/schemas/SourceDesc"
+          },
+          "notesStmt": {
+            "$ref": "#/components/schemas/NotesStmt"
           }
         },
         "required": [
@@ -8240,6 +8243,22 @@
           },
           "recordingStmt": {
             "$ref": "#/components/schemas/RecordingStmt"
+          }
+        }
+      },
+      "NotesStmt": {
+        "type": "object",
+        "properties": {
+          "note": {
+            "type": "object",
+            "properties": {
+              "@type": {
+                "type": "string"
+              },
+              "$": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -10211,6 +10230,9 @@
               "placeName": {
                 "type": "object",
                 "properties": {
+                  "@sameAs": {
+                    "type": "string"
+                  },
                   "$": {
                     "type": "string"
                   }

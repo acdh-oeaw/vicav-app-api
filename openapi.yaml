@@ -6698,6 +6698,8 @@ components:
           $ref: '#/components/schemas/PublicationStmt'
         sourceDesc:
           $ref: '#/components/schemas/SourceDesc'
+        notesStmt:
+          $ref: '#/components/schemas/NotesStmt'
       required:
         - publicationStmt
         - sourceDesc
@@ -7633,6 +7635,16 @@ components:
           $ref: '#/components/schemas/P'
         recordingStmt:
           $ref: '#/components/schemas/RecordingStmt'
+    NotesStmt:
+      type: object
+      properties:
+        note:
+          type: object
+          properties:
+            '@type':
+              type: string
+            $:
+              type: string
     ListBiblBody:
       type: object
       additionalProperties: false
@@ -9003,6 +9015,8 @@ components:
             placeName:
               type: object
               properties:
+                '@sameAs':
+                  type: string
                 $:
                   type: string
               additionalProperties: false
