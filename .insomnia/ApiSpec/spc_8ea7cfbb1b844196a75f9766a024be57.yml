@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1788354980813
+modified: 1788514959854
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -6707,6 +6707,8 @@ contents: >-
             $ref: '#/components/schemas/PublicationStmt'
           sourceDesc:
             $ref: '#/components/schemas/SourceDesc'
+          notesStmt:
+            $ref: '#/components/schemas/NotesStmt'
         required:
           - publicationStmt
           - sourceDesc
@@ -7642,6 +7644,16 @@ contents: >-
             $ref: '#/components/schemas/P'
           recordingStmt:
             $ref: '#/components/schemas/RecordingStmt'
+      NotesStmt:
+        type: object
+        properties:
+          note:
+            type: object
+            properties:
+              '@type':
+                type: string
+              $:
+                type: string
       ListBiblBody:
         type: object
         additionalProperties: false
@@ -9012,6 +9024,8 @@ contents: >-
               placeName:
                 type: object
                 properties:
+                  '@sameAs':
+                    type: string
                   $:
                     type: string
                 additionalProperties: false
