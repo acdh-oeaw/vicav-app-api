@@ -5163,6 +5163,58 @@
         "description": "Here you find pointers to the next endpoints you can use and also some information about the queries you can use."
       }
     },
+    "/restvle/dicts/{dict_name}/autocomplete": {
+      "get": {
+        "operationId": "_:getDictDictNameAutocomplete",
+        "summary": "Returns a JSON describing all possible words that can be found with queries for auto complete help.",
+        "parameters": [
+          {
+            "schema": {},
+            "in": "path",
+            "example": "dc_arz_eng_publ",
+            "name": "dict_name",
+            "description": "Name of an existing dictionary",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AutoCompleteData"
+                }
+              }
+            },
+            "description": "JSON data describing all words that can be found in any query specified for this dictionary"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              },
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              },
+              "application/problem+xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/RFC7807Problem"
+                }
+              }
+            },
+            "description": "Internal server error (please provice the trace!)."
+          }
+        },
+        "tags": [
+          "vleserver-api"
+        ],
+        "description": "JSON data that can be used for auto complete help for dictionary search."
+      }
+    },
     "/restvle/dicts/{dict_name}/entries": {
       "get": {
         "operationId": "_:getDictDictNameEntries",
@@ -5466,6 +5518,29 @@
       }
     },
     "schemas": {
+      "AutoCompleteData": {
+        "type": "object",
+        "descritpion": "This is a Map<some word, query>, query is an array of indices that this word can be found in. Property names in <> are placeholders. This discription can not be used for automatic validation.",
+        "additionalProperties": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": {
+                  "description": "One or more dictionaries that have a query with this name and contain <word_n> in the index.",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        }
+      },
       "CorpusTextHTML": {
         "type": "object",
         "properties": {
