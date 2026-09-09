@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1788976733120
+modified: 1788977314691
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -5487,7 +5487,7 @@ contents: >-
               application/json:
                 schema:
                   $ref: '#/components/schemas/AutoCompleteData'
-            description: JSON data describing all words that can be found in any query specified for this dictionary.          
+            description: JSON data describing all words that can be found in any query specified for this dictionary          
           '500':
             content:
               application/json:
@@ -5722,61 +5722,24 @@ contents: >-
       AutoCompleteData:
         type: object
         descritpion: >-
-          This is a Map<Word, query>, query is an array of indices that this word can be found in.
+          This is a Map<some word, query>, query is an array of indices that this word can be found in.
           Property names in <> are placeholders.
           This discription can not be used for automatic validation.
-        properties:
-          "<word_1>":
-            type: object
-            properties:
-              query:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    "<query_name_1>":
-                      type: string
-                      description: >-
-                        One or more dictionaries that have a query with this name and
-                        contain <word_1> in the index.
-                    "<query_name_2>":
-                      type: string
-                    "<query_name_n>":
-                      type: string
-          "<word_2>":
-            type: object
-            properties:
-              query:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    "<query_name_1>":
-                      type: string
-                      description: >-
-                        One or more dictionaries that have a query with this name and
-                        contain <word_2> in the index.
-                    "<query_name_2>":
-                      type: string
-                    "<query_name_n>":
-                      type: string
-          "<word_n>":
-            type: object
-            properties:
-              query:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    "<query_name_1>":
-                      type: string
-                      description: >-
-                        One or more dictionaries that have a query with this name and
-                        contain <word_n> in the index.
-                    "<query_name_2>":
-                      type: string
-                    "<query_name_n>":
-                      type: string
+        additionalProperties: 
+          type: object
+          properties:
+            query:
+              type: array
+              items:
+                type: object
+                additionalProperties:
+                  description: >-
+                    One or more dictionaries that have a query with this name and
+                    contain <word_n> in the index.
+                  type: string
+          required:
+            - query
+          additionalProperties: false
       CorpusTextHTML: 
         type: object
         properties: 
