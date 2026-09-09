@@ -6147,65 +6147,107 @@ components:
           description: Whether this JSON was generated on demand or fetched from a cache.
         baseURIPublic:
           type: string
+          examples:
+            - https://shawi-api.acdh-dev.oeaw.ac.at/vicav
+            - https://tunocent-api.acdh.oeaw.ac.at/vicav
+            - https://vicav-dev.acdh.oeaw.ac.at/vicav
+            - https://wibarab-api.acdh-dev.oeaw.ac.at/vicav
           description: The base URI used in this project config
         title:
           type: string
+          distinctValues: 4
           examples:
             - SHAWI
             - 'TUNOCENT - Tunisia’s Linguistic terra incognita: An Investigation into the Arabic Varieties of North…'
             - VICAV3.0 - Vienna Corpus of Arabic Varieties
+            - WIBARAB
         logo:
           $ref: '#/components/schemas/logo_type'
-        editors: 
+        editors:
           type: array
-          items: 
+          items:
             type: object
-            properties: 
-              given: 
+            additionalProperties: false
+            properties:
+              given:
                 type: string
+                examples:
+                  - Karlheinz
+                  - Stephan
+                  - Veronika
               family:
-                type: string 
+                type: string
+                examples:
+                  - Mörth
+                  - Procházka
+                  - Ritt-Benmimoun
+            required:
+              - given
+              - family
         pubDate:
           type: array
-          prefixItems:
-            - type: string
-              maxLength: 4
-              minLength: 4
-              examples:
-                - "2025"
-            - type: string
-              maxLength: 2
-              minLength: 1
-              examples:
-                - "12"
-            - type: string
-              maxLength: 2
-              minLength: 1
-              examples:
-                - "31"
-          items: false
           minItems: 3
           maxItems: 3
+          uniqueItems: true
+          prefixItems:
+            - type: string
+              distinctValues: 2
+              examples:
+                - "2025"
+                - "2026"
+              maxLength: 4
+              minLength: 4
+            - type: string
+              distinctValues: 2
+              examples:
+                - "2"
+                - "9"
+              maxLength: 1
+              minLength: 1
+            - type: string
+              distinctValues: 1
+              examples:
+                - "1"
+              maxLength: 1
+              minLength: 1
+          items: false
         icon:
           type: string
+          examples:
+            - https://shawi-api.acdh-dev.oeaw.ac.at/vicav/vendor/images/shawi/marker-icon.png
+            - https://tunocent-api.acdh.oeaw.ac.at/vicav/vendor/images/tunocent/marker-icon.png
+            - https://vicav-dev.acdh.oeaw.ac.at/vicav/vendor/images/marker-icon.png
+            - https://wibarab-api.acdh-dev.oeaw.ac.at/vicav/vendor/images/wibarab/marker-icon.png
           description: The URL/path of the 'needle' to be used on the maps
         map:
           type: object
+          additionalProperties: false
           properties:
             center:
               type: object
+              additionalProperties: false
               properties:
                 lng:
                   type: number
+                  examples:
+                    - 9
+                    - 24.544
+                    - 37.56820810215787
                 lat:
                   type: number
-              additionalProperties: false
+                  examples:
+                    - 19.064
+                    - 35
+                    - 36.25313319699069
               required:
                 - lat
                 - lng
             zoom:
               type: integer
-          additionalProperties: false
+              examples:
+                - 4
+                - 6
+                - 7
           required:
             - zoom
             - center
@@ -6231,27 +6273,34 @@ components:
                   maxLength: 7
                   minLength: 7
                   examples:
-                    - '#B2A865'
-                    - '#FFA500'
+                    - '#252771'
+                    - '#712b01'
+                    - '#7C633F'
+                    - '#7d643f'
                   description: Background color for the menu
                 subNav:
                   type: string
                   maxLength: 7
                   minLength: 7
                   examples:
-                    - '#252771'
-                    - '#7C633F'
+                    - '#B2A865'
+                    - '#a57b64'
+                    - '#a85d8f'
+                    - '#e69500'
                   description: Background color for the (map) controls bar
                 primary:
                   type: string
                   examples:
+                    - hsla(23, 98%, 22%, 1)
                     - hsla(238, 51%, 29%, 1)
                     - hsla(35, 33%, 37%, 1)
                   description: Background color for the menu and other primary elements as hsla expression
                 secondary:
                   type: string
                   examples:
+                    - hsla(21, 27%, 52%, 1)
                     - hsla(320, 30%, 51%, 1)
+                    - hsla(39, 100%, 45%, 1)
                     - hsla(39, 100%, 50%, 1)
                   description: Background color for the (map) controls bar and other secondary elements as hsla expression
               additionalProperties: false
@@ -6283,6 +6332,8 @@ components:
               - value
         sampleTextSentences:
           type: string
+          examples:
+            - "7"
         specialCharacters:
           $ref: '#/components/schemas/SpecialCharacters'
         style:
@@ -6315,17 +6366,22 @@ components:
               logoID:
                 type: string
                 examples:
+                  - ERC
                   - FWF
                 description: An ID of a logo image contained in the frontend repo or an https URL pointing to a logo image.
               text:
                 type: string
                 examples:
-                  - This research was funded in whole or in part by ...
+                  - This project has received funding from the European Research Council (ERC) under the European Union'…
+                  - This research was funded in whole or in part by the Austrian Science Fund (FWF) 10.55776/P31647
+                  - This research was funded in whole or in part by the Austrian Science Fund (FWF) 10.55776/P33574
                 description: The prescribed attribution text of this funder
               funderLink:
                 type: string
                 examples:
+                  - https://cordis.europa.eu/project/id/101020127
                   - https://doi.org/10.55776/P31647
+                  - https://doi.org/10.55776/P33574
                 description: The prescribed URI of this funder (most probably a https://doi.org URI).
             additionalProperties: false
             required:
@@ -6340,14 +6396,25 @@ components:
             properties:
               logoID:
                 type: string
+                examples:
+                  - UniVie
                 description: An ID of a logo image contained in the frontend repo or an https URL pointing to a logo image.
               text:
                 type: string
+                examples:
+                  - Institut für Orientalistik der Universität Wien
                 description: Attribution of our partner
               partnerLink:
                 type: string
-                nullable: true
+                examples:
+                  - https://ucrisportal.univie.ac.at/de/projects/die-arabischen-dialekte-des-shawi-typs
+                  - https://ucrisportal.univie.ac.at/de/projects/tunesiens-linguistische-terra-incognita
+                  - https://ucrisportal.univie.ac.at/de/projects/what-is-bedouin-type-arabic-the-linguistic-and-socio-hi…
                 description: A URI to a page at our partner instituion. Can be absent.
+            required:
+              - logoID
+              - text
+              - partnerLink
         version:
           type: object
           properties:
@@ -6359,16 +6426,25 @@ components:
               description: The git hash or version string of the data this backend serves
     logo_type:
       type: object
+      additionalProperties: false
       properties:
-        string:
-          type: string
         img:
           type: string
+          examples:
+            - https://vicav-dev.acdh.oeaw.ac.at/vicav/images/vicav_logo.svg
+        string:
+          type: string
+          examples:
+            - WIBARAB
+            - shawi
+            - tunocent
     param_type:
       type: array
-      minItems: 0
       items:
         type: string
+        examples:
+          - .*
+          - geo
     markers_type:
       type: string
       enum:
@@ -6380,23 +6456,23 @@ components:
         - feature
     item_type:   
       type: object
+      additionalProperties: false
       properties:
         id:
           type: string
           examples:
-            - corpusQuery
-            - liDictDetailedExplanation
-            - li_vicavExplanationCorpusTexts
-            - shawiTeam
+            - allCorpusTexts
+            - bibliographyTunocentOutput
+            - li_vicavOverview_corpora_spoken
+            - li_vicavOverview_special_corpora
           summary: A unique if for this UI element
         target:
           type: string
           examples:
-            - BiblGeoMarkers
-            - dictFrontPage_Tunis
-            - shawi.dict.odd
-            - shawi.paratexts.about
-            - vicav_corpus
+            - BiblRegMarkers
+            - profile_urfa_01
+            - tunocentExplanationFeatures
+            - vicavArabicTools
           summary: An ID for the target panel/window that this UI item opens or brings to the front
         title:
           type: string
@@ -6431,6 +6507,7 @@ components:
           - ExploreSamplesForm
           - ExploreSamples
           - DataTable
+          summary: Type of window that should open when the user clicks this item
         label:
           type: string
           examples:
@@ -6448,46 +6525,9 @@ components:
            - $ref: '#/components/schemas/text_target_type_parameters'
       required:
       - type
-      additionalProperties: false
-      dependentRequired:
-        id:
-          - target
-          - title
-          - targetType
-          - params
-          - label
-        target:
-          - id
-          - title
-          - targetType
-          - params
-          - label
-        title:
-          - id
-          - target
-          - targetType
-          - params
-          - label
-        targetType:
-          - id
-          - target
-          - title
-          - params
-          - label
-        params:
-          - label
-          - id
-          - target
-          - title
-          - targetType
-        label:
-          - params
-          - id
-          - target
-          - title
-          - targetType
     geo_target_type_parameters:
       type: object
+      additionalProperties: false
       properties:
         endpoint:
           type: string
@@ -6533,11 +6573,16 @@ components:
           examples:
             - reg
             - geo
+        xslt:
+          type: string
+          examples:
+            - biblio_tei_01.xslt
       required:
         - endpoint
         - queryString
     text_target_type_parameters:
       type: object
+      additionalProperties: false
       properties:
         textId:
           type: string
@@ -6551,6 +6596,12 @@ components:
             - ""
             - https://github.com/acdh-oeaw/tunocent-content/blob/72351d1639998881398db544ae1c11396cce7001/vicav_te…
             - https://github.com/acdh-oeaw/vicav-content/tree/0ec446a16ad9f2394c1bcceebdd2341a835fb275/vicav_texts…
+        queryString:
+          type: string
+          examples:
+            - ""
+            - .*
+            - SHAWI Glossary
         filterListBy:
           type: object
           properties:
@@ -6575,6 +6626,10 @@ components:
               - Feature
               - Profile
               - SampleText
+        xslt:
+          type: string
+          examples:
+            - biblio_tei_01.xslt
       required:
        - textId
     main_item_type:
