@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1788974508324
+modified: 1788976733120
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -5470,6 +5470,40 @@ contents: >-
         description: >-
           Here you find pointers to the next endpoints you can use and also some information
           about the queries you can use.
+    /restvle/dicts/{dict_name}/autocomplete:
+      get:
+        operationId: _:getDictDictNameAutocomplete
+        summary: 'Returns a JSON describing all possible words that can be found with queries for auto complete help.'
+        parameters:
+          - schema: {}
+            in: path
+            example: 'dc_arz_eng_publ'
+            name: dict_name
+            description: Name of an existing dictionary
+            required: true
+        responses:
+          '200':
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/AutoCompleteData'
+            description: JSON data describing all words that can be found in any query specified for this dictionary.          
+          '500':
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
+              application/problem+json:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
+              application/problem+xml:
+                schema:
+                  $ref: '#/components/schemas/RFC7807Problem'
+            description: Internal server error (please provice the trace!).
+        tags:
+          - vleserver-api
+        description: >-
+          JSON data that can be used for auto complete help for dictionary search.
     /restvle/dicts/{dict_name}/entries:
       get:
         operationId: _:getDictDictNameEntries
@@ -5685,6 +5719,64 @@ contents: >-
         type: http
         scheme: basic
     schemas:
+      AutoCompleteData:
+        type: object
+        descritpion: >-
+          This is a Map<Word, query>, query is an array of indices that this word can be found in.
+          Property names in <> are placeholders.
+          This discription can not be used for automatic validation.
+        properties:
+          "<word_1>":
+            type: object
+            properties:
+              query:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    "<query_name_1>":
+                      type: string
+                      description: >-
+                        One or more dictionaries that have a query with this name and
+                        contain <word_1> in the index.
+                    "<query_name_2>":
+                      type: string
+                    "<query_name_n>":
+                      type: string
+          "<word_2>":
+            type: object
+            properties:
+              query:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    "<query_name_1>":
+                      type: string
+                      description: >-
+                        One or more dictionaries that have a query with this name and
+                        contain <word_2> in the index.
+                    "<query_name_2>":
+                      type: string
+                    "<query_name_n>":
+                      type: string
+          "<word_n>":
+            type: object
+            properties:
+              query:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    "<query_name_1>":
+                      type: string
+                      description: >-
+                        One or more dictionaries that have a query with this name and
+                        contain <word_n> in the index.
+                    "<query_name_2>":
+                      type: string
+                    "<query_name_n>":
+                      type: string
       CorpusTextHTML: 
         type: object
         properties: 
