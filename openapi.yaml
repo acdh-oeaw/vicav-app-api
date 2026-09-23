@@ -6372,6 +6372,13 @@ components:
           type: string
           nullable: true
           description: The host the NoSkE engine for this instance of the interface runs on if any (Shawi interface)
+        cqlIgnoreAttributes:
+          type: array
+          nullable: true
+          description: List of cql attributes that are hidden in the corpus query widget
+          example: ["wid", "decomp"]
+          items:
+            type: string
         commentOptions: 
           type: array
           items: 
