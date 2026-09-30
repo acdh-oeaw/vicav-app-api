@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1790171367557
+modified: 1790766758359
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -4666,6 +4666,23 @@ contents: >-
             schema:
               type: string
           - in: query
+            name: page
+            description: page of the result
+            required: false
+            schema:
+              type: integer
+              default: 1
+              minimum: 1
+          - in: query
+            name: pageSize
+            description: number of results per page
+            required: false
+            schema:
+              type: integer
+              default: 100
+              minimum: 0
+              maximum: 100
+          - in: query
             name: render
             description: Render the results as html or json. Default is html
             required: false
@@ -4685,7 +4702,7 @@ contents: >-
             description: internal server error
             content:
               application/json:
-                schema:
+                schema: 
                   $ref: '#/components/schemas/RFC7807Problem'
           '404':
             description: internal server error
@@ -4708,6 +4725,9 @@ contents: >-
                       {
                         "query": "ma",
                         "hits": {
+                            "@page": 1,
+                            "@pageSize": 100,
+                            "@count": 1000,
                             "divs": [
                                 {
                                     "hits": [
@@ -4859,6 +4879,9 @@ contents: >-
                     summary: 'Corpus search results as HTML'
                     value:
                       {
+                        "@page": "1",
+                        "@pageSize": "100",
+                        "@count": "1000",
                         "query":"w",
                         "hits":[
                           {
@@ -6147,6 +6170,12 @@ contents: >-
           hits:
             type: object
             properties:
+              "@page":
+                type: integer
+              "@pageSize":
+                type: integer
+              "@count":
+                type: integer
               listPrefixDef:
                 type: array
                 items:
@@ -6157,9 +6186,19 @@ contents: >-
                   $ref: "#/components/schemas/div"
               div:
                 $ref: "#/components/schemas/div"
+            required:
+              - "@page"
+              - "@pageSize"
+              - "@count"
       CorpusSearchHTML:
         type: object
-        properties: 
+        properties:
+          "@page":
+            type: integer
+          "@pageSize":
+            type: integer
+          "@count":
+            type: integer
           query: 
             type: string
           hits:

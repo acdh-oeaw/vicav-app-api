@@ -1,7 +1,7 @@
 _id: req_8aeda7f4ae934d07b09ad5b5585bada8
 type: Request
 parentId: fld_wrk_6915256f54c24d51aa934588fd7b49fffdee0559
-modified: 1700153164956
+modified: 1790766890211
 created: 1695903809075
 url: "{{ _.base_url }}/vicav/corpus"
 name: Search corpus
@@ -11,7 +11,7 @@ body: {}
 parameters:
   - name: query
     disabled: false
-    value: ma y.bas
+    value: xyzabc
     id: pair_7e2a81c27b8d4ecc80f6767c0a394591
   - name: print
     disabled: true
@@ -21,18 +21,31 @@ parameters:
     name: xslt
     value: identity.xslt
     description: ""
-    disabled: false
+    disabled: true
   - id: pair_f89fa2f9fe9347ca8d7a7de24e77cbd9
     name: xslt
     value: corpus_utterances_json.xslt
     description: ""
     disabled: true
+  - id: pair_bf22d886a94f4d13b12fb9e390c1bf3d
+    name: render
+    value: json
+    description: ""
+    disabled: false
+  - id: pair_5604c57b10ad43bbb4bf6bcb92132ebc
+    name: page
+    value: "1"
+    description: ""
+  - id: pair_d432270ec3164b519ef5691286bbcaa4
+    name: pageSize
+    value: "100"
+    description: ""
 headers:
   - id: pair_2cbcaa977b2d4f72a4934f16953daf08
     name: Accept
     value: application/json
     description: ""
-    disabled: true
+    disabled: false
 authentication: {}
 metaSortKey: -1675795390596
 isPrivate: false
