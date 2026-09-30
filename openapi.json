@@ -4366,6 +4366,29 @@
           },
           {
             "in": "query",
+            "name": "page",
+            "description": "page of the result",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "description": "number of results per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 100,
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          {
+            "in": "query",
             "name": "render",
             "description": "Render the results as html or json. Default is html",
             "required": false,
@@ -4428,6 +4451,9 @@
                     "value": {
                       "query": "ma",
                       "hits": {
+                        "@page": 1,
+                        "@pageSize": 100,
+                        "@count": 1000,
                         "divs": [
                           {
                             "hits": [
@@ -4579,6 +4605,9 @@
                   "corpus_search_json_html": {
                     "summary": "Corpus search results as HTML",
                     "value": {
+                      "@page": "1",
+                      "@pageSize": "100",
+                      "@count": "1000",
                       "query": "w",
                       "hits": [
                         {
@@ -6107,6 +6136,15 @@
           "hits": {
             "type": "object",
             "properties": {
+              "@page": {
+                "type": "integer"
+              },
+              "@pageSize": {
+                "type": "integer"
+              },
+              "@count": {
+                "type": "integer"
+              },
               "listPrefixDef": {
                 "type": "array",
                 "items": {
@@ -6122,13 +6160,27 @@
               "div": {
                 "$ref": "#/components/schemas/div"
               }
-            }
+            },
+            "required": [
+              "@page",
+              "@pageSize",
+              "@count"
+            ]
           }
         }
       },
       "CorpusSearchHTML": {
         "type": "object",
         "properties": {
+          "@page": {
+            "type": "integer"
+          },
+          "@pageSize": {
+            "type": "integer"
+          },
+          "@count": {
+            "type": "integer"
+          },
           "query": {
             "type": "string"
           },
