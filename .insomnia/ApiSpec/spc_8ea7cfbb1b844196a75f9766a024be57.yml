@@ -6617,6 +6617,7 @@ contents: >-
             - ExploreSamplesForm
             - ExploreSamples
             - DataTable
+            - FeatureDescriptionList
             summary: Type of window that should open when the user clicks this item
           label:
             type: string
