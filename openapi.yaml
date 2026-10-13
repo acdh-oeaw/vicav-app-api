@@ -8120,7 +8120,9 @@ components:
               additionalProperties: false
               required:
                 - '@key'
-                - $
+                - $ 
+            region:
+              $ref: '#/components/schemas/XmlTextNode'
             geos:
               type: array
               items:
@@ -8158,7 +8160,6 @@ components:
           additionalProperties: false
           required:
             - geos
-            - country
         prefLabel_placeName:
           type: object
           properties:
@@ -8169,7 +8170,7 @@ components:
               examples:
                 - Djedaa
                 - al-May
-                - al-Qa'a
+                - "al-Qa'a"
           additionalProperties: false
           required:
             - '@type'
@@ -8195,6 +8196,10 @@ components:
             - $
         note:
           $ref: '#/components/schemas/XmlTextNode'
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/XmlTextNode'
         geoNames_idno:
           type: object
           properties:
@@ -8277,7 +8282,6 @@ components:
         - prefLabel_placeName
         - '@type'
         - '@id'
-        - geoNames_idno
     RespStmt:
       title: RespStmt
       type: object
@@ -8606,8 +8610,7 @@ components:
       properties:
         type:
           type: string
-          enum:
-          - Feature
+          const: Feature
         id:
           oneOf:
           - type: number
@@ -8679,8 +8682,7 @@ components:
       properties:
         type:
           type: string
-          enum:
-          - FeatureCollection
+          const: FeatureCollection
         features:
           type: array
           items:
@@ -8688,6 +8690,7 @@ components:
         properties:
           oneOf:
             - $ref: '#/components/schemas/ColumnHeadings'
+            - $ref: '#/components/schemas/GazetteerMarker'
             - type: object
     ColumnHeadings:
       type: object
@@ -8702,6 +8705,12 @@ components:
                 type: string
               Heading:
                 type: string
+    GazetteerMarker:
+      type: object
+      propertiers:
+        description:
+          type: string
+          const: GEOJSON of the VICAV gazetteer
     MarkerProperties:
       title: Properties of a marker which should be displayed
       type: object

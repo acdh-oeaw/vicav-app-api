@@ -8937,6 +8937,9 @@
                   "$"
                 ]
               },
+              "region": {
+                "$ref": "#/components/schemas/XmlTextNode"
+              },
               "geos": {
                 "type": "array",
                 "items": {
@@ -8991,8 +8994,7 @@
             },
             "additionalProperties": false,
             "required": [
-              "geos",
-              "country"
+              "geos"
             ]
           },
           "prefLabel_placeName": {
@@ -9045,6 +9047,12 @@
           },
           "note": {
             "$ref": "#/components/schemas/XmlTextNode"
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XmlTextNode"
+            }
           },
           "geoNames_idno": {
             "type": "object",
@@ -9153,8 +9161,7 @@
           "location",
           "prefLabel_placeName",
           "@type",
-          "@id",
-          "geoNames_idno"
+          "@id"
         ]
       },
       "RespStmt": {
@@ -9612,9 +9619,7 @@
         "properties": {
           "type": {
             "type": "string",
-            "enum": [
-              "Feature"
-            ]
+            "const": "Feature"
           },
           "id": {
             "oneOf": [
@@ -9736,9 +9741,7 @@
         "properties": {
           "type": {
             "type": "string",
-            "enum": [
-              "FeatureCollection"
-            ]
+            "const": "FeatureCollection"
           },
           "features": {
             "type": "array",
@@ -9750,6 +9753,9 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/ColumnHeadings"
+              },
+              {
+                "$ref": "#/components/schemas/GazetteerMarker"
               },
               {
                 "type": "object"
@@ -9775,6 +9781,15 @@
                 }
               }
             }
+          }
+        }
+      },
+      "GazetteerMarker": {
+        "type": "object",
+        "propertiers": {
+          "description": {
+            "type": "string",
+            "const": "GEOJSON of the VICAV gazetteer"
           }
         }
       },
