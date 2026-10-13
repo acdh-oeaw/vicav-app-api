@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1790766758359
+modified: 1791906763347
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -8129,7 +8129,9 @@ contents: >-
                 additionalProperties: false
                 required:
                   - '@key'
-                  - $
+                  - $ 
+              region:
+                $ref: '#/components/schemas/XmlTextNode'
               geos:
                 type: array
                 items:
@@ -8167,7 +8169,6 @@ contents: >-
             additionalProperties: false
             required:
               - geos
-              - country
           prefLabel_placeName:
             type: object
             properties:
@@ -8178,7 +8179,7 @@ contents: >-
                 examples:
                   - Djedaa
                   - al-May
-                  - al-Qa'a
+                  - "al-Qa'a"
             additionalProperties: false
             required:
               - '@type'
@@ -8204,6 +8205,10 @@ contents: >-
               - $
           note:
             $ref: '#/components/schemas/XmlTextNode'
+          notes:
+            type: array
+            items:
+              $ref: '#/components/schemas/XmlTextNode'
           geoNames_idno:
             type: object
             properties:
@@ -8286,7 +8291,6 @@ contents: >-
           - prefLabel_placeName
           - '@type'
           - '@id'
-          - geoNames_idno
       RespStmt:
         title: RespStmt
         type: object
@@ -8615,8 +8619,7 @@ contents: >-
         properties:
           type:
             type: string
-            enum:
-            - Feature
+            const: Feature
           id:
             oneOf:
             - type: number
@@ -8688,8 +8691,7 @@ contents: >-
         properties:
           type:
             type: string
-            enum:
-            - FeatureCollection
+            const: FeatureCollection
           features:
             type: array
             items:
@@ -8697,6 +8699,7 @@ contents: >-
           properties:
             oneOf:
               - $ref: '#/components/schemas/ColumnHeadings'
+              - $ref: '#/components/schemas/GazetteerMarker'
               - type: object
       ColumnHeadings:
         type: object
@@ -8711,6 +8714,12 @@ contents: >-
                   type: string
                 Heading:
                   type: string
+      GazetteerMarker:
+        type: object
+        propertiers:
+          description:
+            type: string
+            const: GEOJSON of the VICAV gazetteer
       MarkerProperties:
         title: Properties of a marker which should be displayed
         type: object
