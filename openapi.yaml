@@ -9201,7 +9201,7 @@ components:
               $ref: '#/components/schemas/XmlTextNode'
           additionalProperties: false
         state:
-          anyOf:
+          oneOf:
             - $ref: '#/components/schemas/ConsentState'
             - $ref: '#/components/schemas/TribeMembershipState'
         note:
@@ -9257,6 +9257,9 @@ components:
                 - missing
           additionalProperties: false
       additionalProperties: false
+      required:
+        - '@type'
+        - label
     TribeMembershipState:
       type: object
       properties:
@@ -9278,6 +9281,9 @@ components:
           required:
            - orgName
       additionalProperties: false
+      required:
+        - '@type'
+        - desc
     RFC7807Problem:
       title: A RFC 7807 problem report
       type: object

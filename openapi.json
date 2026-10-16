@@ -10487,7 +10487,7 @@
             "additionalProperties": false
           },
           "state": {
-            "anyOf": [
+            "oneOf": [
               {
                 "$ref": "#/components/schemas/ConsentState"
               },
@@ -10573,7 +10573,11 @@
             "additionalProperties": false
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "@type",
+          "label"
+        ]
       },
       "TribeMembershipState": {
         "type": "object",
@@ -10605,7 +10609,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "@type",
+          "desc"
+        ]
       },
       "RFC7807Problem": {
         "title": "A RFC 7807 problem report",
