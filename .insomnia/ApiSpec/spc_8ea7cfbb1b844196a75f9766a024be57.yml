@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1791906763347
+modified: 1792149205519
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -7101,6 +7101,11 @@ contents: >-
                 - '@ident'
                 - '@matchPattern'
                 - '@replacementPattern'
+          projectDesc:
+            type: object
+            properties:
+              ab:
+                $ref: '#/components/schemas/XmlTextNode'
         additionalProperties: false
       Taxonomy:
         type: object
@@ -7524,6 +7529,8 @@ contents: >-
                   examples:
                     - a
                     - s
+                '@type':
+                  type: string
                 $:
                   type: string
                   examples:
@@ -8353,6 +8360,7 @@ contents: >-
          - Transcription, TEI, Translation
          - Transcription, ELAN, TEI, Translation
          - Recordings, Transcription, Dictionary
+         - with collaboration of
       Note:
         type: object
         additionalProperties: true
@@ -8485,6 +8493,8 @@ contents: >-
         type: object
         additionalProperties: false
         properties:
+          '@id':
+            type: string
           '@style':
             type: string
           $:
