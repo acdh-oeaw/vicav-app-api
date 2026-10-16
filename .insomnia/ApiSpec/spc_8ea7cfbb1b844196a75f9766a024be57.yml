@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1792175631721
+modified: 1792176157172
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -9210,7 +9210,7 @@ contents: >-
                 $ref: '#/components/schemas/XmlTextNode'
             additionalProperties: false
           state:
-            anyOf:
+            oneOf:
               - $ref: '#/components/schemas/ConsentState'
               - $ref: '#/components/schemas/TribeMembershipState'
           note:
@@ -9266,6 +9266,9 @@ contents: >-
                   - missing
             additionalProperties: false
         additionalProperties: false
+        required:
+          - '@type'
+          - label
       TribeMembershipState:
         type: object
         properties:
@@ -9287,6 +9290,9 @@ contents: >-
             required:
              - orgName
         additionalProperties: false
+        required:
+          - '@type'
+          - desc
       RFC7807Problem:
         title: A RFC 7807 problem report
         type: object
