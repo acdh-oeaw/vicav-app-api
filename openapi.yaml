@@ -7092,6 +7092,11 @@ components:
               - '@ident'
               - '@matchPattern'
               - '@replacementPattern'
+        projectDesc:
+          type: object
+          properties:
+            ab:
+              $ref: '#/components/schemas/XmlTextNode'
       additionalProperties: false
     Taxonomy:
       type: object
@@ -7515,6 +7520,8 @@ components:
                 examples:
                   - a
                   - s
+              '@type':
+                type: string
               $:
                 type: string
                 examples:
@@ -8344,6 +8351,7 @@ components:
        - Transcription, TEI, Translation
        - Transcription, ELAN, TEI, Translation
        - Recordings, Transcription, Dictionary
+       - with collaboration of
     Note:
       type: object
       additionalProperties: true
@@ -8476,6 +8484,8 @@ components:
       type: object
       additionalProperties: false
       properties:
+        '@id':
+          type: string
         '@style':
           type: string
         $:

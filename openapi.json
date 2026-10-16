@@ -7458,6 +7458,14 @@
                 "@replacementPattern"
               ]
             }
+          },
+          "projectDesc": {
+            "type": "object",
+            "properties": {
+              "ab": {
+                "$ref": "#/components/schemas/XmlTextNode"
+              }
+            }
           }
         },
         "additionalProperties": false
@@ -8060,6 +8068,9 @@
                     "a",
                     "s"
                   ]
+                },
+                "@type": {
+                  "type": "string"
                 },
                 "$": {
                   "type": "string",
@@ -9244,7 +9255,8 @@
           "document preparation",
           "Transcription, TEI, Translation",
           "Transcription, ELAN, TEI, Translation",
-          "Recordings, Transcription, Dictionary"
+          "Recordings, Transcription, Dictionary",
+          "with collaboration of"
         ]
       },
       "Note": {
@@ -9442,6 +9454,9 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
+          "@id": {
+            "type": "string"
+          },
           "@style": {
             "type": "string"
           },
