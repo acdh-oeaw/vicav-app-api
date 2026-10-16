@@ -9201,7 +9201,7 @@ components:
               $ref: '#/components/schemas/XmlTextNode'
           additionalProperties: false
         state:
-          oneOf:
+          anyOf:
             - $ref: '#/components/schemas/ConsentState'
             - $ref: '#/components/schemas/TribeMembershipState'
         note:
@@ -9256,6 +9256,8 @@ components:
                 - no
                 - missing
           additionalProperties: false
+          required:
+           - $
       additionalProperties: false
       required:
         - '@type'
@@ -9267,7 +9269,7 @@ components:
           const: 'tribeMembership'
         desc:
           type: object
-          propertoies:
+          properties:
             orgName:
               type: object
               properties:

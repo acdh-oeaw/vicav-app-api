@@ -10487,7 +10487,7 @@
             "additionalProperties": false
           },
           "state": {
-            "oneOf": [
+            "anyOf": [
               {
                 "$ref": "#/components/schemas/ConsentState"
               },
@@ -10570,7 +10570,10 @@
                 ]
               }
             },
-            "additionalProperties": false
+            "additionalProperties": false,
+            "required": [
+              "$"
+            ]
           }
         },
         "additionalProperties": false,
@@ -10587,7 +10590,7 @@
           },
           "desc": {
             "type": "object",
-            "propertoies": {
+            "properties": {
               "orgName": {
                 "type": "object",
                 "properties": {
