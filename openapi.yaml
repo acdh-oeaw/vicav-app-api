@@ -9201,7 +9201,7 @@ components:
               $ref: '#/components/schemas/XmlTextNode'
           additionalProperties: false
         state:
-          oneOf:
+          anyOf:
             - $ref: '#/components/schemas/ConsentState'
             - $ref: '#/components/schemas/TribeMembershipState'
         note:
