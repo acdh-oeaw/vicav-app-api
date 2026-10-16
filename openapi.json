@@ -10487,7 +10487,7 @@
             "additionalProperties": false
           },
           "state": {
-            "oneOf": [
+            "anyOf": [
               {
                 "$ref": "#/components/schemas/ConsentState"
               },
