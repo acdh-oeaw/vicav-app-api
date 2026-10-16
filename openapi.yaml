@@ -9201,22 +9201,9 @@ components:
               $ref: '#/components/schemas/XmlTextNode'
           additionalProperties: false
         state:
-          type: object
-          properties:
-            '@type':
-              const: 'consent'
-            label:
-              type: object
-              properties:
-                $:
-                  type: string
-                  enum:
-                    - yes
-                    - no
-                    - missing
-              additionalProperties: false
-            additionalProperties: false
-          additionalProperties: false
+          oneOf:
+            - $ref: '#/components/schemas/ConsentState'
+            - $ref: '#/components/schemas/TribeMembershipState'
         note:
           type: object
           properties:
@@ -9253,6 +9240,43 @@ components:
               type: object
         $:
           type: string
+      additionalProperties: false
+    ConsentState:    
+      type: object
+      properties:
+        '@type':
+          const: 'consent'
+        label:
+          type: object
+          properties:
+            $:
+              type: string
+              enum:
+                - yes
+                - no
+                - missing
+          additionalProperties: false
+      additionalProperties: false
+    TribeMembershipState:
+      type: object
+      properties:
+        '@type':
+          const: 'tribeMembership'
+        desc:
+          type: object
+          propertoies:
+            orgName:
+              type: object
+              properties:
+                '@type':
+                  const: 'tribe'
+                '@ref':
+                  type: string
+                $:
+                  type: string
+          additionalProperties: false
+          required:
+           - orgName
       additionalProperties: false
     RFC7807Problem:
       title: A RFC 7807 problem report
