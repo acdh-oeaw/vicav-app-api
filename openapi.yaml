@@ -6653,7 +6653,7 @@ components:
                   enum:
                     - active
                 params:
-                  $ref: '#/components/schemas/wmap_target_type_parameters'
+                  $ref: '#/components/schemas/geo_target_type_parameters'
         - allOf:
             - $ref: '#/components/schemas/item_type_common'
             - type: object
@@ -7114,7 +7114,7 @@ components:
                     - active
                 params:
                   type: object
-    wmap_target_type_parameters:
+    geo_target_type_parameters:
       type: object
       additionalProperties: false
       properties:

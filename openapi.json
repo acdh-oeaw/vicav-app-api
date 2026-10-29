@@ -6825,7 +6825,7 @@
                     ]
                   },
                   "params": {
-                    "$ref": "#/components/schemas/wmap_target_type_parameters"
+                    "$ref": "#/components/schemas/geo_target_type_parameters"
                   }
                 }
               }
@@ -7600,7 +7600,7 @@
           }
         ]
       },
-      "wmap_target_type_parameters": {
+      "geo_target_type_parameters": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
