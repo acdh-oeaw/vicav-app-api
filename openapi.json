@@ -6696,7 +6696,7 @@
           "feature"
         ]
       },
-      "item_type": {
+      "item_type_common": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -6777,21 +6777,830 @@
             ]
           },
           "params": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/geo_target_type_parameters"
-              },
-              {
-                "$ref": "#/components/schemas/text_target_type_parameters"
-              }
-            ]
+            "type": "object"
           }
         },
         "required": [
           "type"
         ]
       },
-      "geo_target_type_parameters": {
+      "item_type": {
+        "oneOf": [
+          {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/item_type_common"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "targetType",
+                  "params"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "const": "item"
+                  },
+                  "targetType": {
+                    "const": "WMap"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "class": {
+                    "type": "string",
+                    "enum": [
+                      "active"
+                    ]
+                  },
+                  "params": {
+                    "$ref": "#/components/schemas/wmap_target_type_parameters"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/item_type_common"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "targetType",
+                  "params"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "const": "item"
+                  },
+                  "targetType": {
+                    "const": "Text"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "class": {
+                    "type": "string",
+                    "enum": [
+                      "active"
+                    ]
+                  },
+                  "params": {
+                    "$ref": "#/components/schemas/text_target_type_parameters"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/item_type_common"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "targetType",
+                  "params"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "const": "item"
+                  },
+                  "targetType": {
+                    "const": "SampleText"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "class": {
+                    "type": "string",
+                    "enum": [
+                      "active"
+                    ]
+                  },
+                  "params": {
+                    "$ref": "#/components/schemas/text_target_type_parameters"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/item_type_common"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "targetType",
+                  "params"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "const": "item"
+                  },
+                  "targetType": {
+                    "const": "Profile"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "class": {
+                    "type": "string",
+                    "enum": [
+                      "active"
+                    ]
+                  },
+                  "params": {
+                    "$ref": "#/components/schemas/text_target_type_parameters"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/item_type_common"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "targetType",
+                  "params"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "const": "item"
+                  },
+                  "targetType": {
+                    "const": "Feature"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "class": {
+                    "type": "string",
+                    "enum": [
+                      "active"
+                    ]
+                  },
+                  "params": {
+                    "$ref": "#/components/schemas/text_target_type_parameters"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/item_type_common"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "targetType",
+                  "params"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "const": "item"
+                  },
+                  "targetType": {
+                    "const": "CorpusText"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "class": {
+                    "type": "string",
+                    "enum": [
+                      "active"
+                    ]
+                  },
+                  "params": {
+                    "$ref": "#/components/schemas/text_target_type_parameters"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/item_type_common"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "targetType",
+                  "params"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "const": "item"
+                  },
+                  "targetType": {
+                    "const": "BiblioEntries"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "class": {
+                    "type": "string",
+                    "enum": [
+                      "active"
+                    ]
+                  },
+                  "params": {
+                    "$ref": "#/components/schemas/biblio_entries_target_type_parameters"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/item_type_common"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "targetType",
+                  "params"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "const": "item"
+                  },
+                  "targetType": {
+                    "const": "BiblioQuery"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "class": {
+                    "type": "string",
+                    "enum": [
+                      "active"
+                    ]
+                  },
+                  "params": {
+                    "$ref": "#/components/schemas/biblio_query_target_type_parameters"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/item_type_common"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "targetType",
+                  "params"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "const": "item"
+                  },
+                  "targetType": {
+                    "const": "DictQuery"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "class": {
+                    "type": "string",
+                    "enum": [
+                      "active"
+                    ]
+                  },
+                  "params": {
+                    "$ref": "#/components/schemas/dict_query_target_type_parameters"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/item_type_common"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "targetType",
+                  "params"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "const": "item"
+                  },
+                  "targetType": {
+                    "const": "CrossDictQuery"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "class": {
+                    "type": "string",
+                    "enum": [
+                      "active"
+                    ]
+                  },
+                  "params": {
+                    "$ref": "#/components/schemas/cross_dict_query_target_type_parameters"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/item_type_common"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "targetType",
+                  "params"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "const": "item"
+                  },
+                  "targetType": {
+                    "const": "CorpusQuery"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "class": {
+                    "type": "string",
+                    "enum": [
+                      "active"
+                    ]
+                  },
+                  "params": {
+                    "$ref": "#/components/schemas/corpus_query_target_type_parameters"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/item_type_common"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "targetType",
+                  "params"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "const": "item"
+                  },
+                  "targetType": {
+                    "const": "DataList"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "class": {
+                    "type": "string",
+                    "enum": [
+                      "active"
+                    ]
+                  },
+                  "params": {
+                    "$ref": "#/components/schemas/data_list_target_type_parameters"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/item_type_common"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "targetType",
+                  "params"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "const": "item"
+                  },
+                  "targetType": {
+                    "const": "DataTable"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "class": {
+                    "type": "string",
+                    "enum": [
+                      "active"
+                    ]
+                  },
+                  "params": {
+                    "$ref": "#/components/schemas/data_table_target_type_parameters"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/item_type_common"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "targetType",
+                  "params"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "const": "item"
+                  },
+                  "targetType": {
+                    "const": "ExploreSamplesForm"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "class": {
+                    "type": "string",
+                    "enum": [
+                      "active"
+                    ]
+                  },
+                  "params": {
+                    "$ref": "#/components/schemas/explore_samples_form_target_type_parameters"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/item_type_common"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "targetType",
+                  "params"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "const": "item"
+                  },
+                  "targetType": {
+                    "const": "ExploreSamples"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "class": {
+                    "type": "string",
+                    "enum": [
+                      "active"
+                    ]
+                  },
+                  "params": {
+                    "$ref": "#/components/schemas/explore_samples_target_type_parameters"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/item_type_common"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "targetType",
+                  "params"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "const": "item"
+                  },
+                  "targetType": {
+                    "const": "ListMap"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "class": {
+                    "type": "string",
+                    "enum": [
+                      "active"
+                    ]
+                  },
+                  "params": {
+                    "$ref": "#/components/schemas/list_map_target_type_parameters"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/item_type_common"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "targetType",
+                  "params"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "const": "item"
+                  },
+                  "targetType": {
+                    "const": "FeatureDescriptionList"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "class": {
+                    "type": "string",
+                    "enum": [
+                      "active"
+                    ]
+                  },
+                  "params": {
+                    "$ref": "#/components/schemas/feature_description_list_target_type_parameters"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/item_type_common"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "enum": [
+                      "panel",
+                      "separator",
+                      "dropdown"
+                    ]
+                  },
+                  "targetType": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "class": {
+                    "type": "string",
+                    "enum": [
+                      "active"
+                    ]
+                  },
+                  "params": {
+                    "type": "object"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "wmap_target_type_parameters": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -6860,6 +7669,21 @@
             "examples": [
               "biblio_tei_01.xslt"
             ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "hideDefaultLayers": {
+            "type": "boolean"
+          },
+          "showCitation": {
+            "type": "boolean"
+          },
+          "textId": {
+            "type": "string"
+          },
+          "teiSource": {
+            "type": "string"
           }
         },
         "required": [
@@ -6934,6 +7758,466 @@
             "examples": [
               "biblio_tei_01.xslt"
             ]
+          },
+          "hits": {
+            "type": "string"
+          },
+          "u": {
+            "type": "string"
+          },
+          "showCitation": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "textId"
+        ]
+      },
+      "biblio_entries_target_type_parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "queryString": {
+            "type": "string",
+            "examples": [
+              "",
+              "out:WIBARAB",
+              "prs:WIBARAB"
+            ]
+          },
+          "xslt": {
+            "type": "string",
+            "examples": [
+              "biblio_tei_01.xslt"
+            ]
+          },
+          "showMap": {
+            "type": "boolean"
+          },
+          "isQueryVisible": {
+            "type": "boolean"
+          },
+          "showCitation": {
+            "type": "boolean"
+          },
+          "textId": {
+            "type": "string"
+          },
+          "teiSource": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "queryString"
+        ]
+      },
+      "biblio_query_target_type_parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "textId": {
+            "type": "string"
+          },
+          "teiSource": {
+            "type": "string"
+          },
+          "queryString": {
+            "type": "string"
+          },
+          "xslt": {
+            "type": "string"
+          },
+          "showMap": {
+            "type": "boolean"
+          },
+          "isQueryVisible": {
+            "type": "boolean"
+          },
+          "showCitation": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "textId"
+        ]
+      },
+      "dict_query_target_type_parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "textId": {
+            "type": "string"
+          },
+          "teiSource": {
+            "type": "string"
+          },
+          "queryString": {
+            "type": "string"
+          },
+          "queryParams": {
+            "type": "object",
+            "properties": {
+              "q": {
+                "type": "string"
+              },
+              "page": {
+                "type": "number"
+              },
+              "pageSize": {
+                "type": "number"
+              },
+              "id": {
+                "type": "string"
+              },
+              "ids": {
+                "type": "string"
+              },
+              "sort": {
+                "type": "string"
+              },
+              "altLemma": {
+                "type": "string"
+              },
+              "format": {
+                "type": "string"
+              }
+            }
+          },
+          "queryTemplateTextInput": {
+            "type": "string"
+          },
+          "queryTemplate": {
+            "type": "string"
+          },
+          "isTextInputManual": {
+            "type": "boolean"
+          },
+          "isQueryVisible": {
+            "type": "boolean"
+          },
+          "showCitation": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "textId",
+          "queryString"
+        ]
+      },
+      "cross_dict_query_target_type_parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "textId": {
+            "type": "string"
+          },
+          "teiSource": {
+            "type": "string"
+          },
+          "queryString": {
+            "type": "string"
+          },
+          "showCitation": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "textId"
+        ]
+      },
+      "corpus_query_target_type_parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "textId": {
+            "type": "string"
+          },
+          "teiSource": {
+            "type": "string"
+          },
+          "queryString": {
+            "type": "string"
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "tag",
+              "text"
+            ]
+          },
+          "showCitation": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "textId"
+        ]
+      },
+      "data_list_target_type_parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "dataTypes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "CorpusText",
+                "Feature",
+                "Profile",
+                "SampleText"
+              ]
+            }
+          },
+          "filterListBy": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "value"
+            ]
+          },
+          "listState": {
+            "type": "object",
+            "properties": {
+              "sortMode": {
+                "type": "string",
+                "enum": [
+                  "hit-count",
+                  "alphabetical"
+                ]
+              },
+              "globalFilter": {
+                "type": "string"
+              },
+              "facets": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "mapEnabled": {
+            "type": "boolean"
+          },
+          "mapSyncId": {
+            "type": "string"
+          },
+          "textId": {
+            "type": "string"
+          },
+          "teiSource": {
+            "type": "string"
+          },
+          "showCitation": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "dataTypes"
+        ]
+      },
+      "data_table_target_type_parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "dataTypes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "CorpusText",
+                "Feature",
+                "Profile",
+                "SampleText"
+              ]
+            }
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key",
+                "value"
+              ]
+            }
+          },
+          "textId": {
+            "type": "string"
+          },
+          "teiSource": {
+            "type": "string"
+          },
+          "showCitation": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "dataTypes"
+        ]
+      },
+      "explore_samples_form_target_type_parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "dataTypes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "CorpusText",
+                "Feature",
+                "Profile",
+                "SampleText"
+              ]
+            }
+          },
+          "textId": {
+            "type": "string"
+          },
+          "teiSource": {
+            "type": "string"
+          },
+          "showCitation": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "dataTypes"
+        ]
+      },
+      "explore_samples_target_type_parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "dataType": {
+            "type": "string",
+            "enum": [
+              "SampleText",
+              "Feature"
+            ]
+          },
+          "ids": {
+            "type": "string"
+          },
+          "word": {
+            "type": "string"
+          },
+          "person": {
+            "type": "string"
+          },
+          "translation": {
+            "type": "string"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "features": {
+            "type": "string"
+          },
+          "page": {
+            "type": "number"
+          },
+          "region": {
+            "type": "string"
+          },
+          "settlement": {
+            "type": "string"
+          },
+          "textId": {
+            "type": "string"
+          },
+          "showCitation": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "dataType"
+        ]
+      },
+      "list_map_target_type_parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "queryString": {
+            "type": "string"
+          },
+          "featureValueGroups": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "columnId": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "values": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "globalFilter": {
+            "type": "string"
+          },
+          "textId": {
+            "type": "string"
+          },
+          "teiSource": {
+            "type": "string"
+          },
+          "showCitation": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "textId"
+        ]
+      },
+      "feature_description_list_target_type_parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "taxonomyPath": {
+            "type": "string"
+          },
+          "globalFilter": {
+            "type": "string"
+          },
+          "textId": {
+            "type": "string"
+          },
+          "teiSource": {
+            "type": "string"
+          },
+          "showCitation": {
+            "type": "boolean"
           }
         },
         "required": [
