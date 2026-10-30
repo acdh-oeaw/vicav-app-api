@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1793376379243
+modified: 1793376858558
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -9536,7 +9536,7 @@ contents: >-
             summary: Any data bolonging to this geo feature
             description: |
               This does not prescribe any JSON shape. E. g. a malformed gazetteer marker JSON is an object.
-              You have to verify any part of this array independently!
+              You have to verify any object here independently!
             anyOf:
               - $ref: '#/components/schemas/ColumnHeadings'
               - $ref: '#/components/schemas/GazetteerMarker'
