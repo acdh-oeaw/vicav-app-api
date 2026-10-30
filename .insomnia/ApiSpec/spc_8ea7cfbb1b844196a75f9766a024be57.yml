@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1793376858558
+modified: 1793382118750
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -9447,9 +9447,9 @@ contents: >-
         title: GeoJSON Feature
         type: object
         required:
-        - type
-        - properties
-        - geometry
+          - type
+          - properties
+          - geometry
         externalDocs:
           url: https://tools.ietf.org/html/rfc7946#section-3.2
         properties:
@@ -9458,64 +9458,126 @@ contents: >-
             const: Feature
           id:
             oneOf:
-            - type: number
-            - type: string
+              - type: number
+              - type: string
           properties:
+            summary: The payload of a GeoJSON feature
+            description: 'Three mutually exclusive shapes: GeoPlace (a gazetteer entry), VarietyFeatureProperties (a place described by feature types) and MarkerProperties (a map marker).'
             oneOf:
-            - type: 'null'
-            - $ref: '#/components/schemas/MarkerProperties'
-            - $ref: '#/components/schemas/VarietyFeatures'
-            - $ref: '#/components/schemas/GeoPlace'
+              - $ref: '#/components/schemas/GeoPlace'
+              - $ref: '#/components/schemas/VarietyFeatureProperties'
+              - $ref: '#/components/schemas/MarkerProperties'
+              - type: "null"
           geometry:
             oneOf:
-            - type: 'null'
-            - $ref: '#/components/schemas/Point'
-      VarietyFeatures:
-        title: ""
+              - type: "null"
+              - $ref: '#/components/schemas/Point'
+      FeatureValueSource:
+        title: Source of a feature value observation
         type: object
         additionalProperties: false
         properties:
-          FeatureReference:
+          bibl_id:
             type: string
-          FeatureValues:
-            type: object
-            additionalProperties: false
-            properties:
-                FeatureValueReference:
-                  type: string
-                FeatureValuesObservations:
-                  $ref: '#/components/schemas/FeatureValuesObservation'
-      FeatureValuesObservation:
+          link:
+            type: string
+          short_cit:
+            type: string
+      FeatureValueExample:
+        title: An attested example of a feature value, keyed by the example text
         type: object
+        additionalProperties:
+          type: string
+      FeatureValueObservation:
+        title: One observation of a feature value in a place
+        type: object
+        additionalProperties: false
         required:
-          - sources
+          - resp
+          - source
+          - variety
         properties:
-          sources:
+          resp:
+            type: string
+          variety:
+            type: string
+          source:
+            $ref: '#/components/schemas/FeatureValueSource'
+          examples:
+            type: array
+            items:
+              $ref: '#/components/schemas/FeatureValueExample'
+          source_representations:
             type: array
             items:
               type: string
-          person_groups:
+          tribe:
+            type: array
+            items:
+              type: string
+          religion:
+            type: array
+            items:
+              type: string
+          remarks:
+            type: array
+            items:
+              type: string
+          exceptions:
+            type: array
+            items:
+              type: string
+          constraints:
+            type: array
+            items:
+              type: string
+          ageGroup:
+            type: array
+            items:
+              type: string
+          gender:
+            type: array
+            items:
+              type: string
+          firstLanguage:
+            type: array
+            items:
+              type: string
+      FeatureValues:
+        title: The observations of one feature value, keyed by the feature value
+        type: object
+        additionalProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeatureValueObservation'
+      VarietyFeatureProperties:
+        title: Properties of a place that is described by feature types
+        type: object
+        additionalProperties: false
+        required:
+          - name
+          - country
+          - alternateNames
+        properties:
+          name:
+            type: string
+          country:
+            type: string
+          alternateNames:
             type: array
             items:
               type: object
               additionalProperties: false
               properties:
-                  PersonGroupType:
-                    type: string
-                  PersonGroupReference:
-                    type: string
-          source_representations:
-            type: array
-            items:
-              type: string
-          examples:
-            type: array
-            items:
-              type: string    
-          notes:
-            type: array
-            items:
-              type: string       
+                lang:
+                  type: string
+                name:
+                  type: string
+              required:
+                - name
+        patternProperties:
+          ^ft_:
+            $ref: '#/components/schemas/FeatureValues'       
       FeatureCollection:
         type: object
         description: GeoJSon Feature collection
