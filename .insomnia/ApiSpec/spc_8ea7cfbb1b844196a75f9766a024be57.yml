@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1793357989474
+modified: 1793375153640
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -6472,14 +6472,19 @@ contents: >-
                 items:
                   $ref: '#/components/schemas/FeatureCollection'
               table:
+                summary: A place for any project data that does not change without a backend redeployment
+                description: |
+                  This does not prescribe any JSON shape. E. g. a malformed guided tour JSON is an object.
+                  You have to verify any part of this array independently!
                 type: array
                 items:
-                  oneOf:
+                  anyOf:
                   - $ref: '#/components/schemas/Biblio'
                   - $ref: '#/components/schemas/Geo'
                   - $ref: '#/components/schemas/TeiCorpus'
                   - $ref: '#/components/schemas/GuidedTourSteps'
                   - type: object
+                  - type: array
           funders:
             type: array
             description: The institutions that funded this project
