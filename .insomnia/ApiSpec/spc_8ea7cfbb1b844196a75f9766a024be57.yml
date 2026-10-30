@@ -1,7 +1,7 @@
 _id: spc_8ea7cfbb1b844196a75f9766a024be57
 type: ApiSpec
 parentId: wrk_6915256f54c24d51aa934588fd7b49ff
-modified: 1793290274102
+modified: 1793357989474
 created: 1675182326019
 fileName: Current Vicav API 1.0.0
 contents: >-
@@ -5894,6 +5894,8 @@ contents: >-
               $ref: "#/components/schemas/gap"
             seg:
               $ref: "#/components/schemas/seg"
+            vocal:
+              $ref: "#/components/schemas/vocal"
       w:
         type: object
         properties:
@@ -6119,6 +6121,17 @@ contents: >-
         required:
           - $$
           - '@id'
+      vocal:
+        type: object
+        properties:
+          '@who':
+            type: string
+          'desc':
+            $ref: "#/components/schemas/XmlTextNode"
+        additionalProperties: false
+        required:
+          - '@who'
+          - desc
       Translation_spanGrp:
         type: object
         properties:
