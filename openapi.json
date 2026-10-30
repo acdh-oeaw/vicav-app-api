@@ -5752,6 +5752,9 @@
             },
             "seg": {
               "$ref": "#/components/schemas/seg"
+            },
+            "vocal": {
+              "$ref": "#/components/schemas/vocal"
             }
           }
         }
@@ -6065,6 +6068,22 @@
         "required": [
           "$$",
           "@id"
+        ]
+      },
+      "vocal": {
+        "type": "object",
+        "properties": {
+          "@who": {
+            "type": "string"
+          },
+          "desc": {
+            "$ref": "#/components/schemas/XmlTextNode"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "@who",
+          "desc"
         ]
       },
       "Translation_spanGrp": {

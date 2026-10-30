@@ -5885,6 +5885,8 @@ components:
             $ref: "#/components/schemas/gap"
           seg:
             $ref: "#/components/schemas/seg"
+          vocal:
+            $ref: "#/components/schemas/vocal"
     w:
       type: object
       properties:
@@ -6110,6 +6112,17 @@ components:
       required:
         - $$
         - '@id'
+    vocal:
+      type: object
+      properties:
+        '@who':
+          type: string
+        'desc':
+          $ref: "#/components/schemas/XmlTextNode"
+      additionalProperties: false
+      required:
+        - '@who'
+        - desc
     Translation_spanGrp:
       type: object
       properties:
