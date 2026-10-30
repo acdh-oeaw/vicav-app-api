@@ -10955,18 +10955,20 @@
             ]
           },
           "properties": {
+            "summary": "The payload of a GeoJSON feature",
+            "description": "Three mutually exclusive shapes: GeoPlace (a gazetteer entry), VarietyFeatureProperties (a place described by feature types) and MarkerProperties (a map marker).",
             "oneOf": [
               {
-                "type": "null"
+                "$ref": "#/components/schemas/GeoPlace"
+              },
+              {
+                "$ref": "#/components/schemas/VarietyFeatureProperties"
               },
               {
                 "$ref": "#/components/schemas/MarkerProperties"
               },
               {
-                "$ref": "#/components/schemas/VarietyFeatures"
-              },
-              {
-                "$ref": "#/components/schemas/GeoPlace"
+                "type": "null"
               }
             ]
           },
@@ -10982,53 +10984,52 @@
           }
         }
       },
-      "VarietyFeatures": {
-        "title": "",
+      "FeatureValueSource": {
+        "title": "Source of a feature value observation",
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "FeatureReference": {
+          "bibl_id": {
             "type": "string"
           },
-          "FeatureValues": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "FeatureValueReference": {
-                "type": "string"
-              },
-              "FeatureValuesObservations": {
-                "$ref": "#/components/schemas/FeatureValuesObservation"
-              }
-            }
+          "link": {
+            "type": "string"
+          },
+          "short_cit": {
+            "type": "string"
           }
         }
       },
-      "FeatureValuesObservation": {
+      "FeatureValueExample": {
+        "title": "An attested example of a feature value, keyed by the example text",
         "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      },
+      "FeatureValueObservation": {
+        "title": "One observation of a feature value in a place",
+        "type": "object",
+        "additionalProperties": false,
         "required": [
-          "sources"
+          "resp",
+          "source",
+          "variety"
         ],
         "properties": {
-          "sources": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "resp": {
+            "type": "string"
           },
-          "person_groups": {
+          "variety": {
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/FeatureValueSource"
+          },
+          "examples": {
             "type": "array",
             "items": {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "PersonGroupType": {
-                  "type": "string"
-                },
-                "PersonGroupReference": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/components/schemas/FeatureValueExample"
             }
           },
           "source_representations": {
@@ -11037,17 +11038,104 @@
               "type": "string"
             }
           },
-          "examples": {
+          "tribe": {
             "type": "array",
             "items": {
               "type": "string"
             }
           },
-          "notes": {
+          "religion": {
             "type": "array",
             "items": {
               "type": "string"
             }
+          },
+          "remarks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "exceptions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "constraints": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ageGroup": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "gender": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "firstLanguage": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "FeatureValues": {
+        "title": "The observations of one feature value, keyed by the feature value",
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/FeatureValueObservation"
+          }
+        }
+      },
+      "VarietyFeatureProperties": {
+        "title": "Properties of a place that is described by feature types",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "country",
+          "alternateNames"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "alternateNames": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "lang": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ]
+            }
+          }
+        },
+        "patternProperties": {
+          "^ft_": {
+            "$ref": "#/components/schemas/FeatureValues"
           }
         }
       },
@@ -11074,7 +11162,7 @@
           },
           "properties": {
             "summary": "Any data bolonging to this geo feature",
-            "description": "This does not prescribe any JSON shape. E. g. a malformed gazetteer marker JSON is an object.\nYou have to verify any part of this array independently!\n",
+            "description": "This does not prescribe any JSON shape. E. g. a malformed gazetteer marker JSON is an object.\nYou have to verify any object here independently!\n",
             "anyOf": [
               {
                 "$ref": "#/components/schemas/ColumnHeadings"
