@@ -6463,14 +6463,19 @@ components:
               items:
                 $ref: '#/components/schemas/FeatureCollection'
             table:
+              summary: A place for any project data that does not change without a backend redeployment
+              description: |
+                This does not prescribe any JSON shape. E. g. a malformed guided tour JSON is an object.
+                You have to verify any part of this array independently!
               type: array
               items:
-                oneOf:
+                anyOf:
                 - $ref: '#/components/schemas/Biblio'
                 - $ref: '#/components/schemas/Geo'
                 - $ref: '#/components/schemas/TeiCorpus'
                 - $ref: '#/components/schemas/GuidedTourSteps'
                 - type: object
+                - type: array
         funders:
           type: array
           description: The institutions that funded this project

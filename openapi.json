@@ -6558,9 +6558,11 @@
                 }
               },
               "table": {
+                "summary": "A place for any project data that does not change without a backend redeployment",
+                "description": "This does not prescribe any JSON shape. E. g. a malformed guided tour JSON is an object.\nYou have to verify any part of this array independently!\n",
                 "type": "array",
                 "items": {
-                  "oneOf": [
+                  "anyOf": [
                     {
                       "$ref": "#/components/schemas/Biblio"
                     },
@@ -6575,6 +6577,9 @@
                     },
                     {
                       "type": "object"
+                    },
+                    {
+                      "type": "array"
                     }
                   ]
                 }
