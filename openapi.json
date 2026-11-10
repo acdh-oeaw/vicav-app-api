@@ -12629,7 +12629,14 @@
           "features": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DictChange"
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/DictChange"
+                },
+                {
+                  "$ref": "#/components/schemas/DictKeys"
+                }
+              ]
             }
           },
           "feature": {
@@ -14603,6 +14610,15 @@
             }
           }
         }
+      },
+      "DictKeys": {
+        "type": "object",
+        "properties": {
+          "keys": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
       },
       "DictExample": {
         "type": "object",
